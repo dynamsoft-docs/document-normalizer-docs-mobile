@@ -63,20 +63,17 @@ jobs:
           cd /home/ubuntu 
           [ -d DDNDocMobilePreview ] && rm -rf DDNDocMobilePreview
           [ -d document-normalizer-docs-mobile-preview ] && rm -rf document-normalizer-docs-mobile-preview
-          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
+          [ -d Docs-Template-Repo-Preview-DCV2 ] && rm -rf Docs-Template-Repo-Preview-DCV2
           cd /home/ubuntu
 
       - name: Build the site
         run: |
           cd /home/ubuntu
-          [ -d DDNDocMobilePreview ] && rm -rf DDNDocMobilePreview
-          [ -d document-normalizer-docs-mobile-preview ] && rm -rf document-normalizer-docs-mobile-preview
-          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
           [ ! -d DDNDocMobilePreview ] && mkdir -p DDNDocMobilePreview
           git clone --depth 1 --branch preview https://${{ secrets.GIT_USER }}:${{ secrets.GIT_PAT }}@github.com/dynamsoft-docs/document-normalizer-docs-mobile.git document-normalizer-docs-mobile-preview
-          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview
+          git clone --depth 1 --branch jenny-preview-branch https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview-DCV2
           cp -rfp ./document-normalizer-docs-mobile-preview/* ./DDNDocMobilePreview/
-          cp -rfp ./Docs-Template-Repo-Preview/* ./DDNDocMobilePreview/
+          cp -rfp ./Docs-Template-Repo-Preview-DCV2/* ./DDNDocMobilePreview/
           sed -i -e "1,3s/blob\/master$/blob\/preview/" \
           -e "1,3s/blob\/main$/blob\/preview/" /home/ubuntu/DDNDocMobilePreview/_config.yml
           cd DDNDocMobilePreview && bundle exec jekyll build --incremental
