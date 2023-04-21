@@ -1,6 +1,12 @@
-{%- include liquid_searchVersionTreeFile.html ver=include.ver curPath=include.curPath targetRelativePath="sidelist-introduction.html" -%} 
-{%- include liquid_searchVersionTreeFile.html ver=include.ver curPath=include.curPath targetRelativePath="sidelist-programming.html" -%}
-{%- include liquid_searchVersionTreeFile.html ver=include.ver curPath=include.curPath targetRelativePath="sidelist-parameters.html" -%}
-{%- include liquid_searchVersionTreeFile.html ver=include.ver curPath=include.curPath targetRelativePath="sidelist-useful.html" -%}
-<!-- {%- include liquid_searchVersionTreeFile.html ver=include.ver curPath=include.curPath targetRelativePath="sidelist-release-notes.html" -%}
-{%- include liquid_searchVersionTreeFile.html ver=include.ver curPath=include.curPath targetRelativePath="sidelist-license.html" -%} -->
+<li lang="objective-swift">
+    <a href="{{ site.ios }}" class="otherLinkColour">Introduction</a>
+</li>
+{%- include liquid_searchVersionTreeFile.html ver=include.ver curPath=include.curPath targetRelativePath="sidelist-programming/programming-ios.html" -%}
+<li lang="android">
+    <a href="{{ site.android }}" class="otherLinkColour">Introduction</a>
+</li>
+{%- include liquid_searchVersionTreeFile.html ver=include.ver curPath=include.curPath targetRelativePath="sidelist-programming/programming-android.html" -%}
+<li lang="xamarin">
+    <a href="{{ site.xamarin }}" class="otherLinkColour">Introduction</a>
+</li>
+{%- include liquid_searchVersionTreeFile.html ver=include.ver curPath=include.curPath targetRelativePath="sidelist-programming/programming-xamarin.html" -%}
