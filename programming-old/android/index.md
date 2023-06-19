@@ -25,7 +25,7 @@ Welcome to the Dynamsoft Document Normalizer Android SDK documentation.
 
 - [class DocumentNormalizer](api-reference/document-normalizer-index.md)
 - [Auxiliary classes](api-reference/auxiliary-index.md)
-- [Interfaces](api-reference/interfaces-index.md)
+- [Interfaces](api-reference/index.md)
 
 ## Release Notes
 
