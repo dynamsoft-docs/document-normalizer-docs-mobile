@@ -32,12 +32,12 @@ jobs:
           cd /home/ubuntu
           [ -d DDNDocMobile ] && rm -rf DDNDocMobile
           [ -d document-normalizer-docs-mobile ] && rm -rf document-normalizer-docs-mobile
-          [ -d Docs-Template-Repo ] && rm -rf Docs-Template-Repo
+          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
           [ ! -d DDNDocMobile ] && mkdir -p DDNDocMobile
-          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/document-normalizer-docs-mobile.git document-normalizer-docs-mobile
-          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo
+          git clone --depth 1 https://github.com/dynamsoft-docs/document-normalizer-docs-mobile.git document-normalizer-docs-mobile
+          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview
           cp -rfp ./document-normalizer-docs-mobile/* ./DDNDocMobile/
-          cp -rfp ./Docs-Template-Repo/* ./DDNDocMobile/
+          cp -rfp ./Docs-Template-Repo-Preview/* ./DDNDocMobile/
           cd DDNDocMobile && bundle exec jekyll build --incremental
 
       - name: Sync files
@@ -69,9 +69,6 @@ jobs:
       - name: Build the site
         run: |
           cd /home/ubuntu
-          [ -d DDNDocMobilePreview ] && rm -rf DDNDocMobilePreview
-          [ -d document-normalizer-docs-mobile-preview ] && rm -rf document-normalizer-docs-mobile-preview
-          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
           [ ! -d DDNDocMobilePreview ] && mkdir -p DDNDocMobilePreview
           git clone --depth 1 --branch preview https://${{ secrets.GIT_USER }}:${{ secrets.GIT_PAT }}@github.com/dynamsoft-docs/document-normalizer-docs-mobile.git document-normalizer-docs-mobile-preview
           git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview
