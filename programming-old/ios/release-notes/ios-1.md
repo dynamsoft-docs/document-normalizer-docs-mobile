@@ -11,6 +11,12 @@ permalink: /programming/ios/release-notes/ios-1.html
 
 # Release Notes for iOS SDK - v1.x
 
+## 1.0.30 (06/07/2023)
+
+### Fixed
+
+- Fixed a bug where document boundary might not be detected when scanning from the video streaming.
+
 ## 1.0.20 (02/02/2023)
 
 ### Fixed
