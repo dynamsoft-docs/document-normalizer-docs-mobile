@@ -25,7 +25,7 @@ enumerations: /document-normalizer/docs/mobile/programming/enumerations/
 
 useVersionTree: true
 
-assets: /document-normalizer/docs/mobile/assets/
+mobile-assets: /document-normalizer/docs/mobile/assets/
 edit_icon: /document-normalizer/docs/mobile/assets/img-icon/edit-icon.png
 smile_icon: /document-normalizer/docs/mobile/assets/img-icon/icon-smile.png
 sad_icon: /document-normalizer/docs/mobile/assets/img-icon/icon-sad.png
