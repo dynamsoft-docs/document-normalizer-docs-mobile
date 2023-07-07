@@ -30,7 +30,7 @@ permalink: /programming/ios/api-reference/camera-enhancer/index.html
 | [`DCEImageEditorView`](dceimageeditorview.md) | UI view class that displays images. UI configuration APIs are available for users to highlight the detected results on the view with quadrilateral elements. The border of the quadrilaterals can be edited so that user can further accurate the detected results. |
 
 <div align="center">
-    <p><img src="{{ site.assests }}dce-ddn-view.gif" width="30%" alt="edit"></p>
+    <p><img src="{{ site.assets }}dce-ddn-view.gif" width="30%" alt="edit"></p>
     <p>DynamsoftCameraEnhancer UI View</p>
 </div>
 
