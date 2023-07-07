@@ -230,7 +230,7 @@ var orientation: Int { get set }
 ```
 
 <div align="center">
-    <p><img src="{{ site.mobile-assets }}getOrientation.png" width="70%" alt="getOrientation"></p>
+    <p><img src="{{ site.assests }}getOrientation.png" width="70%" alt="getOrientation"></p>
     <p>All examples of the orientation</p>
 </div>
 

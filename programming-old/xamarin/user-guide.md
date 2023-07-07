@@ -364,7 +364,7 @@ Add **Privacy - Camera Usage Description** and your message to the **info.plist*
 Select **SimpleBarcodeScanner.Android** and select your device. Run the project.
 
 <div align="center">
-    <p><img src="{{ site.mobile-assets }}xamarin-run.png" width="70%" alt="run"></p>
+    <p><img src="{{ site.assests }}xamarin-run.png" width="70%" alt="run"></p>
     <p>Run Your Project</p>
 </div>
 

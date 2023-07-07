@@ -83,7 +83,7 @@ int Format;
 The orientation of the image. The following image illustrates the `orientation` value of the `ImageData`.
 
 <div align="center">
-    <p><img src="{{ site.mobile-assets }}getOrientation.png" width="70%" alt="getOrientation"></p>
+    <p><img src="{{ site.assests }}getOrientation.png" width="70%" alt="getOrientation"></p>
     <p>Illustration of the orientation</p>
 </div>
 

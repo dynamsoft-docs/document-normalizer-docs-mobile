@@ -22,7 +22,7 @@ permalink: /programming/android/api-reference/camera-enhancer/guide-of-drawing-i
 `DCECameraView` and `DCEImageEditorView` are the main classes for user to configure the UI. `DrawingItems` are the UI elements that user can create, modify and interact on the UI view. All the `DrawingItems` are contained in `DCEDrawingLayers` and finally displayed on the `DCECameraView` or `DCEImageEditorView`.
 
 <div align="center">
-    <p><img src="{{ site.mobile-assets }}drawing-items.png" width="70%" alt="drawing-item"></p>
+    <p><img src="{{ site.assests }}drawing-items.png" width="70%" alt="drawing-item"></p>
     <p>DrawingItems in DCECameraView and DCEImageEditorView</p>
 </div>
 
@@ -76,7 +76,7 @@ public static int STYLE_YELLOW_STROKE_FILL = 8;
 ```
 
 <div align="center">
-    <p><img src="{{ site.mobile-assets }}drawing-styles.png" width="50%" alt="drawing-item"></p>
+    <p><img src="{{ site.assests }}drawing-styles.png" width="50%" alt="drawing-item"></p>
     <p>Preset DrawingStyles</p>
 </div>
 
