@@ -191,7 +191,7 @@ int getOrientation()
 Int value that means the rotation angle of the image. The value is 0, 90, 180 or 270 with depends on the device orientation.
 
 <div align="center">
-    <p><img src="assets/getOrientation.png" width="70%" alt="getOrientation"></p>
+    <p><img src="{{ site.assets }}getOrientation.png" width="70%" alt="getOrientation"></p>
     <p>All examples of the orientation</p>
 </div>
 
