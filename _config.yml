@@ -11,6 +11,7 @@ dcv_ios_api: /capture-vision/docs/mobile/programming/ios/api-reference/
 
 dcv_android: /capture-vision/docs/mobile/programming/android/
 dcv_android_api: /capture-vision/docs/mobile/programming/android/api-reference/
+dce_android: /camera-enhancer/docs/mobile/programming/android/
 
 dcv_enums: /capture-vision/docs/core/enums/
 
