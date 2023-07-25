@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DetectedQuadsUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DetectedQuadsUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is detected quads. It is inherited from the IntermediateResultUnit class.
-Keywords: detected quads, objective-c, swift
+Title: DetectedQuadsUnit - Dynamsoft Document Normalizer Android SDK API Reference
+Description: The class DetectedQuadsUnit represents an intermediate result unit whose type is detected quads. It is inherited from the IntermediateResultUnit class.
+Keywords: detected quads, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
@@ -14,22 +14,28 @@ The `DetectedQuadsUnit` class represents an intermediate result unit whose type 
 
 ## Definition
 
-*Assembly:* package com.dynamsoft.ddn
+*Namespace:* com.dynamsoft.ddn.intermediate_results
+
+*Assembly:* DynamsoftDocumentNormalizer.aar
 
 ```java
 class DetectedQuadsUnit extends IntermediateResultUnit
 ```
 
-## Attributes
+## Methods Summary
 
-| Attributes | Description |
+| Methods | Description |
 | ---------- | ----------- |
-| [`getDetectedQuads`](#getdetectedquads) | Get an array of `DetectedQuadElement`. Each `DetectedQuadElement` contains the information of a single detected quadrilateral. |
+| [`getDetectedQuads`](#getdetectedquads) | Gets an array of `DetectedQuadElement` objects, each containing the information of a single detected quadrilateral. |
 
 ### getDetectedQuads
 
-Get an array of `DetectedQuadElement`. Each `DetectedQuadElement` contains the information of a single detected quadrilateral.
+Gets an array of `DetectedQuadElement` objects, each containing the information of a single detected quadrilateral.
 
 ```java
 DetectedQuadElement[] getDetectedQuads()
 ```
+
+**Return Value**
+
+The array of [`DetectedQuadElement`](./detected-quad-element.md).

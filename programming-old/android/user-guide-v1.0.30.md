@@ -6,7 +6,7 @@ keywords: user guide, android
 needAutoGenerateSidebar: true
 needGenerateH4Content: true
 noTitleIndex: true
-permalink: /programming/android/user-guide.html
+permalink: /programming/android/user-guide-v1.0.30.html
 ---
 
 # Getting Started with Android

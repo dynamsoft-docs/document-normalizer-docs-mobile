@@ -5,7 +5,7 @@ description: This is the main page of Dynamsoft Document Normalizer for Android 
 keywords: android
 needAutoGenerateSidebar: false
 breadcrumbText: Android
-permalink: /programming/android/index.html
+permalink: /programming/android/index-v1.0.30.html
 ---
 
 # Documentation - Android
@@ -25,7 +25,7 @@ Welcome to the Dynamsoft Document Normalizer Android SDK documentation.
 
 - [class DocumentNormalizer](api-reference/document-normalizer-index.md)
 - [Auxiliary classes](api-reference/auxiliary-index.md)
-- [Interfaces](api-reference/index.md)
+- [Interfaces](api-reference/interface-index.md)
 
 ## Release Notes
 

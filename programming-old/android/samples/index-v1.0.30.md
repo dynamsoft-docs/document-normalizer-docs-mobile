@@ -5,7 +5,7 @@ description: This is the Demos & Samples page of Dynamsoft Document Normalizer f
 keywords: Android, samples
 needAutoGenerateSidebar: true
 breadcrumbText: Samples
-permalink: /programming/android/samples/index.html
+permalink: /programming/android/samples/index-v1.0.30.html
 ---
 
 # Demo and Samples

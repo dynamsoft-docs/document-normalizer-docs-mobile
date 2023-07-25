@@ -1,19 +1,19 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer for iOS - User Guide
-description: This is the user guide of Dynamsoft Document Normalizer for iOS SDK.
-keywords: user guide, iOS
+title: Dynamsoft Document Normalizer for Android - User Guide
+description: This is the user guide of Dynamsoft Document Normalizer for Android SDK.
+keywords: user guide, Android
 needAutoGenerateSidebar: true
 needGenerateH4Content: true
 noTitleIndex: true
-permalink: /programming/ios/user-guide.html
+permalink: /programming/android/user-guide.html
 ---
 
-# Getting Started with iOS
+# Getting Started with Android
 
 ## Requirements
 
-- Supported OS: **iOS 11.0** or higher.
+- Supported OS: **Android 11.0** or higher.
 - Supported ABI: **arm64** and **x86_64**.
 - Development Environment: Xcode 7.1 and above (Xcode 13.0+ recommended).
 
@@ -26,8 +26,6 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 > - Xcode 13.0 is used here in this guide.
 > - You can get the source code of the HelloWord app from the following link
 >   - [Java (Android)](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Java (Android)/HelloWorld).
->   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld).
-
 
 
 ### Create a New Project

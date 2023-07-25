@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DocumentNormalizerModule - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DocumentNormalizerModule of Dynamsoft Document Normalizer module represents the document normalizer module, which provides general functions for document normalization.
-Keywords: document normalizer, objective-c, swift
+Title: DocumentNormalizerModule - Dynamsoft Document Normalizer Android SDK API Reference
+Description: The class DocumentNormalizerModule provides general functions for document normalization sdk.
+Keywords: general functions, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
@@ -14,7 +14,9 @@ The `DocumentNormalizerModule` class defines general functions of the document n
 
 ## Definition
 
-*Assembly:* package com.dynamsoft.ddn
+*Namespace:* com.dynamsoft.ddn
+
+*Assembly:* DynamsoftDocumentNormalizer.aar
 
 ```java
 class DocumentNormalizerModule
@@ -24,11 +26,11 @@ class DocumentNormalizerModule
 
 | Method | Description |
 |------- |-------------|
-| [`getVersion`](#getversion) | Get the version of Dynamsoft Document Normalizer. |
+| [`getVersion`](#getversion) | Gets the version of Dynamsoft Document Normalizer. |
 
 ### getVersion
 
-Get the version of Dynamsoft Document Normalizer.
+Gets the version of Dynamsoft Document Normalizer.
 
 ```java
 static String getVersion();

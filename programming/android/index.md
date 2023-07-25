@@ -1,20 +1,20 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer for iOS - Main Page
-description: This is the main page of Dynamsoft Document Normalizer for iOS SDK.
-keywords: ios
+title: Dynamsoft Document Normalizer for Android - Main Page
+description: This is the main page of Dynamsoft Document Normalizer for Android SDK.
+keywords: android
 needAutoGenerateSidebar: false
-breadcrumbText: iOS
-permalink: /programming/ios/index.html
+breadcrumbText: Android
+permalink: /programming/android/index.html
 ---
 
-# Documentation - iOS
+# Documentation - Android
 
-Welcome to the Dynamsoft Document Normalizer iOS SDK documentation.
+Welcome to the Dynamsoft Document Normalizer Android SDK documentation.
 
 ## Getting Started
 
-- [User Guide for iOS](user-guide.md)
+- [User Guide for Android](user-guide.md)
 
 ## Samples and Demos
 
@@ -29,4 +29,4 @@ Welcome to the Dynamsoft Document Normalizer iOS SDK documentation.
 
 ## Release Notes
 
-- [Version 1.x](release-notes/ios-1.md)
+- [Version 1.x](release-notes/Android-1.md)

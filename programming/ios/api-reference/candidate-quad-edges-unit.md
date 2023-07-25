@@ -1,6 +1,6 @@
 ---
 layout: default-layout
-Title: DSCandidateQuadEdgesUnit - Dynamsoft Document Imaging SDK API Reference
+Title: DSCandidateQuadEdgesUnit - Dynamsoft Document Normalizer SDK API Reference
 Description: The class DSCandidateQuadEdgesUnit represents an intermediate result unit whose type is candidate quad edges.
 Keywords: candidate quad edges, intermediate result unit, objective-c, swift
 needGenerateH3Content: true

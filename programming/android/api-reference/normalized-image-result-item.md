@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: NormalizedImageResultItem - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class NormalizedImageResultItem of Dynamsoft Document Normalizer module represents a captured result item whose type is a normalized image. It stores the normalized image information.
-Keywords: normalized image result item, objective-c, swift
+Title: NormalizedImageResultItem - Dynamsoft Document Normalizer Android SDK API Reference
+Description: The class NormalizedImageResultItem represents a captured result item whose type is a normalized image. It stores the normalized image information.
+Keywords: normalized image result item, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
@@ -14,31 +14,41 @@ The `NormalizedImageResultItem` class represents a captured result item whose ty
 
 ## Definition
 
-*Assembly:* package com.dynamsoft.ddn
+*Namespace:* com.dynamsoft.ddn
+
+*Assembly:* DynamsoftDocumentNormalizer.aar
 
 ```java
 class NormalizedImageResultItem extends CapturedResultItem
 ```
 
-## Attributes
+## Methods Summary
 
-| Attributes | Type | Description |
-| ---------- | ---- | ----------- |
-| [`getImageData`](#getimagedata) | *ImageData \** | Get an `ImageData` object as the image data of a normalized image. |
-| [`getLocation`](#getlocation) | *Quadrilateral \** | The quadrilateral from which you get the normalized image result item. |
+| Methods | Description |
+| ---------- | ----------- |
+| [`getImageData`](#getimagedata) | Gets an `ImageData` object as the normalized image. |
+| [`getLocation`](#getlocation) | The quadrilateral from which you get the normalized image result item. |
 
 ### getImageData
 
-Get an `ImageData` object as the image data of a normalized image.
+Gets an `ImageData` object as the normalized image.
 
 ```java
 ImageData getImageData();
 ```
 
+**Return Value**
+
+The `ImageData` object as the normalized image.
+
 ### getLocation
 
-Get the quadrilateral from which you get the normalized image result item.
+Gets the quadrilateral from which you get the normalized image result item.
 
 ```java
 Quadrilateral getLocation();
 ```
+
+**Return Value**
+
+The quadrilateral from which you get the normalized image result item.

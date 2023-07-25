@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: LongLinesUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class LongLinesUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is long lines. Line segments that are located in the same line are extended and merged to form a long line.
-Keywords: long lines, intermediate result unit, objective-c, swift
+Title: LongLinesUnit - Dynamsoft Document Normalizer Android SDK API Reference
+Description: The class LongLinesUnit represents an intermediate result unit whose type is long lines. Line segments that are located in the same line are extended and merged to form a long line.
+Keywords: long lines, intermediate result unit, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
@@ -14,22 +14,28 @@ The `LongLinesUnit` class represents an intermediate result unit whose type is l
 
 ## Definition
 
-*Assembly:* package com.dynamsoft.ddn
+*Namespace:* com.dynamsoft.ddn.intermediate_results
+
+*Assembly:* DynamsoftDocumentNormalizer.aar
 
 ```java
 class LongLinesUnit extends IntermediateResultUnit
 ```
 
-## Attributes
+## Methods Summary
 
-| Attributes | Description |
+| Methods | Description |
 | ---------- | ----------- |
-| [`getLongLines`](#getlonglines) | Get an array of `LineSegments` as the long lines. |
+| [`getLongLines`](#getlonglines) | Get an array of [`LineSegment`]({{site.dcv_android_api}}core/basic-structures/line-segment.html) as the long lines. |
 
 ### getLongLines
 
-Get an array of `LineSegments` as the long lines.
+Get an array of [`LineSegment`]({{site.dcv_android_api}}core/basic-structures/line-segment.html) as the long lines.
 
 ```java
 LineSegment[] getLongLines();
 ```
+
+**Return Value**
+
+The array of [`LineSegment`]({{site.dcv_android_api}}core/basic-structures/line-segment.html) as the long lines.

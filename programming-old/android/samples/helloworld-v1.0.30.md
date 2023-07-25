@@ -5,7 +5,7 @@ description: This is the HelloWorld Sample page of Dynamsoft Document Normalizer
 keywords: android, samples, HelloWorld
 needAutoGenerateSidebar: false
 breadcrumbText: HelloWorld
-permalink: /programming/android/samples/helloworld.html
+permalink: /programming/android/samples/helloworld-v1.0.30.html
 ---
 
 # HelloWorld Sample

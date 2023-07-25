@@ -1,11 +1,11 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer for iOS - Demos & Samples
-description: This is the Demos & Samples page of Dynamsoft Document Normalizer for iOS SDK.
-keywords: iOS, samples
+title: Dynamsoft Document Normalizer for Android - Demos & Samples
+description: This is the Demos & Samples page of Dynamsoft Document Normalizer for Android SDK.
+keywords: android, samples
 needAutoGenerateSidebar: true
 breadcrumbText: Samples
-permalink: /programming/ios/samples/index.html
+permalink: /programming/android/samples/index.html
 ---
 
 # Demo and Samples

@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: CornersUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class CornersUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is corners.
-Keywords: corners unit, objective-c, swift
+Title: CornersUnit - Dynamsoft Document Normalizer Android SDK API Reference
+Description: The class CornersUnit represents an intermediate result unit whose type is corners.
+Keywords: corners unit, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
@@ -14,13 +14,15 @@ The `CornersUnit` class represents an intermediate result unit whose type is cor
 
 ## Definition
 
-*Assembly:* package com.dynamsoft.ddn
+*Namespace:* com.dynamsoft.ddn.intermediate_results
+
+*Assembly:* DynamsoftDocumentNormalizer.aar
 
 ```java
 class CornersUnit extends IntermediateResultUnit
 ```
 
-## Attributes
+## Methods Summary
 
 | Methods | Description |
 | ------- | ----------- |
@@ -33,3 +35,7 @@ Get an array of corners. It includes all corners that participate quadrilaterals
 ```java
 Corner[] getCorners();
 ```
+
+**Return Value**
+
+Get an array of [`Corner`]({{site.dcv_android_api}}core/basic-structures/corner.html).

@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: NormalizedImagesUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class NormalizedImagesUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is normalized images.
-Keywords: normalized images, objective-c, swift
+Title: NormalizedImagesUnit - Dynamsoft Document Normalizer Android SDK API Reference
+Description: The class NormalizedImagesUnit represents an intermediate result unit whose type is normalized images.
+Keywords: normalized images, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
@@ -14,22 +14,28 @@ The `NormalizedImagesUnit` class represents an intermediate result unit whose ty
 
 ## Definition
 
-*Assembly:* package com.dynamsoft.ddn
+*Namespace:* com.dynamsoft.ddn.intermediate_results
+
+*Assembly:* DynamsoftDocumentNormalizer.aar
 
 ```java
 class NormalizedImagesUnit extends IntermediateResultUnit
 ```
 
-## Attributes
+## Methods Summary
 
-| Attributes | Description |
+| Methods | Description |
 | ---------- | ----------- |
-| [`normalizedImages`](#normalizedimages) | Get an array of NormalizedImageElements. |
+| [`getNormalizedImages`](#getnormalizedimages) | Gets an array of [`NormalizedImageElement`](./normalized-image-element.md). |
 
-### normalizedImages
+### getNormalizedImages
 
-Get an array of `NormalizedImageElements`.
+Gets an array of [`NormalizedImageElement`](./normalized-image-element.md).
 
 ```java
 NormalizedImageElement[] getNormalizedImages();
 ```
+
+**Return Value**
+
+The array of [`NormalizedImageElement`](./normalized-image-element.md).

@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DetectedQuadElement - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DetectedQuadElement of Dynamsoft Document Normalizer module represents a detected quadrilateral element, which is an intermediate result in the document scanning process.
-Keywords: detected quad, objective-c, swift
+Title: DetectedQuadElement - Dynamsoft Document Normalizer module Android Edition API Reference
+Description: The class DetectedQuadElement represents a detected quadrilateral element, which is an intermediate result in the document scanning process.
+Keywords: detected quad, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
@@ -14,13 +14,15 @@ The `DetectedQuadElement` class represents a detected quadrilateral element, whi
 
 ## Definition
 
-*Assembly:* package com.dynamsoft.ddn
+*Namespace:* com.dynamsoft.ddn.intermediate_results
+
+*Assembly:* DynamsoftDocumentNormalizer.aar
 
 ```java
 class DetectedQuadElement extends RegionObjectElement
 ```
 
-## Attributes
+## Methods Summary
 
 | Methods | Description |
 | ------- | ----------- |
@@ -33,3 +35,7 @@ Get the confidence of the quadrilateral to be a document boundary.
 ```java
 int getConfidenceAsDocumentBoundary();
 ```
+
+**Return Value**
+
+The confidence as document boundary of current object.

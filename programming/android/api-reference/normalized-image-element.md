@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: NormalizedImageElement - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class NormalizedImageElement of Dynamsoft Document Normalizer module represents an intermediate result whose type is normalized image, It is inherited from RegionObjectElement and contains image data of normalized result as additional parameter.
-Keywords: normalized image element, objective-c, swift
+Title: NormalizedImageElement - Dynamsoft Document Normalizer Android SDK API Reference
+Description: The class NormalizedImageElement represents an intermediate result whose type is normalized image, It is inherited from RegionObjectElement and contains image data of normalized result as additional parameter.
+Keywords: normalized image element, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
@@ -14,22 +14,28 @@ The `NormalizedImageElement` class represents an intermediate result whose type 
 
 ## Definition
 
-*Assembly:* package com.dynamsoft.ddn
+*Namespace:* com.dynamsoft.ddn.intermediate_results
+
+*Assembly:* DynamsoftDocumentNormalizer.aar
 
 ```java
 class NormalizedImageElement extends RegionObjectElement
 ```
 
-## Attributes
+## Methods Summary
 
-| Attributes | Description |
+| Methods | Description |
 | ---------- | ----------- |
-| [`getImageData`](#getimagedata) | Get an `ImageData` object as the image data of a normalized image. |
+| [`getImageData`](#getimagedata) | Gets an [`ImageData`]({{site.dcv_android_api}}core/basic-structures/image-data.html) object as the normalized image. |
 
 ### getImageData
 
-get an `ImageData` object as the image data of a normalized image.
+Gets an [`ImageData`]({{site.dcv_android_api}}core/basic-structures/image-data.html) object as the normalized image.
 
 ```java
 ImageData getImageData();
 ```
+
+**Return Value**
+
+The [`ImageData`]({{site.dcv_android_api}}core/basic-structures/image-data.html) object as the normalized image.
