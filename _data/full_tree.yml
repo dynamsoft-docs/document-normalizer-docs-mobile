@@ -1,5 +1,7 @@
 tree_file_list:
     - sidelist-full-tree.html
     - sidelist-programming/programming-android.html
+    - sidelist-programming/programming-android-v1.0.0.html
     - sidelist-programming/programming-ios.html
+    - sidelist-programming/programming-ios-v1.0.0.html
     - sidelist-programming/programming-xamarin.html
