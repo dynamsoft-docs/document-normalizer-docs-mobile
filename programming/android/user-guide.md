@@ -2,7 +2,7 @@
 layout: default-layout
 title: Dynamsoft Document Normalizer for Android - User Guide
 description: This is the user guide of Dynamsoft Document Normalizer for Android SDK.
-keywords: user guide, Android
+keywords: user guide, android
 needAutoGenerateSidebar: true
 needGenerateH4Content: true
 noTitleIndex: true
@@ -11,11 +11,32 @@ permalink: /programming/android/user-guide.html
 
 # Getting Started with Android
 
+In this guide, you will learn step by step on how to build a document normalization application with Dynamsoft Document Normalizer Android SDK.
+
+> Read more on [Dynamsoft Document Normalizer Features](https://www.dynamsoft.com/document-normalizer/docs/core/introduction/index.html)
+
+- [Getting Started with Android](#getting-started-with-android)
+  - [Requirements](#requirements)
+  - [Build Your First Application](#build-your-first-application)
+    - [Create a New Project](#create-a-new-project)
+    - [Add the SDK](#add-the-sdk)
+      - [Add the Library Manually](#add-the-library-manually)
+      - [Add the Library via Maven](#add-the-library-via-maven)
+    - [Initialize License](#initialize-license)
+    - [MainActivity for Realtime Document Normalization](#mainactivity-for-realtime-document-normalization)
+      - [Initialize Camera Module](#initialize-camera-module)
+      - [Initialize Capture Vision Router](#initialize-capture-vision-router)
+      - [Add a Captured Result Receiver](#add-a-captured-result-receiver)
+      - [Start and Stop Video Document Normalization](#start-and-stop-video-document-normalization)
+    - [ResultActivity for Displaying the Normalized Image](#resultactivity-for-displaying-the-normalized-image)
+      - [Diplay the Normalized Image](#diplay-the-normalized-image)
+    - [Build and Run the Project](#build-and-run-the-project)
+
 ## Requirements
 
-- Supported OS: **Android 11.0** or higher.
-- Supported ABI: **arm64** and **x86_64**.
-- Development Environment: Xcode 7.1 and above (Xcode 13.0+ recommended).
+- Supported OS: Android 5.0 (API Level 21) or higher.
+- Supported ABI: **armeabi-v7a**, **arm64-v8a**, **x86** and **x86_64**.
+- Development Environment: Android Studio 3.4+ (Android Studio 4.2+ recommended).
 
 ## Build Your First Application
 
@@ -23,687 +44,346 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 
 >Note:
 >
-> - Xcode 13.0 is used here in this guide.
-> - You can get the source code of the HelloWord app from the following link
->   - [Java (Android)](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Java (Android)/HelloWorld).
-
+>- Android Studio 4.2 is used here in this guide.
+>- You can [get the similar source code of the HelloWord sample here](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld).
 
 ### Create a New Project
 
-1. Open Xcode and select create a new project.
+1. Open Android Studio, select **File > New > New Project**.
 
-2. Select **iOS -> App** for your application.
+2. Choose the correct template for your project. In this sample, we use **Empty Activity**.
 
-3. Input your product name (Helloworld), interface (StoryBoard) and language (Java (Android)/Swift). We currently do not support SwiftUI, so we apologize if this causes any inconvenience.
-
-4. Click on the **Next** button and select the location to save the project.
-
-5. Click on the **Create** button to finish.
-
-
+3. When prompted, choose your app name 'HelloWorld' and set the **Save** location, **Language**, and **Minimum SDK** (we use 21 here).
+    > Note:
+    >
+    > - With **minSdkVersion** set to 21, your app is compatible with more than 94.1% of devices on the Google Play Store (last update: March 2021).
 
 ### Add the SDK
 
-There are two ways to add the SDK into your project - **Manually** and **CocoaPods**.
+There are two ways to add the SDK into your project - **Manually** and **Maven**.
 
-#### Add the Frameworks Manually
+#### Add the Library Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-1.0.20.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **Frameworks** under the **DynamsoftDocumentNormalizer\Frameworks** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.0.0.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **DynamsoftDocumentNormalizer\Libs** directory:
 
    | File | Description |
-   | ---- | ----------- |
-   | `package com.dynamsoft.ddn` | The Dynamsoft Document Normalizer SDK, including document normalizer related APIs. |
-   | `DynamsoftCore.framework`  | The core library of Dynamsoft's capture vision SDKs, including common basic structure and license related APIs. |
-   | `DynamsoftIntermediateResult.framework` | The common intermediate result library of Dynamsoft's capture vision SDKs, including all intermediate results produced in the process of decoding a barcode, recognizing a label or normalizing a document. |
-   | `DynamsoftImageProcessing.framework` | The image processing library of Dynamsoft's capture vision SDKs, including image processing algorithms and APIs. |
-   | `DynamsoftCameraEnhancer.framework` | The Dynamsoft Camera Enhancer SDK, including camera control and frame preprocessing APIs. |
+   |---------|-------------|
+   | `DynamsoftCaptureVisionRouter.aar` | The capture vision router library of Dynamsoft's capture vision SDK is used by users to interact with image processing and semantic processing products in their applications. It takes an image source as input and provides processing results, which can include final results or intermediate results. |
+   | `DynamsoftDocumentNormalizer.aar` | The document normalizer library of Dynamsoft's capture vision SDK, including document normalizer related algorithms and APIs. |
+   | `DynamsoftCore.aar` | The core library of Dynamsoft's capture vision SDK, including common basic structure and intermediate result related APIs. |
+   | `DynamsoftImageProcessing.aar` | The image processing library of Dynamsoft's capture vision SDK, including common image processing algorithms and APIs. |
+   | `DynamsoftLicense.aar` | The license library of Dynamsoft's capture vision SDK, including license related APIs. |
+   | `DynamsoftUtility.aar` | The utility library of Dynamsoft's capture vision SDK, including image source adapter, image writer and other APIs. |
+   | `DynamsoftCameraEnhancer.aar` | The Dynamsoft Camera Enhancer SDK, including camera control and frame preprocessing APIs.  |
 
-2. Drag and drop the above five **frameworks** into your Xcode project. Make sure to check Copy items if needed and Create groups to copy the framework into your project's folder.
+2. Copy the above five **aar** files to the target directory `HelloWorld\app\libs`
 
-3. Click on the project settings then go to **General –> Frameworks, Libraries, and Embedded Content**. Set the **Embed** field to **Embed & Sign** for DynamsoftDocumentNormalizer and DynamsoftCameraEnhancer.
+3. Open the file `HelloWorld\app\build.gradle` and add reference in the dependencies:
 
-#### Add the Frameworks via CocoaPods
+    ```groovy
+    dependencies {
+         implementation fileTree(dir: 'libs', include: ['*.aar'])
 
-1. Add the frameworks in your **Podfile**.
+         def camerax_version = '1.1.0'
+         implementation "androidx.camera:camera-core:$camerax_version"
+         implementation "androidx.camera:camera-camera2:$camerax_version"
+         implementation "androidx.camera:camera-lifecycle:$camerax_version"
+         implementation "androidx.camera:camera-view:$camerax_version"
+    }
+    ```
 
-   ```sh
-   target 'HelloWorld' do
-      use_frameworks!
+    > Note:
+    >
+    > DCE 4.x is based on Android CameraX, so you need to add the CameraX dependency manually.
 
-   pod 'DynamsoftDocumentNormalizer','1.0.20'
-   pod 'DynamsoftCameraEnhancer','3.0.2'
+4. Click **Sync Now**. After the synchronization completes, the SDK is added to the project.
 
-   end
-   ```
+#### Add the Library via Maven
 
-2. Execute the pod command to install the frameworks and generate workspace(**HelloWorld.xcworkspace**):
+1. Open the file `HelloWorld\app\build.gradle` and add the remote repository:
 
-   ```sh
-   pod install
-   ```
+    ```groovy
+    repositories {
+         maven {
+            url "https://download2.dynamsoft.com/maven/aar"
+         }
+    }
+    ```
 
-&nbsp;
+2. Add reference in the dependencies:
 
-### Main ViewController for Realtime Detection of Quads
-
-In the main view controller, your app will scan documents via video streaming and display the detect quadrilateral area on the screen. First of all, import the headers in the ViewController file.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   #import <DynamsoftDocumentNormalizer/DynamsoftDocumentNormalizer.h>
-   #import <DynamsoftCameraEnhancer/DynamsoftCameraEnhancer.h>
-   ```
-   2. 
-   ```swift
-   import DynamsoftCameraEnhancer
-   import DynamsoftDocumentNormalizer
-   ```
-
-#### Initialize License
-
-Initialize the license first. It is suggested to initialize the license in `AppDelegate` file.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   // Add LicenseVerificationListener to the interface
-   class AppDelegate ()<LicenseVerificationListener>
-   @end
-   @implementation AppDelegate
-   - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-          // Initialize the license when the app is launched.
-          [DynamsoftLicenseManager initLicense:@"DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" verificationDelegate:self];
-          return YES;
+   ```groovy
+   dependencies {
+      implementation 'com.dynamsoft:dynamsoftcapturevisionrouter:2.0.10'
+      implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:2.0.0'
+      implementation 'com.dynamsoft:dynamsoftcameraenhancer:4.0.0'
+      implementation 'com.dynamsoft:dynamsoftutility:1.0.10'
    }
-   // Implement the callback method of LicenseVerificationListener.
-   - (void)licenseVerificationCallback:(bool)isSuccess error:(NSError *)error {
-          // Add your code to execute when the license server handles callback.
+   ```
+
+3. Click **Sync Now**. After the synchronization completes, the SDK is added to the project.
+
+### Initialize License
+
+1. Import the `LicenseManager` class and initialize the license in the file `MyApplication.java`.
+
+   ```java
+   import com.dynamsoft.license.LicenseManager;
+
+   public class MyApplication extends Application {
+      private static final String TAG = "MyApplication";
+      private static final String LICENSE = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9";
+
+      @Override
+      public void onCreate() {
+         super.onCreate();
+         LicenseManager.initLicense(LICENSE, this, (isSuccess, error) -> {
+               if (!isSuccess) {
+                  Log.e(TAG, "InitLicense Error: " + error);
+               }
+         });
+      }
    }
+   ```
+
+   >Note:  
+   >  
+   >- Network connection is required for the license to work.
+   >- The license string here will grant you a time-limited trial license.
+   >- If the license has expired, you can go to the <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=docs" target="_blank">customer portal</a> to request for an extension.
+
+### MainActivity for Realtime Document Normalization
+
+#### Initialize Camera Module
+
+1. In the Project window, open **app > res > layout > `activity_main.xml`** and create a DCE camera view section under the root node.
+
+    ```xml
+    <com.dynamsoft.dce.DCECameraView
+        android:id="@+id/camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </com.dynamsoft.dce.DCECameraView>
+    ```
+
+2. Import the dynamsoft camera module, initialize the camera view and bind to the created Camera Enhancer instance in the file `MainActivity.java`.
+
+   ```java
    ...
-   @end
-   ```
-   2. 
-   ```swift
-   // Add LicenseVerificationListener to the interface
-   class AppDelegate: UIResponder, UIApplicationDelegate, LicenseVerificationListener {
-          var window: UIWindow?
-          func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-             // Initialize the license when the app is launched.
-             DynamsoftLicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", verificationDelegate: self)
-             return true
-          }
-          // Implement the callback method of LicenseVerificationListener.
-          func licenseVerificationCallback(_ isSuccess: Bool, error: Error?) {
-             // Add your code to execute when the license server handles callback.
-          }
-          ...
+   
+   import com.dynamsoft.dce.CameraView;
+   import com.dynamsoft.dce.CameraEnhancer;
+   import com.dynamsoft.dce.CameraEnhancerException;
+   import com.dynamsoft.dce.utils.PermissionUtil;
+
+   public class MainActivity extends AppCompatActivity {
+      private CameraEnhancer mCameraEnhancer;
+
+      @Override
+      protected void onCreate(Bundle savedInstanceState) { 
+
+         ...
+
+         CameraView cameraView = findViewById(R.id.camera_view);
+         mCameraEnhancer = new CameraEnhancer(cameraView, MainActivity.this);
+ 
+         PermissionUtil.requestCameraPermission(MainActivity.this);
+      }
    }
    ```
 
->Note:  
->  
->- Network connection is required for the license to work.
->- The license string here will grant you a time-limited trial license.
->- If the license has expired, you can go to the <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=docs" target="_blank">customer portal</a> to request for an extension.
+#### Initialize Capture Vision Router
 
-#### Get Prepared with the Camera Module
+1. Import and initialize the capture vision router, and set the created Camera Enhancer instance as the input image source.
 
-Create the instances of `CameraEnhancer` and `CameraView`.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   @property(nonatomic, strong) DynamsoftCameraEnhancer *dce;
-   @property(nonatomic, strong) DCECameraView *dceView;
+   ```java
    ...
-   - (void)configDCE{
-          _dceView = [DCECameraView cameraWithFrame:self.view.bounds];
-          [self.view addSubview:_dceView];
-          _dce = [[DynamsoftCameraEnhancer alloc] initWithView:_dceView];
-   }
-   ```
-   2. 
-   ```swift
-   private var dce: DynamsoftCameraEnhancer!
-   private var dceView: DCECameraView!
-   ...
-   func configDCE() {
-          dceView = DCECameraView(frame: view.bounds)
-          view.addSubview(dceView)
-          dce = DynamsoftCameraEnhancer(view: dceView)
-   }
-   ```
 
-#### Initialize Document Normalizer
+   import com.dynamsoft.cvr.CaptureVisionRouter;
+   import com.dynamsoft.cvr.CaptureVisionException;
 
-1. Preparations. Create `DDNDataManager.h` and `DDNDataManager.m` and add the following code in `DDNDataManager.h` and `DDNDataManager.m` (For Swift user, create `DDNDataManager.swift`).
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   // In DDNDataManager.h, add the following code:
-   #import <DynamsoftDocumentNormalizer/DynamsoftDocumentNormalizer.h>
-   NS_ASSUME_NONNULL_BEGIN
-   class DDNDataManager
-   @property (nonatomic, strong) DynamsoftDocumentNormalizer *ddn;
-   @property (nonatomic, strong) UIImage *resultImage;
-   @property (nonatomic, strong) NSArray<iDetectedQuadResult *> *quadArr;
-   @property (nonatomic, strong) iImageData *imageData;
-   + (DDNDataManager *)instance;
-   ...
-   // In DDNDataManager.m, add the following code:
-   #import "DDNDataManager.h"
-   @implementation DDNDataManager
-   + (DDNDataManager *)instance{
-      static DDNDataManager *instance = nil;
-      static dispatch_once_t onceToken;
-      dispatch_once(&onceToken, ^{
-             instance = [super allocWithZone:NULL];
-      });
-      return instance;
-   }
-   ```
-   2. 
-   ```swift
-   import DynamsoftDocumentNormalizer
-   class DDNDataManager: NSObject {
-      var ddn: DynamsoftDocumentNormalizer!
-      var resultImage: UIImage!
-      var quadArr: [iDetectedQuadResult]!
-      var imageData: iImageData!
-      static let instance = DDNDataManager()
-   }
-   ```
-
-2. Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `CameraEnhancer` instance.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   - (void)configDDN{
-      [DDNDataManager instance].ddn = [DynamsoftDocumentNormalizer new];
-      // Bind the DocumentNormalizer and CameraEnhancer instance
-      [[DDNDataManager instance].ddn setImageSource:_dce];
-   }
-   ```
-   2. 
-   ```swift
-   func configDDN() {
-      DDNDataManager.instance.ddn = DynamsoftDocumentNormalizer()
-      DDNDataManager.instance.ddn.setImageSource(dce)
-   }
-   ```
-
-3. Add `DetectResultListener` to your ViewController and register with the `DocumentNormalizer` instance to get detected quad results.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   // Add DetectResultListener to the ViewController
-   class ViewController ()<DetectResultListener>
-   ...
-   - (void)configDDN{
-      [DDNDataManager instance].ddn = [DynamsoftDocumentNormalizer new];
-      [[DDNDataManager instance].ddn setImageSource:_dce];
-      // Set the detect result listener first.
-      [[DDNDataManager instance].ddn setDetectResultListener:self];
-   }
-   // Add detectResultCallback method in the view controller.
-   - (void)detectResultCallback:(NSInteger)frameId imageData:(nonnull iImageData *)imageData results:(nonnull NSArray<iDetectedQuadResult *> *)results {
-      // We will add code here to deal with the detection result and open another view controller.
-   }
-   ```
-   2. 
-   ```swift
-   class ViewController: UIViewController, DetectResultListener{
+   public class MainActivity extends AppCompatActivity {
+      
       ...
-      func configDDN() {
-             DDNDataManager.instance.ddn = DynamsoftDocumentNormalizer()
-             DDNDataManager.instance.ddn.setImageSource(dce)
-             DDNDataManager.instance.ddn.setDetectResultListener(self)
-      }
-      func detectResultCallback(_ frameId: Int, imageData: iImageData, results: [iDetectedQuadResult]) {
-             // We will add code here to deal with the detection result and open another view controller.
-      }
-   }
-   ```
 
-4. Add the methods to run when the view is loaded.
+      private CaptureVisionRouter mRouter;
 
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   - (void)viewDidLoad {
-      [super viewDidLoad];
-      [self configDDN];
-      [self configDCE];
-      [self configUI];
-   }
-   ```
-   2. 
-   ```swift
-   override func viewDidLoad() {
-      super.viewDidLoad()
-      configDDN()
-      configDCE()
-      configUI()
-   }
-   ```
+      @Override
+      protected void onCreate(Bundle savedInstanceState) { 
+         
+         ...
 
-5. Add configurations to start detecting or stop detecting when the view appear or disappear.
+         mRouter = new CaptureVisionRouter(MainActivity.this);
 
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   - (void)viewWillAppear:(BOOL)animated
-   {
-      [super viewWillAppear:animated];
-      [[DDNDataManager instance].ddn startDetecting];
-   }
-   - (void)viewWillDisappear:(BOOL)animated
-   {
-      [super viewWillDisappear:animated];
-      [[DDNDataManager instance].ddn stopDetecting];
-   }
-   ```
-   2. 
-   ```swift
-   override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      DDNDataManager.instance.ddn.startDetecting()
-   }
-   override func viewWillDisappear(_ animated: Bool) {
-      super.viewWillDisappear(animated)
-      DDNDataManager.instance.ddn.stopDetecting()
-   }
-   ```
-
-#### Additional Steps in ViewController
-
-When the detected quadrilateral results are satisfied, we can move on to mannually adjust the edge and normalize the document area. In this step, we will add a button on the main view to confirm and go to the quadrilateral editing view.
-
-1. Add code in detectResultCallback to get detected quad results continuously. Once the "**start editing**" commend is triggered, the `QuadEditViewController` view will be launched.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   - (void)detectResultCallback:(NSInteger)frameId imageData:(nonnull iImageData *)imageData results:(nonnull NSArray<iDetectedQuadResult *> *)results {
-      if (isview && results) {
-             isview = false;
-             [DDNDataManager instance].quadArr = results;
-             [DDNDataManager instance].imageData = imageData;
-             dispatch_async(dispatch_get_main_queue(), ^{
-                [self performSegueWithIdentifier:@"pushQuadEditView" sender:nil];
-             });
-      }
-   }
-   ```
-   2. 
-   ```swift
-   func detectResultCallback(_ frameId: Int, imageData: iImageData, results: [iDetectedQuadResult]) {
-      if startEditing && !results.isEmpty {
-             startEditing = false
-             DDNDataManager.instance.quadArr = results
-             DDNDataManager.instance.imageData = imageData
-             DispatchQueue.main.async(execute: { [self] in
-                performSegue(withIdentifier: "pushQuadEditView", sender: nil)
-             })
+         mRouter.setInput(mCameraEnhancer);
       }
    }
    ```
 
-2. Add the button to trigger the "**start editing**" commend.
+#### Add a Captured Result Receiver
 
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   bool startEditing = false
+1. Add a result receiver to get the normalized image results.
+
+   ```java
    ...
-   - (void)takePictures{
-      startEditing = true;
-   }
-   // Configure the button on the UI.
-   - (void)configUI{
-      CGFloat w = [[UIScreen mainScreen] bounds].size.width;
-      CGFloat h = [[UIScreen mainScreen] bounds].size.height;
-      CGFloat SafeAreaBottomHeight = [[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 34 : 0;
-      photoButton = [[UIButton alloc] initWithFrame:CGRectMake(w / 2 - 60, h - 100 - SafeAreaBottomHeight, 120, 60)];
-      [photoButton setTitle:@"Capture" forState:UIControlStateNormal];
-      [photoButton setBackgroundColor:[UIColor greenColor]];
-      [photoButton addTarget:self action:@selector(takePictures) forControlEvents:UIControlEventTouchUpInside];
-      dispatch_async(dispatch_get_main_queue(), ^{
-             [self.view addSubview:self->photoButton];
-      });
-   }
-   ```
-   2. 
-   ```swift
-   private var startEditing = false
-   ...
-   @objc func takePictures() {
-      startEditing = true
-   }
-   // Configure the button on the UI.
-   func configUI() {
-      let w = UIScreen.main.bounds.size.width
-      let h = UIScreen.main.bounds.size.height
-      let SafeAreaBottomHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height > 20 ? 34 : 0
-      let photoButton = UIButton(frame: CGRect(x: w / 2 - 60, y: h - 100 - SafeAreaBottomHeight, width: 120, height: 60))
-      photoButton.setTitle("Capture", for: .normal)
-      photoButton.backgroundColor = UIColor.green
-      photoButton.addTarget(self, action: #selector(takePictures), for: .touchUpInside)
-      DispatchQueue.main.async(execute: { [self] in
-             view.addSubview(photoButton)
-      })
-   }
-   ```
 
-&nbsp;
+   import com.dynamsoft.core.basic_structures.CapturedResultReceiver;
+   import com.dynamsoft.core.basic_structures.ImageData;
+   import com.dynamsoft.cvr.EnumPresetTemplate;
+   import com.dynamsoft.ddn.NormalizedImagesResult;
 
-### QuadEditViewController for Interactive Editing of Quads
-
-#### Initialize the Image Editor View
-
-In this section, we are going to create a view that displays the image to be processed and detected quadrilaterals from the image. User can select adjust the edge of the quadrilaterals before normalizing the document area.
-
-1. Create a new empty activity named `QuadEditViewController` and import `DynamsoftCameraEnhancer`.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   #import <DynamsoftCameraEnhancer/DynamsoftCameraEnhancer.h>
-   ```
-   2. 
-   ```swift
-   import DynamsoftCameraEnhancer
-   ```
-
-2. Initialize the `DCEImageEditorView` in the file `QuadEditViewController`.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   @implementation QuadEditViewController{
-      DCEImageEditorView *editorView;
-      DCEDrawingLayer* layer;
-   }
-   - (void)configImageEditorView {
-      // Initialize the DCEImageEditorView.
-      editorView = [[DCEImageEditorView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-      // Set the image that will be normalized.
-      [editorView setOriginalImage:[DDNDataManager instance].imageData];
-      [self.view addSubview:editorView];
-   }
-   ```
-   2. 
-   ```swift
-   private var editorView: DCEImageEditorView!
-   private var layer: DCEDrawingLayer!
-   func configImageEditorView() {
-      // Initialize the DCEImageEditorView.
-      editorView = DCEImageEditorView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-      // Set the image that will be normalized.
-      editorView.setOriginalImage(DDNDataManager.instance.imageData)
-      view.addSubview(editorView)
-   }
-   ```
-
-3. Add detected quadrilaterals on the `DCEImageEditorView`.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   @implementation QuadEditViewController{
-      DCEImageEditorView *editorView;
-      DCEDrawingLayer* layer;
-   }
-   - (void)configImageEditorView {
+   public class MainActivity extends AppCompatActivity {
+      
       ...
-      // Select DDN_LAYER to display the quadrilateral of document areas.
-      // The quadrilaterals that are displayed on the DCEImageEditorView can be edited on the UI.
-      layer = [editorView getDrawingLayer:DDN_LAYER_ID];
-      // Create an array of DrawingItems and assign it to the drawingItems property.
-      NSMutableArray<DrawingItem *> *array = [NSMutableArray array];
-      for (iDetectedQuadResult *detectedQuadResult in [DDNDataManager instance].quadArr) {
-             iQuadrilateral *quad = detectedQuadResult.location;
-             QuadDrawingItem *quadItem = [[QuadDrawingItem alloc] initWithQuad:quad];
-             [array addObject:quadItem];
+
+      public static ImageData mNormalizedImageData;
+      private boolean mJumpToOtherActivity;
+
+      @Override
+      protected void onCreate(Bundle savedInstanceState) { 
+         
+         ...
+         
+        try {
+            mRouter.addResultReceiver(new CapturedResultReceiver() {
+                @Override
+                public void onNormalizedImagesReceived(NormalizedImagesResult result) {
+                  if (!mJumpToOtherActivity && result.getItems().length > 0) {
+                     mJumpToOtherActivity = true;
+
+                     mNormalizedImageData = result.getItems()[0].getImageData();
+
+                     Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                     startActivity(intent);
+                  }
+                }
+            });
+        } catch (CaptureVisionRouterException e) {
+            e.printStackTrace();
+        }
       }
-      layer.drawingItems = array;
-      [self.view addSubview:editorView];
    }
    ```
-   2. 
-   ```swift
-   private var editorView: DCEImageEditorView!
-   private var layer: DCEDrawingLayer!
-   func configImageEditorView() {
-      // Select DDN_LAYER to display the quadrilateral of document areas.
-      // The quadrilaterals that are displayed on the DCEImageEditorView can be edited on the UI.
-      layer = editorView.getDrawingLayer(Int(DDN_LAYER_ID))
-      // Create an array of DrawingItems and assign it to the drawingItems property.
-      var array: [DrawingItem]? = []
-      for detectedQuadResult in DDNDataManager.instance.quadArr {
-             let quad = detectedQuadResult.location
-             let quadItem = QuadDrawingItem(quad: quad)
-             array?.append(quadItem)
+
+#### Start and Stop Video Document Normalization
+
+1. Override the `MainActivity.onResume` function to open camera, override the `MainActivity.onPause` function to close camera and stop video document normalization.
+
+   ```java
+   public class MainActivity extends AppCompatActivity {
+      
+      ...
+
+      @Override
+      public void onResume() {
+         super.onResume();
+         try {
+               mCamera.open();
+         } catch (CameraEnhancerException e) {
+               e.printStackTrace();
+         }
       }
-      layer.drawingItems = array
-      view.addSubview(editorView)
-   }
-   ```
 
-#### Normalize the Image with the Selected Quad
+      @Override
+      public void onPause() {
+         super.onPause();
+         try {
+               mCamera.close();
+         } catch (CameraEnhancerException e) {
+               e.printStackTrace();
+         }
 
-In the section, we will add code to get the user selected quadrilateral and normalize the document area based on the selected quad.
-
-1. Add a method to normalize the image.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   - (void)normalizeImage{
-      // Get the selected QuadDrawingItem
-      QuadDrawingItem *item = (QuadDrawingItem *)[editorView getSelectedDrawingItem];
-      if(nil == item) {
-             item = (QuadDrawingItem *)layer.drawingItems[0];
+         mRouter.stopCapturing();
       }
-      NSError *error;
-      // Normalize the image based on the selected quad.
-      iNormalizedImageResult *imageData = [[DDNDataManager instance].ddn normalizeBuffer:[DDNDataManager instance].imageData quad:item.quad error:&error];
-      // Get the image data of the normalized image.
-      [DDNDataManager instance].resultImage = imageData.image.toUIImage;
-      dispatch_async(dispatch_get_main_queue(), ^{
-             [self performSegueWithIdentifier:@"pushResultView" sender:nil];
-      });
    }
    ```
-   2. 
-   ```swift
-   @objc func normalizeImage() {
-      // Get the selected QuadDrawingItem
-      var item = editorView.getSelectedDrawingItem() as? QuadDrawingItem
-      if nil == item {
-             item = layer.drawingItems?[0] as? QuadDrawingItem
+
+2. Add `onCaptureBtnClick` function to start the video document normalization. After start capturing, the SDK will process the video frames from the Camera Enhancer, then send the normalized image results to the registered result receiver.
+
+   ```java
+   public class MainActivity extends AppCompatActivity {
+      
+      ...
+
+      public void onCaptureBtnClick(View v) {
+        mJumpToOtherActivity = false;
+
+        try {
+            mRouter.startCapturing(EnumPresetTemplate.PT_DETECT_AND_NORMALIZE_DOCUMENT);
+        } catch (CaptureVisionRouterException e) {
+            e.printStackTrace();
+        }
       }
-      // Normalize the image based on the selected quad.
-      do{
-             let imageData = try DDNDataManager.instance.ddn.normalizeBuffer(DDNDataManager.instance.imageData, quad: item!.quad)
-      }catch{
-             // Add your code to deal with the exceptions.
-      }
-      // Get the image data of the normalized image.
-      DDNDataManager.instance.resultImage = imageData?.image.toUIImage()
-      DispatchQueue.main.async(execute: { [self] in
-             performSegue(withIdentifier: "pushResultView", sender: nil)
-      })
    }
+   ...
+
+#### Additional Steps in `MainActivity`
+
+1. In the Project window, open **app > res > layout > `activity_main.xml`**, create a button under the root node to capture the quads detected on the image.
+
+   ```xml
+   ...
+
+   <Button
+      android:id="@+id/btn_capture"
+      android:layout_width="130dp"
+      android:layout_height="50dp"
+      android:layout_marginBottom="8dp"
+      android:onClick="onCaptureBtnClick"
+      android:text="Capture"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent" />
    ```
 
-2. Add a button on the view to trigger the normalization of the image and launch the `ResultViewController`.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   - (void)configUI{
-      CGFloat w = [[UIScreen mainScreen] bounds].size.width;
-      CGFloat h = [[UIScreen mainScreen] bounds].size.height;
-      CGFloat SafeAreaBottomHeight = [[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 34 : 0;
-      UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(w / 2 - 60, h - 100 - SafeAreaBottomHeight, 120, 60)];
-      [button setTitle:@"Normalize" forState:UIControlStateNormal];
-      [button setBackgroundColor:[UIColor greenColor]];
-      [button addTarget:self action:@selector(normalizeImage) forControlEvents:UIControlEventTouchUpInside];
-      [self.view addSubview:button];
-   }
-   ```
-   2. 
-   ```swift
-   func configUI() {
-      let w = UIScreen.main.bounds.size.width
-      let h = UIScreen.main.bounds.size.height
-      let SafeAreaBottomHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height > 20 ? 34 : 0
-      let button = UIButton(frame: CGRect(x: w / 2 - 60, y: h - 100 - SafeAreaBottomHeight, width: 120, height: 60))
-      button.setTitle("Normalize", for: .normal)
-      button.backgroundColor = UIColor.green
-      button.addTarget(self, action: #selector(normalizeImage), for: .touchUpInside)
-      view.addSubview(button)
-   }
-   ```
-
-3. In viewDidLoad, add all the methods to trigger when `QuadEditorViewController` is loaded.
-
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   - (void)viewDidLoad {
-      [super viewDidLoad];
-      [self configImageEditorView];
-      [self configUI];
-   }
-   ```
-   2. 
-   ```swift
-   override func viewDidLoad() {
-      super.viewDidLoad()
-      configImageEditorView()
-      configUI()
-   }
-   ```
-
-&nbsp;
-
-### ResultViewController for Displaying the Normalized Image
+### ResultActivity for Displaying the Normalized Image
 
 #### Diplay the Normalized Image
 
-1. Create a new empty activity named `ResultViewController`.
+1. Create a new empty activity named `ResultActivity`.
 
-2. Display the normalized image.
+2. In the Project window, open **app > res > layout > `activity_result.xml`**, create a image view under the root node to display the result image.
 
-   <div class="sample-code-prefix"></div>
-   >- Java (Android)
-   >- Swift
-   >
-   >1. 
-   ```objc
-   class ResultViewController ()
-   @end
-   @implementation ResultViewController
-   @synthesize imageView;
-   - (void)viewDidLoad {
-      [super viewDidLoad];
-      [self configResultView];
-   }
-   - (void)configResultView{
-      self.view.backgroundColor = [UIColor blackColor];
-      CGFloat w = [[UIScreen mainScreen] bounds].size.width;
-      CGFloat h = [[UIScreen mainScreen] bounds].size.height;
-      imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
-      imageView.userInteractionEnabled = YES;
-      imageView.contentMode = UIViewContentModeScaleAspectFit;
-      [imageView setImage:[DDNDataManager instance].resultImage];
-      [self.view addSubview:self->imageView];
-   }
+   ```xml
+   <ImageView
+      android:id="@+id/iv_normalize"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
    ```
-   2. 
-   ```swift
-   class ResultViewController : UIViewController {
-      private var imageView: UIImageView!
-      override func viewDidLoad() {
-             super.viewDidLoad()
-             configResultView()
-      }
-      func configResultView() {
-             view.backgroundColor = UIColor.black
-             let w = UIScreen.main.bounds.size.width
-             let h = UIScreen.main.bounds.size.height
-             imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: w, height: h))
-             imageView.isUserInteractionEnabled = true
-             imageView.contentMode = .scaleAspectFit
-             imageView.image = DDNDataManager.instance.resultImage
-             view.addSubview(imageView)
+
+3. Display the normalized image.
+
+   ```java
+   import com.dynamsoft.core.basic_structures.CoreException;
+
+   public class ResultActivity extends AppCompatActivity {
+
+      @Override
+      protected void onCreate(@Nullable Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_result);
+
+         ImageView ivNormalize = findViewById(R.id.iv_normalize);
+
+         try {
+               ivNormalize.setImageBitmap(MainActivity.mNormalizedImageData.toBitmap());
+         } catch (CoreException e) {
+               e.printStackTrace();
+         }
       }
    }
    ```
-
-&nbsp;
 
 ### Build and Run the Project
 
-1. Select the device that you want to run your app on.
-2. Run the project, then your app will be installed on your device.
+1. Select the device that you want to run your app on from the target device drop-down menu in the toolbar.
 
-> Note:
->
-> - You can get the source code of the HelloWord app from the following link
->   - [Java (Android)](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Java (Android)/HelloWorld).
->   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld).
+2. Click the **Run app** button, then Android Studio installs your app on your connected device and starts it.
+
+You can download the similar source code here:
+- <a href="https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld" target="_blank">Android source code</a>
