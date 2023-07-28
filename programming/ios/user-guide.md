@@ -102,10 +102,11 @@ In the main view controller, your app will scan documents via video streaming an
    >1. 
    ```objc
    #import <DynamsoftCore/DynamsoftCore.h>
-   #import <DynamsoftCameraEnhancer/DynamsoftCameraEnhancer.h>
-   #import <DynamsoftDocumentNormalizer/DynamsoftDocumentNormalizer.h>
    #import <DynamsoftCaptureVisionRouter/DynamsoftCaptureVisionRouter.h>
-   #import <DynamsoftUtility/DynamsoftUtility.h>
+   #import <DynamsoftDocumentNormalizer/DynamsoftDocumentNormalizer.h>
+   #import <DynamsoftImageProcessing/DynamsoftImageProcessing.h>
+   #import <DynamsoftLicense/DynamsoftLicense.h>
+   #import <DynamsoftCameraEnhancer/DynamsoftCameraEnhancer.h>
    ```
    2. 
    ```swift
@@ -130,6 +131,15 @@ Initialize the license first. It is suggested to initialize the license in `AppD
    @interface AppDelegate ()<LicenseVerificationListener>
    @end
    @implementation AppDelegate
+   - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      // Override point for customization after application launch.
+      [DSLicenseManager initLicense:@"Put your" verificationDelegate:self];
+      return YES;
+   }
+   -(void)onLicenseVerified:(BOOL)isSuccess error:(NSError *)error
+   {
+      // Add your code to do when license server returns.
+   }
    ...
    @end
    ```
@@ -137,19 +147,17 @@ Initialize the license first. It is suggested to initialize the license in `AppD
    ```swift
    // Add LicenseVerificationListener to the interface
    class AppDelegate: UIResponder, UIApplicationDelegate, LicenseVerificationListener {
-          var window: UIWindow?
-          func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-              // Override point for customization after application launch.
-              LicenseManager.initLicense("Put your license key here.", verificationDelegate: self)
-              return true
-          }
-          // Implement the callback method of LicenseVerificationListener.
-          func onLicenseVerified(_ isSuccess: Bool, error: Error?) {
-              if !isSuccess {
-                  print("\(String(describing: error))")
-              }
-          }
-          ...
+      var window: UIWindow?
+      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+             // Override point for customization after application launch.
+             LicenseManager.initLicense("Put your license key here.", verificationDelegate: self)
+             return true
+      }
+      // Implement the callback method of LicenseVerificationListener.
+      func onLicenseVerified(_ isSuccess: Bool, error: Error?) {
+             // Add your code to do when license server returns.
+      }
+      ...
    }
    ```
 
@@ -169,13 +177,20 @@ Create the instances of `CameraEnhancer` and `CameraView`.
    >
    >1. 
    ```objc
-   @property(nonatomic, strong) DynamsoftCameraEnhancer *dce;
-   @property(nonatomic, strong) DCECameraView *dceView;
+   @property (nonatomic, strong) DSCameraEnhancer *dce;
+   @property (nonatomic, strong) DSCameraView *cameraView;
    ...
-   - (void)configDCE{
-          _dceView = [DCECameraView cameraWithFrame:self.view.bounds];
-          [self.view addSubview:_dceView];
-          _dce = [[DynamsoftCameraEnhancer alloc] initWithView:_dceView];
+   - (void)setUpCamera
+   {
+      _cameraView = [[DSCameraView alloc] initWithFrame:self.view.bounds];
+      [_cameraView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+      [self.view addSubview:_cameraView];
+      [_cameraView addSubview:_captureButton];
+      _dce = [[DSCameraEnhancer alloc] init];
+      [_dce setCameraView:_cameraView];
+      DSDrawingLayer * layer = [_cameraView getDrawingLayer:DSDrawingLayerIdDDN];
+      [layer setVisible:true];
+      //[_dce enableEnhancedFeatures:DSEnhancerFeatureFrameFilter];
    }
    ```
    2. 
@@ -208,6 +223,13 @@ Declare and create an instance of `CaptureVisionRouter`.
 >
 >1. 
 ```objc
+@property (nonatomic, strong) DSCaptureVisionRouter *cvr;
+...
+- (void)setUpCvr
+{
+   _cvr = [[DSCaptureVisionRouter alloc] init];
+   NSError *cvrError;
+}
 ```
 2. 
 ```swift
@@ -219,27 +241,26 @@ private var data:ImageData!
 
 Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `CameraEnhancer` instance.
 
-   <div class="sample-code-prefix"></div>
-   >- Objective-C
-   >- Swift
-   >
-   >1. 
-   ```objc
-   - (void)configDDN{
-      [DDNDataManager instance].ddn = [DynamsoftDocumentNormalizer new];
-      // Bind the DocumentNormalizer and CameraEnhancer instance
-      [[DDNDataManager instance].ddn setImageSource:_dce];
-   }
-   ```
-   2. 
-   ```swift
-   func setUpDCV() {
-      try? cvr.setInput(dce)
-      try? cvr.addResultReceiver(self)
-   }
-   ```
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+- (void)setUpCvr
+{
+   ...
+   [_cvr setInput:_dce error:&cvrError];
+}
+```
+2. 
+```swift
+func setUpDCV() {
+   try? cvr.setInput(dce)
+}
+```
 
-#### Set up CaptureResultReceiver to Receive Output
+#### Set up Result Receiver
 
 1. Add `CapturedResultReceiver` to your ViewController.
 
@@ -249,6 +270,7 @@ Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `C
    >
    >1. 
    ```objc
+   @interface ViewController ()<DSCapturedResultReceiver>
    ```
    2. 
    ```swift
@@ -265,10 +287,20 @@ Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `C
    >
    >1. 
    ```objc
-   // Add detectResultCallback method in the view controller.
-   - (void)onNormalizedImagesReceived:(DSNormalizedImagesResult)result
+   - (void) onNormalizedImagesReceived:(DSNormalizedImagesResult *)result
    {
-      // We will add code here to deal with the detection result and open another view controller.
+      if (_implementCapture != false && result != nil && result.items[0].imageData != nil)
+      {
+             _implementCapture = false;
+             dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"Captured");
+                ImageViewController *imageViewController = [[ImageViewController alloc] init];
+                NSError * coreError;
+                imageViewController.resultUIImage = [result.items[0].imageData toUIImage:&coreError];
+                NSLog(@"ToUIImage:%@", coreError);
+                [self.navigationController pushViewController:imageViewController animated:YES];
+             });
+      }
    }
    ```
    2. 
@@ -291,7 +323,7 @@ Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `C
    }
    ```
 
-4. Add the methods to run when the view is loaded.
+3. Add the result receiver to the `CaptureVisionRouter`.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -299,24 +331,22 @@ Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `C
    >
    >1. 
    ```objc
+   - (void)setUpCvr
+   {
+      // _cvr = [[DSCaptureVisionRouter alloc] init];
+      // NSError *cvrError;
+      // [_cvr setInput:_dce error:&cvrError];
+      [_cvr addResultReceiver:self error:&cvrError];
+   }
    ```
    2. 
    ```swift
-   override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      configUI()
-      dce.open()
-      try? cvr.startCapturing("detect-and-normalize-document")
-   }
-   override func viewWillDisappear(_ animated: Bool) {
-      super.viewWillDisappear(animated)
-      dce.close()
-   }
+
    ```
 
 #### Add a Capture Button
 
-Add the button to confirm the capture.
+Add a capture button. When the button is clicked, the image will be capture and normalized.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -324,6 +354,27 @@ Add the button to confirm the capture.
    >
    >1. 
    ```objc
+   -(void)setCapture
+   {
+      _implementCapture = true;
+      NSLog(@"Implement Capture  = true");
+   }
+   - (UIButton *)captureButton {
+      NSLog(@"Start adding button");
+      CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+      CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+      if (!_captureButton) {
+             _captureButton = [UIButton buttonWithType:UIButtonTypeCustom];
+             _captureButton.frame = CGRectMake((screenWidth - 150) / 2.0, screenHeight - 100, 150, 50);
+             _captureButton.backgroundColor = [UIColor grayColor];
+             _captureButton.layer.cornerRadius = 10;
+             _captureButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+             [_captureButton setTitle:@"Capture" forState:UIControlStateNormal];
+             [_captureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+             [_captureButton addTarget:self action:@selector(setCapture) forControlEvents:UIControlEventTouchUpInside];
+      }
+      return _captureButton;
+   }
    ```
    2. 
    ```swift
@@ -348,11 +399,11 @@ Add the button to confirm the capture.
 
 &nbsp;
 
-#### Diplay the Normalized Image
+#### Display the Normalized Image
 
-1. Create a new empty activity named `ResultViewController`.
+1. Create a new class `UIViewController` and name it `ImageViewController`.
 
-2. Display the normalized image.
+2. Add an `resultUIImage` property to the header of `ImageViewController` to receive the normalized image as a UIImage.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -360,29 +411,38 @@ Add the button to confirm the capture.
    >
    >1. 
    ```objc
+   @property (nonatomic, strong) UIImage * resultUIImage;
    ```
    2. 
    ```swift
-   import DynamsoftCore
-   import DynamsoftCaptureVisionRouter
-   import DynamsoftDocumentNormalizer
-   class ImageViewController: UIViewController{
-      var data:ImageData!
-      var imageView:UIImageView!
-      override func viewDidLoad() {
-             super.viewDidLoad()
-             // Do any additional setup after loading the view.
-             setUpView()
-      }
-      func setUpView() {
-             imageView = UIImageView.init(frame: view.bounds)
-             view.addSubview(imageView)
-             let image = try? data.toUIImage()
-             DispatchQueue.main.async { [self] in
-                imageView.image = image
-             }
+   ```
+
+3. Go back to the `onNormalizedImagesReceived` method. Add code to send the normalized image to the result view.
+
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   - (void) onNormalizedImagesReceived:(DSNormalizedImagesResult *)result
+   {
+      if (_implementCapture != false && result != nil && result.items[0].imageData != nil)
+      {
+             _implementCapture = false;
+             dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"Captured");
+                ImageViewController *imageViewController = [[ImageViewController alloc] init];
+                NSError * coreError;
+                imageViewController.resultUIImage = [result.items[0].imageData toUIImage:&coreError];
+                NSLog(@"ToUIImage:%@", coreError);
+                [self.navigationController pushViewController:imageViewController animated:YES];
+             });
       }
    }
+   ```
+   2. 
+   ```swift
    ```
 
 &nbsp;
