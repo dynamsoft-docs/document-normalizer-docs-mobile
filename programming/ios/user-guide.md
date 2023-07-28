@@ -30,8 +30,6 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 >   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld).
 >   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld).
 
-
-
 ### Create a New Project
 
 1. Open Xcode and select create a new project.
@@ -44,8 +42,6 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 
 5. Click on the **Create** button to finish.
 
-
-
 ### Add the SDK
 
 There are two ways to add the SDK into your project - **Manually** and **CocoaPods**.
@@ -56,11 +52,13 @@ There are two ways to add the SDK into your project - **Manually** and **CocoaPo
 
    | File | Description |
    | ---- | ----------- |
-   | `DynamsoftDocumentNormalizer.framework` | The Dynamsoft Document Normalizer SDK, including document normalizer related APIs. |
-   | `DynamsoftCore.framework`  | The core library of Dynamsoft's capture vision SDKs, including common basic structure and license related APIs. |
-   | `DynamsoftIntermediateResult.framework` | The common intermediate result library of Dynamsoft's capture vision SDKs, including all intermediate results produced in the process of decoding a barcode, recognizing a label or normalizing a document. |
-   | `DynamsoftImageProcessing.framework` | The image processing library of Dynamsoft's capture vision SDKs, including image processing algorithms and APIs. |
-   | `DynamsoftCameraEnhancer.framework` | The Dynamsoft Camera Enhancer SDK, including camera control and frame preprocessing APIs. |
+   | `DynamsoftDocumentNormalizer.xcframework` | The Dynamsoft Document Normalizer SDK, including document normalizer related APIs. |
+   | `DynamsoftCore.xcframework`  | The core library of Dynamsoft's capture vision SDKs, including basic structures and intermediate result related APIs. |
+   | `DynamsoftCaptureVisionRouter.xcframework` | The CaptureVisionRouter is what a user uses to interact with image-processing and semantic-processing products in their applications. It accepts an image source and returns processing results which may contain Final results or Intermediate Results. |
+   | `DynamsoftImageProcessing.xcframework` | The image processing library of Dynamsoft's capture vision SDKs, including image processing algorithms and APIs. |
+   | `DynamsoftLicense.xcframework` | The module includes the licensing APIs. |
+   | `DynamsoftCameraEnhancer.xcframework` | The Dynamsoft Camera Enhancer SDK, including camera control and frame preprocessing APIs. |
+   | `DynamsoftUtility.xcframework (Optional)` | The module includes functional APIs that support you to integrate the input, filtering the results, generating result images, etc. |
 
 2. Drag and drop the above five **frameworks** into your Xcode project. Make sure to check Copy items if needed and Create groups to copy the framework into your project's folder.
 
@@ -78,6 +76,9 @@ There are two ways to add the SDK into your project - **Manually** and **CocoaPo
    pod 'DynamsoftDocumentNormalizer','2.0.0'
    pod 'DynamsoftCore','2.0.0'
    pod 'DynamsoftCameraEnhancer','4.0.0'
+   pod 'DynamsoftImageProcessing','2.0.0'
+   pod 'DynamsoftLicense','1.0.0'
+   pod 'DynamsoftUtility','1.0.0'
 
    end
    ```
