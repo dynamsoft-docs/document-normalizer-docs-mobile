@@ -6,9 +6,11 @@ keywords: release notes, ios,
 needAutoGenerateSidebar: true
 needGenerateH3Content: false
 noTitleIndex: true
-permalink: /programming/ios/release-notes/ios-1.html
+permalink: /programming/ios/release-notes/ios-2.html
 ---
 
-# Release Notes for iOS SDK - v1.x
+# Release Notes for iOS SDK - v2.x
 
-## 2.0.10 (07/25/2023)
+## 2.0.10 (08/03/2023)
+
+{%- include release-notes/product-highlight-2.0.0.md -%}

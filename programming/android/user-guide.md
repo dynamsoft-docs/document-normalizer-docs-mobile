@@ -28,6 +28,7 @@ In this guide, you will learn step by step on how to build a document normalizat
       - [Initialize Capture Vision Router](#initialize-capture-vision-router)
       - [Add a Captured Result Receiver](#add-a-captured-result-receiver)
       - [Start and Stop Video Document Normalization](#start-and-stop-video-document-normalization)
+      - [Additional Steps in `MainActivity`](#additional-steps-in-mainactivity)
     - [ResultActivity for Displaying the Normalized Image](#resultactivity-for-displaying-the-normalized-image)
       - [Diplay the Normalized Image](#diplay-the-normalized-image)
     - [Build and Run the Project](#build-and-run-the-project)
@@ -318,7 +319,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
         }
       }
    }
-   ...
+   ```
 
 #### Additional Steps in `MainActivity`
 

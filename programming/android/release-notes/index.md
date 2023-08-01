@@ -10,7 +10,7 @@ permalink: /programming/android/release-notes/index.html
 
 # Dynamsoft Document Normalizer Android SDK - Release Notes
 
-- [2.0.0 (07/27/2023)](android-2.md#200-07272023)
+- [2.0.10 (08/03/2023)](android-2.md#2010-08032023)
 - [1.0.30 (06/07/2023)](android-1.md#1030-06072023)
 - [1.0.21 (02/15/2023)](android-1.md#1021-02152023)
 - [1.0.20 (02/02/2023)](android-1.md#1020-02022023)
