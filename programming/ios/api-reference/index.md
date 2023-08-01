@@ -15,9 +15,9 @@ permalink: /programming/ios/api-reference/index.html
 ## Input
 
 - [`DSCameraEnhancer`]({{ site.dce_ios_api }}primary-api/camera-enhancer.html)
+- [`DSImageSourceAdapter`]({{ site.dcv_ios_api }}core/basic-structures/image-source-adapter.html)
 - [`DSDirectoryFetcher`]({{ site.dcv_ios_api }}utility/directory-fetcher.html)
 - [`DSFileFetcher`]({{ site.dcv_ios_api }}utility/file-fetcher.html)
-- [`DSImageSourceAdapter`]({{ site.dcv_ios_api }}core/basic-structures/image-source-adapter.html)
 
 ## Final Results
 

@@ -15,9 +15,9 @@ permalink: /programming/android/api-reference/index.html
 ## Input
 
 - [`CameraEnhancer`]({{ site.dce_android_api }}primary-api/camera-enhancer.html)
+- [`ImageSourceAdapter`]({{ site.dcv_android_api }}core/basic-structures/image-source-adapter.html)
 - [`DirectoryFetcher`]({{ site.dcv_android_api }}utility/directory-fetcher.html)
 - [`FileFetcher`]({{ site.dcv_android_api }}utility/file-fetcher.html)
-- [`ImageSourceAdapter`]({{ site.dcv_android_api }}core/basic-structures/image-source-adapter.html)
 
 ## Final Results
 
