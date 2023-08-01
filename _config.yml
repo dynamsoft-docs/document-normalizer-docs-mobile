@@ -54,32 +54,32 @@ defaults:
   - scope:
       path: "programming/android"
     values:
-      category: "mobile-repo"
-      edition: "mobile"
+      docRootName: "Document Normalizer Android" 
+      docHomePage: "/document-normalizer/docs/server/programming/android/"
   - scope:
       path: "programming/ios"
     values:
-      category: "mobile-repo"
-      edition: "mobile"
+      docRootName: "Document Normalizer IOS" 
+      docHomePage: "/document-normalizer/docs/server/programming/ios/"
   - scope:
       path: "programming/xamarin"
     values:
-      category: "mobile-repo"
-      edition: "mobile"
+      docRootName: "Document Normalizer XAMARIN" 
+      docHomePage: "/document-normalizer/docs/server/programming/xamarin/"
   - scope:
       path: "programming-old/android"
     values:
-      category: "mobile-repo"
-      edition: "mobile"
+      docRootName: "Document Normalizer Android" 
+      docHomePage: "/document-normalizer/docs/server/programming/android/"
   - scope:
       path: "programming-old/ios"
     values:
-      category: "mobile-repo"
-      edition: "mobile"
+      docRootName: "Document Normalizer IOS" 
+      docHomePage: "/document-normalizer/docs/server/programming/ios/"
   - scope:
       path: "programming-old/xamarin"
     values:
-      category: "mobile-repo"
-      edition: "mobile"
+      docRootName: "Document Normalizer XAMARIN" 
+      docHomePage: "/document-normalizer/docs/server/programming/xamarin/"
 
 url: "https://www.dynamsoft.com" # sitemap root
