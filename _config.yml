@@ -51,5 +51,35 @@ defaults:
       path: "Hide_Tree_Page.html"
     values:
       sitemap: false
+  - scope:
+      path: "programming/android"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+  - scope:
+      path: "programming/ios"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+  - scope:
+      path: "programming/xamarin"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+  - scope:
+      path: "programming-old/android"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+  - scope:
+      path: "programming-old/ios"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+  - scope:
+      path: "programming-old/xamarin"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
 
 url: "https://www.dynamsoft.com" # sitemap root
