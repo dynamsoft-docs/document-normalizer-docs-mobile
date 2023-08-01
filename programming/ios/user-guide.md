@@ -52,17 +52,17 @@ There are two ways to add the SDK into your project - **Manually** and **CocoaPo
 
    | File | Description |
    | ---- | ----------- |
-   | `DynamsoftDocumentNormalizer.xcframework` | The Dynamsoft Document Normalizer SDK, including document normalizer related APIs. |
-   | `DynamsoftCore.xcframework`  | The core library of Dynamsoft's capture vision SDKs, including basic structures and intermediate result related APIs. |
-   | `DynamsoftCaptureVisionRouter.xcframework` | The CaptureVisionRouter is what a user uses to interact with image-processing and semantic-processing products in their applications. It accepts an image source and returns processing results which may contain Final results or Intermediate Results. |
-   | `DynamsoftImageProcessing.xcframework` | The image processing library of Dynamsoft's capture vision SDKs, including image processing algorithms and APIs. |
-   | `DynamsoftLicense.xcframework` | The module includes the licensing APIs. |
-   | `DynamsoftCameraEnhancer.xcframework` | The Dynamsoft Camera Enhancer SDK, including camera control and frame preprocessing APIs. |
+   | `DynamsoftDocumentNormalizer.xcframework` | The Dynamsoft Document Normalizer SDK which includes the document normalizer related APIs. |
+   | `DynamsoftCore.xcframework`  | The core library of the Dynamsoft Capture Vision SDK which includes basic structures and intermediate result related APIs. |
+   | `DynamsoftCaptureVisionRouter.xcframework` | The CaptureVisionRouter is used to coordinate the image-processing and semantic-processing products that are being used in the application. It accepts an image source and returns processing results which may contain final results or intermediate results. |
+   | `DynamsoftImageProcessing.xcframework` | The image processing library of the Dynamsoft Capture Vision SDK, including image processing algorithms and APIs. |
+   | `DynamsoftLicense.xcframework` | This module includes the licensing API. |
+   | `DynamsoftCameraEnhancer.xcframework` | The Dynamsoft Camera Enhancer SDK defines the camera control and frame preprocessing API. |
    | `DynamsoftUtility.xcframework (Optional)` | The module includes functional APIs that support you to integrate the input, filtering the results, generating result images, etc. |
 
-2. Drag and drop the above five **frameworks** into your Xcode project. Make sure to check Copy items if needed and Create groups to copy the framework into your project's folder.
+2. Drag and drop the above five **frameworks** into your Xcode project. Make sure to check *Copy items if needed* and *Create groups* to properly copy the framework into your project's folder.
 
-3. Click on the project settings then go to **General –> Frameworks, Libraries, and Embedded Content**. Set the **Embed** field to **Embed & Sign** for DynamsoftDocumentNormalizer and DynamsoftCameraEnhancer.
+3. Click on the project settings then go to **General –> Frameworks, Libraries, and Embedded Content**. Set the **Embed** field to **Embed & Sign** for all of the imported frameworks.
 
 #### Add the Frameworks via CocoaPods
 
@@ -251,7 +251,6 @@ Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `C
 ```objc
 - (void)setUpCvr
 {
-   ...
    NSError *cvrError;
    [_cvr setInput:_dce error:&cvrError];
 }
@@ -332,14 +331,15 @@ func setUpCvr() {
    ```objc
    - (void)setUpCvr
    {
-      ...
       NSError *cvrError;
+      [_cvr setInput:_dce error:&cvrError];
       [_cvr addResultReceiver:self error:&cvrError];
    }
    ```
    2. 
    ```swift
    func setUpCvr() {
+      try? cvr.setInput(dce)
       try? cvr.addResultReceiver(self)
    }
    ```
@@ -379,26 +379,26 @@ override func viewDidLoad() {
 }
 override func viewWillAppear(_ animated: Bool) {
    super.viewWillAppear(animated)
-   dce.open()
+   dce.open() // open the camera
    try? cvr.startCapturing(PresetTemplate.detectAndNormalizeDocument.rawValue)
 }
 override func viewWillDisappear(_ animated: Bool) {
    super.viewWillDisappear(animated)
-   dce.close()
+   dce.close() // close the camera and release resources
 }
 ```
 
 #### Display the Normalized Image
 
-1. Create a new `UIViewController` class `ImageViewController`.
+1. Create a new `UIViewController` class `ImageViewController`. To do that, please add a new Swift/Objective-C file and name it `ImageViewController`.
 
-2. Add a property `normalizedImage` to the header file of `ImageViewController` (Objective-C only).
+  > Note:  **Objective-C only** Add a property `normalizedImage` to the header file of `ImageViewController` (`ImageViewController.h`).
 
    ```objc
    @property (nonatomic, strong) UIImage * normalizedImage;
    ```
 
-2. Configure the `ImageViewController` to display the normalized image..
+3. Configure the `ImageViewController` to display the normalized image..
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -430,6 +430,9 @@ override func viewWillDisappear(_ animated: Bool) {
    ```
    2. 
    ```swift
+   import Foundation
+   import UIKit
+
    class ImageViewController: UIViewController{
       var normalizedImage:UIImage!
       var imageView:UIImageView!
@@ -449,6 +452,12 @@ override func viewWillDisappear(_ animated: Bool) {
    ```
 
 &nbsp;
+
+### Configure the Signing & Capabilities and the Info.plist
+
+1. Before running the project, please make sure that the *Signing & Capabilities* section is properly set.
+
+2. Make sure that the *Privacy - Camera Usage Description* key is added to the Info.plist of the project along with a message that the user will see when the app asks for camera permission.
 
 ### Build and Run the Project
 

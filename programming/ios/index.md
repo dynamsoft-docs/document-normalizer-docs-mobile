@@ -10,13 +10,13 @@ permalink: /programming/ios/index.html
 
 # Dynamsoft Document Normalizer Documentation for iOS Edition
 
-Dynamsoft Document Normalizer (DDN) SDK iOS Edition is a document normalization SDK designed specifically for iOS developers.
+Dynamsoft Document Normalizer (DDN) SDK iOS Edition offers top-of-the-line document border detection, document scanning, and document normalization functionality designed specifically for iOS applications.
 
 DDN iOS Edition provides rich APIs for developers to easily integrate document normalization functionality into your iOS applications. Please take a look at [API Reference](api-reference/index.md) to see details.
 
-As one of the functional products of the Dynamsoft Capture Vision (DCV) framework, DDN is also designed to seamlessly integrate with other DCV components and provide developers with a comprehensive set of image processing tools, which cover image capturing, content understanding, result parsing, and interactive workflow. If you are building such a document capturing and processing solution, take a look at <a href="{{site.dcv_introduction}}" target="_blank">Introduction to Dynamsoft Capture Vision</a>.
+As one of the functional products of the Dynamsoft Capture Vision (DCV) framework, DDN is designed to seamlessly integrate with other DCV components and provide developers with a comprehensive set of image processing tools, which cover image capturing, content analysis, result parsing, and interactive workflow. If you are building such a document capturing and processing solution, take a look at the <a href="{{site.dcv_introduction}}" target="_blank">introduction page</a> to learn more about Dynamsoft Capture Vision can help you achieve your goals.
 
-Furthermore, DDN provides a powerful parameter system in order to cope with various scenarios. Read <a href="{{site.parameters}}reference/index.html" target="_blank">Parameter Reference</a> for details.
+DDN provides a powerful parameter system in order to cope with various usage scenarios. Read the <a href="{{site.parameters}}reference/index.html" target="_blank">Parameter Reference</a> page for details.
 
 ## Getting Started with DDN iOS Edition
 
