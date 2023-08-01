@@ -10,10 +10,10 @@ permalink: /programming/android/samples/helloworld.html
 
 # HelloWorld Sample
 
-The Android Helloworld sample illustrates how to create the simplest video streaming document normalizing app with Dynamsoft Document Normalizer (DDN) Android SDK.
+The Android HelloWorld sample illustrates how to create the simplest video streaming document normalizing app with Dynamsoft Document Normalizer (DDN) Android SDK.
 
 View the samples
 
 - <a href="https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld/" target="_blank">Java (Android) HelloWorld</a>
 
-For more details about how to get started with Dynamsoft Document Normalizer, please view the [user guide]({{ site.android }}user-guide.html).
+For more details about how to get started with Dynamsoft Document Normalizer, please view the [`user guide`]({{ site.android }}user-guide.html).

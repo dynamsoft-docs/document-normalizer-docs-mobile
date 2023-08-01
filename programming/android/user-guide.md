@@ -45,7 +45,7 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 >Note:
 >
 >- Android Studio 4.2 is used here in this guide.
->- You can [get the similar source code of the HelloWord sample here](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld).
+>- You can [get the similar source code of the HelloWorld sample here](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld).
 
 ### Create a New Project
 
@@ -64,17 +64,17 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
 #### Add the Library Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.0.0.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **DynamsoftDocumentNormalizer\Libs** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.0.0.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **Dynamsoft\Libs** directory:
 
    | File | Description |
    |---------|-------------|
    | `DynamsoftCaptureVisionRouter.aar` | The capture vision router library of Dynamsoft's capture vision SDK is used by users to interact with image processing and semantic processing products in their applications. It takes an image source as input and provides processing results, which can include final results or intermediate results. |
-   | `DynamsoftDocumentNormalizer.aar` | The document normalizer library of Dynamsoft's capture vision SDK, including document normalizer related algorithms and APIs. |
-   | `DynamsoftCore.aar` | The core library of Dynamsoft's capture vision SDK, including common basic structure and intermediate result related APIs. |
-   | `DynamsoftImageProcessing.aar` | The image processing library of Dynamsoft's capture vision SDK, including common image processing algorithms and APIs. |
-   | `DynamsoftLicense.aar` | The license library of Dynamsoft's capture vision SDK, including license related APIs. |
-   | `DynamsoftUtility.aar` | The utility library of Dynamsoft's capture vision SDK, including image source adapter, image writer and other APIs. |
-   | `DynamsoftCameraEnhancer.aar` | The Dynamsoft Camera Enhancer SDK, including camera control and frame preprocessing APIs.  |
+   | `DynamsoftDocumentNormalizer.aar` | The document normalizer library of Dynamsoft's capture vision SDK includes document normalizer related algorithms and APIs. |
+   | `DynamsoftCore.aar` | The core library of Dynamsoft's capture vision SDK includes common basic structures and intermediate result related APIs. |
+   | `DynamsoftImageProcessing.aar` | The image processing library of Dynamsoft's capture vision SDK incorporates a collection of basic and specialized image processing algorithms designed to support other SDK modules such as Document Normalizer.  |
+   | `DynamsoftLicense.aar` | The license library of Dynamsoft's capture vision SDK includes license related APIs. |
+   | `DynamsoftUtility.aar` | The utility library of Dynamsoft's Capture Vision SDK includes multiple implementations of image source adapters, image exporter, and other utility APIs. |
+   | `DynamsoftCameraEnhancer.aar` | The Dynamsoft Camera Enhancer SDK provides camera control, camera enhancements, and basic UI configuration features.  |
 
 2. Copy the above five **aar** files to the target directory `HelloWorld\app\libs`
 
@@ -115,7 +115,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
    ```groovy
    dependencies {
       implementation 'com.dynamsoft:dynamsoftcapturevisionrouter:2.0.10'
-      implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:2.0.0'
+      implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:2.0.10'
       implementation 'com.dynamsoft:dynamsoftcameraenhancer:4.0.0'
       implementation 'com.dynamsoft:dynamsoftutility:1.0.10'
    }
@@ -170,7 +170,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
     </com.dynamsoft.dce.DCECameraView>
     ```
 
-2. Import the dynamsoft camera module, initialize the camera view and bind to the created Camera Enhancer instance in the file `MainActivity.java`.
+2. Import the camera module, initialize the camera view and bind to the created Camera Enhancer instance in the file `MainActivity.java`.
 
    ```java
    ...
@@ -218,7 +218,6 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
          ...
 
          mRouter = new CaptureVisionRouter(MainActivity.this);
-
          mRouter.setInput(mCameraEnhancer);
       }
    }
@@ -386,4 +385,5 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 2. Click the **Run app** button, then Android Studio installs your app on your connected device and starts it.
 
 You can download the similar source code here:
+
 - <a href="https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld" target="_blank">Android source code</a>

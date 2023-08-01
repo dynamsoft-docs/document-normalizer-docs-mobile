@@ -11,7 +11,13 @@ dcv_ios_api: /capture-vision/docs/mobile/programming/ios/api-reference/
 
 dcv_android: /capture-vision/docs/mobile/programming/android/
 dcv_android_api: /capture-vision/docs/mobile/programming/android/api-reference/
+
+dcv_introduction: /capture-vision/docs/core/introduction/
+
 dce_android: /camera-enhancer/docs/mobile/programming/android/
+dce_android_api: /camera-enhancer/docs/mobile/programming/android/api-reference/
+dce_ios: /camera-enhancer/docs/mobile/programming/android/
+dce_ios_api: /camera-enhancer/docs/mobile/programming/android/api-reference/
 
 dcv_enums: /capture-vision/docs/core/enums/
 
@@ -31,6 +37,9 @@ xamarin_release_notes: /document-normalizer/docs/mobile/programming/xamarin/rele
 xamarin_camera_enhancer: /document-normalizer/docs/mobile/programming/xamarin/api-reference/camera-enhancer/
 
 enumerations: /document-normalizer/docs/mobile/programming/enumerations/
+
+js: /document-normalizer/docs/web/programming/javascript/
+cpp: /document-normalizer/docs/server/programming/cplusplus/
 
 useVersionTree: true
 
