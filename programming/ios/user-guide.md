@@ -118,7 +118,7 @@ In the main view controller, your app will scan documents via video streaming an
 
 #### Initialize License
 
-Initialize the license first. It is suggested to initialize the license in `AppDelegate` file.
+Initialize the license first. It is suggested to initialize the license in the `AppDelegate` file.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -151,6 +151,8 @@ import DynamsoftLicense
 // Add LicenseVerificationListener to the interface
 class AppDelegate: UIResponder, UIApplicationDelegate, LicenseVerificationListener {
    var window: UIWindow?
+
+   // Only the first func application(...) needs to be implemented. The UISceneSession Lifecycle marked functions are not needed.
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
           // Override point for customization after application launch.
           LicenseManager.initLicense("Put your license key here.", verificationDelegate: self)
@@ -390,7 +392,7 @@ override func viewWillDisappear(_ animated: Bool) {
 
 #### Display the Normalized Image
 
-1. Create a new `UIViewController` class `ImageViewController`. To do that, please add a new Swift/Objective-C file and name it `ImageViewController`.
+1. Create a new `UIViewController` class, `ImageViewController`. To do that, please add a new Swift/Objective-C file and name it `ImageViewController`.
 
   > Note:  **Objective-C only** Add a property `normalizedImage` to the header file of `ImageViewController` (`ImageViewController.h`).
 
@@ -453,7 +455,7 @@ override func viewWillDisappear(_ animated: Bool) {
 
 &nbsp;
 
-### Configure the Signing & Capabilities and the Info.plist
+### Configure the Signing and the Info.plist
 
 1. Before running the project, please make sure that the *Signing & Capabilities* section is properly set.
 
