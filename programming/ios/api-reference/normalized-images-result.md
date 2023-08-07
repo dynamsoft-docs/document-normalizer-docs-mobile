@@ -35,8 +35,8 @@ class NormalizedImagesResult : NSObject
 | ---------- | ---- | ----------- |
 | [`items`](#items) | *NSArray<DSNormalizedImageResultItem \*>* | An array of DSNormalizedImageResultItem. Each DSNormalizedImageResultItem is a result object of a single normalized image. |
 | [`rotationTransformMatrix`](#rotationtransformmatrix) | *CGAffineTransform* | The rotation transformation matrix of the original image relative to the rotated image. |
-| [`sourceImageHashId`](#sourceimagehashid) | *NSString* | The hash id of the source image. You can use this ID to get the source image via IntermediateResultManager class. |
-| [`sourceImageTag`](#sourceimagetag) | *DSImageTag \* | The tag of the original image, from which you get the normalized image. |
+| [`originalImageHashId`](#originalimagehashid) | *NSString* | The hash id of the original image. You can use this ID to get the original image via IntermediateResultManager class. |
+| [`originalImageTag`](#originalimagetag) | *DSImageTag \* | The tag of the original image, from which you get the normalized image. |
 
 ### items
 
@@ -72,9 +72,9 @@ The rotation transformation matrix of the original image relative to the rotated
 var rotationTransformMatrix: CGAffineTransform { get }
 ```
 
-### sourceImageHashId
+### originalImageHashId
 
-The hash id of the source image. You can use this ID to get the source image via IntermediateResultManager class.
+The hash id of the original image. You can use this ID to get the original image via IntermediateResultManager class.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -82,14 +82,14 @@ The hash id of the source image. You can use this ID to get the source image via
 >
 >1. 
 ```objc
-@property (nonatomic, nonnull, readonly) NSString* sourceImageHashId;
+@property (nonatomic, nonnull, readonly) NSString* originalImageHashId;
 ```
 2. 
 ```swift
-var sourceImageHashId: String { get }
+var originalImageHashId: String { get }
 ```
 
-### sourceImageTag
+### originalImageTag
 
 The tag of the original image, from which you get the normalized image.
 
@@ -99,9 +99,9 @@ The tag of the original image, from which you get the normalized image.
 >
 >1. 
 ```objc
-@property (nonatomic, readonly) DSImageTag* sourceImageTag;
+@property (nonatomic, readonly) DSImageTag* originalImageTag;
 ```
 2. 
 ```swift
-var sourceImageTag: DSImageTag { get }
+var originalImageTag: DSImageTag { get }
 ```

@@ -28,8 +28,8 @@ class DetectedQuadsResult
 | ---------- | ----------- |
 | [`getItems`](#getitems) | An array of [`DetectedQuadResultItem`](./detected-quad-result-item.md), which are the detected quadrilateral items. |
 | [`getRotationTransformMatrix`](#getrotationtransformmatrix) | The rotation transformation matrix of the original image relative to the rotated image. |
-| [`getSourceImageHashId`](#getsourceimagehashid) | The hash id of the source image. You can use this ID to get the source image via `IntermediateResultManager` class. |
-| [`getSourceImageTag`](#getsourceimagetag) | The tag of the original image, from which you get the normalized image. |
+| [`getOriginalImageHashId`](#getoriginalimagehashid) | The hash id of the original image. You can use this ID to get the original image via `IntermediateResultManager` class. |
+| [`getOriginalImageTag`](#getoriginalimagetag) | The tag of the original image, from which you get the detected quads result. |
 
 ### getItems
 
@@ -55,29 +55,29 @@ Matrix getRotationTransformMatrix();
 
 The rotation transformation matrix of the original image relative to the rotated image.
 
-### getSourceImageHashId
+### getOriginalImageHashId
 
-The hash id of the source image. You can use this ID to get the source image via `IntermediateResultManager` class.
+The hash id of the original image. You can use this ID to get the original image via `IntermediateResultManager` class.
 
 ```java
-String getSourceImageHashId();
+String getOriginalImageHashId();
 ```
 
 **Return Value**
 
-The hash id of the source image.
+The hash id of the original image.
 
-### getSourceImageTag
+### getOriginalImageTag
 
-The tag of the source image.
+The tag of the original image.
 
 ```java
-ImageTag getSourceImageTag();
+ImageTag getOriginalImageTag();
 ```
 
 **Return Value**
 
-The tag of the source image.
+The tag of the original image.
 
 **See Also**
 
