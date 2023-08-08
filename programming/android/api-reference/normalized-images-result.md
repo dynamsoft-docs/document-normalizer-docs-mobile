@@ -28,8 +28,8 @@ class NormalizedImagesResult
 | ---------- | ----------- |
 | [`getItems`](#getitems) | Gets an array of NormalizedImageResultItem. Each NormalizedImageResultItem is a result object of a single normalized image. |
 | [`getRotationTransformMatrix`](#getrotationtransformmatrix) | Gets the rotation transformation matrix of the original image relative to the rotated image. |
-| [`getSourceImageHashId`](#getsourceimagehashid) | Gets the hash id of the source image. You can use this ID to get the source image via IntermediateResultManager class. |
-| [`getSourceImageTag`](#getsourceimagetag) | Gets the tag of the source image. |
+| [`getOriginalImageHashId`](#getoriginalimagehashid) | Gets the hash id of the original image. You can use this ID to get the original image via IntermediateResultManager class. |
+| [`getOriginalImageTag`](#getoriginalimagetag) | Gets the tag of the original image. |
 
 ### getItems
 
@@ -55,29 +55,29 @@ Matrix getRotationTransformMatrix();
 
 The rotation transformation matrix of the original image relative to the rotated image.
 
-### getSourceImageHashId
+### getOriginalImageHashId
 
-Gets the hash id of the source image. You can use this ID to get the source image via `IntermediateResultManager` class.
+Gets the hash id of the original image. You can use this ID to get the original image via `IntermediateResultManager` class.
 
 ```java
-String getSourceImageHashId();
+String getOriginalImageHashId();
 ```
 
 **Return Value**
 
-The hash id of the source image.
+The hash id of the original image.
 
-### getSourceImageTag
+### getOriginalImageTag
 
-Gets the tag of the source image.
+Gets the tag of the original image.
 
 ```java
-ImageTag getSourceImageTag();
+ImageTag getOriginalImageTag();
 ```
 
 **Return Value**
 
-The tag of the source image.
+The tag of the original image.
 
 **See Also**
 
