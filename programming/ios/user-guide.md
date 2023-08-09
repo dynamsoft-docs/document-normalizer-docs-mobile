@@ -340,12 +340,18 @@ func setUpCvr() {
       ...
       NSError *cvrError;
       [_cvr addResultReceiver:self error:&cvrError];
+      DSMultiFrameResultCrossFilter *filter = [[DSMultiFrameResultCrossFilter alloc] init];
+      [filter enableResultCrossVerification:DSCapturedResultItemTypeNormalizedImage isEnabled:true];
+      [_cvr addResultFilter:filter error:&cvrError];
    }
    ```
    2. 
    ```swift
    func setUpCvr() {
       try? cvr.addResultReceiver(self)
+      let filter = MultiFrameResultCrossFilter.init()
+      filter.enableResultCrossVerification(.normalizedImage, isEnabled: true)
+      try? cvr.addResultFilter(filter)
    }
    ```
 
