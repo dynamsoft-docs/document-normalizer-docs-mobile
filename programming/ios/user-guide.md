@@ -200,7 +200,7 @@ Create the instances of `CameraEnhancer` and `CameraView`.
 2. 
 ```swift
 var cameraView:CameraView!
-let dce:CameraEnhancer = .init()
+let dce:CameraEnhancer!
 ...
 func setUpCamera() {
    // Create a camera view and add it as a sub view of the current view.
@@ -208,6 +208,7 @@ func setUpCamera() {
    cameraView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
    view.insertSubview(cameraView, at: 0)
    // Bind the camera enhancer with the camera view.
+   dce = CameraEnhancer()
    dce.cameraView = cameraView
    // Additional step: Highlight the detected document boundary.
    let layer = cameraView.getDrawingLayer(DrawingLayerId.DDN.rawValue)
@@ -236,7 +237,10 @@ Declare and create an instance of `CaptureVisionRouter`.
 ```
 2. 
 ```swift
-let cvr:CaptureVisionRouter = .init()
+let cvr:CaptureVisionRouter!
+func setUpDCV() {
+   cvr = CaptureVisionRouter()
+}
 ```
 
 #### Set the CameraEnhancer as the Input
@@ -306,17 +310,19 @@ func setUpCvr() {
    ```
    2. 
    ```swift
-   func onNormalizedImagesReceived(_ result: NormalizedImagesResult)
-   {
+   func onNormalizedImagesReceived(_ result: NormalizedImagesResult) {
+      print("Normalized image received")
       if let items = result.items, items.count > 0 {
              guard let data = items[0].imageData else {
                 return
              }
-             /** Initialize a new UIView to display the normalized image.*/
              let resultView = ImageViewController()
-             resultView.normalizedImage = try? data.toUIImage
-             DispatchQueue.main.async {
-                self.present(resultView, animated: true)
+             resultView.data = data
+             if implementCapture
+             {
+                DispatchQueue.main.async {
+                       self.present(resultView, animated: true)
+                }
              }
       }
    }
@@ -344,6 +350,60 @@ func setUpCvr() {
    }
    ```
 
+4. Add a `confirmCapture` button to confirm the result.
+
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   @property (nonatomic, strong) UIButton *captureButton;
+   ...
+   - (void)addCaptureButton {
+      [self.view addSubview:self.captureButton];
+   }
+   - (UIButton *)captureButton {
+      NSLog(@"Start adding button");
+      CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+      CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+      if (!_captureButton) {
+             _captureButton = [UIButton buttonWithType:UIButtonTypeCustom];
+             _captureButton.frame = CGRectMake((screenWidth - 150) / 2.0, screenHeight - 100, 150, 50);
+             _captureButton.backgroundColor = [UIColor grayColor];
+             _captureButton.layer.cornerRadius = 10;
+             _captureButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+             [_captureButton setTitle:@"Capture" forState:UIControlStateNormal];
+             [_captureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+             [_captureButton addTarget:self action:@selector(setCapture) forControlEvents:UIControlEventTouchUpInside];
+      }
+      return _captureButton;
+   }
+   ```
+   2. 
+   ```swift
+   var captureButton:UIButton!
+   var implementCapture:Bool = false
+   ...
+   func addCaptureButton()
+   {
+      let w = UIScreen.main.bounds.size.width
+      let h = UIScreen.main.bounds.size.height
+      let SafeAreaBottomHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height > 20 ? 34 : 0
+      let photoButton = UIButton(frame: CGRect(x: w / 2 - 60, y: h - 100 - SafeAreaBottomHeight, width: 120, height: 60))
+      photoButton.setTitle("Capture", for: .normal)
+      photoButton.backgroundColor = UIColor.green
+      photoButton.addTarget(self, action: #selector(confirmCapture), for: .touchUpInside)
+      DispatchQueue.main.async(execute: { [self] in
+             view.addSubview(photoButton)
+      })
+   }
+   @objc func confirmCapture()
+   {
+      implementCapture = true
+   }
+   ```
+
 #### Configure the methods viewDidLoad, viewWillAppear, and viewWillDisappear
 
 <div class="sample-code-prefix"></div>
@@ -353,21 +413,22 @@ func setUpCvr() {
 >1. 
 ```objc
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setUpCamera];
-    [self setUpCvr];
+   [super viewDidLoad];
+   [self setUpCamera];
+   [self setUpCvr];
+   [self addCaptureButton];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [_dce open];
-    NSError *cvrError;
-    [_cvr startCapturing:DSPresetTemplateDetectAndNormalizeDocument error:&cvrError];
+   [super viewWillAppear:animated];
+   [_dce open];
+   NSError *cvrError;
+   [_cvr startCapturing:DSPresetTemplateDetectAndNormalizeDocument error:&cvrError];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [_dce close];
+   [super viewWillAppear:animated];
+   [_dce close];
 }
 ```
 2. 
@@ -376,6 +437,7 @@ override func viewDidLoad() {
    super.viewDidLoad()
    setUpCamera()
    setUpCvr()
+   addCaptureButton()
 }
 override func viewWillAppear(_ animated: Bool) {
    super.viewWillAppear(animated)
