@@ -294,16 +294,15 @@ func setUpCvr() {
    >
    >1. 
    ```objc
-   - (void) onNormalizedImagesReceived:(DSNormalizedImagesResult *)result
+   -(void)onNormalizedImagesReceived:(DSNormalizedImagesResult *)result
    {
-      if (_implementCapture != false && result != nil && result.items[0].imageData != nil)
+      if (_implementCapture && result!=nil && result.items[0].imageData!=nil)
       {
-             /** Initialize a new UIView to display the normalized image.*/
+             _implementCapture = false;
              ImageViewController *imageViewController = [[ImageViewController alloc] init];
-             NSError * coreError;
-             imageViewController.normalizedImage = [result.items[0].imageData toUIImage:&coreError];
-             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.navigationController pushViewController:imageViewController animated:YES];
+             NSError * error;
+             imageViewController.resultUIImage = [result.items[0].imageData toUIImage:&error];
+             dispatch_async(dispatch_get_main_queue(), ^{            [self.navigationController pushViewController:imageViewController animated:YES];
              });
       }
    }
