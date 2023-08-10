@@ -6,6 +6,19 @@ docHomePage: /document-normalizer/docs/core/introduction/
 
 parameters: /document-normalizer/docs/core/parameters/
 
+dcv_ios: /capture-vision/docs/mobile/programming/ios/
+dcv_ios_api: /capture-vision/docs/mobile/programming/ios/api-reference/
+
+dcv_android: /capture-vision/docs/mobile/programming/android/
+dcv_android_api: /capture-vision/docs/mobile/programming/android/api-reference/
+
+dcv_introduction: /capture-vision/docs/core/introduction/
+
+dce_android: /camera-enhancer/docs/mobile/programming/android/
+dce_ios: /camera-enhancer/docs/mobile/programming/ios/
+
+dcv_enums: /capture-vision/docs/core/enums/
+
 ios: /document-normalizer/docs/mobile/programming/ios/
 ios_api: /document-normalizer/docs/mobile/programming/ios/api-reference/
 ios_release_notes: /document-normalizer/docs/mobile/programming/ios/release-notes/
@@ -23,6 +36,9 @@ xamarin_camera_enhancer: /document-normalizer/docs/mobile/programming/xamarin/ap
 
 enumerations: /document-normalizer/docs/mobile/programming/enumerations/
 
+js: /document-normalizer/docs/web/programming/javascript/
+cpp: /document-normalizer/docs/server/programming/cplusplus/
+
 useVersionTree: true
 
 assets: /document-normalizer/docs/mobile/assets/
@@ -32,7 +48,7 @@ sad_icon: /document-normalizer/docs/mobile/assets/img-icon/icon-sad.png
 
 baseurl: "/document-normalizer/docs/mobile"
 
-download: "/document-normalizer/downloads/1000023-confirmation/"
+download: "/document-normalizer/downloads/"
 
 plugins:
   - jemoji
