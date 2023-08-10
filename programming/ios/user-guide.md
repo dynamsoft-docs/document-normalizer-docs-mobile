@@ -17,7 +17,7 @@ permalink: /programming/ios/user-guide.html
 
 - Supported OS: **iOS 11.0** or higher.
 - Supported ABI: **arm64** and **x86_64**.
-- Development Environment: Xcode 7.1 and above (Xcode 13.0+ recommended).
+- Development Environment: Xcode 13.0 and above (Xcode 14.1+ recommended).
 
 ## Build Your First Application
 
@@ -25,7 +25,7 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 
 >Note:
 >
-> - Xcode 13.0 is used here in this guide.
+> - Xcode 14.0 is used here in this guide.
 > - You can get the source code of the HelloWord app from the following link
 >   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld).
 >   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld).
@@ -36,7 +36,7 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 
 2. Select **iOS -> App** for your application.
 
-3. Input your product name (Helloworld), interface (StoryBoard) and language (Objective-C/Swift). We currently do not support SwiftUI, so we apologize if this causes any inconvenience.
+3. Input your product name (HelloWorld), interface (StoryBoard) and language (Objective-C/Swift). We currently do not support SwiftUI, so we apologize if this causes any inconvenience.
 
 4. Click on the **Next** button and select the location to save the project.
 
@@ -48,7 +48,7 @@ There are two ways to add the SDK into your project - **Manually** and **CocoaPo
 
 #### Add the Frameworks Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-1.0.20.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **Frameworks** under the **DynamsoftDocumentNormalizer\Frameworks** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-2.0.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **Frameworks** under the **Dynamsoft\Frameworks** directory:
 
    | File | Description |
    | ---- | ----------- |
@@ -72,13 +72,10 @@ There are two ways to add the SDK into your project - **Manually** and **CocoaPo
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftCaptureVisionRouter','2.0.0'
-   pod 'DynamsoftDocumentNormalizer','2.0.0'
-   pod 'DynamsoftCore','2.0.0'
+   pod 'DynamsoftCaptureVisionRouter','2.0.10'
+   pod 'DynamsoftDocumentNormalizer','2.0.10'
    pod 'DynamsoftCameraEnhancer','4.0.0'
-   pod 'DynamsoftImageProcessing','2.0.0'
-   pod 'DynamsoftLicense','1.0.0'
-   pod 'DynamsoftUtility','1.0.0'
+   pod 'DynamsoftUtility','1.0.10'
 
    end
    ```
