@@ -44,7 +44,7 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 
 ### Add the SDK
 
-There are two ways to add the SDK into your project - **Manually** and **CocoaPods**.
+There are three ways to add the SDK into your project - **Manually**, via **CocoaPods**, or via **Swift Package Manager**.
 
 #### Add the Frameworks Manually
 
@@ -85,6 +85,16 @@ There are two ways to add the SDK into your project - **Manually** and **CocoaPo
    ```sh
    pod install
    ```
+
+### Add the xcframeworks via Swift Package Manager
+
+1. In your Xcode project, go to **File --> AddPackages**.
+
+2. In the top-right section of the window, search "https://github.com/Dynamsoft/document-normalizer-spm"
+
+3. Select `document-normalizer-spm`, then click **Add Package**.
+
+4. Check all the frameworks and add.
 
 &nbsp;
 
