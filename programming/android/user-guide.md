@@ -46,7 +46,7 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 >Note:
 >
 >- Android Studio 4.2 is used here in this guide.
->- You can [get the similar source code of the HelloWorld sample here](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/HelloWorld){:target="_blank"}.
+>- You can [get the similar source code of the HelloWorld sample here](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld){:target="_blank"}.
 
 ### Create a New Project
 
