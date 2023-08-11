@@ -71,12 +71,12 @@ defaults:
       docRootName: "Document Normalizer Android Edition" 
       docHomePage: "/document-normalizer/docs/mobile/programming/android/"
   - scope:
-      path: "programming/objectivec-swift"
+      path: "programming/ios"
     values:
       category: "mobile-repo"
       edition: "mobile"
       docRootName: "Document Normalizer iOS Edition" 
-      docHomePage: "/document-normalizer/docs/mobile/programming/objectivec-swift/"
+      docHomePage: "/document-normalizer/docs/mobile/programming/ios/"
   - scope:
       path: "programming-old/android"
     values:
@@ -85,12 +85,12 @@ defaults:
       docRootName: "Document Normalizer Android Edition" 
       docHomePage: "/document-normalizer/docs/mobile/programming/android/"
   - scope:
-      path: "programming-old/objectivec-swift"
+      path: "programming-old/ios"
     values:
       category: "mobile-repo"
       edition: "mobile"
       docRootName: "Document Normalizer iOS Edition" 
-      docHomePage: "/document-normalizer/docs/mobile/programming/objectivec-swift/"
+      docHomePage: "/document-normalizer/docs/mobile/programming/ios/"
   - scope:
       path: "Hide_Tree_Page.html"
     values:
