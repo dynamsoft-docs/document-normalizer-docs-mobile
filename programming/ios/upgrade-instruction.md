@@ -1,10 +1,10 @@
 ---
 layout: default-layout
-title: Upgrade Instructions - Dynamsoft Document Normalizer Android Edition
-keywords: android, document normalizer, upgrade
-description: This page introduces how to upgrade Dynamsoft Document Normalizer Android Edition from 1.x to 2.x
+title: Upgrade Instructions - Dynamsoft Document Normalizer iOS Edition
+keywords: ios, document normalizer, upgrade
+description: This page introduces how to upgrade Dynamsoft Document Normalizer iOS Edition from 1.x to 2.x
 needAutoGenerateSidebar: false
-permalink: /programming/android/upgrade-instruction.html
+permalink: /programming/ios/upgrade-instruction.html
 ---
 
 # How to Upgrade
@@ -17,23 +17,23 @@ Here are some of the main actions you may take:
 
 ### Update the Dependencies
 
-Since the SDK architecture is changed, you have to change your build.gradle for including the following libraries:
+Since the SDK architecture is changed, you have to change your `Podfile` for including the following libraries:
 
-```groovy
+```sh
 pod 'DynamsoftDocumentNormalizer','2.0.10'
 pod 'DynamsoftCaptureVisionRouter','2.0.10'
 pod 'DynamsoftCameraEnhancer','4.0.0'
 pod 'DynamsoftUtility','1.0.10'
 ```
 
-### Migrate from Class DocumentNormalizer to Class CaptureVisionRouter
+### Migrate from Class DynamsoftDocumentNormalizer to Class DSCaptureVisionRouter
 
-The `CaptureVisionRouter` class serves as the central class of the DCV framework's execution flow. It encompasses the following functionalities:
+The `DSCaptureVisionRouter` class serves as the central class of the DCV framework's execution flow. It encompasses the following functionalities:
 
-- Retrieving images from the `ImageSourceAdapter`.
+- Retrieving images from the `DSImageSourceAdapter`.
 - Updating templates and configuring settings.
 - Dynamically loading the `DynamsoftDocumentNormalizer` module for document detection and normalization.
-- Dispatching the results to registered receivers of type `CapturedResultReceiver`.
+- Dispatching the results to registered receivers of type `DSCapturedResultReceiver`.
 
 ### Convert Parameter Templates
 
@@ -43,7 +43,7 @@ The parameter system is restructured and the template you used for v1.x can't be
 
 #### Single Image Processing
 
-You should now utilize the provided `Capture` APIs instead of the previous `DetectQuad` and `Normalize` APIs. These `Capture` APIs directly return results for boundary detection or document normalization.
+You should now utilize the provided multiple `capture` APIs instead of the previous `detectQuad` and `normalize` APIs. These `capture` APIs directly return results for boundary detection or document normalization.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -69,17 +69,17 @@ You should now utilize the provided `Capture` APIs instead of the previous `Dete
 func captureFromFile(_ file:String, templateName:String) throws -> CaptureResult
 func captureFromFileBytes(_ fileBytes:Data, templateName:String) throws -> CaptureResult
 func captureFromBuffer(_ buffer:DSImageData, templateName:String) throws -> CaptureResult
-func captureFromBuffer(_ image:UIImage, templateName:String) throws -> CaptureResult
+func captureFromImage(_ image:UIImage, templateName:String) throws -> CaptureResult
 ```
 
 #### Batch Image Processing
 
-The DCV architecture allows you to conveniently and continuously obtain frames from `CameraEnhancer`, and detect or normalize them. The key steps are as follows:
+The DCV architecture allows you to conveniently and continuously obtain frames from `DSCameraEnhancer`, and detect or normalize them. The key steps are as follows:
 
-- Set a `CameraEnhancer` object as the input of the `CaptureVisionRouter` object via `setInput` API.
-- Register a `CapturedResultReceiver` object as the output of the `CaptureVisionRouter` object via `addResultReceiver` API.
-- Open/Close camera via `CameraEnhancer.open` and `CameraEnhancer.close` API.
-- Start/Stop capturing via `CaptureVisionRouter.startCapturing` and `CaptureVisionRouter.stopCapturing` API.
+- Set a `DSCameraEnhancer` object as the input of the `DSCaptureVisionRouter` object via `setInput` API.
+- Register a `DSCapturedResultReceiver` object as the output of the `DSCaptureVisionRouter` object via `addResultReceiver` API.
+- Open/Close camera via `DSCameraEnhancer.open` and `DSCameraEnhancer.close` API.
+- Start/Stop capturing via `DSCaptureVisionRouter.startCapturing` and `DSCaptureVisionRouter.stopCapturing` API.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
