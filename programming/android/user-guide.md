@@ -65,7 +65,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
 #### Add the Library Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.0.0.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **Dynamsoft\Libs** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.0.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **Dynamsoft\Libs** directory:
 
    | File | Description |
    |---------|-------------|
