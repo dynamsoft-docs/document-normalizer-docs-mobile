@@ -68,28 +68,28 @@ defaults:
     values:
       category: "mobile-repo"
       edition: "mobile"
-      docRootName: "Barcode Reader Android Edition" 
+      docRootName: "Document Normalizer Android Edition" 
       docHomePage: "/document-normalizer/docs/mobile/programming/android/"
   - scope:
       path: "programming/objectivec-swift"
     values:
       category: "mobile-repo"
       edition: "mobile"
-      docRootName: "Barcode Reader iOS Edition" 
+      docRootName: "Document Normalizer iOS Edition" 
       docHomePage: "/document-normalizer/docs/mobile/programming/objectivec-swift/"
   - scope:
       path: "programming-old/android"
     values:
       category: "mobile-repo"
       edition: "mobile"
-      docRootName: "Barcode Reader Android Edition" 
+      docRootName: "Document Normalizer Android Edition" 
       docHomePage: "/document-normalizer/docs/mobile/programming/android/"
   - scope:
       path: "programming-old/objectivec-swift"
     values:
       category: "mobile-repo"
       edition: "mobile"
-      docRootName: "Barcode Reader iOS Edition" 
+      docRootName: "Document Normalizer iOS Edition" 
       docHomePage: "/document-normalizer/docs/mobile/programming/objectivec-swift/"
   - scope:
       path: "Hide_Tree_Page.html"
