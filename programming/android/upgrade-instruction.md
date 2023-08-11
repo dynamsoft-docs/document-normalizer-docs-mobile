@@ -17,7 +17,7 @@ Here are some of the main actions you may take:
 
 ### Update the Dependencies
 
-Since the SDK architecture is changed, you have to change your build.gradle for including the following libraries:
+Since the SDK architecture is changed, you have to change your `build.gradle` for including the following libraries:
 
 ```groovy
 dependencies {
@@ -45,7 +45,7 @@ The parameter system is restructured and the template you used for v1.x can't be
 
 #### Single Image Processing
 
-You should now utilize the provided `Capture` APIs instead of the previous `DetectQuad` and `Normalize` APIs. These `Capture` APIs directly return results for boundary detection or document normalization.
+You should now utilize the provided `capture` APIs instead of the previous `detectQuad` and `normalize` APIs. These `capture` APIs directly return results for boundary detection or document normalization.
 
 ```java
 CapturedResult capture(String filePath, String templateName) throws CaptureVisionRouterException
