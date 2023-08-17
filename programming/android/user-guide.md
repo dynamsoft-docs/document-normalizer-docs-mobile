@@ -26,11 +26,11 @@ In this guide, you will learn step by step on how to build a document normalizat
     - [MainActivity for Realtime Document Normalization](#mainactivity-for-realtime-document-normalization)
       - [Initialize Camera Module](#initialize-camera-module)
       - [Initialize Capture Vision Router](#initialize-capture-vision-router)
-      - [Add a Captured Result Receiver](#add-a-captured-result-receiver)
+      - [Add a Captured Result Receiver and Filter](#add-a-captured-result-receiver-and-filter)
       - [Start and Stop Video Document Normalization](#start-and-stop-video-document-normalization)
-      - [Additional Steps in `MainActivity`](#additional-steps-in-mainactivity)
+      - [Additional Steps in MainActivity](#additional-steps-in-mainactivity)
     - [ResultActivity for Displaying the Normalized Image](#resultactivity-for-displaying-the-normalized-image)
-      - [Diplay the Normalized Image](#diplay-the-normalized-image)
+      - [Display the Normalized Image](#display-the-normalized-image)
     - [Build and Run the Project](#build-and-run-the-project)
 
 ## Requirements
@@ -46,7 +46,7 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 >Note:
 >
 >- Android Studio 4.2 is used here in this guide.
->- You can [get the similar source code of the HelloWorld sample here](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld).
+>- You can [get the similar source code of the HelloWorld sample here](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld){:target="_blank"}.
 
 ### Create a New Project
 
@@ -65,7 +65,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
 #### Add the Library Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.0.0.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **Dynamsoft\Libs** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.0.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **Dynamsoft\Libs** directory:
 
    | File | Description |
    |---------|-------------|
@@ -182,7 +182,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
    import com.dynamsoft.dce.utils.PermissionUtil;
 
    public class MainActivity extends AppCompatActivity {
-      private CameraEnhancer mCameraEnhancer;
+      private CameraEnhancer mCamera;
 
       @Override
       protected void onCreate(Bundle savedInstanceState) { 
@@ -190,7 +190,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
          ...
 
          CameraView cameraView = findViewById(R.id.camera_view);
-         mCameraEnhancer = new CameraEnhancer(cameraView, MainActivity.this);
+         mCamera = new CameraEnhancer(cameraView, MainActivity.this);
  
          PermissionUtil.requestCameraPermission(MainActivity.this);
       }
@@ -219,12 +219,16 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
          ...
 
          mRouter = new CaptureVisionRouter(MainActivity.this);
-         mRouter.setInput(mCameraEnhancer);
+         try {
+               mRouter.setInput(mCamera);
+         } catch (CaptureVisionRouterException e) {
+               e.printStackTrace();
+         }
       }
    }
    ```
 
-#### Add a Captured Result Receiver
+#### Add a Captured Result Receiver and Filter
 
 1. Add a result receiver to get the normalized image results.
 
@@ -241,37 +245,56 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
       ...
 
       public static ImageData mNormalizedImageData;
-      private boolean mJumpToOtherActivity;
+      private boolean mJumpToOtherActivity = false;
 
       @Override
       protected void onCreate(Bundle savedInstanceState) { 
          
          ...
          
-        try {
-            mRouter.addResultReceiver(new CapturedResultReceiver() {
-                @Override
-                public void onNormalizedImagesReceived(NormalizedImagesResult result) {
-                  if (!mJumpToOtherActivity && result.getItems().length > 0) {
-                     mJumpToOtherActivity = true;
+         mRouter.addResultReceiver(new CapturedResultReceiver() {
+               @Override
+               public void onNormalizedImagesReceived(NormalizedImagesResult result) {
+                  if (mJumpToOtherActivity && result.getItems().length > 0) {
+                     mJumpToOtherActivity = false;
 
                      mNormalizedImageData = result.getItems()[0].getImageData();
 
                      Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                      startActivity(intent);
                   }
-                }
-            });
-        } catch (CaptureVisionRouterException e) {
-            e.printStackTrace();
-        }
+               }
+         });
+      }
+   }
+   ```
+
+2. Add a result cross filter to validate the normalized image result across multiple frames.
+
+   ```java
+   ...
+
+   import com.dynamsoft.utility.MultiFrameResultCrossFilter;
+
+   public class MainActivity extends AppCompatActivity {
+      
+      ...
+
+      @Override
+      protected void onCreate(Bundle savedInstanceState) { 
+         
+         ...
+         
+         MultiFrameResultCrossFilter filter = new MultiFrameResultCrossFilter();
+         filter.enableResultCrossVerification(CRIT_NORMALIZED_IMAGE, true);
+         mRouter.addResultFilter(filter);
       }
    }
    ```
 
 #### Start and Stop Video Document Normalization
 
-1. Override the `MainActivity.onResume` function to open camera, override the `MainActivity.onPause` function to close camera and stop video document normalization.
+1. Override the `MainActivity.onResume` function to open camera and start video document normalization, override the `MainActivity.onPause` function to close camera and stop video document normalization.
 
    ```java
    public class MainActivity extends AppCompatActivity {
@@ -283,7 +306,8 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
          super.onResume();
          try {
                mCamera.open();
-         } catch (CameraEnhancerException e) {
+               mRouter.startCapturing(EnumPresetTemplate.PT_DETECT_AND_NORMALIZE_DOCUMENT);
+         } catch (CameraEnhancerException | CaptureVisionRouterException e) {
                e.printStackTrace();
          }
       }
@@ -310,18 +334,12 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
       ...
 
       public void onCaptureBtnClick(View v) {
-        mJumpToOtherActivity = false;
-
-        try {
-            mRouter.startCapturing(EnumPresetTemplate.PT_DETECT_AND_NORMALIZE_DOCUMENT);
-        } catch (CaptureVisionRouterException e) {
-            e.printStackTrace();
-        }
+        mJumpToOtherActivity = true;
       }
    }
    ```
 
-#### Additional Steps in `MainActivity`
+#### Additional Steps in MainActivity
 
 1. In the Project window, open **app > res > layout > `activity_main.xml`**, create a button under the root node to capture the quads detected on the image.
 
@@ -343,7 +361,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
 ### ResultActivity for Displaying the Normalized Image
 
-#### Diplay the Normalized Image
+#### Display the Normalized Image
 
 1. Create a new empty activity named `ResultActivity`.
 

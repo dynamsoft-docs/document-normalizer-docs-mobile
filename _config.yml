@@ -48,7 +48,7 @@ sad_icon: /document-normalizer/docs/mobile/assets/img-icon/icon-sad.png
 
 baseurl: "/document-normalizer/docs/mobile"
 
-download: "/document-normalizer/downloads/1000023-confirmation/"
+download: "/document-normalizer/downloads/"
 
 plugins:
   - jemoji
@@ -63,6 +63,34 @@ defaults:
       noTitleIndex: true
       needAutoGenerateSidebar: true
       needGenerateH3Content: true
+  - scope:
+      path: "programming/android"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer Android Edition" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/android/"
+  - scope:
+      path: "programming/ios"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer iOS Edition" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/ios/"
+  - scope:
+      path: "programming-old/android"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer Android Edition" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/android/"
+  - scope:
+      path: "programming-old/ios"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer iOS Edition" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/ios/"
   - scope:
       path: "Hide_Tree_Page.html"
     values:

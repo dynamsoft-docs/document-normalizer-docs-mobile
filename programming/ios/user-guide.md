@@ -17,7 +17,7 @@ permalink: /programming/ios/user-guide.html
 
 - Supported OS: **iOS 11.0** or higher.
 - Supported ABI: **arm64** and **x86_64**.
-- Development Environment: Xcode 7.1 and above (Xcode 13.0+ recommended).
+- Development Environment: Xcode 13.0 and above (Xcode 14.1+ recommended).
 
 ## Build Your First Application
 
@@ -25,10 +25,10 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 
 >Note:
 >
-> - Xcode 13.0 is used here in this guide.
+> - Xcode 14.0 is used here in this guide.
 > - You can get the source code of the HelloWord app from the following link
->   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld).
->   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld).
+>   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld){:target="_blank"}.
+>   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld){:target="_blank"}.
 
 ### Create a New Project
 
@@ -36,7 +36,7 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 
 2. Select **iOS -> App** for your application.
 
-3. Input your product name (Helloworld), interface (StoryBoard) and language (Objective-C/Swift). We currently do not support SwiftUI, so we apologize if this causes any inconvenience.
+3. Input your product name (HelloWorld), interface (StoryBoard) and language (Objective-C/Swift). We currently do not support SwiftUI, so we apologize if this causes any inconvenience.
 
 4. Click on the **Next** button and select the location to save the project.
 
@@ -44,11 +44,11 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 
 ### Add the SDK
 
-There are two ways to add the SDK into your project - **Manually** and **CocoaPods**.
+There are three ways to add the SDK into your project - **Manually**, via **CocoaPods**, or via **Swift Package Manager**.
 
 #### Add the Frameworks Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-1.0.20.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **Frameworks** under the **DynamsoftDocumentNormalizer\Frameworks** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-2.0.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **Frameworks** under the **Dynamsoft\Frameworks** directory:
 
    | File | Description |
    | ---- | ----------- |
@@ -72,13 +72,10 @@ There are two ways to add the SDK into your project - **Manually** and **CocoaPo
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftCaptureVisionRouter','2.0.0'
-   pod 'DynamsoftDocumentNormalizer','2.0.0'
-   pod 'DynamsoftCore','2.0.0'
+   pod 'DynamsoftCaptureVisionRouter','2.0.10'
+   pod 'DynamsoftDocumentNormalizer','2.0.10'
    pod 'DynamsoftCameraEnhancer','4.0.0'
-   pod 'DynamsoftImageProcessing','2.0.0'
-   pod 'DynamsoftLicense','1.0.0'
-   pod 'DynamsoftUtility','1.0.0'
+   pod 'DynamsoftUtility','1.0.10'
 
    end
    ```
@@ -88,6 +85,16 @@ There are two ways to add the SDK into your project - **Manually** and **CocoaPo
    ```sh
    pod install
    ```
+
+### Add the xcframeworks via Swift Package Manager
+
+1. In your Xcode project, go to **File --> AddPackages**.
+
+2. In the top-right section of the window, search "https://github.com/Dynamsoft/document-normalizer-spm"
+
+3. Select `document-normalizer-spm`, then click **Add Package**.
+
+4. Check all the frameworks and add.
 
 &nbsp;
 
@@ -202,7 +209,7 @@ Create the instances of `CameraEnhancer` and `CameraView`.
 2. 
 ```swift
 var cameraView:CameraView!
-let dce:CameraEnhancer = .init()
+let dce:CameraEnhancer!
 ...
 func setUpCamera() {
    // Create a camera view and add it as a sub view of the current view.
@@ -210,6 +217,7 @@ func setUpCamera() {
    cameraView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
    view.insertSubview(cameraView, at: 0)
    // Bind the camera enhancer with the camera view.
+   dce = CameraEnhancer()
    dce.cameraView = cameraView
    // Additional step: Highlight the detected document boundary.
    let layer = cameraView.getDrawingLayer(DrawingLayerId.DDN.rawValue)
@@ -238,7 +246,10 @@ Declare and create an instance of `CaptureVisionRouter`.
 ```
 2. 
 ```swift
-let cvr:CaptureVisionRouter = .init()
+let cvr:CaptureVisionRouter!
+func setUpDCV() {
+   cvr = CaptureVisionRouter()
+}
 ```
 
 #### Set the CameraEnhancer as the Input
@@ -291,33 +302,34 @@ func setUpCvr() {
    >
    >1. 
    ```objc
-   - (void) onNormalizedImagesReceived:(DSNormalizedImagesResult *)result
+   -(void)onNormalizedImagesReceived:(DSNormalizedImagesResult *)result
    {
-      if (_implementCapture != false && result != nil && result.items[0].imageData != nil)
+      if (_implementCapture && result!=nil && result.items[0].imageData!=nil)
       {
-             /** Initialize a new UIView to display the normalized image.*/
+             _implementCapture = false;
              ImageViewController *imageViewController = [[ImageViewController alloc] init];
-             NSError * coreError;
-             imageViewController.normalizedImage = [result.items[0].imageData toUIImage:&coreError];
-             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.navigationController pushViewController:imageViewController animated:YES];
+             NSError * error;
+             imageViewController.resultUIImage = [result.items[0].imageData toUIImage:&error];
+             dispatch_async(dispatch_get_main_queue(), ^{            [self.navigationController pushViewController:imageViewController animated:YES];
              });
       }
    }
    ```
    2. 
    ```swift
-   func onNormalizedImagesReceived(_ result: NormalizedImagesResult)
-   {
+   func onNormalizedImagesReceived(_ result: NormalizedImagesResult) {
+      print("Normalized image received")
       if let items = result.items, items.count > 0 {
              guard let data = items[0].imageData else {
                 return
              }
-             /** Initialize a new UIView to display the normalized image.*/
              let resultView = ImageViewController()
-             resultView.normalizedImage = try? data.toUIImage
-             DispatchQueue.main.async {
-                self.present(resultView, animated: true)
+             resultView.data = data
+             if implementCapture
+             {
+                DispatchQueue.main.async {
+                       self.present(resultView, animated: true)
+                }
              }
       }
    }
@@ -336,6 +348,9 @@ func setUpCvr() {
       NSError *cvrError;
       [_cvr setInput:_dce error:&cvrError];
       [_cvr addResultReceiver:self error:&cvrError];
+      DSMultiFrameResultCrossFilter *filter = [[DSMultiFrameResultCrossFilter alloc] init];
+      [filter enableResultCrossVerification:DSCapturedResultItemTypeNormalizedImage isEnabled:true];
+      [_cvr addResultFilter:filter error:&cvrError];
    }
    ```
    2. 
@@ -343,6 +358,63 @@ func setUpCvr() {
    func setUpCvr() {
       try? cvr.setInput(dce)
       try? cvr.addResultReceiver(self)
+      let filter = MultiFrameResultCrossFilter.init()
+      filter.enableResultCrossVerification(.normalizedImage, isEnabled: true)
+      try? cvr.addResultFilter(filter)
+   }
+   ```
+
+4. Add a `confirmCapture` button to confirm the result.
+
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   @property (nonatomic, strong) UIButton *captureButton;
+   ...
+   - (void)addCaptureButton {
+      [self.view addSubview:self.captureButton];
+   }
+   - (UIButton *)captureButton {
+      NSLog(@"Start adding button");
+      CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+      CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+      if (!_captureButton) {
+             _captureButton = [UIButton buttonWithType:UIButtonTypeCustom];
+             _captureButton.frame = CGRectMake((screenWidth - 150) / 2.0, screenHeight - 100, 150, 50);
+             _captureButton.backgroundColor = [UIColor grayColor];
+             _captureButton.layer.cornerRadius = 10;
+             _captureButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+             [_captureButton setTitle:@"Capture" forState:UIControlStateNormal];
+             [_captureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+             [_captureButton addTarget:self action:@selector(setCapture) forControlEvents:UIControlEventTouchUpInside];
+      }
+      return _captureButton;
+   }
+   ```
+   2. 
+   ```swift
+   var captureButton:UIButton!
+   var implementCapture:Bool = false
+   ...
+   func addCaptureButton()
+   {
+      let w = UIScreen.main.bounds.size.width
+      let h = UIScreen.main.bounds.size.height
+      let SafeAreaBottomHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height > 20 ? 34 : 0
+      let photoButton = UIButton(frame: CGRect(x: w / 2 - 60, y: h - 100 - SafeAreaBottomHeight, width: 120, height: 60))
+      photoButton.setTitle("Capture", for: .normal)
+      photoButton.backgroundColor = UIColor.green
+      photoButton.addTarget(self, action: #selector(confirmCapture), for: .touchUpInside)
+      DispatchQueue.main.async(execute: { [self] in
+             view.addSubview(photoButton)
+      })
+   }
+   @objc func confirmCapture()
+   {
+      implementCapture = true
    }
    ```
 
@@ -355,21 +427,22 @@ func setUpCvr() {
 >1. 
 ```objc
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setUpCamera];
-    [self setUpCvr];
+   [super viewDidLoad];
+   [self setUpCamera];
+   [self setUpCvr];
+   [self addCaptureButton];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [_dce open];
-    NSError *cvrError;
-    [_cvr startCapturing:DSPresetTemplateDetectAndNormalizeDocument error:&cvrError];
+   [super viewWillAppear:animated];
+   [_dce open];
+   NSError *cvrError;
+   [_cvr startCapturing:DSPresetTemplateDetectAndNormalizeDocument error:&cvrError];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [_dce close];
+   [super viewWillAppear:animated];
+   [_dce close];
 }
 ```
 2. 
@@ -378,6 +451,7 @@ override func viewDidLoad() {
    super.viewDidLoad()
    setUpCamera()
    setUpCvr()
+   addCaptureButton()
 }
 override func viewWillAppear(_ animated: Bool) {
    super.viewWillAppear(animated)
@@ -469,5 +543,5 @@ override func viewWillDisappear(_ animated: Bool) {
 > Note:
 >
 > - You can get the source code of the HelloWord app from the following link
->   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld).
->   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld).
+>   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld){:target="_blank"}.
+>   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld){:target="_blank"}.

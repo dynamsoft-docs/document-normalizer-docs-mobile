@@ -10,7 +10,7 @@ permalink: /programming/ios/release-notes/index.html
 
 # Dynamsoft Document Normalizer iOS SDK - Release Notes
 
-- [2.0.10 (08/03/2023)](ios-2.md#2010-08032023)
+- [2.0.10 (08/10/2023)](ios-2.md#2010-08102023)
 - [1.0.30 (06/07/2023)](ios-1.md#1030-06072023)
 - [1.0.20 (02/02/2023)](ios-1.md#1020-02022023)
 - [1.0.10 (09/29/2022)](ios-1.md#1010-09292022)

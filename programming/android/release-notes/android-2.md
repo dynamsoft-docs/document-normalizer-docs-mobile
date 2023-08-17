@@ -11,6 +11,6 @@ permalink: /programming/android/release-notes/android-2.html
 
 # Release Notes for Android SDK - v2.x
 
-## 2.0.10 (08/03/2023)
+## 2.0.10 (08/10/2023)
 
 {%- include release-notes/product-highlight-2.0.0.md -%}
