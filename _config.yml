@@ -64,38 +64,43 @@ defaults:
       needAutoGenerateSidebar: true
       needGenerateH3Content: true
   - scope:
-      path: "Hide_Tree_Page.html"
-    values:
-      sitemap: false
-  - scope:
       path: "programming/android"
     values:
-      docRootName: "Document Normalizer Android" 
-      docHomePage: "/document-normalizer/docs/server/programming/android/"
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer Android Edition" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/android/"
   - scope:
       path: "programming/ios"
     values:
-      docRootName: "Document Normalizer IOS" 
-      docHomePage: "/document-normalizer/docs/server/programming/ios/"
-  - scope:
-      path: "programming/xamarin"
-    values:
-      docRootName: "Document Normalizer XAMARIN" 
-      docHomePage: "/document-normalizer/docs/server/programming/xamarin/"
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer iOS Edition" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/ios/"
   - scope:
       path: "programming-old/android"
     values:
-      docRootName: "Document Normalizer Android" 
-      docHomePage: "/document-normalizer/docs/server/programming/android/"
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer Android Edition" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/android/"
   - scope:
       path: "programming-old/ios"
     values:
-      docRootName: "Document Normalizer IOS" 
-      docHomePage: "/document-normalizer/docs/server/programming/ios/"
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer iOS Edition" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/ios/"
   - scope:
       path: "programming-old/xamarin"
     values:
-      docRootName: "Document Normalizer XAMARIN" 
-      docHomePage: "/document-normalizer/docs/server/programming/xamarin/"
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer Xamarin.Forms Edition" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/xamarin/"
+  - scope:
+      path: "Hide_Tree_Page.html"
+    values:
+      sitemap: false
 
 url: "https://www.dynamsoft.com" # sitemap root
