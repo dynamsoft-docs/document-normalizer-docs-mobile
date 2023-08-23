@@ -95,5 +95,35 @@ defaults:
       path: "Hide_Tree_Page.html"
     values:
       sitemap: false
+  - scope:
+      path: "programming/android"
+    values:
+      docRootName: "Document Normalizer Android" 
+      docHomePage: "/document-normalizer/docs/server/programming/android/"
+  - scope:
+      path: "programming/ios"
+    values:
+      docRootName: "Document Normalizer IOS" 
+      docHomePage: "/document-normalizer/docs/server/programming/ios/"
+  - scope:
+      path: "programming/xamarin"
+    values:
+      docRootName: "Document Normalizer XAMARIN" 
+      docHomePage: "/document-normalizer/docs/server/programming/xamarin/"
+  - scope:
+      path: "programming-old/android"
+    values:
+      docRootName: "Document Normalizer Android" 
+      docHomePage: "/document-normalizer/docs/server/programming/android/"
+  - scope:
+      path: "programming-old/ios"
+    values:
+      docRootName: "Document Normalizer IOS" 
+      docHomePage: "/document-normalizer/docs/server/programming/ios/"
+  - scope:
+      path: "programming-old/xamarin"
+    values:
+      docRootName: "Document Normalizer XAMARIN" 
+      docHomePage: "/document-normalizer/docs/server/programming/xamarin/"
 
 url: "https://www.dynamsoft.com" # sitemap root
