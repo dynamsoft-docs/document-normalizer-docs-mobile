@@ -13,7 +13,17 @@ permalink: /programming/ios/user-guide.html
 
 # Getting Started with iOS
 
-## Requirements
+## Table Of Contents
+
+- [System Requirememts](#system-requirements)
+- [Build Your First Application](#build-your-first-application)
+   - [Create a New Project](#create-a-new-project)
+   - [Add the SDK](#add-the-sdk)
+   - [Implementing ViewController for Realtime Detection of Quads](#implementing-viewcontroller-for-realtime-detection-of-quads)
+
+   
+
+## System Requirements
 
 - Supported OS: **iOS 11.0** or higher.
 - Supported ABI: **arm64** and **x86_64**.
@@ -21,11 +31,11 @@ permalink: /programming/ios/user-guide.html
 
 ## Build Your First Application
 
-In this section, let's see how to create a HelloWorld app for normalizing documents from camera video input.
+This guide will walk you through the process of creating a HelloWorld app for normalizing documents via a camera video input.
 
 >Note:
 >
-> - Xcode 14.0 is used here in this guide.
+> - Xcode 14.0 is used in this guide.
 > - You can get the source code of the HelloWord app from the following link
 >   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld){:target="_blank"}.
 >   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld){:target="_blank"}.
@@ -36,7 +46,7 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 
 2. Select **iOS -> App** for your application.
 
-3. Input your product name (HelloWorld), interface (StoryBoard) and language (Objective-C/Swift). We currently do not support SwiftUI, so we apologize if this causes any inconvenience.
+3. Input your product name (HelloWorld), interface (StoryBoard), and language (Objective-C/Swift). We currently do not support SwiftUI and we apologize if this causes any inconvenience.
 
 4. Click on the **Next** button and select the location to save the project.
 
@@ -55,18 +65,20 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    | `DynamsoftDocumentNormalizer.xcframework` | The Dynamsoft Document Normalizer SDK which includes the document normalizer related APIs. |
    | `DynamsoftCore.xcframework`  | The core library of the Dynamsoft Capture Vision SDK which includes basic structures and intermediate result related APIs. |
    | `DynamsoftCaptureVisionRouter.xcframework` | The CaptureVisionRouter is used to coordinate the image-processing and semantic-processing products that are being used in the application. It accepts an image source and returns processing results which may contain final results or intermediate results. |
-   | `DynamsoftImageProcessing.xcframework` | The image processing library of the Dynamsoft Capture Vision SDK, including image processing algorithms and APIs. |
+   | `DynamsoftImageProcessing.xcframework` | The image processing library of the Dynamsoft Capture Vision SDK, and so includes the image processing algorithms and APIs. |
    | `DynamsoftLicense.xcframework` | This module includes the licensing API. |
    | `DynamsoftCameraEnhancer.xcframework` | The Dynamsoft Camera Enhancer SDK defines the camera control and frame preprocessing API. |
    | `DynamsoftUtility.xcframework (Optional)` | The module includes functional APIs that support you to integrate the input, filtering the results, generating result images, etc. |
 
-2. Drag and drop the above five **frameworks** into your Xcode project. Make sure to check *Copy items if needed* and *Create groups* to properly copy the framework into your project's folder.
+2. Drag and drop the above six (seven if the Utility framework is included) **frameworks** into your Xcode project. Make sure to check *Copy items if needed* and *Create groups* to properly copy the framework into your project's folder.
 
 3. Click on the project settings then go to **General –> Frameworks, Libraries, and Embedded Content**. Set the **Embed** field to **Embed & Sign** for all of the imported frameworks.
 
 #### Add the Frameworks via CocoaPods
 
-1. Add the frameworks in your **Podfile**.
+1. Create a **Podfile** in your project directory
+
+2. Add the frameworks in your **Podfile**. Please note that not every framework listed above is mentioned in the **Podfile**, but they will still get installed as they are dependencies of the main frameworks listed in the **Podfile**.
 
    ```sh
    target 'HelloWorld' do
@@ -80,13 +92,15 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    end
    ```
 
-2. Execute the pod command to install the frameworks and generate workspace(**HelloWorld.xcworkspace**):
+3. Execute the `pod command` to install the frameworks and generate workspace(**HelloWorld.xcworkspace**):
 
    ```sh
    pod install
    ```
 
-### Add the xcframeworks via Swift Package Manager
+> If the `pod install` command fails, please try running `pod update` instead.
+
+#### Add the xcframeworks via Swift Package Manager
 
 1. In your Xcode project, go to **File --> AddPackages**.
 
@@ -98,9 +112,9 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
 
 &nbsp;
 
-### Main ViewController for Realtime Detection of Quads
+### Implementing ViewController for Realtime Detection of Quads
 
-In the main view controller, your app will scan documents via video streaming and display the detect quadrilateral area on the screen. First of all, import the headers in the ViewController file.
+In the main *ViewController*, the app will scan documents via video and display the detected quadrilateral area on the screen. First of all, import the headers in the *ViewController* file.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -125,61 +139,59 @@ In the main view controller, your app will scan documents via video streaming an
 
 #### Initialize License
 
-Initialize the license first. It is suggested to initialize the license in the `AppDelegate` file.
+Initialize the license first. We suggest to initialize the license in the `AppDelegate` file. Please remember to add `LicenseVerificationListener` to the interface.
 
-<div class="sample-code-prefix"></div>
->- Objective-C
->- Swift
->
->1. 
-```objc
-// Import the DynamsoftLicense module to init license
-#import <DynamsoftLicense/DynamsoftLicense.h>
-// Add LicenseVerificationListener to the interface
-@interface AppDelegate ()<LicenseVerificationListener>
-@end
-@implementation AppDelegate
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   // Override point for customization after application launch.
-   [DSLicenseManager initLicense:@"Put your" verificationDelegate:self];
-   return YES;
-}
--(void)onLicenseVerified:(BOOL)isSuccess error:(NSError *)error
-{
-   // Add your code to do when license server returns.
-}
-...
-@end
-```
-2. 
-```swift
-// Import the DynamsoftLicense module to init license
-import DynamsoftLicense
-// Add LicenseVerificationListener to the interface
-class AppDelegate: UIResponder, UIApplicationDelegate, LicenseVerificationListener {
-   var window: UIWindow?
-
-   // Only the first func application(...) needs to be implemented. The UISceneSession Lifecycle marked functions are not needed.
-   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-          // Override point for customization after application launch.
-          LicenseManager.initLicense("Put your license key here.", verificationDelegate: self)
-          return true
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   // Import the DynamsoftLicense module to init license
+   #import <DynamsoftLicense/DynamsoftLicense.h>
+   // Add LicenseVerificationListener to the interface
+   @interface AppDelegate ()<LicenseVerificationListener>
+   @end
+   @implementation AppDelegate
+   - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      // Override point for customization after application launch.
+      [DSLicenseManager initLicense:@"Put your" verificationDelegate:self];
+      return YES;
    }
-   // Implement the callback method of LicenseVerificationListener.
-   func onLicenseVerified(_ isSuccess: Bool, error: Error?) {
-          // Add your code to do when license server returns.
+   -(void)onLicenseVerified:(BOOL)isSuccess error:(NSError *)error
+   {
+      // Add your code to do when license server returns.
    }
    ...
-}
-```
+   @end
+   ```
+   2. 
+   ```swift
+   // Import the DynamsoftLicense module to init license
+   import DynamsoftLicense
+   // Add LicenseVerificationListener to the interface
+   class AppDelegate: UIResponder, UIApplicationDelegate, LicenseVerificationListener {
+      var window: UIWindow?
+      // Only the first func application(...) needs to be implemented. The UISceneSession Lifecycle marked functions are not needed.
+      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+            // Override point for customization after application launch.
+            LicenseManager.initLicense("Put your license key here.", verificationDelegate: self)
+            return true
+      }
+      // Implement the callback method of LicenseVerificationListener.
+      func onLicenseVerified(_ isSuccess: Bool, error: Error?) {
+            // Add your code to do when license server returns.
+      }
+      ...
+   }
+   ```
 
 >Note:  
 >  
 >- Network connection is required for the license to work.
->- The license string here will grant you a time-limited trial license.
->- If the license has expired, you can go to the <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=docs" target="_blank">customer portal</a> to request for an extension.
+>- To request your own trial license, you can go to the <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=docs" target="_blank">customer portal</a>. You are allowed two 15-day extensions of the trial after the 30-day trial expires.
 
-#### Get Prepared with the Camera Module
+#### Configure the Camera Module
 
 Create the instances of `CameraEnhancer` and `CameraView`.
 
