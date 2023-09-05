@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DSDetectedQuadResultItem - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DSDetectedQuadResultItem of Dynamsoft Document Normalizer module represents a captured result whose type is detected quads, which contains the location and confidence as a document boundary.
-Keywords: detected quads, objective-c, swift
+title: DSDetectedQuadResultItem - Dynamsoft Document Normalizer module iOS Edition API Reference
+description: The class DSDetectedQuadResultItem of Dynamsoft Document Normalizer module represents a captured result whose type is detected quads, which contains the location and confidence as a document boundary.
+keywords: detected quads, objective-c, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

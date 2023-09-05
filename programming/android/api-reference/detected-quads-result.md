@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DetectedQuadsResult - Dynamsoft Document Normalizer Android SDK API Reference
-Description: The class DetectedQuadsResult represents a captured result whose type is detected quads, which contains an array of DetectedQuadResultItems and the rotation transformation matrix of the original image relative to the rotated image.
-Keywords: detected quads result, java, kotlin
+title: DetectedQuadsResult - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class DetectedQuadsResult represents a captured result whose type is detected quads, which contains an array of DetectedQuadResultItems and the rotation transformation matrix of the original image relative to the rotated image.
+keywords: detected quads result, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

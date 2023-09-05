@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DSNormalizedImagesResult - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DSNormalizedImagesResult of Dynamsoft Document Normalizer module represents a collection of captured result items whose type are normalized images.
-Keywords: normalized images, objective-c, swift
+title: DSNormalizedImagesResult - Dynamsoft Document Normalizer module iOS Edition API Reference
+description: The class DSNormalizedImagesResult of Dynamsoft Document Normalizer module represents a collection of captured result items whose type are normalized images.
+keywords: normalized images, objective-c, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

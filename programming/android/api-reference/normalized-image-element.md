@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: NormalizedImageElement - Dynamsoft Document Normalizer Android SDK API Reference
-Description: The class NormalizedImageElement represents an intermediate result whose type is normalized image, It is inherited from RegionObjectElement and contains image data of normalized result as additional parameter.
-Keywords: normalized image element, java, kotlin
+title: NormalizedImageElement - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class NormalizedImageElement represents an intermediate result whose type is normalized image, It is inherited from RegionObjectElement and contains image data of normalized result as additional parameter.
+keywords: normalized image element, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

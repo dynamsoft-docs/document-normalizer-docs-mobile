@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: CandidateQuadEdgesUnit - Dynamsoft Document Normalizer Android SDK API Reference
-Description: The class CandidateQuadEdgesUnit represents an intermediate result unit whose type is candidate quad edges.
-Keywords: candidate quad edges, intermediate result unit, java, kotlin
+title: CandidateQuadEdgesUnit - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class CandidateQuadEdgesUnit represents an intermediate result unit whose type is candidate quad edges.
+keywords: candidate quad edges, intermediate result unit, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
