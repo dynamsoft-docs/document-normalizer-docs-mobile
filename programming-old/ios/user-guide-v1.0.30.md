@@ -401,7 +401,7 @@ When the detected quadrilateral results are satisfied, we can move on to mannual
       CGFloat h = [[UIScreen mainScreen] bounds].size.height;
       CGFloat SafeAreaBottomHeight = [[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 34 : 0;
       photoButton = [[UIButton alloc] initWithFrame:CGRectMake(w / 2 - 60, h - 100 - SafeAreaBottomHeight, 120, 60)];
-      [photoButton settitle:@"Capture" forState:UIControlStateNormal];
+      [photoButton setTitle:@"Capture" forState:UIControlStateNormal];
       [photoButton setBackgroundColor:[UIColor greenColor]];
       [photoButton addTarget:self action:@selector(takePictures) forControlEvents:UIControlEventTouchUpInside];
       dispatch_async(dispatch_get_main_queue(), ^{
@@ -598,7 +598,7 @@ In the section, we will add code to get the user selected quadrilateral and norm
       CGFloat h = [[UIScreen mainScreen] bounds].size.height;
       CGFloat SafeAreaBottomHeight = [[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 34 : 0;
       UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(w / 2 - 60, h - 100 - SafeAreaBottomHeight, 120, 60)];
-      [button settitle:@"Normalize" forState:UIControlStateNormal];
+      [button setTitle:@"Normalize" forState:UIControlStateNormal];
       [button setBackgroundColor:[UIColor greenColor]];
       [button addTarget:self action:@selector(normalizeImage) forControlEvents:UIControlEventTouchUpInside];
       [self.view addSubview:button];

@@ -385,7 +385,7 @@ func setUpCvr() {
              _captureButton.backgroundColor = [UIColor grayColor];
              _captureButton.layer.cornerRadius = 10;
              _captureButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
-             [_captureButton settitle:@"Capture" forState:UIControlStateNormal];
+             [_captureButton setTitle:@"Capture" forState:UIControlStateNormal];
              [_captureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
              [_captureButton addTarget:self action:@selector(setCapture) forControlEvents:UIControlEventTouchUpInside];
       }
