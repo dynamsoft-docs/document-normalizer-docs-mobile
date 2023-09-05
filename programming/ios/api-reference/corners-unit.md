@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DSCornersUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DSCornersUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is corners.
-Keywords: corners unit, objective-c, swift
+title: DSCornersUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
+description: The class DSCornersUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is corners.
+keywords: corners unit, objective-c, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

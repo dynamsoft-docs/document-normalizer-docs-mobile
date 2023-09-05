@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DetectedQuadElement - Dynamsoft Document Normalizer module Android Edition API Reference
-Description: The class DetectedQuadElement represents a detected quadrilateral element, which is an intermediate result in the document scanning process.
-Keywords: detected quad, java, kotlin
+title: DetectedQuadElement - Dynamsoft Document Normalizer module Android Edition API Reference
+description: The class DetectedQuadElement represents a detected quadrilateral element, which is an intermediate result in the document scanning process.
+keywords: detected quad, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

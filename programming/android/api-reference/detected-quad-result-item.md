@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DetectedQuadResultItem - Dynamsoft Document Normalizer Android SDK API Reference
-Description: The class DetectedQuadResultItem represents a captured result item whose type is detected quads, which contains the location and confidence as a document boundary.
-Keywords: detected quads, java, kotlin
+title: DetectedQuadResultItem - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class DetectedQuadResultItem represents a captured result item whose type is detected quads, which contains the location and confidence as a document boundary.
+keywords: detected quads, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

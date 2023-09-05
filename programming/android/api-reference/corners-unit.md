@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: CornersUnit - Dynamsoft Document Normalizer Android SDK API Reference
-Description: The class CornersUnit represents an intermediate result unit whose type is corners.
-Keywords: corners unit, java, kotlin
+title: CornersUnit - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class CornersUnit represents an intermediate result unit whose type is corners.
+keywords: corners unit, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

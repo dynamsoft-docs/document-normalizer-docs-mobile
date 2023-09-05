@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: NormalizedImageResultItem - Dynamsoft Document Normalizer Android SDK API Reference
-Description: The class NormalizedImageResultItem represents a captured result item whose type is a normalized image. It stores the normalized image information.
-Keywords: normalized image result item, java, kotlin
+title: NormalizedImageResultItem - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class NormalizedImageResultItem represents a captured result item whose type is a normalized image. It stores the normalized image information.
+keywords: normalized image result item, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DSDetectedQuadsUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DSDetectedQuadsUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is detected quads. It is inherited from the DSIntermediateResultUnit class.
-Keywords: detected quads, objective-c, swift
+title: DSDetectedQuadsUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
+description: The class DSDetectedQuadsUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is detected quads. It is inherited from the DSIntermediateResultUnit class.
+keywords: detected quads, objective-c, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DSDocumentNormalizerModule - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DSDocumentNormalizerModule of Dynamsoft Document Normalizer module represents the document normalizer module, which provides general functions for document normalization.
-Keywords: document normalizer, objective-c, swift
+title: DSDocumentNormalizerModule - Dynamsoft Document Normalizer module iOS Edition API Reference
+description: The class DSDocumentNormalizerModule of Dynamsoft Document Normalizer module represents the document normalizer module, which provides general functions for document normalization.
+keywords: document normalizer, objective-c, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
