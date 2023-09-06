@@ -102,7 +102,7 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
 
 #### Add the xcframeworks via Swift Package Manager
 
-1. In your Xcode project, go to **File --> AddPackages**.
+1. In your Xcode project, go to **File --> Add Packages**.
 
 2. In the top-right section of the window, search "https://github.com/Dynamsoft/document-normalizer-spm"
 
@@ -112,9 +112,9 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
 
 &nbsp;
 
-### Implementing ViewController for Realtime Detection of Quads
+### Implementing ViewController for Realtime Detection of Boundaries
 
-In the main *ViewController*, the app will scan documents via video and display the detected quadrilateral area on the screen. First of all, import the headers in the *ViewController* file.
+The main operation of this Hello World app is to scan documents via video. In the main *ViewController*, we will implement this abilty as well as a display for the detected boundaries of the document(s). First off, import the headers in the *ViewController* file:
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -139,7 +139,7 @@ In the main *ViewController*, the app will scan documents via video and display 
 
 #### Initialize License
 
-Initialize the license first. We suggest to initialize the license in the `AppDelegate` file. Please remember to add `LicenseVerificationListener` to the interface.
+Before we dive into the code to implement the scanning , we should initialize the license first. We suggest to initialize the license in the `AppDelegate` file. Please remember to add `LicenseVerificationListener` to the interface.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -189,11 +189,11 @@ Initialize the license first. We suggest to initialize the license in the `AppDe
 >Note:  
 >  
 >- Network connection is required for the license to work.
->- To request your own trial license, you can go to the <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=docs" target="_blank">customer portal</a>. You are allowed two 15-day extensions of the trial after the 30-day trial expires.
+>- To request your own trial license, you can go to the <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=docs" target="_blank">customer portal</a>. You are allowed two 15-day extensions of the trial once the 30-day trial expires.
 
 #### Configure the Camera Module
 
-Create the instances of `CameraEnhancer` and `CameraView`.
+Now back to the `ViewController`, it's time to create the instances of `CameraEnhancer` and `CameraView`.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -221,7 +221,7 @@ Create the instances of `CameraEnhancer` and `CameraView`.
 2. 
 ```swift
 var cameraView:CameraView!
-let dce:CameraEnhancer!
+var dce:CameraEnhancer!
 ...
 func setUpCamera() {
    // Create a camera view and add it as a sub view of the current view.
@@ -241,7 +241,7 @@ func setUpCamera() {
 
 #### Initialize Capture Vision Router
 
-Declare and create an instance of `CaptureVisionRouter`.
+Once the camera component is set up, declare and create an instance of `CaptureVisionRouter` and set its input to the Camera Enhancer object you created in the last step.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -258,7 +258,8 @@ Declare and create an instance of `CaptureVisionRouter`.
 ```
 2. 
 ```swift
-let cvr:CaptureVisionRouter!
+var cvr:CaptureVisionRouter!
+...
 func setUpDCV() {
    cvr = CaptureVisionRouter()
 }
@@ -274,7 +275,7 @@ Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `C
 >
 >1. 
 ```objc
-- (void)setUpCvr
+- (void)setUpCVR
 {
    NSError *cvrError;
    [_cvr setInput:_dce error:&cvrError];
@@ -282,14 +283,16 @@ Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `C
 ```
 2. 
 ```swift
-func setUpCvr() {
+func setUpCVR() {
    try? cvr.setInput(dce)
 }
 ```
 
 #### Set up Result Receiver
 
-1. Add `CapturedResultReceiver` to your ViewController.
+In order to receive results, the corresponding `CapturedResultReceiver` must be implemented. The `CapturedResultReceiver` that is implemented depends on which functional product of the Capture Vision suite is being used. In this case, since the Document Normalizer is the one being used, the `onNormalizedImagesReceived` callback should be implemented.
+
+1. Add `CapturedResultReceiver` to the interface.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -306,7 +309,7 @@ func setUpCvr() {
    }
    ```
 
-2. Implement `onNormalizedImagesReceived` method to receive the normalized images as the captured results.
+2. Implement `onNormalizedImagesReceived` method to receive the final normalized images as the captured results.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
