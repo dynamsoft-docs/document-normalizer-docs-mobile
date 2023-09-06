@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DSLongLinesUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DSLongLinesUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is long lines. Line segments that are located in the same line are extended and merged to form a long line.
-Keywords: long lines, intermediate result unit, objective-c, swift
+title: DSLongLinesUnit - Dynamsoft Document Normalizer module iOS Edition API Reference
+description: The class DSLongLinesUnit of Dynamsoft Document Normalizer module represents an intermediate result unit whose type is long lines. Line segments that are located in the same line are extended and merged to form a long line.
+keywords: long lines, intermediate result unit, objective-c, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DocumentNormalizerModule - Dynamsoft Document Normalizer Android SDK API Reference
-Description: The class DocumentNormalizerModule provides general functions for document normalization sdk.
-Keywords: general functions, java, kotlin
+title: DocumentNormalizerModule - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class DocumentNormalizerModule provides general functions for document normalization sdk.
+keywords: general functions, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

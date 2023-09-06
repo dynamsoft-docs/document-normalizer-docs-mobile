@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DetectedQuadsUnit - Dynamsoft Document Normalizer Android SDK API Reference
-Description: The class DetectedQuadsUnit represents an intermediate result unit whose type is detected quads. It is inherited from the IntermediateResultUnit class.
-Keywords: detected quads, java, kotlin
+title: DetectedQuadsUnit - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class DetectedQuadsUnit represents an intermediate result unit whose type is detected quads. It is inherited from the IntermediateResultUnit class.
+keywords: detected quads, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

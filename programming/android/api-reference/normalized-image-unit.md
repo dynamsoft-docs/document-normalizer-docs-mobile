@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: NormalizedImagesUnit - Dynamsoft Document Normalizer Android SDK API Reference
-Description: The class NormalizedImagesUnit represents an intermediate result unit whose type is normalized images.
-Keywords: normalized images, java, kotlin
+title: NormalizedImagesUnit - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class NormalizedImagesUnit represents an intermediate result unit whose type is normalized images.
+keywords: normalized images, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true

@@ -1,8 +1,8 @@
 ---
 layout: default-layout
-Title: DSDetectedQuadsResult - Dynamsoft Document Normalizer module iOS Edition API Reference
-Description: The class DSDetectedQuadsResult of Dynamsoft Document Normalizer module represents a captured result whose type is detected quads, which contains an array of DSDetectedQuadResultItems and the rotation transformation matrix of the original image relative to the rotated image.
-Keywords: detected quads result, objective-c, swift
+title: DSDetectedQuadsResult - Dynamsoft Document Normalizer module iOS Edition API Reference
+description: The class DSDetectedQuadsResult of Dynamsoft Document Normalizer module represents a captured result whose type is detected quads, which contains an array of DSDetectedQuadResultItems and the rotation transformation matrix of the original image relative to the rotated image.
+keywords: detected quads result, objective-c, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
