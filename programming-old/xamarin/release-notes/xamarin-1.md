@@ -11,6 +11,12 @@ permalink: /programming/xamarin/release-notes/xamarin-1.html
 
 # Release Notes for Xamarin SDK
 
+## 1.0.5 (09/13/2023)
+
+### Fixed
+
+- Fixed a crash bug by updated the internal dependencies.
+
 ## 1.0.4 (06/07/2023)
 
 ### Fixed
