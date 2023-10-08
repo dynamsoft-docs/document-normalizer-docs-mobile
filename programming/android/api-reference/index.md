@@ -39,7 +39,7 @@ permalink: /programming/android/api-reference/index.html
 
 - [`IntermediateResultManager`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-manager.html)
 - [`IntermediateResultReceiver`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-receiver.html)
-- [`ObservationParameters`]({{ site.dcv_android_api }}core/intermediate-results/observed-parameters.html)
+- [`ObservationParameters`]({{ site.dcv_android_api }}core/intermediate-results/observation-parameters.html)
 - [`IntermediateResultExtraInfo`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-extra-info.html)
 - [`IntermediateResult`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result.html)
 - [`IntermediateResultUnit`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-unit.html)
