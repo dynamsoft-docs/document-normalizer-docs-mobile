@@ -104,6 +104,13 @@ defaults:
       docRootName: "Document Normalizer Xamarin.Forms Edition" 
       docHomePage: "/document-normalizer/docs/mobile/programming/xamarin/"
   - scope:
+      path: "programming-old/enumerations"
+    values:
+      category: "mobile-repo"
+      edition: "mobile"
+      docRootName: "Document Normalizer Enumerations" 
+      docHomePage: "/document-normalizer/docs/mobile/programming/enumerations/"
+  - scope:
       path: "Hide_Tree_Page.html"
     values:
       sitemap: false
