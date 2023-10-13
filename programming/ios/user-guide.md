@@ -98,7 +98,15 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    pod install
    ```
 
+<div class="blockquote-note"></div>
+
 > If the `pod install` command fails, please try running `pod update` instead.
+
+4. Open the **HelloWorld.xcworkspace** to start working on the project. 
+
+<div class="blockquote-note"></div>
+
+> Please note that it is important to work with the *.xcworkspace* instead of the *.xcodeproj* if you use the Podfile method to include the SDK.
 
 #### Add the xcframeworks via Swift Package Manager
 
@@ -251,7 +259,7 @@ Once the camera component is set up, declare and create an instance of `CaptureV
 ```objc
 @property (nonatomic, strong) DSCaptureVisionRouter *cvr;
 ...
-- (void)setUpCvr
+- (void)setUpDCV
 {
    _cvr = [[DSCaptureVisionRouter alloc] init];
 }
@@ -259,6 +267,7 @@ Once the camera component is set up, declare and create an instance of `CaptureV
 2. 
 ```swift
 var cvr:CaptureVisionRouter!
+private var data:ImageData!
 ...
 func setUpDCV() {
    cvr = CaptureVisionRouter()
@@ -275,15 +284,17 @@ Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `C
 >
 >1. 
 ```objc
-- (void)setUpCVR
+- (void)setUpDCV
 {
    NSError *cvrError;
+   _cvr = [[DSCaptureVisionRouter alloc] init];
    [_cvr setInput:_dce error:&cvrError];
 }
 ```
 2. 
 ```swift
-func setUpCVR() {
+func setUpDCV() {
+   cvr = CaptureVisionRouter()
    try? cvr.setInput(dce)
 }
 ```
@@ -309,7 +320,7 @@ In order to receive results, the corresponding `CapturedResultReceiver` must be 
    }
    ```
 
-2. Implement `onNormalizedImagesReceived` method to receive the final normalized images as the captured results.
+2. Implement `onNormalizedImagesReceived` callback to receive the final normalized images as the captured results. Once the quadrilateral (boundaries) are retrieved and the imageData is set, go to the ImageViewController page. The implementation of ImageViewController is explained in this [section](#display-the-normalized-image).
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -335,22 +346,24 @@ In order to receive results, the corresponding `CapturedResultReceiver` must be 
    func onNormalizedImagesReceived(_ result: NormalizedImagesResult) {
       print("Normalized image received")
       if let items = result.items, items.count > 0 {
-             guard let data = items[0].imageData else {
-                return
-             }
-             let resultView = ImageViewController()
-             resultView.data = data
-             if implementCapture
-             {
-                DispatchQueue.main.async {
-                       self.present(resultView, animated: true)
-                }
-             }
+         guard let data = cvr.getIntermediateResultManager().getOriginalImage(result.originalImageHashId) else {
+            return
+         }
+         /* Once the normalized image is returned, stop the capturing process and close the camera */
+         DispatchQueue.main.async(execute: {
+            self.cvr.stopCapturing()
+         })
+         self.data = data
+         let quad = items.first?.location
+
+         DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "showImageViewController", sender: quad)
+         }
       }
    }
    ```
 
-3. Add the result receiver to the `CaptureVisionRouter`.
+3. Add the result receiver to the `CaptureVisionRouter`. It is highly recommended to activate the multi-frame result cross filter for best results.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -358,9 +371,10 @@ In order to receive results, the corresponding `CapturedResultReceiver` must be 
    >
    >1. 
    ```objc
-   - (void)setUpCvr
+   - (void)setupDCV
    {
       NSError *cvrError;
+      _cvr = [[DSCaptureVisionRouter alloc] init];
       [_cvr setInput:_dce error:&cvrError];
       [_cvr addResultReceiver:self error:&cvrError];
       DSMultiFrameResultCrossFilter *filter = [[DSMultiFrameResultCrossFilter alloc] init];
@@ -370,15 +384,17 @@ In order to receive results, the corresponding `CapturedResultReceiver` must be 
    ```
    2. 
    ```swift
-   func setUpCvr() {
+   func setupDCV() {
+      cvr = CaptureVisionRouter()
       try? cvr.setInput(dce)
-      try? cvr.addResultReceiver(self)
+      cvr.addResultReceiver(self)
       let filter = MultiFrameResultCrossFilter.init()
       filter.enableResultCrossVerification(.normalizedImage, isEnabled: true)
-      try? cvr.addResultFilter(filter)
+      cvr.addResultFilter(filter)
    }
    ```
 
+<!--
 4. Add a `confirmCapture` button to confirm the result.
 
    <div class="sample-code-prefix"></div>
@@ -432,52 +448,92 @@ In order to receive results, the corresponding `CapturedResultReceiver` must be 
       implementCapture = true
    }
    ```
+-->
+#### Configure the methods *viewDidLoad*, *viewWillAppear*, and *viewWillDisappear*
 
-#### Configure the methods viewDidLoad, viewWillAppear, and viewWillDisappear
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   - (void)viewDidLoad {
+      [super viewDidLoad];
+      [self setUpCamera];
+      [self setUpDCV];
+   }
+   - (void)viewWillAppear:(BOOL)animated
+   {
+      [super viewWillAppear:animated];
+      [_dce open];
+      NSError *cvrError;
+      [_cvr startCapturing:DSPresetTemplateDetectAndNormalizeDocument error:&cvrError];
+   }
+   - (void)viewWillDisappear:(BOOL)animated
+   {
+      [super viewWillAppear:animated];
+      [_dce close];
+   }
+   ```
+   2. 
+   ```swift
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      setUpCamera()
+      setUpDCV()
+   }
+   override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      dce.open() // open the camera
+      try? cvr.startCapturing("detect-and-normalize-document") // start capturing with the detect and normalize preset template
+   }
+   override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      dce.close() // close the camera and release resources
+   }
+   ...
+   ```
 
-<div class="sample-code-prefix"></div>
->- Objective-C
->- Swift
->
->1. 
-```objc
-- (void)viewDidLoad {
-   [super viewDidLoad];
-   [self setUpCamera];
-   [self setUpCvr];
-   [self addCaptureButton];
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-   [super viewWillAppear:animated];
-   [_dce open];
-   NSError *cvrError;
-   [_cvr startCapturing:DSPresetTemplateDetectAndNormalizeDocument error:&cvrError];
-}
-- (void)viewWillDisappear:(BOOL)animated
-{
-   [super viewWillAppear:animated];
-   [_dce close];
-}
-```
-2. 
-```swift
-override func viewDidLoad() {
-   super.viewDidLoad()
-   setUpCamera()
-   setUpCvr()
-   addCaptureButton()
-}
-override func viewWillAppear(_ animated: Bool) {
-   super.viewWillAppear(animated)
-   dce.open() // open the camera
-   try? cvr.startCapturing(PresetTemplate.detectAndNormalizeDocument.rawValue)
-}
-override func viewWillDisappear(_ animated: Bool) {
-   super.viewWillDisappear(animated)
-   dce.close() // close the camera and release resources
-}
-```
+#### Configure the *prepare* method
+
+The prepare method is responsible for configuring all the necessary data to be transitioned to the *ImageViewController* which will be implemented in the next section.
+
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   - (void)viewDidLoad {
+      [super viewDidLoad];
+      [self setUpCamera];
+      [self setUpDCV];
+   }
+   - (void)viewWillAppear:(BOOL)animated
+   {
+      [super viewWillAppear:animated];
+      [_dce open];
+      NSError *cvrError;
+      [_cvr startCapturing:DSPresetTemplateDetectAndNormalizeDocument error:&cvrError];
+   }
+   - (void)viewWillDisappear:(BOOL)animated
+   {
+      [super viewWillAppear:animated];
+      [_dce close];
+   }
+   ```
+   2. 
+   ```swift
+   ...
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showImageViewController" {
+            let vc = segue.destination as? ImageViewController
+            vc?.quad = sender as? Quadrilateral
+            vc?.cvr = self.cvr
+            vc?.data = self.data
+        }
+    }
+   ```
 
 #### Display the Normalized Image
 
@@ -489,7 +545,7 @@ override func viewWillDisappear(_ animated: Bool) {
    @property (nonatomic, strong) UIImage * normalizedImage;
    ```
 
-3. Configure the `ImageViewController` to display the normalized image..
+2. Start the `ImageViewController` by declaring the variables that were sent from the `ViewController`. We will also add a variable for 3 buttons that will control the pixel type of the output normalized image.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -521,24 +577,164 @@ override func viewWillDisappear(_ animated: Bool) {
    ```
    2. 
    ```swift
-   import Foundation
    import UIKit
+   import DynamsoftCore
+   import DynamsoftCaptureVisionRouter
+   import DynamsoftDocumentNormalizer
 
    class ImageViewController: UIViewController{
-      var normalizedImage:UIImage!
-      var imageView:UIImageView!
-      override func viewDidLoad() {
-             super.viewDidLoad()
-             setUpView()
+      enum ImageType {
+        case Binary
+        case Gray
+        case Color
       }
+    
+      var data:ImageData!
+      var quad:Quadrilateral!
+      var cvr:CaptureVisionRouter!
+      
+      @IBOutlet weak var imageView: UIImageView!
+      @IBOutlet weak var binaryButton: UIButton!
+      @IBOutlet weak var grayButton: UIButton!
+      @IBOutlet weak var colorButton: UIButton!
+   }
+   ```
+
+3. After defining the above variables and enum, let's define the necessary functions for each button
+
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   #import "ImageViewController.h"
+   #import <DynamsoftCameraEnhancer/DynamsoftCameraEnhancer.h>
+   @interface ImageViewController()
+   @property (nonatomic, strong) UIImageView *imageView;
+   @end
+   @implementation ImageViewController
+   -(void)viewDidLoad
+   {
+      NSLog(@"ImageViewController loaded");
+      [super viewDidLoad];
+      [self setUpView];
+   }
+   - (void)setUpView
+   {
+      _imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+      [self.view addSubview:_imageView];
+      NSError *coreError;
+      [_imageView setContentMode:UIViewContentModeScaleAspectFit];
+      [_imageView setImage:self.normalizedImage];
+   }
+   @end
+   ```
+   2. 
+   ```swift
+   class ImageViewController: UIViewController{
+      ...
       func setUpView() {
-             imageView = UIImageView.init(frame: view.bounds)
-             imageView.contentMode = .scaleAspectFit
-             view.addSubview(imageView)
-             DispatchQueue.main.async { [self] in
-                imageView.image = normalizedImage
-             }
+         normalize(name: "normalize-document")
+         colorButton.isSelected = true
       }
+    
+      @IBAction func touchColorButton(_ sender: Any) {
+         if !colorButton.isSelected {
+            colorButton.isSelected  = true
+            grayButton.isSelected = false
+            binaryButton.isSelected = false
+            touchButton(type: .Color)
+         }
+      }
+    
+      @IBAction func touchGrayButton(_ sender: Any) {
+         if !grayButton.isSelected {
+            grayButton.isSelected = true
+            colorButton.isSelected = false
+            binaryButton.isSelected = false
+            touchButton(type: .Gray)
+         }
+      }
+    
+      @IBAction func touchBinaryButton(_ sender: Any) {
+         if !binaryButton.isSelected {
+            binaryButton.isSelected = true
+            colorButton.isSelected = false
+            grayButton.isSelected = false
+            touchButton(type: .Binary)
+         }
+      }
+
+      func touchButton(type: ImageType) -> Void {
+        var name:String
+        switch type {
+        case .Binary:
+            name = "normalize-document-binary"
+        case .Gray:
+            name = "normalize-document-grayscale"
+        case .Color:
+            name = "normalize-document"
+        }
+        normalize(name: name)
+    }
+
+   }
+   ```
+
+4. Now let's finish things off for the `ImageViewController` by defining the core *normalize* function
+
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   #import "ImageViewController.h"
+   #import <DynamsoftCameraEnhancer/DynamsoftCameraEnhancer.h>
+   @interface ImageViewController()
+   @property (nonatomic, strong) UIImageView *imageView;
+   @end
+   @implementation ImageViewController
+   -(void)viewDidLoad
+   {
+      NSLog(@"ImageViewController loaded");
+      [super viewDidLoad];
+      [self setUpView];
+   }
+   - (void)setUpView
+   {
+      _imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+      [self.view addSubview:_imageView];
+      NSError *coreError;
+      [_imageView setContentMode:UIViewContentModeScaleAspectFit];
+      [_imageView setImage:self.normalizedImage];
+   }
+   @end
+   ```
+   2. 
+   ```swift
+   class ImageViewController: UIViewController{
+      ...
+      func normalize(name:String) {
+        if let settings = try? cvr.getSimplifiedSettings(name) {
+            settings.roi = quad
+            settings.roiMeasuredInPercentage = false;
+            try? cvr.updateSettings(name, settings: settings)
+        }
+        guard let result = try? cvr.captureFromBuffer(data, templateName: name), let items = result.items, items.count > 0 else {
+            print("normalize failed")
+            return
+        }
+        if let item = items.first, item.type == .normalizedImage {
+            let imageItem:NormalizedImageResultItem = item as! NormalizedImageResultItem
+            let image = try? imageItem.imageData?.toUIImage()
+            DispatchQueue.main.async { [self] in
+               imageView.image = image
+            }
+         }
+      }
+
    }
    ```
 
