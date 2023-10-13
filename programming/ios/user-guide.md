@@ -46,11 +46,7 @@ This guide will walk you through the process of creating a HelloWorld app for no
 
 2. Select **iOS -> App** for your application.
 
-<<<<<<< HEAD
-3. Input your product name (HelloWorld), interface (StoryBoard), and language (Objective-C/Swift). We currently do not support SwiftUI and we apologize if this causes any inconvenience.
-=======
 3. Input your product name (HelloWorld), interface (StoryBoard) and language (Objective-C/Swift).
->>>>>>> origin/preview
 
 4. Click on the **Next** button and select the location to save the project.
 
@@ -74,15 +70,10 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    | `DynamsoftCameraEnhancer.xcframework` | The Dynamsoft Camera Enhancer SDK defines the camera control and frame preprocessing API. |
    | `DynamsoftUtility.xcframework (Optional)` | The module includes functional APIs that support you to integrate the input, filtering the results, generating result images, etc. |
 
-<<<<<<< HEAD
-2. Drag and drop the above six (seven if the Utility framework is included) **frameworks** into your Xcode project. Make sure to check *Copy items if needed* and *Create groups* to properly copy the framework into your project's folder.
+2. Drag and drop the above six (seven if the Utility framework is included) **xcframeworks** into your Xcode project. Make sure to check *Copy items if needed* and *Create groups* to properly copy the framework into your project's folder.
 
 3. Click on the project settings then go to **General –> Frameworks, Libraries, and Embedded Content**. Set the **Embed** field to **Embed & Sign** for all of the imported frameworks.
-=======
-2. Drag and drop the above five **xcframeworks** into your Xcode project. Make sure to check Copy items if needed and Create groups to copy the framework into your project's folder.
-
 3. Click on the project settings then go to **General –> Frameworks, Libraries, and Embedded Content**. Set the **Embed** field to **Embed & Sign** for all above **xcframeworks**.
->>>>>>> origin/preview
 
 #### Add the Frameworks via CocoaPods
 
@@ -547,7 +538,49 @@ The prepare method is responsible for configuring all the necessary data to be t
 
 #### Display the Normalized Image
 
-1. Create a new `UIViewController` class, `ImageViewController`. To do that, please add a new Swift/Objective-C file and name it `ImageViewController`.
+1. Before we proceed with creating the `ImageViewController` page, please download the [ddn-mobile-sample JSON file]() that contains the preset templates that the library needs in order to implement the ability to change the result image to binary or grayscale.
+
+2. Once it is downloaded, please create a new folder named *Resource* inside of the *HelloWorld* folder. Place `ddn-mobile-sample` inside Resource. Once that is done, please drag and drop the Resource folder from the finder into the Xcode project and inside the *HelloWorld* folder. Make sure to check 
+
+3. Now go back to the `ViewController` and we will edit the `setUpDCV` function so that the CVR object uses the settings defined in `ddn-mobile-sample`. Please note that you must verify that `ddn-mobile-sample` is included under *Copy Bundle Resources* in the *Build Phases* of the project.
+
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   - (void)setupDCV
+   {
+      NSError *cvrError;
+      _cvr = [[DSCaptureVisionRouter alloc] init];
+      NSString *path = [[NSBundle mainBundle] pathForResource:@"ddn-mobile-sample" ofType:@"json"];
+      [_cvr initSettingsFromFile:path error:cvrError]
+      [_cvr setInput:_dce error:&cvrError];
+      [_cvr addResultReceiver:self error:&cvrError];
+      DSMultiFrameResultCrossFilter *filter = [[DSMultiFrameResultCrossFilter alloc] init];
+      [filter enableResultCrossVerification:DSCapturedResultItemTypeNormalizedImage isEnabled:true];
+      [_cvr addResultFilter:filter error:&cvrError];
+   }
+   ```
+   2. 
+   ```swift
+   func setupDCV() {
+      cvr = CaptureVisionRouter()
+      /* Initialize the settings using the JSON file */
+      let path = Bundle.main.path(forResource: "ddn-mobile-sample", ofType: "json")
+      if let path = path {
+         try? cvr.initSettingsFromFile(path)
+      }
+      try? cvr.setInput(dce)
+      cvr.addResultReceiver(self)
+      let filter = MultiFrameResultCrossFilter.init()
+      filter.enableResultCrossVerification(.normalizedImage, isEnabled: true)
+      cvr.addResultFilter(filter)
+   }
+   ```
+
+4. Create a new `UIViewController` class, `ImageViewController`. To do that, please add a new Swift/Objective-C file and name it `ImageViewController`.
 
   > Note:  **Objective-C only** Add a property `normalizedImage` to the header file of `ImageViewController` (`ImageViewController.h`).
 
@@ -555,7 +588,7 @@ The prepare method is responsible for configuring all the necessary data to be t
    @property (nonatomic, strong) UIImage * normalizedImage;
    ```
 
-2. Start the `ImageViewController` by declaring the variables that were sent from the `ViewController`. We will also add a variable for 3 buttons that will control the pixel type of the output normalized image.
+4. Start the `ImageViewController` by declaring the variables that were sent from the `ViewController`. We will also add a variable for 3 buttons that will control the pixel type of the output normalized image.
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -610,7 +643,7 @@ The prepare method is responsible for configuring all the necessary data to be t
    }
    ```
 
-3. After defining the above variables and enum, let's define the necessary functions for each button
+5. After defining the above variables and enum, let's define the necessary functions for each button
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -692,7 +725,7 @@ The prepare method is responsible for configuring all the necessary data to be t
    }
    ```
 
-4. Now let's finish things off for the `ImageViewController` by defining the core *normalize* function
+6. Now let's finish things off for the `ImageViewController` by defining the core *normalize* function
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -747,6 +780,26 @@ The prepare method is responsible for configuring all the necessary data to be t
 
    }
    ```
+
+#### Configure the UI
+
+We configured the two main View Controllers that we need, and so now we need to make sure that they are linked and has proper navigation controls. This simple configuration of the UI will offer a much more user-friendly experience when you test this Hello World implementation. Please note that these instructions are for a *Storyboard* implementation. Let's get started:
+
+1. There should already be one ViewController that belongs to the `ViewController` class that is defined by the *ViewController.swift* class. This is the main view that will be the camera view. The first thing that we need to do is add a new View Controller, which will belong to the class `ImageViewController` that we defined in *ImageViewController.swift* class.
+
+2. After adding the new View Controller, edit the property (via the Identity Inspector) of the new View Controller to belong to class *ImageViewController*.
+
+3. Now we need to add the UI elements that we defined in the *ImageViewController.swift*. Let's first put a *UIImageView* element that takes up most of the screen. Once the element is in, assign its referencing outlet to *imageView*.
+
+4. Afterwards, we should configure three buttons. One is for binary conversion of the image, one is for grayscale conversion, and the last is for colour conversion. Once the buttons are in, assign each button's referencing outlet to the corresponding variable e.g. for the binary button, assign it to *binaryButton* and so forth.
+
+5. For each of the three buttons, we must connect them to their individual trigger functions. For the binary button, we assign the *Touch Up Inside* event to the *touchBinaryButton* function. Do the same for the other two buttons. Please note that these functions are already defined in *ImageViewController.swift*.
+
+6. Lastly, we need to make sure that the navigation is set up between the **ImageViewController** and the main **ViewController**. To do this, select the main *ViewController*, click *Editor*, then select *Embed In* -> *Navigation Controller*. Once that is done, you should see a navigation bar pop up in the *ImageViewController* with a *Back* button to take you back to the main *ViewController*.
+
+Here is a quick overview of what the storyboard should look like
+
+![DDN UI on iOS](../../assets/ddn-ui-ios.png)
 
 &nbsp;
 
