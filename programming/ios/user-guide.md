@@ -46,7 +46,11 @@ This guide will walk you through the process of creating a HelloWorld app for no
 
 2. Select **iOS -> App** for your application.
 
+<<<<<<< HEAD
 3. Input your product name (HelloWorld), interface (StoryBoard), and language (Objective-C/Swift). We currently do not support SwiftUI and we apologize if this causes any inconvenience.
+=======
+3. Input your product name (HelloWorld), interface (StoryBoard) and language (Objective-C/Swift).
+>>>>>>> origin/preview
 
 4. Click on the **Next** button and select the location to save the project.
 
@@ -58,7 +62,7 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
 
 #### Add the Frameworks Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-2.0.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **Frameworks** under the **Dynamsoft\Frameworks** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-2.0.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **xcframeworks** under the **Dynamsoft\Frameworks** directory:
 
    | File | Description |
    | ---- | ----------- |
@@ -70,9 +74,15 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    | `DynamsoftCameraEnhancer.xcframework` | The Dynamsoft Camera Enhancer SDK defines the camera control and frame preprocessing API. |
    | `DynamsoftUtility.xcframework (Optional)` | The module includes functional APIs that support you to integrate the input, filtering the results, generating result images, etc. |
 
+<<<<<<< HEAD
 2. Drag and drop the above six (seven if the Utility framework is included) **frameworks** into your Xcode project. Make sure to check *Copy items if needed* and *Create groups* to properly copy the framework into your project's folder.
 
 3. Click on the project settings then go to **General –> Frameworks, Libraries, and Embedded Content**. Set the **Embed** field to **Embed & Sign** for all of the imported frameworks.
+=======
+2. Drag and drop the above five **xcframeworks** into your Xcode project. Make sure to check Copy items if needed and Create groups to copy the framework into your project's folder.
+
+3. Click on the project settings then go to **General –> Frameworks, Libraries, and Embedded Content**. Set the **Embed** field to **Embed & Sign** for all above **xcframeworks**.
+>>>>>>> origin/preview
 
 #### Add the Frameworks via CocoaPods
 
