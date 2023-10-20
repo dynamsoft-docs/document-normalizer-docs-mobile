@@ -18,79 +18,17 @@ jobs:
   # This workflow contains jobs called "Build-Main" and "Build-Preview"
   Build-Main:
     if: ${{ github.ref == 'refs/heads/main' }}
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v2
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          cd /home/ubuntu
-          [ -d DDNDocMobile ] && rm -rf DDNDocMobile
-          [ -d document-normalizer-docs-mobile ] && rm -rf document-normalizer-docs-mobile
-          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
-          [ ! -d DDNDocMobile ] && mkdir -p DDNDocMobile
-          git clone --depth 1 https://github.com/dynamsoft-docs/document-normalizer-docs-mobile.git document-normalizer-docs-mobile
-          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview
-          cp -rfp ./document-normalizer-docs-mobile/* ./DDNDocMobile/
-          cp -rfp ./Docs-Template-Repo-Preview/* ./DDNDocMobile/
-          cd DDNDocMobile && bundle install && bundle exec jekyll build
-
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.FTP_DYNAMSOFT_LOCAL_SERVER }}
-          username: ${{ secrets.FTP_DYNAMSOFT_LOCAL_USER }}
-          password: ${{ secrets.FTP_DYNAMSOFT_LOCAL_PASSWORD }}
-          port: 21 
-          local-dir: /home/ubuntu/DDNDocMobile/_site/
-          server-dir: /www.dynamsoft.com/document-normalizer/docs/mobile/
-
-      - name: Trigger Webhook 
-        run: | 
-          curl -X POST -H "${{ secrets.WEBHOOK_USER }}" -H "${{ secrets.WEBHOOK_TOKEN }}" -H "Content-Type: application/json" -d "[\"/document-normalizer/docs/mobile/*\"]" ${{ secrets.WEBHOOK_URL }}
-
+    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-production.yml@main
+    with:
+      doc-repo: document-normalizer-docs-mobile
+      doc-url: document-normalizer/docs/mobile
+    secrets: inherit
 
   Build-Preview:
     if: ${{ github.ref == 'refs/heads/preview' }}
-    # The type of runner that the job will run on
-    runs-on: self-hosted
+    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-testing.yml@preview
+    with:
+      doc-repo: document-normalizer-docs-mobile
+      doc-url: document-normalizer/docs/mobile
+    secrets: inherit
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Runs a set of commands using the runners shell
-      - name: clear space
-        run: |
-          cd /home/ubuntu 
-          [ -d DDNDocMobilePreview ] && rm -rf DDNDocMobilePreview
-          [ -d document-normalizer-docs-mobile-preview ] && rm -rf document-normalizer-docs-mobile-preview
-          [ -d Docs-Template-Repo-Preview ] && rm -rf Docs-Template-Repo-Preview
-          cd /home/ubuntu
-
-      - name: Build the site
-        run: |
-          cd /home/ubuntu
-          [ ! -d DDNDocMobilePreview ] && mkdir -p DDNDocMobilePreview
-          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/document-normalizer-docs-mobile.git document-normalizer-docs-mobile-preview
-          git clone --depth 1 --branch preview https://github.com/dynamsoft-docs/Docs-Template-Repo.git Docs-Template-Repo-Preview
-          cp -rfp ./document-normalizer-docs-mobile-preview/* ./DDNDocMobilePreview/
-          cp -rfp ./Docs-Template-Repo-Preview/* ./DDNDocMobilePreview/
-          sed -i -e "1,3s/blob\/master$/blob\/preview/" \
-          -e "1,3s/blob\/main$/blob\/preview/" /home/ubuntu/DDNDocMobilePreview/_config.yml
-          cd DDNDocMobilePreview && bundle install && bundle exec jekyll build
-
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.FTP_TEST_SITE_SERVER }}
-          username: ${{ secrets.FTP_TEST_SITE_USER }}
-          password: ${{ secrets.FTP_TEST_SITE_PASSWORD }}
-          port: 7500 
-          local-dir: /home/ubuntu/DDNDocMobilePreview/_site/
-          server-dir: /www.dynamsoft.com/document-normalizer/docs/mobile/
-
-          
