@@ -8,7 +8,7 @@ breadcrumbText: Release Notes
 permalink: /programming/xamarin/release-notes/index.html
 ---
 
-# Dynamsoft Document Normalizer Xamarin.Forms SDK - Release Notes
+# Release Notes - Xamarin.Forms Edition
 
 - [1.0.5 (09/13/2023)](xamarin-1.md#105-09132023)
 - [1.0.4 (06/07/2023)](xamarin-1.md#104-06072023)

@@ -8,7 +8,7 @@ breadcrumbText: Release Notes
 permalink: /programming/android/release-notes/index.html
 ---
 
-# Dynamsoft Document Normalizer Android SDK - Release Notes
+# Release Notes - Android Edition
 
 - [2.0.10 (08/10/2023)]({{ site.android_release_notes }}android-2.html#2010-08102023)
 - [1.0.30 (06/07/2023)]({{ site.android_release_notes }}android-1.html#1030-06072023)

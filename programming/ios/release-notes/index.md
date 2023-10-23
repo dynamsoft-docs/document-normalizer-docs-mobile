@@ -8,7 +8,7 @@ breadcrumbText: Release Notes
 permalink: /programming/ios/release-notes/index.html
 ---
 
-# Dynamsoft Document Normalizer iOS SDK - Release Notes
+# # Release Notes - iOS Edition
 
 - [2.0.10 (08/10/2023)]({{ site.ios_release_notes }}ios-2.html#2010-08102023)
 - [1.0.30 (06/07/2023)]({{ site.ios_release_notes }}ios-1.html#1030-06072023)
