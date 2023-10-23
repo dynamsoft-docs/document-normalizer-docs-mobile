@@ -1,14 +1,14 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer iOS SDK - Release Notes
-description: This is the release notes page of Dynamsoft Document Normalizer for iOS SDK.
-keywords: release notes, ios
+title: Dynamsoft Document Normalizer Xamarin.Forms SDK - Release Notes
+description: This is the release notes page of Dynamsoft Document Normalizer for Xamarin.Forms SDK.
+keywords: release notes, Xamarin.Forms
 needAutoGenerateSidebar: false
 breadcrumbText: Release Notes
 permalink: /programming/xamarin/release-notes/index.html
 ---
 
-# Dynamsoft Document Normalizer iOS SDK - Release Notes
+# Dynamsoft Document Normalizer Xamarin.Forms SDK - Release Notes
 
 - [1.0.5 (09/13/2023)](xamarin-1.md#105-09132023)
 - [1.0.4 (06/07/2023)](xamarin-1.md#104-06072023)
