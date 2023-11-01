@@ -12,6 +12,8 @@ permalink: /programming/ios/api-reference/image-data.html
 
 # iImageData
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 Stores the image data.  
 
 <div class="sample-code-prefix"></div>

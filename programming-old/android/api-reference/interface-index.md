@@ -12,5 +12,7 @@ permalink: /programming/android/api-reference/interface-index.html
 
 # Interfaces
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 - [`LicenseVerificationListener`](license-verification-listener.md)
 - [`DetectResultListener`](detect-result-listener.md)

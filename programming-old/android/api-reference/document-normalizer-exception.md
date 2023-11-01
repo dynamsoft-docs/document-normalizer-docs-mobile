@@ -11,6 +11,8 @@ permalink: /programming/android/api-reference/document-normalizer-exception.html
 
 # DocumentNormalizerException
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 Exception for signalling document normalizer errors.
 
 ```java

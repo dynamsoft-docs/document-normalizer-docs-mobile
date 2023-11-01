@@ -12,6 +12,8 @@ permalink: /programming/android/api-reference/document-normalizer-index.html
 
 # DocumentNormalizer Class
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 This is the main class of Dynamsoft Document Normalizer(DDN) SDK. It supports quad detection and image normalization for still pictures and live video.
 
 Common detections include:

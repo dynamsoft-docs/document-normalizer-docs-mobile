@@ -12,6 +12,8 @@ permalink: /programming/ios/api-reference/document-normalizer-index.html
 
 # DynamsoftDocumentNormalizer Class
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 This is the main class of Dynamsoft Document Normalizer(DDN) SDK. It supports quad detection and image normalization for still pictures and live video.
 
 <div class="sample-code-prefix"></div>

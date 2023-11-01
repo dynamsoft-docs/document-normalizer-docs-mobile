@@ -12,6 +12,8 @@ permalink: /programming/android/api-reference/auxiliary-index.html
 
 # Auxiliary Classes
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 - [`Quadrilateral`](quadrilateral.md)
 - [`ImageData`](image-data.md)
 - [`LicenseManager`](license-manager.md)

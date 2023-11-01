@@ -12,6 +12,8 @@ permalink: /programming/ios/api-reference/quadrilateral.html
 
 # iQuadrilateral
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 Stores the quadrilateral.  
 
 <div class="sample-code-prefix"></div>

@@ -8,6 +8,8 @@ permalink: /programming/enumerations/error-code.html
 
 # Error Code
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 ## For all programming languages
 
   | Erorr Code | Value | Description |

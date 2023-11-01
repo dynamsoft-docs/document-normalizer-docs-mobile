@@ -12,6 +12,8 @@ permalink: /programming/ios/api-reference/document-normalizer-normalizing.html
 
 # Detect and Normalize Methods
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 | Method               | Description |
 |----------------------|-------------|
 | [`detectQuadFromBuffer`](#detectquadfrombuffer) | Detect quad from the memory buffer containing image pixels in defined format. |
