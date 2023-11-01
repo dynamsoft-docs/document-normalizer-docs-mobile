@@ -11,7 +11,7 @@ permalink: /programming/ios/upgrade-instruction.html
 
 ## From version 1.x to 2.x
 
-`DynamsoftDocumentNormalizer` SDK has been refactored to integrate with `DynamsoftCaptureVision (DCV)` architecture. To upgrade from version 1.x to 2.x, we recommend you to follow the [`User Guide`](user-guide.md) and re-write your codes.
+`DynamsoftDocumentNormalizer` SDK has been revamped to integrate with `DynamsoftCaptureVision (DCV)` architecture. To upgrade from version 1.x to 2.x, we recommend you to follow the [`User Guide`](user-guide.md) and re-write your codes.
 
 Here are some of the main actions you may take:
 
