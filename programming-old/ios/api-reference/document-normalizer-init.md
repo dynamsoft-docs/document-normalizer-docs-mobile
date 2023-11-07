@@ -10,6 +10,8 @@ permalink: /programming/ios/api-reference/document-normalizer-init.html
 
 # Initialization Methods
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
   | Method               | Description |
   |----------------------|-------------|
   | [`init`](#init) | Initialization of `DynamsoftDocumentNormalizer` object.|

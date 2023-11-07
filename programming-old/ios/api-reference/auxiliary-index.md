@@ -12,6 +12,8 @@ permalink: /programming/ios/api-reference/auxiliary-index.html
 
 # Auxiliary Classes
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 - [`iQuadrilateral`](quadrilateral.md)
 - [`iImageData`](image-data.md)
 - [`DynamsoftLicenseManager`](license-manager.md)

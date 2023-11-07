@@ -12,6 +12,8 @@ permalink: /programming/android/api-reference/quadrilateral.html
 
 # Quadrilateral
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 Stores the quadrilateral.  
 
 ```java

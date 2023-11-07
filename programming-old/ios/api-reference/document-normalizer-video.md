@@ -13,6 +13,8 @@ permalink: /programming/ios/api-reference/document-normalizer-video.html
 
 # Video Detecting Methods
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 ## How to Implement Video Detecting
 
 This code snippet displays a complete code on how to configure camera module, start detecting and get detection results from the video streaming.

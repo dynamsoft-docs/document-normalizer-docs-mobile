@@ -10,6 +10,8 @@ permalink: /programming/android/api-reference/document-normalizer-general.html
 
 # General Methods
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
   | Method               | Description |
   |----------------------|-------------|
   | [`getVersion`](#getversion) | Get version information of SDK.|

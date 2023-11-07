@@ -10,6 +10,8 @@ permalink: /programming/android/api-reference/document-normalizer-settings.html
 
 # Runtime Settings Methods
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
   | Method               | Description |
   |----------------------|-------------|
   | [`initRuntimeSettingsFromFile`](#initruntimesettingsfromfile)  | Initialize runtime settings with the settings in a given JSON file. |

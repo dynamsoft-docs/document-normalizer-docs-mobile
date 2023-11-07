@@ -7,7 +7,7 @@ needAutoGenerateSidebar: true
 needGenerateH3Content: true
 breadcrumbText: Android API Reference
 noTitleIndex: true
-permalink: /programming/android/api-reference/index.html
+permalink: /programming/android/api-reference/index-v1.0.30.html
 ---
 
 # API Reference - Android

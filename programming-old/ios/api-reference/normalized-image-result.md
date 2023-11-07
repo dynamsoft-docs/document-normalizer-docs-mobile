@@ -11,6 +11,8 @@ permalink: /programming/ios/api-reference/normalized-image-result.html
 
 # iNormalizedImageResult
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 Stores the detected quad result.
 
 <div class="sample-code-prefix"></div>

@@ -11,6 +11,8 @@ permalink: /programming/android/api-reference/normalized-image-result.html
 
 # NormalizedImageResult
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 Stores the detected quad result.
 
 ```java

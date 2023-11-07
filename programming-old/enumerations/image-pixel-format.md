@@ -8,6 +8,8 @@ permalink: /programming/enumerations/image-pixel-format.html
 
 # ImagePixelFormat
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 ## Declarations
 
 | Language | Declaration |

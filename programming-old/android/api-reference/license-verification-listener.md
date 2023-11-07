@@ -12,6 +12,8 @@ permalink: /programming/android/api-reference/license-verification-listener.html
 
 # LicenseVerificationListener
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 `LicenseVerificationListener` is the interface to handle callback when using [`initLicense`](license-manager.md#initlicense).
 
 ```java

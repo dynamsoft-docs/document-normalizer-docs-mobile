@@ -11,6 +11,8 @@ permalink: /programming/ios/api-reference/license-manager.html
 
 # LicenseManager
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 The LicenseManager class unlocks the Dynamsoft SDK with a purchased full license or a provided trial license to allow you to develop your application.
 
 <div class="sample-code-prefix"></div>

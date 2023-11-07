@@ -11,6 +11,8 @@ permalink: /programming/ios/api-reference/detected-quad-result.html
 
 # iDetectedQuadResult
 
+> You are viewing a history document page of Dynamsoft Document Normalizer v1.0.30.
+
 Stores the detected quad result.
 
 ```objc

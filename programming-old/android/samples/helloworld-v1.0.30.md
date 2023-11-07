@@ -14,6 +14,6 @@ The Android Helloworld sample illustrates how to create the simplest video strea
 
 View the samples
 
-- <a href="https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/java/HelloWorld/" target="_blank">Java (Android) HelloWorld</a>
+- <a href="https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/v1.0.30/android/HelloWorld" target="_blank">Java (Android) HelloWorld</a>
 
 For more details about how to get started with Dynamsoft Document Normalizer, please view the [user guide]({{ site.android }}user-guide.html).
