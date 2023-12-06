@@ -71,12 +71,6 @@
                 ],
                 "dcvRepoCore": [
                     {
-                        "path": "/enums/utility",
-                        "version": "1.0.10"
-                    }, {
-                        "path": "/enums/license",
-                        "version": "3.0.10"
-                    }, {
                         "path": "/enums/capture-vision-router",
                         "version": "2.0.10"
                     }, {
