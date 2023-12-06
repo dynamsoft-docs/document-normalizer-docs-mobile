@@ -23,12 +23,6 @@
                 ],
                 "dcvRepoCore": [
                     {
-                        "path": "/enums/utility",
-                        "version": "1.0.10"
-                    }, {
-                        "path": "/enums/license",
-                        "version": "3.0.10"
-                    }, {
                         "path": "/enums/capture-vision-router",
                         "version": "2.0.10"
                     }, {
@@ -41,14 +35,11 @@
                         "path": "/parameters/reference/target-roi-def",
                         "version": "2.0.10"
                     },{
-                        "path": "/parameters/reference/label-recognizer-task-settings",
-                        "version": "3.0.10"
+                        "path": "/parameters/reference/document-normalizer-task-settings",
+                        "version": "2.0.10"
                     },{
                         "path": "/parameters/reference/image-parameter",
                         "version": "2.0.10"
-                    },{
-                        "path": "/parameters/reference/text-line-specification",
-                        "version": "3.0.10"
                     },{
                         "path": "/parameters/reference/image-source-options",
                         "version": "3.0.10"
@@ -98,14 +89,11 @@
                         "path": "/parameters/reference/target-roi-def",
                         "version": "2.0.10"
                     },{
-                        "path": "/parameters/reference/label-recognizer-task-settings",
-                        "version": "3.0.10"
+                        "path": "/parameters/reference/document-normalizer-task-settings",
+                        "version": "2.0.10"
                     },{
                         "path": "/parameters/reference/image-parameter",
                         "version": "2.0.10"
-                    },{
-                        "path": "/parameters/reference/text-line-specification",
-                        "version": "3.0.10"
                     },{
                         "path": "/parameters/reference/image-source-options",
                         "version": "3.0.10"
