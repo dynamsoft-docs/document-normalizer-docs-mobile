@@ -109,7 +109,7 @@ defaults:
       category: "mobile-repo"
       edition: "mobile"
       docRootName: "Document Normalizer Enumerations" 
-      docHomePage: "/document-normalizer/docs/mobile/programming/enumerations/"
+      docHomePage: "/document-normalizer/docs/core/"
   - scope:
       path: "Hide_Tree_Page.html"
     values:
