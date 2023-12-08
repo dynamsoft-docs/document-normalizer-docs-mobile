@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer for iOS SDK - Release Notes
-description: This is the release notes page of Dynamsoft Document Normalizer for iOS SDK v7.6.1 and below.
+title: Release Notes v2.x - Dynamsoft Document Normalizer iOS Edition
+description: This is the release notes page of Dynamsoft Document Normalizer iOS edition v2.x.
 keywords: release notes, ios, 
 needAutoGenerateSidebar: true
 needGenerateH3Content: false

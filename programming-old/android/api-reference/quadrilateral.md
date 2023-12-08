@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Dynamsoft Core Java Class - Quadrilateral
-description: This page shows the Quadrilateral Class of Dynamsoft Core for Java Language.
+description: This page shows the Quadrilateral Class of Dynamsoft Document Normalizer Android edition v1.x.
 keywords: Quadrilateral, java
 needAutoGenerateSidebar: true
 needGenerateH3Content: true

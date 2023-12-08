@@ -1,9 +1,10 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer Enumerations - Error Code
-description: This article shows Error Code of Dynamsoft Document Normalizer.
+title: Error Code - Dynamsoft Document Normalizer Mobile Editions
+description: This article shows Error Code of Dynamsoft Document Normalizer mobile editions.
 keywords: error code, enumeration
 permalink: /programming/enumerations/error-code-v1.0.0.html
+ignore: true
 ---
 
 # Error Code
