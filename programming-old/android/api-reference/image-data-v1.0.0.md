@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: Dynamsoft Core Java Class - ImageData
-description: This page shows the ImageData Class of Dynamsoft Core for Java Language.
+description: This page shows the ImageData Class of Dynamsoft Core Android Edition v2.x.
 keywords: ImageData, java
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
