@@ -21,10 +21,13 @@ Since the SDK architecture is changed, you have to change your `build.gradle` fo
 
 ```groovy
 dependencies {
-  implementation 'com.dynamsoft:dynamsoftcapturevisionrouter:2.0.10'
-  implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:2.0.10'
-  implementation 'com.dynamsoft:dynamsoftcameraenhancer:4.0.0'
-  implementation 'com.dynamsoft:dynamsoftutility:1.0.10'
+    implementation 'com.dynamsoft:dynamsoftcapturevisionrouter:2.0.21'
+    implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:2.0.20'
+    implementation 'com.dynamsoft:dynamsoftcameraenhancer:4.0.2'
+    implementation 'com.dynamsoft:dynamsoftcore:3.0.20'
+    implementation 'com.dynamsoft:dynamsoftlicense:3.0.30'
+    implementation 'com.dynamsoft:dynamsoftimageprocessing:2.0.21'
+    implementation 'com.dynamsoft:dynamsoftutility:1.0.21'
 }
 ```
 
