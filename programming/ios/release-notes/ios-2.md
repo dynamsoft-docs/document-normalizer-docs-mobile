@@ -39,7 +39,7 @@ permalink: /programming/ios/release-notes/ios-2.html
 
 ### Changed
 
-- Updated the dependencies of the internal modules.
+- Updated the internal package dependencies rules.
 - Changed the upper limit to the `duplicateForgetTime`, which is 3 minutes.
 - Changed the timing of `onOriginalImageResultReceived` so that it is triggered immediately after receiving the image.
 
