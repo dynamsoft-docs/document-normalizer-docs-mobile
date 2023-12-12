@@ -21,15 +21,17 @@ Since the SDK architecture is changed, you have to change your `build.gradle` fo
 
 ```groovy
 dependencies {
-    implementation 'com.dynamsoft:dynamsoftcapturevisionrouter:2.0.21'
-    implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:2.0.20'
-    implementation 'com.dynamsoft:dynamsoftcameraenhancer:4.0.2'
-    implementation 'com.dynamsoft:dynamsoftcore:3.0.20'
-    implementation 'com.dynamsoft:dynamsoftlicense:3.0.30'
-    implementation 'com.dynamsoft:dynamsoftimageprocessing:2.0.21'
-    implementation 'com.dynamsoft:dynamsoftutility:1.0.21'
+    implementation 'com.dynamsoft:dynamsoftcapturevisionrouter:{version-number}'
+    implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:{version-number}'
+    implementation 'com.dynamsoft:dynamsoftcameraenhancer:{version-number}'
+    implementation 'com.dynamsoft:dynamsoftcore:{version-number}'
+    implementation 'com.dynamsoft:dynamsoftlicense:{version-number}'
+    implementation 'com.dynamsoft:dynamsoftimageprocessing:{version-number}'
+    implementation 'com.dynamsoft:dynamsoftutility:{version-number}'
 }
 ```
+
+>Note: Please view [user guide](user-guide.md#add-the-library-via-maven) for the correct version number.
 
 ### Migrate from Class DocumentNormalizer to Class CaptureVisionRouter
 

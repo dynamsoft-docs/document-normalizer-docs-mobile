@@ -20,14 +20,16 @@ Here are some of the main actions you may take:
 Since the SDK architecture is changed, you have to change your `Podfile` for including the following libraries:
 
 ```sh
-pod 'DynamsoftCaptureVisionRouter','2.0.21'
-pod 'DynamsoftDocumentNormalizer','2.0.20'
-pod 'DynamsoftCameraEnhancer','4.0.2'
-pod 'DynamsoftCore','3.0.20'
-pod 'DynamsoftLicense','3.0.30'
-pod 'DynamsoftImageProcessing','2.0.21'
-pod 'DynamsoftUtility','1.0.21'
+pod 'DynamsoftCaptureVisionRouter','{version-number}'
+pod 'DynamsoftDocumentNormalizer','{version-number}'
+pod 'DynamsoftCameraEnhancer','{version-number}'
+pod 'DynamsoftCore','{version-number}'
+pod 'DynamsoftLicense','{version-number}'
+pod 'DynamsoftImageProcessing','{version-number}'
+pod 'DynamsoftUtility','{version-number}'
 ```
+
+>Note: Please view [user guide](user-guide.md#add-the-frameworks-via-cocoapodsn) for the correct version number.
 
 ### Migrate from Class DynamsoftDocumentNormalizer to Class DSCaptureVisionRouter
 
