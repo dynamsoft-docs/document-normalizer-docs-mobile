@@ -23,6 +23,9 @@
                 ],
                 "dcvRepoCore": [
                     {
+                        "path": "/introduction/",
+                        "version": "2.2.10"
+                    }, {
                         "path": "/enums/capture-vision-router",
                         "version": "2.2.10"
                     }, {
@@ -71,6 +74,9 @@
                 ],
                 "dcvRepoCore": [
                     {
+                        "path": "/introduction/",
+                        "version": "2.2.10"
+                    }, {
                         "path": "/enums/capture-vision-router",
                         "version": "2.2.10"
                     }, {
@@ -123,6 +129,9 @@
                 ],
                 "dcvRepoCore": [
                     {
+                        "path": "/introduction/",
+                        "version": "2.2.10"
+                    }, {
                         "path": "/enums/capture-vision-router",
                         "version": "2.0.21"
                     }, {
@@ -171,6 +180,9 @@
                 ],
                 "dcvRepoCore": [
                     {
+                        "path": "/introduction/",
+                        "version": "2.2.10"
+                    }, {
                         "path": "/enums/capture-vision-router",
                         "version": "2.0.21"
                     }, {
@@ -223,6 +235,9 @@
                 ],
                 "dcvRepoCore": [
                     {
+                        "path": "/introduction/",
+                        "version": "2.2.10"
+                    }, {
                         "path": "/enums/capture-vision-router",
                         "version": "2.0.10"
                     }, {
@@ -271,6 +286,9 @@
                 ],
                 "dcvRepoCore": [
                     {
+                        "path": "/introduction/",
+                        "version": "2.2.10"
+                    }, {
                         "path": "/enums/capture-vision-router",
                         "version": "2.0.10"
                     }, {

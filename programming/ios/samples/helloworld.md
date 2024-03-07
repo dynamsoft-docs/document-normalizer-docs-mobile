@@ -18,7 +18,7 @@ View the samples
   - [AutoNormalize](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalize){:target="_blank"}.
   - [EditAndNormalize](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/EditAndNormalize){:target="_blank"}.
 - Objective-C HelloWorld Samples:
-  - [AutoNormalizeKt](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalizeObjc){:target="_blank"}.
-  - [EditAndNormalizeKt](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/EditAndNormalizeObjc){:target="_blank"}.
+  - [AutoNormalizeObjc](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalizeObjc){:target="_blank"}.
+  - [EditAndNormalizeObjc](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/EditAndNormalizeObjc){:target="_blank"}.
 
 For more details about how to get started with Dynamsoft Document Normalizer, please view the [`user guide`]({{ site.ios }}user-guide.html).
