@@ -1,5 +1,105 @@
 [
     {
+        "version": "2.2.10",
+        "matchList": {
+            "android":{
+                "dcvRepoMobile": [
+                    {
+                        "path": "/programming/android/api-reference/utility",
+                        "version": "1.2.10"
+                    }, {
+                        "path": "/programming/android/api-reference/license",
+                        "version": "3.2.10"
+                    }, {
+                        "path": "/programming/android/api-reference/capture-vision-router",
+                        "version": "2.2.10"
+                    }, {
+                        "path": "/programming/android/api-reference/core",
+                        "version": "3.2.10"
+                    }, {
+                        "path": "/programming/android/api-reference/image-processing",
+                        "version": "2.2.10"
+                    }
+                ],
+                "dcvRepoCore": [
+                    {
+                        "path": "/enums/capture-vision-router",
+                        "version": "2.2.10"
+                    }, {
+                        "path": "/enums/core",
+                        "version": "3.2.10"
+                    },{
+                        "path": "/parameters/reference/capture-vision-template",
+                        "version": "2.2.10"
+                    },{
+                        "path": "/parameters/reference/target-roi-def",
+                        "version": "2.2.10"
+                    },{
+                        "path": "/parameters/reference/document-normalizer-task-settings",
+                        "version": "2.2.10"
+                    },{
+                        "path": "/parameters/reference/image-parameter",
+                        "version": "2.2.10"
+                    },{
+                        "path": "/parameters/reference/image-source-options",
+                        "version": "3.2.10"
+                    },{
+                        "path": "/parameters/reference/global-parameter",
+                        "version": "2.2.10"
+                    }
+                ],
+                "dce": "4.2.0"
+            },
+            "ios":{
+                "dcvRepoMobile": [
+                    {
+                        "path": "/programming/objectivec-swift/api-reference/utility",
+                        "version": "1.2.10"
+                    }, {
+                        "path": "/programming/objectivec-swift/api-reference/license",
+                        "version": "3.2.10"
+                    }, {
+                        "path": "/programming/objectivec-swift/api-reference/capture-vision-router",
+                        "version": "2.2.10"
+                    }, {
+                        "path": "/programming/objectivec-swift/api-reference/core",
+                        "version": "3.2.10"
+                    }, {
+                        "path": "/programming/objectivec-swift/api-reference/image-processing",
+                        "version": "2.2.10"
+                    }
+                ],
+                "dcvRepoCore": [
+                    {
+                        "path": "/enums/capture-vision-router",
+                        "version": "2.2.10"
+                    }, {
+                        "path": "/enums/core",
+                        "version": "3.2.10"
+                    },{
+                        "path": "/parameters/reference/capture-vision-template",
+                        "version": "2.2.10"
+                    },{
+                        "path": "/parameters/reference/target-roi-def",
+                        "version": "2.2.10"
+                    },{
+                        "path": "/parameters/reference/document-normalizer-task-settings",
+                        "version": "2.2.10"
+                    },{
+                        "path": "/parameters/reference/image-parameter",
+                        "version": "2.2.10"
+                    },{
+                        "path": "/parameters/reference/image-source-options",
+                        "version": "3.2.10"
+                    },{
+                        "path": "/parameters/reference/global-parameter",
+                        "version": "2.2.10"
+                    }
+                ],
+                "dce": "4.2.0"
+            }
+        }
+    },{
         "version": "2.0.20",
         "matchList": {
             "android":{

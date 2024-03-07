@@ -10,6 +10,7 @@ permalink: /programming/android/release-notes/index.html
 
 # Release Notes - Android Edition
 
+- [2.2.10 (03/07/2024)]({{ site.android_release_notes }}android-2.html#2210-03072024)
 - [2.0.20 (12/12/2023)]({{ site.android_release_notes }}android-2.html#2020-12122023)
 - [2.0.10 (08/10/2023)]({{ site.android_release_notes }}android-2.html#2010-08102023)
 - [1.0.30 (06/07/2023)]({{ site.android_release_notes }}android-1.html#1030-06072023)

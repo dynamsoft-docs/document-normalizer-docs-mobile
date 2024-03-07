@@ -5,7 +5,7 @@ description: This is the main page of Dynamsoft Document Normalizer for iOS SDK.
 keywords: ios
 needAutoGenerateSidebar: false
 breadcrumbText: iOS
-permalink: /programming/ios/index.html
+permalink: /programming/ios/index-v1.0.30.html
 ---
 
 # Documentation - iOS

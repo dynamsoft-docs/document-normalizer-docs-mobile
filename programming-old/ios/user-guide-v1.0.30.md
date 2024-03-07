@@ -6,7 +6,7 @@ keywords: user guide, iOS
 needAutoGenerateSidebar: true
 needGenerateH4Content: true
 noTitleIndex: true
-permalink: /programming/ios/user-guide-v1.0.0.html
+permalink: /programming/ios/user-guide-v1.0.30.html
 ---
 
 # Getting Started with iOS

@@ -20,7 +20,7 @@ Furthermore, DDN provides a powerful parameter system in order to cope with vari
 
 ## Getting Started with DDN iOS Edition
 
-The best way to start with the Dynamsoft Document Normalizer iOS Edition, is following the [`User Guide`](user-guide.md) to build your first document normalization application.
+The best way to start with the Dynamsoft Document Normalizer iOS Edition, is following the [User Guide](user-guide.md) to build your first document normalization application.
 
 ## License Subscription
 

@@ -5,7 +5,7 @@ description: This is the HelloWorld Sample page of Dynamsoft Document Normalizer
 keywords: ios, samples, HelloWorld
 needAutoGenerateSidebar: false
 breadcrumbText: HelloWorld
-permalink: /programming/ios/samples/helloworld.html
+permalink: /programming/ios/samples/helloworld-v1.0.30.html
 ---
 
 # HelloWorld Sample

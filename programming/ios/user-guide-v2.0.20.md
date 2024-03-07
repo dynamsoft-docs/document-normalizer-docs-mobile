@@ -8,7 +8,7 @@ needGenerateH4Content: true
 noTitleIndex: true
 multiProgrammingLanguage: true
 enableLanguageSelection: true
-permalink: /programming/ios/user-guide-v2.0.10.html
+permalink: /programming/ios/user-guide-v2.0.20.html
 ---
 
 # Getting Started with iOS
@@ -48,7 +48,7 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
 
 #### Add the Frameworks Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-2.0.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **xcframeworks** under the **Dynamsoft\Frameworks** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-2.0.20.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **xcframeworks** under the **Dynamsoft\Frameworks** directory:
 
    | File | Description |
    | ---- | ----------- |
@@ -72,10 +72,13 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftCaptureVisionRouter','2.0.10'
-   pod 'DynamsoftDocumentNormalizer','2.0.10'
-   pod 'DynamsoftCameraEnhancer','4.0.0'
-   pod 'DynamsoftUtility','1.0.10'
+   pod 'DynamsoftCaptureVisionRouter','2.0.21'
+   pod 'DynamsoftDocumentNormalizer','2.0.20'
+   pod 'DynamsoftCameraEnhancer','4.0.2'
+   pod 'DynamsoftCore','3.0.20'
+   pod 'DynamsoftLicense','3.0.30'
+   pod 'DynamsoftImageProcessing','2.0.21'
+   pod 'DynamsoftUtility','1.0.21'
 
    end
    ```
@@ -151,8 +154,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LicenseVerificationListen
 >- Network connection is required for the license to work.
 >- The license string here will grant you a time-limited trial license.
 >- If the license has expired, you can go to the <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=docs" target="_blank">customer portal</a> to request for an extension.
-
-&nbsp;
 
 ### Main ViewController for Realtime Detection of Quads
 

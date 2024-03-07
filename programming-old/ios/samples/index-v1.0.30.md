@@ -5,7 +5,7 @@ description: This is the Demos & Samples page of Dynamsoft Document Normalizer f
 keywords: iOS, samples
 needAutoGenerateSidebar: true
 breadcrumbText: Samples
-permalink: /programming/ios/samples/index.html
+permalink: /programming/ios/samples/index-v1.0.30.html
 ---
 
 # Demo and Samples

@@ -6,7 +6,7 @@ keywords: user guide, android
 needAutoGenerateSidebar: true
 needGenerateH4Content: true
 noTitleIndex: true
-permalink: /programming/android/user-guide-v2.0.10.html
+permalink: /programming/android/user-guide-v2.0.20.html
 ---
 
 # Getting Started with Android
@@ -67,7 +67,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
 #### Add the Library Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.0.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **Dynamsoft\Libs** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.0.20.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **Dynamsoft\Libs** directory:
 
    | File | Description |
    |---------|-------------|
@@ -117,10 +117,13 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
    ```groovy
    dependencies {
-      implementation 'com.dynamsoft:dynamsoftcapturevisionrouter:2.0.10'
-      implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:2.0.10'
-      implementation 'com.dynamsoft:dynamsoftcameraenhancer:4.0.0'
-      implementation 'com.dynamsoft:dynamsoftutility:1.0.10'
+      implementation 'com.dynamsoft:dynamsoftcapturevisionrouter:2.0.21'
+      implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:2.0.20'
+      implementation 'com.dynamsoft:dynamsoftcameraenhancer:4.0.2'
+      implementation 'com.dynamsoft:dynamsoftcore:3.0.20'
+      implementation 'com.dynamsoft:dynamsoftlicense:3.0.30'
+      implementation 'com.dynamsoft:dynamsoftimageprocessing:2.0.21'
+      implementation 'com.dynamsoft:dynamsoftutility:1.0.21'
    }
    ```
 

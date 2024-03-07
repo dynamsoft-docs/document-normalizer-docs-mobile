@@ -1,11 +1,40 @@
-version_info_list:
-  - latest version
-  - 1.0.30
-  - 1.0.21
-  - 1.0.20
-  - 1.0.12
-  - 1.0.11
-  - 1.0.10
-  - 1.0.0
+useGroupedVersion: true
 
-  
+version_info_list:
+  - value: latest version
+  - value: 2.x
+    child:
+      - 2.0.20_android
+      - 2.0.20_ios
+  - value: 1.x
+    child:
+      - 1.0.30_android
+      - 1.0.21_android
+      - 1.0.20_android
+      - 1.0.12_android
+      - 1.0.11_android
+      - 1.0.10_android
+      - 1.0.0_android
+      - 1.0.30_ios
+      - 1.0.21_ios
+      - 1.0.20_ios
+      - 1.0.12_ios
+      - 1.0.11_ios
+      - 1.0.10_ios
+      - 1.0.0_ios
+      - 1.0.5_xamarin
+      - 1.0.4_xamarin
+      - 1.0.3_xamarin
+      - 1.0.2_xamarin
+      - 1.0.1_xamarin
+      - 1.0.0_xamarin
+
+# version_info_list_xamarin:
+#   - value: latest version (1.0.5)
+#   - value: 1.x
+#     child:
+#       - 1.0.4
+#       - 1.0.3
+#       - 1.0.2
+#       - 1.0.1
+#       - 1.0.0
