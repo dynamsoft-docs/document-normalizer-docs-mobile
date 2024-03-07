@@ -3,7 +3,7 @@ layout: default-layout
 title: Dynamsoft Document Normalizer Android  API Reference - Main Page
 description: This is the main page of Dynamsoft Document Normalizer SDK API Reference for Android.
 keywords: api reference, Android 
-permalink: /programming/android/api-reference/index.html
+permalink: /programming/android/api-reference/index-v2.0.20.html
 ---
 
 # API Reference - Android 
@@ -17,10 +17,6 @@ permalink: /programming/android/api-reference/index.html
 ### Auxiliary Classes
 
 - [`CaptureVisionRouterModule`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/capture-vision-router-module.html)
-- [`CapturedResultFilter`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/captured-result-filter.html)
-- [`CapturedResultReceiver`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html)
-- [`IntermediateResultManager`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/intermediate-result-manager.html)
-- [`IntermediateResultReceiver`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/intermediate-result-receiver.html)
 - [`SimplifiedCaptureVisionSettings`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/simplified-capture-vision-settings.html)
 
 ### Interfaces
@@ -47,14 +43,15 @@ permalink: /programming/android/api-reference/index.html
 - [`NormalizedImageResultItem`]({{ site.ddn_android_api }}normalized-image-result-item.html)
 - [`NormalizedImagesResult`]({{ site.ddn_android_api }}normalized-images-result.html)
 - [`NormalizedImageUnit`]({{ site.ddn_android_api }}normalized-image-unit.html)
-- [`SimplifiedDocumentNormalizerSettings`]({{ site.ddn_android_api }}simplified-document-normalizer-settings.html)
 
 ## DynamsoftCore
 
 ### Classes
 
 - [`BinaryImageUnit`]({{ site.dcv_android_api }}core/intermediate-results/binary-image-unit.html)
+- [`CapturedResultFilter`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/captured-result-filter.html)
 - [`CapturedResultItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html)
+- [`CapturedResultReceiver`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html)
 - [`CapturedResult`]({{ site.dcv_android_api }}core/basic-structures/captured-result.html)
 - [`ColourImageUnit`]({{ site.dcv_android_api }}core/intermediate-results/colour-image-unit.html)
 - [`ContoursUnit`]({{ site.dcv_android_api }}core/intermediate-results/contours-unit.html)
@@ -70,6 +67,8 @@ permalink: /programming/android/api-reference/index.html
 - [`ImageSourceAdapter`]({{ site.dcv_android_api }}core/basic-structures/image-source-adapter.html)
 - [`ImageTag`]({{ site.dcv_android_api }}core/basic-structures/image-tag.html)
 - [`IntermediateResultExtraInfo`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-extra-info.html)
+- [`IntermediateResultManager`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/intermediate-result-manager.html)
+- [`IntermediateResultReceiver`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/intermediate-result-receiver.html)
 - [`IntermediateResultUnit`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-unit.html)
 - [`IntermediateResult`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result.html)
 - [`LineSegmentsUnit`]({{ site.dcv_android_api }}core/intermediate-results/line-segments-unit.html)

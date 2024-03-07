@@ -1,6 +1,6 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer iOS API Reference - Main Page
+title: Dynamsoft Document Normalizer iOS  API Reference - Main Page
 description: This is the main page of Dynamsoft Document Normalizer SDK API Reference for iOS.
 keywords: api reference, iOS 
 permalink: /programming/ios/api-reference/index.html
@@ -8,116 +8,170 @@ permalink: /programming/ios/api-reference/index.html
 
 # API Reference - iOS 
 
-## Primary Class
+## DynamsoftCaptureVisionRouter
 
-- [`DSCaptureVisionRouter`]({{ site.dcv_ios_api }}capture-vision-router/capture-vision-router.html)
+### CaptureVisionRouter Class
 
-## Input
+- [`CaptureVisionRouter`]({{ site.dcv_ios_api }}capture-vision-router/capture-vision-router.html)
 
-- [`DSCameraEnhancer`]({{ site.dce_ios }}primary-api/camera-enhancer.html)
-- [`DSImageSourceAdapter`]({{ site.dcv_ios_api }}core/basic-structures/image-source-adapter.html)
-- [`DSDirectoryFetcher`]({{ site.dcv_ios_api }}utility/directory-fetcher.html)
-- [`DSFileFetcher`]({{ site.dcv_ios_api }}utility/file-fetcher.html)
+### Auxiliary Classes
 
-## Final Results
+- [`CaptureVisionRouterModule`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/capture-vision-router-module.html)
+- [`CapturedResultFilter`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-filter.html)
+- [`CapturedResultReceiver`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html)
+- [`IntermediateResultManager`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-manager.html)
+- [`IntermediateResultReceiver`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-receiver.html)
+- [`SimplifiedCaptureVisionSettings`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/simplified-capture-vision-settings.html)
 
-- [`DSCapturedResultReceiver`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-receiver.html)
-- [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html)
-- [`DSCapturedResult`]({{ site.dcv_ios_api }}core/basic-structures/captured-result.html)
-- [`DSDetectedQuadResultItem`]({{ site.ios_api }}detected-quad-result-item.html)
-- [`DSDetectedQuadsResult`]({{ site.ios_api }}detected-quads-result.html)
-- [`DSNormalizedImageResultItem`]({{ site.ios_api }}normalized-image-result-item.html)
-- [`DSNormalizedImagesResult`]({{ site.ios_api }}normalized-images-result.html)
-- [`DSOriginalImageResultItem`]({{ site.dcv_ios_api }}core/basic-structures/original-image-result-item.html)
+### Interfaces
 
-## Final Results Filters
+- [`CaptureStateListener`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/capture-state-listener.html)
+- [`ImageSourceStateListener`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/image-source-state-listener.html)
 
-- [`DSCapturedResultFilter`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-filter.html)
-- [`DSMultiFrameResultCrossFilter`]({{ site.dcv_ios_api }}utility/multi-frame-result-cross-filter.html)
+### Enumerations
 
-## Intermediate Results
+- [`EnumCaptureState`]({{ site.dcv_enumerations }}capture-vision-router/capture-state.html?lang=objc,swift)
+- [`EnumPresetTemplate`]({{ site.dcv_enumerations }}capture-vision-router/preset-template.html?lang=objc,swift)
 
-- [`DSIntermediateResultManager`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-manager.html)
-- [`DSIntermediateResultReceiver`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-receiver.html)
-- [`DSObservationParameters`]({{ site.dcv_ios_api }}core/intermediate-results/observation-parameters.html)
-- [`DSIntermediateResultExtraInfo`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-extra-info.html)
-- [`DSIntermediateResult`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result.html)
-- [`DSIntermediateResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-unit.html)
-- [`DSPredetectedRegionsUnit`]({{ site.dcv_ios_api }}core/intermediate-results/predetected-regions-unit.html)
-- [`DSDetectedQuadsUnit`]({{ site.ios_api }}detected-quads-unit.html)
-- [`DSNormalizedImagesUnit`]({{ site.ios_api }}normalized-image-unit.html)
-- [`DSRegionObjectElement`]({{ site.dcv_ios_api }}core/intermediate-results/region-object-element.html)
-- [`DSPredetectedRegionElement`]({{ site.dcv_ios_api }}core/intermediate-results/predetected-region-element.html)
-- [`DSDetectedQuadElement`]({{ site.ios_api }}detected-quad-element.html)
-- [`DSNormalizedImageElement`]({{ site.ios_api }}normalized-image-element.html)
-- [`DSBinaryImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/binary-image-unit.html)
-- [`DSCandidateQuadEdgesUnit`]({{ site.ios_api }}candidate-quad-edges-unit.html)
-- [`DSColourImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/colour-image-unit.html)
-- [`DSContoursUnit`]({{ site.dcv_ios_api }}core/intermediate-results/contours-unit.html)
-- [`DSCornersUnit`]({{ site.ios_api }}corners-unit.html)
-- [`DSEnhancedGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/enhanced-grayscale-image-unit.html)
-- [`DSGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/grayscale-image-unit.html)
-- [`DSLineSegmentsUnit`]({{ site.dcv_ios_api }}core/intermediate-results/line-segments-unit.html)
-- [`DSLongLinesUnit`]({{ site.ios_api }}long-lines-unit.html)
-- [`DSScaledDownColourImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/scaled-down-colour-image-unit.html)
-- [`DSTextRemovedBinaryImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/text-removed-binary-image-unit.html)
-- [`DSTextZonesUnit`]({{ site.dcv_ios_api }}core/intermediate-results/text-zones-unit.html)
-- [`DSTextureDetectionResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-detection-result-unit.html)
-- [`DSTextureRemovedBinaryImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-removed-binary-image-unit.html)
-- [`DSTextureRemovedGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-removed-grayscale-image-unit.html)
-- [`DSTransformedGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/transformed-grayscale-image-unit.html)
+## DynamsoftDocumentNormalizer
 
-## Settings
+### Classes
 
-- [`DSSimplifiedCaptureVisionSettings`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/simplified-capture-vision-settings.html)
-- [`DSPresetTemplate`]({{ site.dcv_enums }}capture-vision-router/preset-template.html?lang=objc&swift)
+- [`CandidateQuadEdgesUnit`]({{ site.ddn_ios_api }}candidate-quad-edges-unit.html)
+- [`CornersUnit`]({{ site.ddn_ios_api }}corners-unit.html)
+- [`DetectedQuadElement`]({{ site.ddn_ios_api }}detected-quad-element.html)
+- [`DetectedQuadResultItem`]({{ site.ddn_ios_api }}detected-quad-result-item.html)
+- [`DetectedQuadsResult`]({{ site.ddn_ios_api }}detected-quads-result.html)
+- [`DetectedQuadsUnit`]({{ site.ddn_ios_api }}detected-quads-unit.html)
+- [`DocumentNormalizerModule`]({{ site.ddn_ios_api }}document-normalizer-module.html)
+- [`LongLinesUnit`]({{ site.ddn_ios_api }}long-lines-unit.html)
+- [`NormalizedImageElement`]({{ site.ddn_ios_api }}normalized-image-element.html)
+- [`NormalizedImageResultItem`]({{ site.ddn_ios_api }}normalized-image-result-item.html)
+- [`NormalizedImagesResult`]({{ site.ddn_ios_api }}normalized-images-result.html)
+- [`NormalizedImageUnit`]({{ site.ddn_ios_api }}normalized-image-unit.html)
+- [`SimplifiedDocumentNormalizerSettings`]({{ site.ddn_ios_api }}simplified-document-normalizer-settings.html)
 
-## State Listener
+## DynamsoftCore
 
-- [`DSCaptureStateListener`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/capture-state-listener.html)
-- [`DSImageSourceStateListener`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/image-source-state-listener.html)
+### Classes
 
-## License Manager
-
-- [`DSLicenseManager`]({{ site.dcv_ios_api }}license/license-manager.html)
-
-## Basic Structure
-
-- [`DSContour`]({{ site.dcv_ios_api }}core/basic-structures/contour.html)
-- [`DSCorner`]({{ site.dcv_ios_api }}core/basic-structures/corner.html)
-- [`DSEdge`]({{ site.dcv_ios_api }}core/basic-structures/edge.html)
-- [`DSFileImageTag`]({{ site.dcv_ios_api }}core/basic-structures/file-image-tag.html)
-- [`DSImageData`]({{ site.dcv_ios_api }}core/basic-structures/image-data.html)
-- [`DSImageTag`]({{ site.dcv_ios_api }}core/basic-structures/image-tag.html)
-- [`DSLineSegment`]({{ site.dcv_ios_api }}core/basic-structures/line-segment.html)
-- [`DSQuadrilateral`]({{ site.dcv_ios_api }}core/basic-structures/quadrilateral.html)
+- [`BinaryImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/binary-image-unit.html)
+- [`CapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html)
+- [`CapturedResult`]({{ site.dcv_ios_api }}core/basic-structures/captured-result.html)
+- [`ColourImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/colour-image-unit.html)
+- [`ContoursUnit`]({{ site.dcv_ios_api }}core/intermediate-results/contours-unit.html)
+- [`Contour`]({{ site.dcv_ios_api }}core/basic-structures/contour.html)
+- [`CoreModule`]({{ site.dcv_ios_api }}core/basic-structures/core-module.html)
+- [`Corner`]({{ site.dcv_ios_api }}core/basic-structures/corner.html)
 - [`DSRect`]({{ site.dcv_ios_api }}core/basic-structures/rect.html)
-- [`DSVideoFrameTag`]({{ site.dcv_ios_api }}core/basic-structures/video-frame-tag.html)
+- [`Edge`]({{ site.dcv_ios_api }}core/basic-structures/edge.html)
+- [`EnhancedGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/enhanced-grayscale-image-unit.html)
+- [`FileImageTag`]({{ site.dcv_ios_api }}core/basic-structures/file-image-tag.html)
+- [`GrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/grayscale-image-unit.html)
+- [`ImageData`]({{ site.dcv_ios_api }}core/basic-structures/image-data.html)
+- [`ImageSourceAdapter`]({{ site.dcv_ios_api }}core/basic-structures/image-source-adapter.html)
+- [`ImageTag`]({{ site.dcv_ios_api }}core/basic-structures/image-tag.html)
+- [`IntermediateResultExtraInfo`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-extra-info.html)
+- [`IntermediateResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-unit.html)
+- [`IntermediateResult`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result.html)
+- [`LineSegmentsUnit`]({{ site.dcv_ios_api }}core/intermediate-results/line-segments-unit.html)
+- [`LineSegment`]({{ site.dcv_ios_api }}core/basic-structures/line-segment.html)
+- [`ObservationParameters`]({{ site.dcv_ios_api }}core/intermediate-results/observation-parameters.html)
+- [`OriginalImageResultItem`]({{ site.dcv_ios_api }}core/basic-structures/original-image-result-item.html)
+- [`PredetectedRegionElement`]({{ site.dcv_ios_api }}core/intermediate-results/predetected-region-element.html)
+- [`PredetectedRegionsUnit`]({{ site.dcv_ios_api }}core/intermediate-results/predetected-regions-unit.html)
+- [`Quadrilateral`]({{ site.dcv_ios_api }}core/basic-structures/quadrilateral.html)
+- [`RegionObjectElement`]({{ site.dcv_ios_api }}core/intermediate-results/region-object-element.html)
+- [`ScaledDownColourImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/scaled-down-colour-image-unit.html)
+- [`TextRemovedBinaryImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/text-removed-binary-image-unit.html)
+- [`TextureDetectionResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-detection-result-unit.html)
+- [`TextureRemovedBinaryImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-removed-binary-image-unit.html)
+- [`TextureRemovedGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-removed-grayscale-image-unit.html)
+- [`TextZonesUnit`]({{ site.dcv_ios_api }}core/intermediate-results/text-zones-unit.html)
+- [`TransformedGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/transformed-grayscale-image-unit.html)
+- [`Vector4`]({{ site.dcv_ios_api }}core/basic-structures/vector4.html)
+- [`VideoFrameTag`]({{ site.dcv_ios_api }}core/basic-structures/video-frame-tag.html)
 
-## Modules
+### Interfaces
 
-- [`DSCaptureVisionRouterModule`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/capture-vision-router-module.html)
-- [`DSDocumentNormalizerModule`]({{ site.ios_api }}document-normalizer-module.html)
-- [`DSCoreModule`]({{ site.dcv_ios_api }}core/basic-structures/core-module.html)
-- [`DSLicenseModule`]({{ site.dcv_ios_api }}license/license-module.html)
-- [`DSUtilityModule`]({{ site.dcv_ios_api }}utility/utility-module.html)
-- [`DSImageProcessingModule`]({{ site.dcv_ios_api }}image-processing/image-processing-module.html)
+- [`ImageSourceErrorListener`]({{ site.dcv_ios_api }}core/basic-structures/image-source-error-listener.html)
 
-## Enumerations
+### Enumerations
 
-- [`DSBufferOverflowProtectionMode`]({{ site.dcv_enums }}core/buffer-overflow-protection-mode.html?lang=objc&swift)
-- [`DSCapturedResultItemType`]({{ site.dcv_enums }}core/captured-result-item-type.html?lang=objc&swift)
-- [`DSCornerType`]({{ site.dcv_enums }}core/corner-type.html?lang=objc&swift)
-- [`DSErrorCode`]({{ site.dcv_enums }}core/error-code.html?lang=objc&swift)
-- [`DSGrayscaleTransformationMode`]({{ site.dcv_enums }}core/grayscale-transformation-mode.html?lang=objc&swift)
-- [`DSImageCaptureDistanceMode`]({{ site.dcv_enums }}core/image-capture-distance-mode.html?lang=objc&swift)
-- [`DSImagePixelFormat`]({{ site.dcv_enums }}core/image-pixel-format.html?lang=objc&swift)
-- [`DSImageSourceState`]({{ site.dcv_enums }}core/image-source-state.html?lang=objc&swift)
-- [`DSImageTagType`]({{ site.dcv_enums }}core/image-tag-type.html?lang=objc&swift)
-- [`DSIntermediateResultUnitType`]({{ site.dcv_enums }}core/intermediate-result-unit-type.html?lang=objc&swift)
-- [`DSRegionObjectElementType`]({{ site.dcv_enums }}core/region-object-element-type.html?lang=objc&swift)
-- [`DSSectionType`]({{ site.dcv_enums }}core/section-type.html?lang=objc&swift)
-- [`DSRasterDataSource`]({{ site.dcv_enums }}core/raster-data-source.html?lang=objc&swift)
-- [`DSVideoFrameQuality`]({{ site.dcv_enums }}core/video-frame-quality.html?lang=objc&swift)
-- [`DSColourChannelUsageType`]({{ site.dcv_enums}}core/colour-channel-usage-type.html?lang=objc&swift)
-- [`DSTransformMatrixType`]({{ site.dcv_enums}}core/transform-matrix-type.html?lang=objc&swift)
+- [`BufferOverflowProtectionMode`]({{ site.dcv_enumerations }}core/buffer-overflow-protection-mode.html?lang=objc,swift)
+- [`CapturedResultItemType`]({{ site.dcv_enumerations }}core/captured-result-item-type.html?lang=objc,swift)
+- [`ColourChannelUsageType`]({{ site.dcv_enumerations }}core/colour-channel-usage-type.html?lang=objc,swift)
+- [`CornerType`]({{ site.dcv_enumerations }}core/corner-type.html?lang=objc,swift)
+- [`ErrorCode`]({{ site.dcv_enumerations }}core/error-code.html?lang=objc,swift)
+- [`GrayscaleEnhancementMode`]({{ site.dcv_enumerations }}core/grayscale-enhancement-mode.html?lang=objc,swift)
+- [`GrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=objc,swift)
+- [`ImageCaptureDistanceMode`]({{ site.dcv_enumerations }}core/image-capture-distance-mode.html?lang=objc,swift)
+- [`ImagePixelFormat`]({{ site.dcv_enumerations }}core/image-pixel-format.html?lang=objc,swift)
+- [`ImageSourceState`]({{ site.dcv_enumerations }}core/image-source-state.html?lang=objc,swift)
+- [`ImageTagType`]({{ site.dcv_enumerations }}core/image-tag-type.html?lang=objc,swift)
+- [`IntermediateResultUnitType`]({{ site.dcv_enumerations }}core/intermediate-result-unit-type.html?lang=objc,swift)
+- [`LogMode`]({{ site.dcv_enumerations }}core/log-mode.html?lang=objc,swift)
+- [`RegionObjectElementType`]({{ site.dcv_enumerations }}core/region-object-element-type.html?lang=objc,swift)
+- [`SectionType`]({{ site.dcv_enumerations }}core/section-type.html?lang=objc,swift)
+- [`TransformMatrixType`]({{ site.dcv_enumerations }}core/transform-matrix-type.html?lang=objc,swift)
+- [`VideoFrameQuality`]({{ site.dcv_enumerations }}core/video-frame-quality.html?lang=objc,swift)
+
+## DynamsoftUtility
+
+### Classes
+
+- [`DirectoryFetcher`]({{ site.dcv_ios_api }}utility/directory-fetcher.html)
+- [`FileFetcher`]({{ site.dcv_ios_api }}utility/file-fetcher.html)
+- [`MultiFrameResultCrossFilter`]({{ site.dcv_ios_api }}utility/multi-frame-result-cross-filter.html)
+- [`UtilityModule`]({{ site.dcv_ios_api }}utility/utility-module.html)
+
+## DynamsoftCameraEnhancer
+
+### Classes
+
+- [`CameraEnhancer`]({{ site.dce_ios_api }}primary-api/camera-enhancer.html)
+- [`CameraEnhancerModule`]({{ site.dce_ios_api }}auxiliary-api/camera-enhancer-module.html)
+- [`CameraView`]({{ site.dce_ios_api }}auxiliary-api/dcecameraview.html)
+- [`Capabilities`]({{ site.dce_ios_api }}auxiliary-api/capabilities.html)
+- [`DrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem.html)
+- [`DrawingLayer`]({{ site.dce_ios_api }}auxiliary-api/dcedrawinglayer.html)
+- [`DrawingStyleManager`]({{ site.dce_ios_api }}auxiliary-api/drawingstylemanager.html)
+- [`DrawingStyle`]({{ site.dce_ios_api }}auxiliary-api/drawingstyle.html)
+- [`Feedback`]({{ site.dce_ios_api }}auxiliary-api/dcefeedback.html)
+- [`ImageEditorView`]({{ site.dce_ios_api }}auxiliary-api/dceimageeditorview.html)
+- [`LineDrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem-line.html)
+- [`Note`]({{ site.dce_ios_api }}auxiliary-api/note.html)
+- [`QuadDrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem-quad.html)
+- [`RectDrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem-rect.html)
+- [`TextDrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem-text.html)
+- [`TipConfig`]({{ site.dce_ios_api }}auxiliary-api/tip-config.html)
+
+### Interfaces
+
+- [`CameraStateListener`]({{ site.dce_ios_api }}auxiliary-api/protocol-dcecamerastatelistener.html)
+- [`PhotoListener`]({{ site.dce_ios_api }}auxiliary-api/protocol-dcephotolistener.html)
+- [`VideoFrameListener`]({{ site.dce_ios_api }}auxiliary-api/protocol-dceframelistener.html)
+
+### Enumerations
+
+- [`CameraPosition`]({{ site.dcv_enumerations }}camera-position.html?lang=objc,swift)
+- [`CameraState`]({{ site.dcv_enumerations }}camera-state.html?lang=objc,swift)
+- [`CoordinateBase`]({{ site.dcv_enumerations }}coordinate-base.html?lang=objc,swift)
+- [`DrawingItemMediaType`]({{ site.dcv_enumerations }}drawing-item-media-type.html?lang=objc,swift)
+- [`DrawingItemState`]({{ site.dcv_enumerations }}drawing-item-state.html?lang=objc,swift)
+- [`EnhancedFeatures`]({{ site.dcv_enumerations }}enhanced-features.html?lang=objc,swift)
+- [`FocusMode`]({{ site.dcv_enumerations }}focus-mode.html?lang=objc,swift)
+- [`Resolution`]({{ site.dcv_enumerations }}resolution.html?lang=objc,swift)
+
+## DynamsoftImageProcessing
+
+### Classes
+
+- [`ImageProcessingModule`]({{ site.dcv_ios_api }}image-processing/image-processing-module.html)
+
+## DynamsoftLicense
+
+### Classes
+
+- [`LicenseManger`]({{ site.dcv_ios_api }}license/license-manager.html)
+- [`LicenseModule`]({{ site.dcv_ios_api }}license/license-module.html)

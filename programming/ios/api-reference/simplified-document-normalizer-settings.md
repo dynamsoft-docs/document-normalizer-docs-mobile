@@ -1,0 +1,179 @@
+---
+layout: default-layout
+title: DSSimplifiedDocumentNormalizerSettings - Dynamsoft Document Normalizer module iOS Edition API Reference
+description: The class DSSimplifiedDocumentNormalizerSettings of Dynamsoft Document Normalizer module represents the simplified document normalizer settings.
+keywords: document normalizer settings, objective-c, swift
+needGenerateH3Content: true
+needAutoGenerateSidebar: true
+noTitleIndex: true
+---
+
+# DSSimplifiedDocumentNormalizerSettings
+
+The `DSSimplifiedDocumentNormalizerSettings` class represents the simplified document normalizer settings.
+
+## Definition
+
+*Assembly:* DynamsoftDocumentNormalizer.framework
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@interface DSSimplifiedDocumentNormalizerSettings: NSObject
+```
+2. 
+```swift
+class SimplifiedDocumentNormalizerSettings: NSObject
+```
+
+## Attributes
+
+| Attributes | Type | Description |
+| ---------- | ---- | ----------- |
+| [`grayscaleTransformationModes`](#grayscaletransformationmodes) | *NSArray<NSNumber>* \* | An array of DSGrayscaleTransformationMode. It controls whether to detect the inverted document boundary. |
+| [`grayscaleEnhancementModes`](#grayscaleenhancementmodes) | *NSArray<NSNumber>* \* | An array of DSGrayscaleEnhancementModes. |
+| [`colourMode`](#colourmode) | *DSImageColourMode \* | The grayscale transformation mode. It controls whether to decode the inverted text. |
+| [`pageSize`](#pagesize) | *CGSize \* | The page size. |
+| [`brightness`](#brightness) | *NSInteger \* | The brightness. |
+| [`contrast`](#contrast) | *NSInteger \* | The contrast. |
+| [`maxThreadsInOneTask`](#maxthreadsinonetask) | *NSInteger \* | The maximum number of threads in one task. |
+| [`scaleDownThreshold`](#scaledownthreshold) | *NSInteger \* | The scale down threshold. |
+
+### grayscaleTransformationModes
+
+Defines the grayscale transformation mode with an array of [`DSGrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=objc,swift). It controls whether to detect the inverted document boundary.
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@property (nonatomic, nullable, copy) NSArray<NSNumber>* grayscaleTransformationModes;
+```
+2. 
+```swift
+var grayscaleTransformationModes: [NSNumber]? { get set }
+```
+
+### grayscaleEnhancementModes
+
+Defines the grayscale enhancement mode with an array of [`DSGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-modes.html?lang=objc,swift).
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@property (nonatomic, nullable, copy) NSArray<NSNumber>* grayscaleEnhancementModes;
+```
+2. 
+```swift
+var grayscaleEnhancementModes: [NSNumber]? { get set }
+```
+
+### colourMode
+
+Defines the colour mode of the normalized image with a [`DSImageColourMode`]({{ site.dcv_enumerations }}core/image-colour-mode.html?lang=objc,swift) member.
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@property (nonatomic, assign) DSImageColourMode colourMode;
+```
+2. 
+```swift
+var colourMode: ImageColourMode { get set }
+```
+
+### pageSize
+
+Defines the page size of the normalized image with a [`CGSize`]({{ site.dcv_structs }}core/size.html?lang=objc,swift) object.
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@property (nonatomic, assign) CGSize pageSize;
+```
+2. 
+```swift
+var pageSize: CGSize { get set }
+```
+
+### brightness
+
+Defines the brightness of the normalized image with an integer.
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@property (nonatomic, assign) NSInteger brightness;
+```
+2. 
+```swift
+var brightness: Int { get set }
+```
+
+### contrast
+
+Defines the contrast of the normalized image with an integer.
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@property (nonatomic, assign) NSInteger contrast;
+```
+2. 
+```swift
+var contrast: Int { get set }
+```
+
+### maxThreadsInOneTask
+
+Defines the maximum number of threads in one task.
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@property (nonatomic, assign) NSInteger maxThreadsInOneTask;
+```
+2. 
+```swift
+var maxThreadsInOneTask: Int { get set }
+```
+
+### scaleDownThreshold
+
+Defines the scale down threshold. If the image size is larger than the scale down threshold, the image is scaled down by half.
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@property (nonatomic, assign) NSInteger scaleDownThreshold;
+```
+2. 
+```swift
+var scaleDownThreshold: Int { get set }
+```

@@ -20,7 +20,7 @@ Furthermore, DDN provides a powerful parameter system in order to cope with vari
 
 ## Getting Started with DDN Android Edition
 
-The best way to start with the Dynamsoft Document Normalizer Android Edition is by following the [`User Guide`](user-guide.md) to build your first document normalization application.
+The best way to start with the Dynamsoft Document Normalizer Android Edition is by following the [User Guide](user-guide.md) to build your first document normalization application.
 
 ## License Subscription
 

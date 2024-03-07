@@ -14,18 +14,18 @@ dcv_android_api: /capture-vision/docs/mobile/programming/android/api-reference/
 
 dcv_introduction: /capture-vision/docs/core/introduction/
 
-dce_android: /camera-enhancer/docs/mobile/programming/android/
-dce_ios: /camera-enhancer/docs/mobile/programming/ios/
+dce_android_api: /camera-enhancer/docs/mobile/programming/android/
+dce_ios_api: /camera-enhancer/docs/mobile/programming/ios/
 
-dcv_enums: /capture-vision/docs/core/enums/
+dcv_enumerations: /capture-vision/docs/core/enums/
 
 ios: /document-normalizer/docs/mobile/programming/ios/
-ios_api: /document-normalizer/docs/mobile/programming/ios/api-reference/
+ddn_ios_api: /document-normalizer/docs/mobile/programming/ios/api-reference/
 ios_release_notes: /document-normalizer/docs/mobile/programming/ios/release-notes/
 ios_camera_enhancer: /document-normalizer/docs/mobile/programming/ios/api-reference/camera-enhancer/
 
 android: /document-normalizer/docs/mobile/programming/android/
-android_api: /document-normalizer/docs/mobile/programming/android/api-reference/
+ddn_android_api: /document-normalizer/docs/mobile/programming/android/api-reference/
 android_release_notes: /document-normalizer/docs/mobile/programming/android/release-notes/
 android_camera_enhancer: /document-normalizer/docs/mobile/programming/android/api-reference/camera-enhancer/
 
