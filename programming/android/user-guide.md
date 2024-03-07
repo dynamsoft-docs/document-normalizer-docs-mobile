@@ -13,7 +13,7 @@ permalink: /programming/android/user-guide.html
 
 In this guide, you will learn step by step on how to build a document normalization application with Dynamsoft Document Normalizer Android SDK.
 
-> Read more on [Dynamsoft Document Normalizer Features](https://www.dynamsoft.com/document-normalizer/docs/core/introduction/index.html)
+> Read more on [Dynamsoft Document Normalizer Features](https://www.dynamsoft.com/document-normalizer/docs/core/introduction/index.html){:target="_blank"}
 
 - [Getting Started with Android](#getting-started-with-android)
   - [Requirements](#requirements)

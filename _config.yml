@@ -6,6 +6,8 @@ docHomePage: /document-normalizer/docs/core/introduction/
 
 parameters: /document-normalizer/docs/core/parameters/
 
+dcv_parameters: /capture-vision/docs/core/parameters/
+
 dcv_ios: /capture-vision/docs/mobile/programming/ios/
 dcv_ios_api: /capture-vision/docs/mobile/programming/ios/api-reference/
 
@@ -16,6 +18,7 @@ dcv_introduction: /capture-vision/docs/core/introduction/
 
 dce_android_api: /camera-enhancer/docs/mobile/programming/android/
 dce_ios_api: /camera-enhancer/docs/mobile/programming/ios/
+dce_enumerations: /camera-enhancer/docs/core/enums/
 
 dcv_enumerations: /capture-vision/docs/core/enums/
 
