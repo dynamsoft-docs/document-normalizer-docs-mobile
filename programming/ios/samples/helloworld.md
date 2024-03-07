@@ -14,7 +14,11 @@ The iOS HelloWorld sample illustrates how to create the simplest video streaming
 
 View the samples
 
-- <a href="https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld/" target="_blank">Objective-C (iOS) HelloWorld</a>
-- <a href="https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld/" target="_blank">Swift (iOS) HelloWorld</a>
+- Swift HelloWorld Samples:
+  - [AutoNormalize](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalize){:target="_blank"}.
+  - [EditAndNormalize](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/EditAndNormalize){:target="_blank"}.
+- Objective-C HelloWorld Samples:
+  - [AutoNormalizeKt](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalizeObjc){:target="_blank"}.
+  - [EditAndNormalizeKt](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/EditAndNormalizeObjc){:target="_blank"}.
 
 For more details about how to get started with Dynamsoft Document Normalizer, please view the [`user guide`]({{ site.ios }}user-guide.html).
