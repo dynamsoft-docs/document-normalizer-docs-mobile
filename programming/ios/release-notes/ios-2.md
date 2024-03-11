@@ -11,6 +11,10 @@ permalink: /programming/ios/release-notes/ios-2.html
 
 # Release Notes for iOS SDK - v2.x
 
+## 2.2.10.1 (03/11/2024)
+
+- Fixed a bug where license error is misreported when method [`getIntermediateResultManager`]({{ site.dcv_ios_api }}capture-vision-router/intermediate-result.html#getintermediateresultmanager) is triggered.
+
 ## 2.2.10 (03/07/2024)
 
 ### New
