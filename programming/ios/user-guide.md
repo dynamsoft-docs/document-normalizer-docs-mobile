@@ -64,7 +64,7 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
 
 #### Add the Frameworks Manually
 
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-2.2.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **xcframeworks** under the **Dynamsoft\Frameworks** directory:
+1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-2.2.10.1.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **xcframeworks** under the **Dynamsoft\Frameworks** directory:
 
    | File | Description |
    | ---- | ----------- |
@@ -88,7 +88,7 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftCaptureVisionRouter','2.2.10'
+   pod 'DynamsoftCaptureVisionRouter','2.2.11'
    pod 'DynamsoftDocumentNormalizer','2.2.10'
    pod 'DynamsoftCameraEnhancer','4.2.0'
    pod 'DynamsoftCore','3.2.10'
