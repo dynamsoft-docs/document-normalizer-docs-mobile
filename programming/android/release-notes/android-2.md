@@ -84,7 +84,7 @@ permalink: /programming/android/release-notes/android-2.html
 - Added a new supported image pixel format, binary 8 inverted. The corresponding enumeration member is added to the [`ImagePixelFormat`]({{ site.dcv_enumerations }}core/image-pixel-format.html?lang=android).
 - Added return value for the `retain` method of the [`IntermediateResultUnit`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-unit.html) class. The method will return the pointer of the current `IntermediateResultUnit`.
 
-### Break Changes
+### Breaking Changes
 
 - Changed the logic of the [`stopCapturing`]({{ site.dcv_android_api }}capture-vision-router/multiple-file-processing.html#stopCapturing) method.
   - [`CaptureResultReceiver`]({{ site.dcv_android_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html) will not receive results after `stopCapturing` is triggered with `waitForRemainingTasks` false.
