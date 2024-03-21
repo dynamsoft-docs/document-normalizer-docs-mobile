@@ -26,11 +26,11 @@ class DetectedQuadElement extends RegionObjectElement
 
 | Methods | Description |
 | ------- | ----------- |
-| [`getConfidenceAsDocumentBoundary`](#getconfidenceasdocumentboundary) | Get the confidence of the quadrilateral to be a document boundary. |
+| [`getConfidenceAsDocumentBoundary`](#getconfidenceasdocumentboundary) | Returns the confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document. |
 
 ## getConfidenceAsDocumentBoundary
 
-Get the confidence of the quadrilateral to be a document boundary.
+Returns the confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document.
 
 ```java
 int getConfidenceAsDocumentBoundary();

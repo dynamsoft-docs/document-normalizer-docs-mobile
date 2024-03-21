@@ -10,11 +10,11 @@ noTitleIndex: true
 
 # DSDetectedQuadsResult
 
-The `DSDetectedQuadsResult` class represents a captured result whose type is detected quads, which contains an array of `DSDetectedQuadResultItems` and the rotation transformation matrix of the original image relative to the rotated image.
+The `DSDetectedQuadsResult` class represents a collection of [`DSDetectedQuadResultItems`](detected-quad-result-item.md), the basic unit of a detected quad result.
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.framework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -40,7 +40,7 @@ class DetectedQuadsResult : NSObject
 
 ### items
 
-An array of `DSDetectedQuadResultItems`, which are the basic unit of the captured results.
+An array of [`DSDetectedQuadResultItems`](detected-quad-result-item.md), which represents the basic unit of the captured result, in this case, a detected quadrilateral.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -57,7 +57,7 @@ var items: [DSDetectedQuadResultItem]? { get }
 
 ### rotationTransformMatrix
 
-The rotation transformation matrix of the original image relative to the rotated image.
+The rotation transformation matrix of the original image relative to the rotated image. Please see [CGAffineTransform](https://developer.apple.com/documentation/corefoundation/cgaffinetransform){:target="_blank"} for more info.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -74,7 +74,7 @@ var rotationTransformMatrix: CGAffineTransform { get }
 
 ### originalImageHashId
 
-The hash id of the original image. You can use this ID to get the original image via IntermediateResultManager class.
+The hash ID of the original image. You can use this ID to get the original image via [`IntermediateResultManager`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-manager.html) class.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -91,7 +91,7 @@ var originalImageHashId: String { get }
 
 ### originalImageTag
 
-The tag of the original image, from which you get the detected quads result.
+The [`ImageTag`]({{ site.dcv_ios_api }}core/basic-structures/image-tag.html) of the original image, which contains various information about the image.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

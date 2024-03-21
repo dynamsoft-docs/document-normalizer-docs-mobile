@@ -14,7 +14,7 @@ The `DSCandidateQuadEdgesUnit` class represents an intermediate result unit whos
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.framework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

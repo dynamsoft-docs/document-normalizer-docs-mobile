@@ -10,11 +10,11 @@ noTitleIndex: true
 
 # DSDetectedQuadResultItem
 
-The `DSDetectedQuadResultItem` class represents a captured result whose type is detected quads, which contains the location and confidence as a document boundary.
+The `DetectedQuadResultItem` class is an extension of the [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html) that represents a detected quadrilateral. This is the most basic unit of a detected quadrilateral, one of the captured result types that the Capture Vision Router can output.
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.framework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -35,11 +35,11 @@ class DetectedQuadResultItem: CapturedResultItem
 | Attributes | Type | Description |
 | ---------- | ---- | ----------- |
 | [`location`](#location) | *DSQuadrilateral* | A DSQuadrilateral object as the location of current object. |
-| [`confidenceAsDocumentBoundary`](#confidenceasdocumentboundary) | *NSInteger* | The confidence of current object as a document boundary. |
+| [`confidenceAsDocumentBoundary`](#confidenceasdocumentboundary) | *NSInteger* | TThe confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document. |
 
 ### location
 
-A DSQuadrilateral object as the location of current object.
+A [DSQuadrilateral]({{ site.dcv_ios_api }}core/basic-structures/quadrilateral.html) object that represents the location of the detected quadrilateral within the image or frame.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -56,7 +56,7 @@ var location: DSQuadrilateral? { get }
 
 ### confidenceAsDocumentBoundary
 
-The confidence of current object as a document boundary.
+The confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

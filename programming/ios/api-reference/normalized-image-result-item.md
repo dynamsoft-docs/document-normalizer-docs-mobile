@@ -10,11 +10,11 @@ noTitleIndex: true
 
 # DSNormalizedImageResultItem
 
-The `DSNormalizedImageResultItem` class represents a captured result item whose type is a normalized image. It stores the normalized image information.
+The `DSNormalizedImageResultItem` class  is an extension of [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html) that represents a normalized image. This is the most basic unit of the normalized image result, one of the captured result types that the Capture Vision Router can output.
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.framework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -38,7 +38,7 @@ class NormalizedImageResultItem : CapturedResultItem
 
 ### imageData
 
-A `DSImageData` object as the image data of a normalized image.
+A [`DSImageData`]({{ site.dcv_ios_api }}core/basic-structures/image-data.html) object for the normalized image.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -55,7 +55,7 @@ var imageData: ImageData? { get }
 
 ### location
 
-The quadrilateral from which you get the normalized image result item.
+The [DSQuadrilateral]({{ site.dcv_ios_api }}core/basic-structures/quadrilateral.html) that represents the location of the normalized image within the original image or frame.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

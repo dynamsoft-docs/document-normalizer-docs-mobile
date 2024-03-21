@@ -10,7 +10,7 @@ noTitleIndex: true
 
 # NormalizedImagesResult
 
-The `NormalizedImagesResult` class represents a collection of captured result items whose type are normalized images.
+The `NormalizedImagesResult` class represents a collection of [`NormalizedImageResultItem`](normalized-image-result-item.md), the basic unit of a normalized image result.
 
 ## Definition
 
@@ -33,7 +33,7 @@ class NormalizedImagesResult
 
 ### getItems
 
-Gets an array of `NormalizedImageResultItem` objects, where each object represents a single normalized image.
+Returns an array of [`NormalizedImageResultItem`](normalized-image-result-item.md) objects, where each `NormalizedImageResultItem` represents a single normalized image.
 
 ```java
 NormalizedImageResultItem[] getItems();
@@ -45,7 +45,7 @@ The array of the normalized image result items.
 
 ### getRotationTransformMatrix
 
-Gets the rotation transformation matrix of the original image relative to the rotated image.
+Returns the rotation transformation matrix of the original image relative to the rotated image. Please see [Matrix](https://developer.android.com/reference/android/opengl/Matrix){:target="_blank"} for more info.
 
 ```java
 Matrix getRotationTransformMatrix();
@@ -57,7 +57,7 @@ The rotation transformation matrix of the original image relative to the rotated
 
 ### getOriginalImageHashId
 
-Gets the hash id of the original image. You can use this ID to get the original image via `IntermediateResultManager` class.
+Returns the hash ID of the original image. You can use this ID to get the original image via [`IntermediateResultManager`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-manager.html) class.
 
 ```java
 String getOriginalImageHashId();
@@ -69,7 +69,7 @@ The hash id of the original image.
 
 ### getOriginalImageTag
 
-Gets the tag of the original image.
+Returns the [`ImageTag`]({{ site.dcv_android_api }}core/basic-structures/image-tag.html) of the original image, which contains various information about the image.
 
 ```java
 ImageTag getOriginalImageTag();
@@ -78,7 +78,3 @@ ImageTag getOriginalImageTag();
 **Return Value**
 
 The tag of the original image.
-
-**See Also**
-
-* [ImageTag]({{ site.dcv_android_api }}core/basic-structures/image-tag.html)
