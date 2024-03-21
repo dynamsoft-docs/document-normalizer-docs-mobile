@@ -14,7 +14,7 @@ The `DSDetectedQuadElement` class represents a detected quadrilateral element, w
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.framework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -33,11 +33,11 @@ class DetectedQuadElement: RegionObjectElement
 
 | Attributes | Type | Description |
 | ---------- | ---- | ----------- |
-| [`confidenceAsDocumentBoundary`](#confidenceasdocumentboundary) | *NSInteger* | The confidence of the quadrilateral to be a document boundary. |
+| [`confidenceAsDocumentBoundary`](#confidenceasdocumentboundary) | *NSInteger* | The confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document. |
 
 ## confidenceAsDocumentBoundary
 
-The confidence of the quadrilateral to be a document boundary.
+The confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

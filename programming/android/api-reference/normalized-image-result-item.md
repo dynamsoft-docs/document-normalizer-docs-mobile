@@ -10,7 +10,7 @@ noTitleIndex: true
 
 # NormalizedImageResultItem
 
-The `NormalizedImageResultItem` class represents a captured result item whose type is a normalized image. It stores the normalized image information.
+The `NormalizedImageResultItem` class is an extension of [`CapturedResultItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html) that represents a normalized image. This is the most basic unit of the normalized image result, one of the captured result types that the Capture Vision Router can output. 
 
 ## Definition
 
@@ -31,7 +31,7 @@ class NormalizedImageResultItem extends CapturedResultItem
 
 ### getImageData
 
-Gets an `ImageData` object as the normalized image.
+Returns an [`ImageData`]({{ site.dcv_android_api }}core/basic-structures/image-data.html) object for the normalized image.
 
 ```java
 ImageData getImageData();
@@ -43,7 +43,7 @@ The `ImageData` object as the normalized image.
 
 ### getLocation
 
-Gets the quadrilateral from which you get the normalized image result item.
+Returns the [Quadrilateral]({{ site.dcv_android_api }}core/basic-structures/quadrilateral.html) that represents the location of the normalized image within the original image or frame.
 
 ```java
 Quadrilateral getLocation();

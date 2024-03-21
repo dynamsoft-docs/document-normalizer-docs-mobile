@@ -11,13 +11,13 @@ permalink: /programming/ios/upgrade-instruction.html
 
 ## From version 1.x to 2.x
 
-`DynamsoftDocumentNormalizer` SDK has been revamped to integrate with `DynamsoftCaptureVision (DCV)` architecture. To upgrade from version 1.x to 2.x, we recommend you to follow the [`User Guide`](user-guide.md) and re-write your codes.
+`DynamsoftDocumentNormalizer` SDK has been revamped to integrate with `DynamsoftCaptureVision (DCV)` architecture. To upgrade from version 1.x to 2.x, we recommend that you follow the [`User Guide`](user-guide.md) and re-write your code to match what is in the guide.
 
 Here are some of the main actions you may take:
 
 ### Update the Dependencies
 
-Since the SDK architecture is changed, you have to change your `Podfile` for including the following libraries:
+Since the SDK architecture has changed, you have to change your `Podfile` to include the following libraries:
 
 ```sh
 pod 'DynamsoftCaptureVisionRouter','{version-number}'
@@ -29,11 +29,11 @@ pod 'DynamsoftImageProcessing','{version-number}'
 pod 'DynamsoftUtility','{version-number}'
 ```
 
->Note: Please view [user guide](user-guide.md#add-the-frameworks-via-cocoapodsn) for the correct version number.
+>Note: Please view [user guide](user-guide.md#add-the-frameworks-via-cocoapodsn) for the most up-to-date version number.
 
 ### Migrate from Class DynamsoftDocumentNormalizer to Class DSCaptureVisionRouter
 
-The `DSCaptureVisionRouter` class serves as the central class of the DCV framework's execution flow. It encompasses the following functionalities:
+The `DSCaptureVisionRouter` class serves as the central class of DCV's execution flow. It encompasses the following functionalities:
 
 - Retrieving images from the `DSImageSourceAdapter`.
 - Updating templates and configuring settings.
@@ -42,13 +42,13 @@ The `DSCaptureVisionRouter` class serves as the central class of the DCV framewo
 
 ### Convert Parameter Templates
 
-The parameter system is restructured and the template you used for v1.x can't be directly recognized by the new version. Please <a href="https://www.dynamsoft.com/company/customer-service/#contact" target="_blank">contact us</a> to upgrade your parameter template.
+The parameter system has been restructured and the template you used for v1.x cannot be directly recognized by v2.x (and beyond). Please <a href="https://www.dynamsoft.com/company/customer-service/#contact" target="_blank">contact us</a> to upgrade your parameter template.
 
-### Update Your Codes
+### Update the Code
 
 #### Single Image Processing
 
-You should now utilize the provided multiple `capture` APIs instead of the previous `detectQuad` and `normalize` APIs. These `capture` APIs directly return results for boundary detection or document normalization.
+You should now utilize the provided multiple `capture` API methods instead of the previous `detectQuad` and `normalize` API methods. These `capture` API methods directly return results for boundary detection or document normalization.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -71,20 +71,20 @@ You should now utilize the provided multiple `capture` APIs instead of the previ
 ```
 2. 
 ```swift
-func captureFromFile(_ file:String, templateName:String) throws -> CaptureResult
-func captureFromFileBytes(_ fileBytes:Data, templateName:String) throws -> CaptureResult
-func captureFromBuffer(_ buffer:DSImageData, templateName:String) throws -> CaptureResult
-func captureFromImage(_ image:UIImage, templateName:String) throws -> CaptureResult
+func captureFromFile(_ file:String, templateName:String) throws -> CapturedResult
+func captureFromFileBytes(_ fileBytes:Data, templateName:String) throws -> CapturedResult
+func captureFromBuffer(_ buffer:DSImageData, templateName:String) throws -> CapturedResult
+func captureFromImage(_ image:UIImage, templateName:String) throws -> CapturedResult
 ```
 
 #### Batch Image Processing
 
-The DCV architecture allows you to conveniently and continuously obtain frames from `DSCameraEnhancer`, and detect or normalize them. The key steps are as follows:
+The DCV architecture allows you to conveniently and continuously obtain frames from the `DSCameraEnhancer`, and then detect or normalize them. The key steps are as follows:
 
-- Set a `DSCameraEnhancer` object as the input of the `DSCaptureVisionRouter` object via `setInput` API.
-- Register a `DSCapturedResultReceiver` object as the output of the `DSCaptureVisionRouter` object via `addResultReceiver` API.
-- Open/Close camera via `DSCameraEnhancer.open` and `DSCameraEnhancer.close` API.
-- Start/Stop capturing via `DSCaptureVisionRouter.startCapturing` and `DSCaptureVisionRouter.stopCapturing` API.
+- Set a `DSCameraEnhancer` object as the input of the `DSCaptureVisionRouter` object via the `setInput` API method.
+- Register a `DSCapturedResultReceiver` object as the output of the `DSCaptureVisionRouter` object via the `addResultReceiver` API method.
+- Open/Close camera via `DSCameraEnhancer.open` and `DSCameraEnhancer.close` API methods.
+- Start/Stop capturing via `DSCaptureVisionRouter.startCapturing` and `DSCaptureVisionRouter.stopCapturing` API methods.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

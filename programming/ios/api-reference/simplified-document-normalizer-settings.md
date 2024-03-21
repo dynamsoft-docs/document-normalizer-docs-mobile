@@ -10,11 +10,11 @@ noTitleIndex: true
 
 # DSSimplifiedDocumentNormalizerSettings
 
-The `DSSimplifiedDocumentNormalizerSettings` class represents the simplified document normalizer settings.
+The `DSSimplifiedDocumentNormalizerSettings` class represents a series of simple settings related to the Document Normalizer. Please note that this is not the full list of settings that can be utilized by the Document Normalizer, which you can find on the [Dynamsoft Document Normalizer Parameters]({{ site.parameters }}reference/index.html){:target="_blank"} page.
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.framework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -44,7 +44,7 @@ class SimplifiedDocumentNormalizerSettings: NSObject
 
 ### grayscaleTransformationModes
 
-Defines the grayscale transformation mode with an array of [`DSGrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=objc,swift). It controls whether to detect the inverted document boundary.
+Defines the grayscale transformation modes with an array of [`DSGrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=objc,swift) items. This parameter is important when working with inverted documents, and must be used in order to locate the inverted document boundary.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -61,7 +61,7 @@ var grayscaleTransformationModes: [NSNumber]? { get set }
 
 ### grayscaleEnhancementModes
 
-Defines the grayscale enhancement mode with an array of [`DSGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-modes.html?lang=objc,swift).
+Defines the grayscale enhancement modes with an array of [`DSGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-modes.html?lang=objc,swift) items. This parameter can be quite powerful in increasing the border detection rate of your application should you experience any trouble in that area. To learn more about the `grayscaleEnhancementModes` and how they can be used, please visit the main [GrayscaleEnhancementModes]({{ site.dcv_parameters }}reference/image-parameter/grayscale-enhancement-modes.html) parameter page.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -78,7 +78,7 @@ var grayscaleEnhancementModes: [NSNumber]? { get set }
 
 ### colourMode
 
-Defines the colour mode of the normalized image with a [`DSImageColourMode`]({{ site.dcv_enumerations }}core/image-colour-mode.html?lang=objc,swift) member.
+Defines the colour mode (pixel type) of the normalized image with a [`DSImageColourMode`]({{ site.dcv_enumerations }}document-normalizer/image-colour-mode.html?lang=objc,swift) member. By default, the normalized image will output in colour. In order to make the result image grayscale or binary, setting the `colourMode` to the corresponding pixel type will do the trick.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -95,7 +95,7 @@ var colourMode: ImageColourMode { get set }
 
 ### pageSize
 
-Defines the page size of the normalized image with a [`CGSize`]({{ site.dcv_structs }}core/size.html?lang=objc,swift) object.
+Defines the page size of the normalized image with a [`CGSize`](https://developer.apple.com/documentation/corefoundation/cgsize){:target="_blank"} object.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -112,7 +112,7 @@ var pageSize: CGSize { get set }
 
 ### brightness
 
-Defines the brightness of the normalized image with an integer.
+Defines the brightness of the normalized image result with an integer.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -129,7 +129,7 @@ var brightness: Int { get set }
 
 ### contrast
 
-Defines the contrast of the normalized image with an integer.
+Defines the contrast of the normalized image result with an integer.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -146,7 +146,7 @@ var contrast: Int { get set }
 
 ### maxThreadsInOneTask
 
-Defines the maximum number of threads in one task.
+Defines the maximum number of threads dedicated to a single task.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -163,7 +163,7 @@ var maxThreadsInOneTask: Int { get set }
 
 ### scaleDownThreshold
 
-Defines the scale down threshold. If the image size is larger than the scale down threshold, the image is scaled down by half.
+If the original image size is quite large, then the `scaledownThreshold` can be used to shrink the image and speed up the processing. If the shorter edge size is larger than the defined scale down threshold, the library will calculate the required width and height of the image and shrink it to that size before moving forward in the process.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

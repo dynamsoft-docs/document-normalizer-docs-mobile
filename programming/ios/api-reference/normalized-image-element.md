@@ -14,7 +14,7 @@ The `DSNormalizedImageElement` class represents an intermediate result whose typ
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.framework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

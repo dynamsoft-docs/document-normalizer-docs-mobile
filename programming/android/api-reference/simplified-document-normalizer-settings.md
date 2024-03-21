@@ -10,7 +10,7 @@ noTitleIndex: true
 
 # SimplifiedDocumentNormalizerSettings
 
-The `SimplifiedDocumentNormalizerSettings` class represents the simplified document normalizer settings.
+The `SimplifiedDocumentNormalizerSettings` class represents a series of simple settings related to the Document Normalizer. Please note that this is not the full list of settings that can be utilized by the Document Normalizer, which you can find on the [Dynamsoft Document Normalizer Parameters]({{ site.parameters }}reference/index.html){:target="_blank"} page.
 
 ## Definition
 
@@ -37,7 +37,7 @@ class SimplifiedDocumentNormalizerSettings
 
 ### grayscaleTransformationModes
 
-Defines the grayscale transformation mode with an array of [`EnumGrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=android). It controls whether to detect the inverted document boundary.
+Defines the grayscale transformation modes with an array of [`EnumGrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=android) items. This parameter is important when working with inverted documents, and must be used in order to locate the inverted document boundary.
 
 ```java
 EnumGrayscaleTransformationMode[] grayscaleTransformationModes;
@@ -45,7 +45,7 @@ EnumGrayscaleTransformationMode[] grayscaleTransformationModes;
 
 ### grayscaleEnhancementModes
 
-Defines the grayscale enhancement mode with an array of [`EnumGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-modes.html?lang=android).
+Defines the grayscale enhancement modes with an array of [`EnumGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-modes.html?lang=android) items. This parameter can be quite powerful in increasing the border detection rate of your application should you experience any trouble in that area. To learn more about the `grayscaleEnhancementModes` and how they can be used, please visit the main [GrayscaleEnhancementModes]({{ site.dcv_parameters }}reference/image-parameter/grayscale-enhancement-modes.html) parameter page.
 
 ```java
 EnumGrayscaleEnhancementMode[] grayscaleEnhancementModes;
@@ -53,7 +53,7 @@ EnumGrayscaleEnhancementMode[] grayscaleEnhancementModes;
 
 ### colourMode
 
-Defines the colour mode of the normalized image with an [`EnumImageColourMode`]({{ site.dcv_enumerations }}core/image-colour-mode.html?lang=android) member.
+Defines the colour mode of the normalized image with an [`EnumImageColourMode`]({{ site.dcv_enumerations }}document-normalizer/image-colour-mode.html?lang=android) member. By default, the normalized image will output in colour. In order to make the result image grayscale or binary, setting the `colourMode` to the corresponding pixel type will do the trick.
 
 ```java
 EnumImageColourMode colourMode;
@@ -61,7 +61,7 @@ EnumImageColourMode colourMode;
 
 ### pageSize
 
-Defines the page size of the normalized image with the width and height in an int array.
+Defines the page size of the normalized image through an integer array.
 
 ```java
 int[] pageSize;
@@ -69,7 +69,7 @@ int[] pageSize;
 
 ### brightness
 
-Defines the brightness of the normalized image with an integer.
+Defines the brightness of the normalized image result with an integer.
 
 ```java
 int brightness;
@@ -77,7 +77,7 @@ int brightness;
 
 ### contrast
 
-Defines the contrast of the normalized image with an integer.
+Defines the contrast of the normalized image result with an integer.
 
 ```java
 int contrast;
@@ -85,7 +85,7 @@ int contrast;
 
 ### maxThreadsInOneTask
 
-Defines the maximum number of threads in one task.
+Defines the maximum number of threads dedicated to a single task.
 
 ```java
 int maxThreadsInOneTask;
@@ -93,7 +93,7 @@ int maxThreadsInOneTask;
 
 ### scaleDownThreshold
 
-Defines the scale down threshold. If the image size is larger than the scale down threshold, the image is scaled down by half.
+If the original image size is quite large, then the `scaledownThreshold` can be used to shrink the image and speed up the processing. If the shorter edge size is larger than the defined scale down threshold, the library will calculate the required width and height of the image and shrink it to that size before moving forward in the process.
 
 ```java
 int scaleDownThreshold;

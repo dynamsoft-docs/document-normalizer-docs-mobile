@@ -11,13 +11,13 @@ permalink: /programming/android/upgrade-instruction.html
 
 ## From version 1.x to 2.x
 
-`DynamsoftDocumentNormalizer` SDK has been revamped to integrate with `DynamsoftCaptureVision (DCV)` architecture. To upgrade from version 1.x to 2.x, we recommend you to follow the [`User Guide`](user-guide.md) and re-write your codes.
+`DynamsoftDocumentNormalizer` SDK has been revamped to integrate with `DynamsoftCaptureVision (DCV)` architecture. To upgrade from version 1.x to 2.x, we recommend that you follow the [`User Guide`](user-guide.md) and re-write your code to match what is in the guide.
 
 Here are some of the main actions you may take:
 
 ### Update the Dependencies
 
-Since the SDK architecture is changed, you have to change your `build.gradle` for including the following libraries:
+Since the SDK architecture has changed, you have to change your `build.gradle` to include the following libraries:
 
 ```groovy
 dependencies {
@@ -31,11 +31,11 @@ dependencies {
 }
 ```
 
->Note: Please view [user guide](user-guide.md#add-the-library-via-maven) for the correct version number.
+>Note: Please view [user guide](user-guide.md#add-the-library-via-maven) for the most up-to-date version number.
 
 ### Migrate from Class DocumentNormalizer to Class CaptureVisionRouter
 
-The `CaptureVisionRouter` class serves as the central class of the DCV framework's execution flow. It encompasses the following functionalities:
+The `CaptureVisionRouter` class serves as the central class of DCV's execution flow. It encompasses the following functionalities:
 
 - Retrieving images from the `ImageSourceAdapter`.
 - Updating templates and configuring settings.
@@ -44,13 +44,13 @@ The `CaptureVisionRouter` class serves as the central class of the DCV framework
 
 ### Convert Parameter Templates
 
-The parameter system is restructured and the template you used for v1.x can't be directly recognized by the new version. Please <a href="https://www.dynamsoft.com/company/customer-service/#contact" target="_blank">contact us</a> to upgrade your parameter template.
+The parameter system has been restructured and the template you used for v1.x cannot be directly recognized by v2.x (and beyond). Please <a href="https://www.dynamsoft.com/company/customer-service/#contact" target="_blank">contact us</a> to upgrade your parameter template.
 
 ### Update Your Codes
 
 #### Single Image Processing
 
-You should now utilize the provided `capture` APIs instead of the previous `detectQuad` and `normalize` APIs. These `capture` APIs directly return results for boundary detection or document normalization.
+You should now utilize the provided `capture` API methods instead of the previous `detectQuad` and `normalize` API methods. These `capture` API methods directly return results for boundary detection or document normalization.
 
 ```java
 CapturedResult capture(String filePath, String templateName) throws CaptureVisionRouterException
@@ -61,12 +61,12 @@ CapturedResult capture(ImageData imageData, String templateName) throws CaptureV
 
 #### Batch Image Processing
 
-The DCV architecture allows you to conveniently and continuously obtain frames from `CameraEnhancer`, and detect or normalize them. The key steps are as follows:
+The DCV architecture allows you to conveniently and continuously obtain frames from the `CameraEnhancer`, and then detect or normalize them. The key steps are as follows:
 
-- Set a `CameraEnhancer` object as the input of the `CaptureVisionRouter` object via `setInput` API.
-- Register a `CapturedResultReceiver` object as the output of the `CaptureVisionRouter` object via `addResultReceiver` API.
-- Open/Close camera via `CameraEnhancer.open` and `CameraEnhancer.close` API.
-- Start/Stop capturing via `CaptureVisionRouter.startCapturing` and `CaptureVisionRouter.stopCapturing` API.
+- Set a `CameraEnhancer` object as the input of the `CaptureVisionRouter` object via the `setInput` API method.
+- Register a `CapturedResultReceiver` object as the output of the `CaptureVisionRouter` object via the `addResultReceiver` API method.
+- Open/Close camera via `CameraEnhancer.open` and `CameraEnhancer.close` API methods.
+- Start/Stop capturing via `CaptureVisionRouter.startCapturing` and `CaptureVisionRouter.stopCapturing` API methods.
 
 ```java
 public class MainActivity extends AppCompatActivity {

@@ -36,7 +36,7 @@ permalink: /programming/ios/release-notes/ios-2.html
     - Added `ReferenceXAxis` & `ReferenceYAxis` to define the X & Y axis.
     - Modified `FirstPoint`, `SecondPoint`, `ThirdPoint` & `FourthPoint`. You can specify whether the X or Y coordinate of the point is measured by percentage.
     - Deprecated `ReferenceObjectSize` Type.
-- The following classes are migrated from `DynamsoftCore.framework` into `DynamsoftCaptureVision.framework`:
+- The following classes are migrated from `DynamsoftCore.xcframework` into `DynamsoftCaptureVision.xcframework`:
   - [`DSCapturedResult`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result.html)
   - [`DSIntermediateResultReceiver`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-receiver.html)
   - [`DSCapturedResultReceiver`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html)
@@ -44,7 +44,7 @@ permalink: /programming/ios/release-notes/ios-2.html
   - [`DSIntermediateResultManager`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-manager.html)
 - Added a new call back method [`onShortLinesUnitReceived`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-receiver.html#onshortlinesunitreceived) to the [`DSIntermediateResultReceiver`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-receiver.html) class.
 - Added methods [`pauseCapturing`]({{ site.dcv_ios_api }}capture-vision-router/multiple-file-processing.html#pausecapturing) and [`resumeCapturing`]({{ site.dcv_ios_api }}capture-vision-router/multiple-file-processing.html#resumecapturing). Two new enumeration members, `CapturedStatePaused` and `CapturedStateResumed`, are added to [`DSCapturedState`]({{ site.dcv_enumerations }}capture-vision-router/capture-state.html?lang=objc,swift) as well.
-- Added a new property [`documentSettings`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/simplified-capture-vision-settings.html#documentsettings) to class [`DSSimplifiedCaptureVisionSettings`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/simplified-capture-vision-settings.html). The corresponding class [`DSSimplifiedDocumentNormalizerSettings`]({{ site.ddn_ios_api }}simplified-document-normalizer-settings.html) is added to the `DynamsoftDocumentNormalizer.framework` to store the `documentSettings`.
+- Added a new property [`documentSettings`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/simplified-capture-vision-settings.html#documentsettings) to class [`DSSimplifiedCaptureVisionSettings`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/simplified-capture-vision-settings.html). The corresponding class [`DSSimplifiedDocumentNormalizerSettings`]({{ site.ddn_ios_api }}simplified-document-normalizer-settings.html) is added to the `DynamsoftDocumentNormalizer.xcframework` to store the `documentSettings`.
 - Added a new property [`resultUnitTypesOnlyForInput`]({{ site.dcv_ios_api }}core/intermediate-results/observation-parameters.html#resultunittypesonlyforinput) to the `ObservationParameters` class to specify the `input only` result unit.
 - Added the following methods to the [`RegionObjectElement`]({{ site.dcv_ios_api }}core/intermediate-results/region-object-element.html) class to support the intermediate result modification.
   - `setLocation`

@@ -10,7 +10,7 @@ noTitleIndex: true
 
 # DetectedQuadsResult
 
-The `DetectedQuadsResult` class represents a captured result whose type is detected quads, which contains an array of `DetectedQuadResultItem` and the rotation transformation matrix of the original image relative to the rotated image.
+The `DetectedQuadsResult` class represents a collection of [`DetectedQuadResultItems`](detected-quad-result-item.md), the basic unit of a detected quad result.
 
 ## Definition
 
@@ -33,7 +33,7 @@ class DetectedQuadsResult
 
 ### getItems
 
-An array of [`DetectedQuadResultItem`](./detected-quad-result-item.md), which are the detected quadrilateral items.
+Returns an array of [`DetectedQuadResultItem`](./detected-quad-result-item.md), which represents the basic unit of the captured result, in this case, a detected quadrilateral.
 
 ```java
 DetectedQuadResultItem[] getItems();
@@ -45,7 +45,7 @@ The array of the detected quadrilateral items.
 
 ### getRotationTransformMatrix
 
-The rotation transformation matrix of the original image relative to the rotated image.
+Returns the rotation transformation matrix of the original image relative to the rotated image. Please see [Matrix](https://developer.android.com/reference/android/opengl/Matrix){:target="_blank"} for more info.
 
 ```java
 Matrix getRotationTransformMatrix();
@@ -57,19 +57,15 @@ The rotation transformation matrix of the original image relative to the rotated
 
 ### getOriginalImageHashId
 
-The hash id of the original image. You can use this ID to get the original image via `IntermediateResultManager` class.
+Returns the hash ID of the original image. You can use this ID to get the original image via [`IntermediateResultManager`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-manager.html) class.
 
 ```java
 String getOriginalImageHashId();
 ```
 
-**Return Value**
-
-The hash id of the original image.
-
 ### getOriginalImageTag
 
-The tag of the original image.
+Returns the [`ImageTag`]({{ site.dcv_android_api }}core/basic-structures/image-tag.html) of the original image, which contains various information about the image.
 
 ```java
 ImageTag getOriginalImageTag();

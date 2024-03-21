@@ -14,7 +14,7 @@ The `DSDocumentNormalizerModule` class defines general functions of the document
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.framework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
