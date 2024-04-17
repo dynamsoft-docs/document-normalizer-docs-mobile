@@ -117,13 +117,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
    ```groovy
    dependencies {
-      implementation 'com.dynamsoft:dynamsoftcapturevisionrouter:2.2.10'
-      implementation 'com.dynamsoft:dynamsoftdocumentnormalizer:2.2.10'
-      implementation 'com.dynamsoft:dynamsoftcameraenhancer:4.2.0'
-      implementation 'com.dynamsoft:dynamsoftcore:3.2.10'
-      implementation 'com.dynamsoft:dynamsoftlicense:3.2.10'
-      implementation 'com.dynamsoft:dynamsoftimageprocessing:2.2.10'
-      implementation 'com.dynamsoft:dynamsoftutility:1.2.10'
+      implementation 'com.dynamsoft:dynamsoftdocumentnormalizerbundle:2.2.10'
    }
    ```
 

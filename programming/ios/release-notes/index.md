@@ -10,6 +10,7 @@ permalink: /programming/ios/release-notes/index.html
 
 # Release Notes - iOS Edition
 
+- [2.2.11 (04/17/2024)]({{ site.ios_release_notes }}ios-2.html#2211-04172024)
 - [2.2.10.1 (03/11/2024)]({{ site.ios_release_notes }}ios-2.html#22101-03112024)
 - [2.2.10 (03/07/2024)]({{ site.ios_release_notes }}ios-2.html#2210-03072024)
 - [2.0.20 (12/12/2023)]({{ site.ios_release_notes }}ios-2.html#2020-12122023)

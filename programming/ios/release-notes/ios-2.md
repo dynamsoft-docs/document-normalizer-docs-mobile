@@ -11,7 +11,13 @@ permalink: /programming/ios/release-notes/ios-2.html
 
 # Release Notes for iOS SDK - v2.x
 
+## 2.2.11 (04/17/2024)
+
+- Updated the privacy list of `DynamsoftDocumentNormalizer.xcframework` and other related libraries.
+
 ## 2.2.10.1 (03/11/2024)
+
+### Fixed
 
 - Fixed a bug where license error is misreported when method [`getIntermediateResultManager`]({{ site.dcv_ios_api }}capture-vision-router/intermediate-result.html#getintermediateresultmanager) is triggered.
 
