@@ -6,6 +6,8 @@ version_info_list:
     child:
       - 2.0.20_android
       - 2.0.20_ios
+      - 2.0.10_android
+      - 2.0.10_ios
   - value: 1.x
     child:
       - 1.0.30_android

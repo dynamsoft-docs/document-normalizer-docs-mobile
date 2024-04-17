@@ -88,7 +88,13 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftDocumentNormalizerBundle','2.2.11'
+   pod 'DynamsoftCaptureVisionRouter','2.2.11'
+   pod 'DynamsoftDocumentNormalizer','2.2.10'
+   pod 'DynamsoftCameraEnhancer','4.2.0'
+   pod 'DynamsoftCore','3.2.10'
+   pod 'DynamsoftLicense','3.2.10'
+   pod 'DynamsoftImageProcessing','2.2.10'
+   pod 'DynamsoftUtility','1.2.10'
 
    end
    ```
