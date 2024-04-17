@@ -8,7 +8,6 @@ needGenerateH4Content: true
 noTitleIndex: true
 multiProgrammingLanguage: true
 enableLanguageSelection: true
-permalink: /programming/ios/user-guide.html
 ---
 
 # Getting Started with iOS
