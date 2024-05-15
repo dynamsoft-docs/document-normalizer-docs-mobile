@@ -11,6 +11,10 @@ permalink: /programming/android/release-notes/android-2.html
 
 # Release Notes for Android SDK - v2.x
 
+## 2.2.11 (05/15/2024)
+
+- Added new methods `toJson` & `fromJson` to the [`SimplifiedDocumentNormalizerSettings`]({{ site.dbr_android_api }}simplified-document-normalizer-settings.html) class.
+
 ## 2.2.10 (03/07/2024)
 
 ### New

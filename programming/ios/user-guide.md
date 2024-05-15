@@ -87,7 +87,7 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftDocumentNormalizerBundle','2.2.11'
+   pod 'DynamsoftDocumentNormalizerBundle','2.2.1100'
 
    end
    ```

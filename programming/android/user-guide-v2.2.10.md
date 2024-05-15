@@ -117,7 +117,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
    ```groovy
    dependencies {
-      implementation 'com.dynamsoft:dynamsoftdocumentnormalizerbundle:2.2.1100'
+      implementation 'com.dynamsoft:dynamsoftdocumentnormalizerbundle:2.2.10'
    }
    ```
 
