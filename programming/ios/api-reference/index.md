@@ -1,177 +1,68 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer iOS  API Reference - Main Page
-description: This is the main page of Dynamsoft Document Normalizer SDK API Reference for iOS.
-keywords: api reference, iOS 
-permalink: /programming/ios/api-reference/index.html
+title: Dynamsoft Document Normalizer iOS API Reference - Main Page
+description: This is the main page of Dynamsoft Document Normalizer SDK API Reference for iOS Language.
+keywords: Document Normalizer, api reference, iOS
 ---
 
-# API Reference - iOS 
+# SDK Overview: Modules and Main APIs
 
-## DynamsoftCaptureVisionRouter
+This page provides an overview of the various modules and highlights the most essential APIs that form the backbone of Dynamsoft Document Normalizer SDK.
 
-### CaptureVisionRouter Class
+## Modules Summary
 
-- [`CaptureVisionRouter`]({{ site.dcv_ios_api }}capture-vision-router/capture-vision-router.html)
+The Dynamsoft Document Normalizer (DDN) SDK is built on the Dynamsoft Capture Vision (DCV) framework, which includes multiple modules working together to achieve boundary detection or document normalization. The hierarchical structure diagram below illustrates the various modules of the DDN SDK (with modules at the top depending on those below).
 
-### Auxiliary Classes
+<div align="center">
+    <p><img src="../../assets/dcv-ddn-dependency.png" width="70%" alt="region-def"></p>
+    <p>Modules hierarchical of the DDN SDK</p>
+</div>
 
-- [`CaptureVisionRouterModule`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/capture-vision-router-module.html)
-- [`CapturedResultFilter`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-filter.html)
-- [`CapturedResultReceiver`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html)
-- [`IntermediateResultManager`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-manager.html)
-- [`IntermediateResultReceiver`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-receiver.html)
-- [`SimplifiedCaptureVisionSettings`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/simplified-capture-vision-settings.html)
+The table below describes details the functionalities of these modules:
 
-### Interfaces
+| Module |Description | Mandatory/Optional|
+|:--------|:------------|:---|
+| `DynamsoftCaptureVisionRouter.aar`(CVR) | Provides APIs for single/multiple images processing, setting configurations, and other features. | Mandatory |
+| `DynamsoftDocumentNormalizer.aar`(DDN) | This library mainly provides boundary detection & document normalization algorithms. It includes APIs for you to configure detection & normalization settings and obtaining the processing results. | Mandatory |
+| `DynamsoftCore.aar`(Core) | Provides basic structures and intermediate result related APIs. | Mandatory |
+| `DynamsoftImageProcessing.aar`(DIP) | This library mainly provides image processing algorithms. | Mandatory |
+| `DynamsoftLicense.aar`(License) | Provides license activation or management APIs. | Mandatory |
+| `DynamsoftCameraEnhancer.aar`(DCE) | The <a href="/camera-enhancer/docs/mobile/programming/ios/" target="_blank">Dynamsoft Camera Enhancer (DCE) SDK</a> provides camera control, camera enhancements, and basic UI configuration features. | Optional |
+| `DynamsoftUtility.aar`(Utility) | The utility library, which includes multiple implementations of image source adapters, result filter, image exporter, and other utility APIs etc.  | Optional |
 
-- [`CaptureStateListener`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/capture-state-listener.html)
-- [`ImageSourceStateListener`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/image-source-state-listener.html)
+## Main APIs
 
-### Enumerations
+### Capture Vision Router
 
-- [`EnumCaptureState`]({{ site.dcv_enumerations }}capture-vision-router/capture-state.html?lang=objc,swift)
-- [`EnumPresetTemplate`]({{ site.dcv_enumerations }}capture-vision-router/preset-template.html?lang=objc,swift)
+The main class [`DSCaptureVisionRouter`]({{ site.dcv_ios_api }}capture-vision-router/capture-vision-router.html) acts as the SDK entry point and provides the following essential APIs:
 
-## DynamsoftDocumentNormalizer
+- [Set input]({{ site.dcv_ios_api }}capture-vision-router/multiple-file-processing.html#setinput)
+- [Config capture settings]({{ site.dcv_ios_api }}capture-vision-router/settings.html)
+- [Add result receiver]({{ site.dcv_ios_api }}capture-vision-router/multiple-file-processing.html#addresultreceiver)
+- [Start video stream boundary detection or document normalization]({{ site.dcv_ios_api }}capture-vision-router/multiple-file-processing.html#startcapturing)
 
-### Classes
+### Image Source Adapter
 
-- [`CandidateQuadEdgesUnit`]({{ site.ddn_ios_api }}candidate-quad-edges-unit.html)
-- [`CornersUnit`]({{ site.ddn_ios_api }}corners-unit.html)
-- [`DetectedQuadElement`]({{ site.ddn_ios_api }}detected-quad-element.html)
-- [`DetectedQuadResultItem`]({{ site.ddn_ios_api }}detected-quad-result-item.html)
-- [`DetectedQuadsResult`]({{ site.ddn_ios_api }}detected-quads-result.html)
-- [`DetectedQuadsUnit`]({{ site.ddn_ios_api }}detected-quads-unit.html)
-- [`DocumentNormalizerModule`]({{ site.ddn_ios_api }}document-normalizer-module.html)
-- [`LongLinesUnit`]({{ site.ddn_ios_api }}long-lines-unit.html)
-- [`NormalizedImageElement`]({{ site.ddn_ios_api }}normalized-image-element.html)
-- [`NormalizedImageResultItem`]({{ site.ddn_ios_api }}normalized-image-result-item.html)
-- [`NormalizedImagesResult`]({{ site.ddn_ios_api }}normalized-images-result.html)
-- [`NormalizedImageUnit`]({{ site.ddn_ios_api }}normalized-image-unit.html)
-- [`SimplifiedDocumentNormalizerSettings`]({{ site.ddn_ios_api }}simplified-document-normalizer-settings.html)
+The [`DSImageSourceAdapter`]({{ site.dcv_ios_api }}core/basic-structures/image-source-adapter.html) class is an abstract class representing an adapter for image sources, providing a framework for fetching, buffering, and managing images from various sources. It serves as the input for the [`DSCaptureVisionRouter`]({{ site.dcv_ios_api }}capture-vision-router/capture-vision-router.html). You can either use the typical implementations of [`DSImageSourceAdapter`]({{ site.dcv_ios_api }}core/basic-structures/image-source-adapter.html) or implement your own.
 
-## DynamsoftCore
+Class [`DSCameraEnhancer`]({{ site.dce_ios_api }}primary-api/camera-enhancer.html) is one of the typical implementations of [`DSImageSourceAdapter`]({{ site.dcv_ios_api }}core/basic-structures/image-source-adapter.html). It is a class that not only implements the video frame obtaining APIs but also enable you to improve the video quality by adjusting the camera settings.
 
-### Classes
+### Captured Result Receiver
 
-- [`BinaryImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/binary-image-unit.html)
-- [`CapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html)
-- [`CapturedResult`]({{ site.dcv_ios_api }}core/basic-structures/captured-result.html)
-- [`ColourImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/colour-image-unit.html)
-- [`ContoursUnit`]({{ site.dcv_ios_api }}core/intermediate-results/contours-unit.html)
-- [`Contour`]({{ site.dcv_ios_api }}core/basic-structures/contour.html)
-- [`CoreModule`]({{ site.dcv_ios_api }}core/basic-structures/core-module.html)
-- [`Corner`]({{ site.dcv_ios_api }}core/basic-structures/corner.html)
-- [`DSRect`]({{ site.dcv_ios_api }}core/basic-structures/rect.html)
-- [`Edge`]({{ site.dcv_ios_api }}core/basic-structures/edge.html)
-- [`EnhancedGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/enhanced-grayscale-image-unit.html)
-- [`FileImageTag`]({{ site.dcv_ios_api }}core/basic-structures/file-image-tag.html)
-- [`GrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/grayscale-image-unit.html)
-- [`ImageData`]({{ site.dcv_ios_api }}core/basic-structures/image-data.html)
-- [`ImageSourceAdapter`]({{ site.dcv_ios_api }}core/basic-structures/image-source-adapter.html)
-- [`ImageTag`]({{ site.dcv_ios_api }}core/basic-structures/image-tag.html)
-- [`IntermediateResultExtraInfo`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-extra-info.html)
-- [`IntermediateResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-unit.html)
-- [`IntermediateResult`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result.html)
-- [`LineSegmentsUnit`]({{ site.dcv_ios_api }}core/intermediate-results/line-segments-unit.html)
-- [`LineSegment`]({{ site.dcv_ios_api }}core/basic-structures/line-segment.html)
-- [`ObservationParameters`]({{ site.dcv_ios_api }}core/intermediate-results/observation-parameters.html)
-- [`OriginalImageResultItem`]({{ site.dcv_ios_api }}core/basic-structures/original-image-result-item.html)
-- [`PredetectedRegionElement`]({{ site.dcv_ios_api }}core/intermediate-results/predetected-region-element.html)
-- [`PredetectedRegionsUnit`]({{ site.dcv_ios_api }}core/intermediate-results/predetected-regions-unit.html)
-- [`Quadrilateral`]({{ site.dcv_ios_api }}core/basic-structures/quadrilateral.html)
-- [`RegionObjectElement`]({{ site.dcv_ios_api }}core/intermediate-results/region-object-element.html)
-- [`ScaledDownColourImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/scaled-down-colour-image-unit.html)
-- [`TextRemovedBinaryImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/text-removed-binary-image-unit.html)
-- [`TextureDetectionResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-detection-result-unit.html)
-- [`TextureRemovedBinaryImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-removed-binary-image-unit.html)
-- [`TextureRemovedGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-removed-grayscale-image-unit.html)
-- [`TextZonesUnit`]({{ site.dcv_ios_api }}core/intermediate-results/text-zones-unit.html)
-- [`TransformedGrayscaleImageUnit`]({{ site.dcv_ios_api }}core/intermediate-results/transformed-grayscale-image-unit.html)
-- [`Vector4`]({{ site.dcv_ios_api }}core/basic-structures/vector4.html)
-- [`VideoFrameTag`]({{ site.dcv_ios_api }}core/basic-structures/video-frame-tag.html)
+To receive the results of video streaming boundary detection or document normalization, you need to implement the [`DSCapturedResultReceiver`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html) with [`onDetectedQuadsReceived`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html#ondetectedquadsreceived) or [`onNormalizedImagesReceived`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html#onnormalizedimagesreceived).
 
-### Interfaces
+Boundary detection related APIs:
 
-- [`ImageSourceErrorListener`]({{ site.dcv_ios_api }}core/basic-structures/image-source-error-listener.html)
+- [`onDetectedQuadsReceived`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html#ondetectedquadsreceived): The callback method for you to receive the boundary detetction results with a [`DSDetectedQuadsResult`](detected-quads-result.md) object.
+- [`DSDetectedQuadsResult`](detected-quads-result.md): An object that contains all the [`DSDetectedQuadResultItem`](detected-quad-result-item.md) that obtained from a video frame.
+- [`DSDetectedQuadResultItem`](detected-quad-result-item.md): The basic item that represents a single detected boundary as an quadrilateral with additional information.
 
-### Enumerations
+Document Normalization related APIs:
 
-- [`BufferOverflowProtectionMode`]({{ site.dcv_enumerations }}core/buffer-overflow-protection-mode.html?lang=objc,swift)
-- [`CapturedResultItemType`]({{ site.dcv_enumerations }}core/captured-result-item-type.html?lang=objc,swift)
-- [`ColourChannelUsageType`]({{ site.dcv_enumerations }}core/colour-channel-usage-type.html?lang=objc,swift)
-- [`CornerType`]({{ site.dcv_enumerations }}core/corner-type.html?lang=objc,swift)
-- [`ErrorCode`]({{ site.dcv_enumerations }}core/error-code.html?lang=objc,swift)
-- [`GrayscaleEnhancementMode`]({{ site.dcv_enumerations }}core/grayscale-enhancement-mode.html?lang=objc,swift)
-- [`GrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=objc,swift)
-- [`ImageCaptureDistanceMode`]({{ site.dcv_enumerations }}core/image-capture-distance-mode.html?lang=objc,swift)
-- [`ImagePixelFormat`]({{ site.dcv_enumerations }}core/image-pixel-format.html?lang=objc,swift)
-- [`ImageSourceState`]({{ site.dcv_enumerations }}core/image-source-state.html?lang=objc,swift)
-- [`ImageTagType`]({{ site.dcv_enumerations }}core/image-tag-type.html?lang=objc,swift)
-- [`IntermediateResultUnitType`]({{ site.dcv_enumerations }}core/intermediate-result-unit-type.html?lang=objc,swift)
-- [`LogMode`]({{ site.dcv_enumerations }}core/log-mode.html?lang=objc,swift)
-- [`RegionObjectElementType`]({{ site.dcv_enumerations }}core/region-object-element-type.html?lang=objc,swift)
-- [`SectionType`]({{ site.dcv_enumerations }}core/section-type.html?lang=objc,swift)
-- [`TransformMatrixType`]({{ site.dcv_enumerations }}core/transform-matrix-type.html?lang=objc,swift)
-- [`VideoFrameQuality`]({{ site.dcv_enumerations }}core/video-frame-quality.html?lang=objc,swift)
+- [`onNormalizedImagesReceived`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html#onnormalizedimagesreceived): The callback method for you to receive the normalized image results with a [`DSNormalizedImagesResult`](normalized-images-result.md) object.
+- [`DSNormalizedImagesResult`](normalized-images-result.md): An object that contains all the [`DSNormalizedImageResultItem`](normalized-image-result-item.md) that obtained from a video frame.
+- [`DSNormalizedImageResultItem`](normalized-image-result-item.md): The basic item that represents a single normalized image with the image data and other information.
 
-## DynamsoftUtility
+### Camera View
 
-### Classes
-
-- [`DirectoryFetcher`]({{ site.dcv_ios_api }}utility/directory-fetcher.html)
-- [`FileFetcher`]({{ site.dcv_ios_api }}utility/file-fetcher.html)
-- [`MultiFrameResultCrossFilter`]({{ site.dcv_ios_api }}utility/multi-frame-result-cross-filter.html)
-- [`UtilityModule`]({{ site.dcv_ios_api }}utility/utility-module.html)
-
-## DynamsoftCameraEnhancer
-
-### Classes
-
-- [`CameraEnhancer`]({{ site.dce_ios_api }}primary-api/camera-enhancer.html)
-- [`CameraEnhancerModule`]({{ site.dce_ios_api }}auxiliary-api/camera-enhancer-module.html)
-- [`CameraView`]({{ site.dce_ios_api }}auxiliary-api/dcecameraview.html)
-- [`Capabilities`]({{ site.dce_ios_api }}auxiliary-api/capabilities.html)
-- [`DrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem.html)
-- [`DrawingLayer`]({{ site.dce_ios_api }}auxiliary-api/dcedrawinglayer.html)
-- [`DrawingStyleManager`]({{ site.dce_ios_api }}auxiliary-api/drawingstylemanager.html)
-- [`DrawingStyle`]({{ site.dce_ios_api }}auxiliary-api/drawingstyle.html)
-- [`Feedback`]({{ site.dce_ios_api }}auxiliary-api/dcefeedback.html)
-- [`ImageEditorView`]({{ site.dce_ios_api }}auxiliary-api/dceimageeditorview.html)
-- [`LineDrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem-line.html)
-- [`Note`]({{ site.dce_ios_api }}auxiliary-api/note.html)
-- [`QuadDrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem-quad.html)
-- [`RectDrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem-rect.html)
-- [`TextDrawingItem`]({{ site.dce_ios_api }}auxiliary-api/drawingitem-text.html)
-- [`TipConfig`]({{ site.dce_ios_api }}auxiliary-api/tip-config.html)
-
-### Interfaces
-
-- [`CameraStateListener`]({{ site.dce_ios_api }}auxiliary-api/protocol-dcecamerastatelistener.html)
-- [`PhotoListener`]({{ site.dce_ios_api }}auxiliary-api/protocol-dcephotolistener.html)
-- [`VideoFrameListener`]({{ site.dce_ios_api }}auxiliary-api/protocol-dceframelistener.html)
-
-### Enumerations
-
-- [`CameraPosition`]({{ site.dcv_enumerations }}camera-position.html?lang=objc,swift)
-- [`CameraState`]({{ site.dcv_enumerations }}camera-state.html?lang=objc,swift)
-- [`CoordinateBase`]({{ site.dcv_enumerations }}coordinate-base.html?lang=objc,swift)
-- [`DrawingItemMediaType`]({{ site.dcv_enumerations }}drawing-item-media-type.html?lang=objc,swift)
-- [`DrawingItemState`]({{ site.dcv_enumerations }}drawing-item-state.html?lang=objc,swift)
-- [`EnhancedFeatures`]({{ site.dcv_enumerations }}enhanced-features.html?lang=objc,swift)
-- [`FocusMode`]({{ site.dcv_enumerations }}focus-mode.html?lang=objc,swift)
-- [`Resolution`]({{ site.dcv_enumerations }}resolution.html?lang=objc,swift)
-
-## DynamsoftImageProcessing
-
-### Classes
-
-- [`ImageProcessingModule`]({{ site.dcv_ios_api }}image-processing/image-processing-module.html)
-
-## DynamsoftLicense
-
-### Classes
-
-- [`LicenseManger`]({{ site.dcv_ios_api }}license/license-manager.html)
-- [`LicenseModule`]({{ site.dcv_ios_api }}license/license-module.html)
+[`DSCameraView`]({{ site.dce_ios_api }}auxiliary-api/dcecameraview.html) is a view class that design for visualizing the real time video streaming and the boundary detection result. If the [`DSCameraEnhancer`]({{ site.dce_ios_api }}primary-api/camera-enhancer.html) is set as the input of your CVR, the detected boundaries will be highlighted automatically on the [`DSCameraView`]({{ site.dce_ios_api }}auxiliary-api/dcecameraview.html).
