@@ -4,7 +4,7 @@ version_info_list:
   - value: latest version
   - value: 2.x
     child:
-      - 2.2.10_ios
+      - 2.2.10
       - 2.0.20
       - 2.0.10_android
       - 2.0.10_ios
