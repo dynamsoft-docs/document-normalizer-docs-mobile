@@ -41,6 +41,10 @@ class LongLinesUnit: IntermediateResultUnit
 | [`addLongLine`](#addlongline) | Add a long line. |
 | [`setLongLine`](#setlongline) | Set a long line. |
 
+The following methods are inherited from class [`DSIntermediateResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-ios.md -%}
+
 ### getLongLines
 
 Get an array of `DSLineSegment` as the long lines.

@@ -41,6 +41,10 @@ class DetectedQuadsUnit : IntermediateResultUnit
 | [`addDetectedQuad`](#adddetectedquad) | Add a new `DSDetectedQuadElement` to the unit. |
 | [`setDetectedQuad`](#setdetectedquad) | Set the `DSDetectedQuadElement` at the specified index. |
 
+The following methods are inherited from class [`DSIntermediateResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-ios.md -%}
+
 ### getDetectedQuads
 
 Get an array of `DSDetectedQuadElement` that represent all the detected quadrilaterals.

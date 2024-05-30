@@ -22,7 +22,7 @@ The `NormalizedImagesUnit` class represents an intermediate result unit whose ty
 class NormalizedImagesUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |
@@ -31,6 +31,10 @@ class NormalizedImagesUnit extends IntermediateResultUnit
 | [`getNormalizedImage`](#getnormalizedimage) | Gets a normalized image. |
 | [`removeAllNormalizedImages`](#removeallnormalizedimages) | Removes all normalized images. |
 | [`setNormalizedImage`](#setnormalizedimage) | Sets a normalized image. |
+
+The following methods are inherited from class [`IntermediateResultUnit`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-android.md -%}
 
 ### getNormalizedImages
 

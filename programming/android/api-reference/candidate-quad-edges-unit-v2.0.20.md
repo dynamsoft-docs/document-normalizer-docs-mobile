@@ -22,7 +22,7 @@ The `CandidateQuadEdgesUnit` class represents an intermediate result unit whose 
 class CandidateQuadEdgesUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ------- | ----------- |

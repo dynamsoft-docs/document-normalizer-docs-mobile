@@ -22,7 +22,7 @@ The `CornersUnit` class represents an intermediate result unit whose type is cor
 class CornersUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ------- | ----------- |
@@ -33,6 +33,10 @@ class CornersUnit extends IntermediateResultUnit
 | [`removeCorner`](#removecorner) | Remove a corner. |
 | [`addCorner`](#addcorner) | Add a corner. |
 | [`setCorner`](#setcorner) | Set a corner. |
+
+The following methods are inherited from class [`IntermediateResultUnit`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-android.md -%}
 
 ### getCorners
 

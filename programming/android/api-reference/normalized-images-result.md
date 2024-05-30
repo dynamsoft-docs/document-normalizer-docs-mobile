@@ -22,7 +22,7 @@ The `NormalizedImagesResult` class represents a collection of [`NormalizedImageR
 class NormalizedImagesResult
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |

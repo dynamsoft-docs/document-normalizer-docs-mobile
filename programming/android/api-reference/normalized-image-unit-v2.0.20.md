@@ -22,7 +22,7 @@ The `NormalizedImagesUnit` class represents an intermediate result unit whose ty
 class NormalizedImagesUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |

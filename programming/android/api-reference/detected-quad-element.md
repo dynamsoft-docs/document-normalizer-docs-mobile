@@ -22,13 +22,17 @@ The `DetectedQuadElement` class represents a detected quadrilateral element, whi
 class DetectedQuadElement extends RegionObjectElement
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ------- | ----------- |
 | [`getConfidenceAsDocumentBoundary`](#getconfidenceasdocumentboundary) | Returns the confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document. |
 
-## getConfidenceAsDocumentBoundary
+The following methods are inherited from class [`RegionObjectElement`]({{ site.dcv_android_api }}core/intermediate-results/region-object-element.html).
+
+{%- include api-reference/region-object-element-android.md -%}
+
+### getConfidenceAsDocumentBoundary
 
 Returns the confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document.
 

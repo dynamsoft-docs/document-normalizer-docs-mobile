@@ -22,7 +22,7 @@ The `CornersUnit` class represents an intermediate result unit whose type is cor
 class CornersUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ------- | ----------- |

@@ -22,11 +22,15 @@ The `NormalizedImageElement` class represents an intermediate result whose type 
 class NormalizedImageElement extends RegionObjectElement
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |
 | [`getImageData`](#getimagedata) | Gets an [`ImageData`]({{site.dcv_android_api}}core/basic-structures/image-data.html) object as the normalized image. |
+
+The following methods are inherited from class [`RegionObjectElement`]({{ site.dcv_android_api }}core/intermediate-results/region-object-element.html).
+
+{%- include api-reference/region-object-element-android.md -%}
 
 ### getImageData
 

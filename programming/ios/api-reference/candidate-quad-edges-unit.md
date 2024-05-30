@@ -41,6 +41,10 @@ class CandidateQuadEdgesUnit: IntermediateResultUnit
 | [`addCandidateQuadEdge`](#addcandidatequadedge) | Add an edge. |
 | [`setCandidateQuadEdge`](#setcandidatequadedge) | Set an edge. |
 
+The following methods are inherited from class [`DSIntermediateResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-ios.md -%}
+
 ### getCandidateQuadEdges
 
 Get an array of edges. It includes all edges that candidate quadrilaterals assembling.

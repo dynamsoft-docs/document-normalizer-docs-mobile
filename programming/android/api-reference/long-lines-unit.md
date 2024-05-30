@@ -22,7 +22,7 @@ The `LongLinesUnit` class represents an intermediate result unit whose type is l
 class LongLinesUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |
@@ -33,6 +33,10 @@ class LongLinesUnit extends IntermediateResultUnit
 | [`removeLongLine`](#removelongline) | Remove a long line. |
 | [`addLongLine`](#addlongline) | Add a long line. |
 | [`setLongLine`](#setlongline) | Set a long line. |
+
+The following methods are inherited from class [`IntermediateResultUnit`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-android.md -%}
 
 ### getLongLines
 
