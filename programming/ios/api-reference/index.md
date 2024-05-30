@@ -20,15 +20,15 @@ The Dynamsoft Document Normalizer (DDN) SDK is built on the Dynamsoft Capture Vi
 
 The table below describes details the functionalities of these modules:
 
-| Module |Description | Mandatory/Optional|
-|:--------|:------------|:---|
-| `DynamsoftCaptureVisionRouter.aar`(CVR) | Provides APIs for single/multiple images processing, setting configurations, and other features. | Mandatory |
-| `DynamsoftDocumentNormalizer.aar`(DDN) | This library mainly provides boundary detection & document normalization algorithms. It includes APIs for you to configure detection & normalization settings and obtaining the processing results. | Mandatory |
-| `DynamsoftCore.aar`(Core) | Provides basic structures and intermediate result related APIs. | Mandatory |
-| `DynamsoftImageProcessing.aar`(DIP) | This library mainly provides image processing algorithms. | Mandatory |
-| `DynamsoftLicense.aar`(License) | Provides license activation or management APIs. | Mandatory |
-| `DynamsoftCameraEnhancer.aar`(DCE) | The <a href="/camera-enhancer/docs/mobile/programming/ios/" target="_blank">Dynamsoft Camera Enhancer (DCE) SDK</a> provides camera control, camera enhancements, and basic UI configuration features. | Optional |
-| `DynamsoftUtility.aar`(Utility) | The utility library, which includes multiple implementations of image source adapters, result filter, image exporter, and other utility APIs etc.  | Optional |
+| Module | Description | Mandatory/Optional |
+|:-------|:------------|:-------------------|
+| `DynamsoftDocumentNormalizer.xcframework`(DDN) | The Dynamsoft Document Normalizer module extracts structural information from document images, including document boundaries, shadow areas, and text areas. It uses this information to generate normalized document images through processes such as deskewing, shadow removal, and distortion correction. | Mandatory |
+| `DynamsoftCore.xcframework`(Core)  | The Dynamsoft Core module lays the foundation for Dynamsoft SDKs based on the DCV (Dynamsoft Capture Vision) architecture. It encapsulates the basic classes, interfaces, and enumerations shared by these SDKs. | Mandatory |
+| `DynamsoftCaptureVisionRouter.xcframework`(CVR) | The Dynamsoft Capture Vision Router module is the cornerstone of the Dynamsoft Capture Vision (DCV) architecture. It focuses on coordinating batch image processing and provides APIs for setting up image sources and result receivers, configuring workflows with parameters, and controlling processes. | Mandatory |
+| `DynamsoftImageProcessing.xcframework`(DIP) | The Dynamsoft Image Processing module facilitates digital image processing and supports operations for other modules, including the Barcode Reader, Label Recognizer, and Document Normalizer. | Mandatory |
+| `DynamsoftLicense.xcframework`(License) | The Dynamsoft License module manages the licensing aspects of Dynamsoft SDKs based on the DCV (Dynamsoft Capture Vision) architecture. | Mandatory |
+| `DynamsoftCameraEnhancer.xcframework`(DCE) | The [Dynamsoft Camera Enhancer]({{ site.dce_ios_api }}){:target="_blank"} module controls the camera, transforming it into an image source for the DCV (Dynamsoft Capture Vision) architecture through ISA implementation. It also enhances image quality during acquisition and provides basic viewers for user interaction. | Mandatory |
+| `DynamsoftUtility.xcframework`(Utility) | The Dynamsoft Utility module defines auxiliary classes, including the ImageManager, and implementations of the CRF (Captured Result Filter) and ISA (Image Source Adapter) . These are shared by all Dynamsoft SDKs based on the DCV (Dynamsoft Capture Vision) architecture. | Optional |
 
 ## Main APIs
 

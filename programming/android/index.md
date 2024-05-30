@@ -25,7 +25,7 @@ The best way to start with the Dynamsoft Document Normalizer Android Edition is 
 ## License Subscription
 
 To develop and run your application with Dynamsoft Document Normalizer SDK, you need an active license key:
-* <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=doc&product=ddn&package=mobile" target="_blank">Request a 30-day free trial license</a>
+* <a href="https://www.dynamsoft.com/customer/license/trialLicense?utm_source=docs&product=ddn&package=mobile" target="_blank">Request a 30-day free trial license</a>
 
 ## Other Edition
 
