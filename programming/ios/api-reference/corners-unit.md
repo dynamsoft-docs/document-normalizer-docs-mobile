@@ -41,6 +41,10 @@ class CornersUnit : IntermediateResultUnit
 | [`addCorner`](#addcorner) | Add a corner. |
 | [`setCorner`](#setcorner) | Set a corner. |
 
+The following methods are inherited from class [`DSIntermediateResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-ios.md -%}
+
 ### getCorners
 
 Get an array of `DSCorner` that represent all the assembled corners. The corners will participate assembling.

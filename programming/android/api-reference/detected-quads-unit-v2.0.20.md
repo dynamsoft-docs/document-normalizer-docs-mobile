@@ -22,7 +22,7 @@ The `DetectedQuadsUnit` class represents an intermediate result unit whose type 
 class DetectedQuadsUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |

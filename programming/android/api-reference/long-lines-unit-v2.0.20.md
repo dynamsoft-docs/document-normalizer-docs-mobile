@@ -22,7 +22,7 @@ The `LongLinesUnit` class represents an intermediate result unit whose type is l
 class LongLinesUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |

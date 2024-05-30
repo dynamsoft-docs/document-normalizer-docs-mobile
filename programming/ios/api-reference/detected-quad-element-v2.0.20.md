@@ -29,19 +29,15 @@ The `DSDetectedQuadElement` class represents a detected quadrilateral element, w
 class DetectedQuadElement: RegionObjectElement
 ```
 
-## Methods
+## Attributes
 
-| Methods | Description |
-| ------- | ----------- |
-| [`getConfidenceAsDocumentBoundary`](#getconfidenceasdocumentboundary) | Returns the confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document. |
+| Attributes | Type | Description |
+| ---------- | ---- | ----------- |
+| [`confidenceAsDocumentBoundary`](#confidenceasdocumentboundary) | *NSInteger* | The confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document. |
 
-The following methods are inherited from class [`DSRegionObjectElement`]({{ site.dcv_ios_api }}core/intermediate-results/region-object-element.html).
+## confidenceAsDocumentBoundary
 
-{%- include api-reference/region-object-element-ios.md -%}
-
-## getConfidenceAsDocumentBoundary
-
-Returns the confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document.
+The confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -49,9 +45,9 @@ Returns the confidence score of the detected quadrilateral's boundary, measuring
 >
 >1. 
 ```objc
-- (NSUInteger)getConfidenceAsDocumentBoundary;
+@property(nonatomic, assign, readonly) NSInteger confidenceAsDocumentBoundary;
 ```
 2. 
 ```swift
-func getConfidenceAsDocumentBoundary() -> Int
+var confidenceAsDocumentBoundary: Int { get }
 ```

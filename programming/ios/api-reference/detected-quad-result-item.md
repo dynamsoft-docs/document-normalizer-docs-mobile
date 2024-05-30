@@ -37,6 +37,15 @@ class DetectedQuadResultItem: CapturedResultItem
 | [`location`](#location) | *DSQuadrilateral* | A DSQuadrilateral object as the location of current object. |
 | [`confidenceAsDocumentBoundary`](#confidenceasdocumentboundary) | *NSInteger* | TThe confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document. |
 
+The following attributes are inherited from [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html).
+
+| Attributes | Type | Description |
+| ---------- | ---- | ----------- |
+| [`type`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html#type) | *DSCapturedResultItemType* | The type of the captured result item. |
+| [`referencedItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html#referenceditem) | *DSCapturedResultItem \** | The referenced captured result item. The reference dependencies is defined in the Capture Vision settings. |
+| [`targetROIDefName`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html#targetroidefname) | *NSString* | The name of the [`TargetROIDef`]({{ site.dcv_parameters_reference }}target-roi-def/) object which includes a task that generated the result. |
+| [`taskName`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html#taskname) | *NSString* | The name of the task that generated the result. |
+
 ### location
 
 A [DSQuadrilateral]({{ site.dcv_ios_api }}core/basic-structures/quadrilateral.html) object that represents the location of the detected quadrilateral within the image or frame.

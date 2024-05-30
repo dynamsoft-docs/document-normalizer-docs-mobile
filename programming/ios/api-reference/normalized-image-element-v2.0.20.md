@@ -29,19 +29,15 @@ The `DSNormalizedImageElement` class represents an intermediate result whose typ
 class NormalizedImageElement : RegionObjectElement
 ```
 
-## Methods
+## Attributes
 
-| Methods | Description |
-| ------- | ----------- |
-| [`getImageData`](#getimagedata) | Returns a `DSImageData` object as the image data of a normalized image. |
+| Attributes | Type | Description |
+| ---------- | ---- | ----------- |
+| [`imageData`](#imagedata) | *DSImageData \** | A `DSImageData` object as the image data of a normalized image. |
 
-The following methods are inherited from class [`DSRegionObjectElement`]({{ site.dcv_ios_api }}core/intermediate-results/region-object-element.html).
+### imageData
 
-{%- include api-reference/region-object-element-ios.md -%}
-
-### getImageData
-
-Returns `DSImageData` object as the image data of a normalized image.
+A `DSImageData` object as the image data of a normalized image.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -49,9 +45,9 @@ Returns `DSImageData` object as the image data of a normalized image.
 >
 >1. 
 ```objc
-- (nullable DSImageData *)getImageData;
+@property(nonatomic, strong, nullable, readonly) DSImageData *imageData;
 ```
 2. 
 ```swift
-func getImageData() -> DSImageData?
+var imageData: ImageData? { get }
 ```

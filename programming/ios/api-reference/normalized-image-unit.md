@@ -39,6 +39,10 @@ class NormalizedImagesUnit: IntermediateResultUnit
 | [`removeAllNormalizedImages`](#removeallnormalizedimages) | Remove all normalized images. |
 | [`setNormalizedImage`](#setnormalizedimage) | Set the [`DSNormalizedImageElement`](normalized-image-element.md) at the specified index. |
 
+The following methods are inherited from class [`DSIntermediateResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-ios.md -%}
+
 ### getNormalizedImages
 
 Get an array of [`DSNormalizedImageElement`](normalized-image-element.md) that represent all the normalized images.

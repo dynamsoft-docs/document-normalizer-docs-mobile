@@ -22,12 +22,21 @@ The `NormalizedImageResultItem` class is an extension of [`CapturedResultItem`](
 class NormalizedImageResultItem extends CapturedResultItem
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |
 | [`getImageData`](#getimagedata) | Gets an `ImageData` object as the normalized image. |
 | [`getLocation`](#getlocation) | The quadrilateral from which you get the normalized image result item. |
+
+The following methods are inherited from [`CapturedResultItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html).
+
+| Method | Description |
+| ------ | ----------- |
+| [`getType`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettype) | Get the type of the captured result item, indicating what kind of data it represents. |
+| [`getReferencedItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#getreferenceditem) | Get a property of type `CapturedResultItem` that represents a reference to another captured result item. |
+| [`getTargetROIDefName`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettargetroidefname) | Gets the name of the [`TargetROIDef`]({{ site.dcv_parameters_reference }}target-roi-def/) object which includes a task that generated the result. |
+| [`getTaskName`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettaskname) | The name of the task that generated the result. |
 
 ### getImageData
 

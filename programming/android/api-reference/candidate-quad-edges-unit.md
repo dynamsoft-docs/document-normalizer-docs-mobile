@@ -22,7 +22,7 @@ The `CandidateQuadEdgesUnit` class represents an intermediate result unit whose 
 class CandidateQuadEdgesUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ------- | ----------- |
@@ -33,6 +33,10 @@ class CandidateQuadEdgesUnit extends IntermediateResultUnit
 | [`removeCandidateQuadEdge`](#removecandidatequadedge) | Remove an edge. |
 | [`addCandidateQuadEdge`](#addcandidatequadedge) | Add an edge. |
 | [`setCandidateQuadEdge`](#setcandidatequadedge) | Set an edge. |
+
+The following methods are inherited from class [`IntermediateResultUnit`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-android.md -%}
 
 ### getCandidateQuadEdges
 

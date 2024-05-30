@@ -22,7 +22,7 @@ The `DetectedQuadsResult` class represents a collection of [`DetectedQuadResultI
 class DetectedQuadsResult
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |

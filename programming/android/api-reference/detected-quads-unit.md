@@ -22,17 +22,21 @@ The `DetectedQuadsUnit` class represents an intermediate result unit whose type 
 class DetectedQuadsUnit extends IntermediateResultUnit
 ```
 
-## Methods Summary
+## Methods
 
 | Methods | Description |
 | ---------- | ----------- |
 | [`getDetectedQuads`](#getdetectedquads) | Gets an array of `DetectedQuadElement` objects, each containing the information of a single detected quadrilateral. |
 | [`getCount`](#getcount) | Gets the number of detected quadrilaterals. |
 | [`getDetectedQuad`](#getdetectedquad) | Gets a detected quadrilateral. |
-| [`removeAllDetectedQuads`](#removedetectedquads) | Removes all detected quadrilaterals. |
+| [`removeAllDetectedQuads`](#removealldetectedquads) | Removes all detected quadrilaterals. |
 | [`removeDetectedQuad`](#removedetectedquad) | Removes a detected quadrilateral. |
 | [`addDetectedQuad`](#adddetectedquad) | Adds a detected quadrilateral. |
 | [`setDetectedQuad`](#setdetectedquad) | Sets a detected quadrilateral. |
+
+The following methods are inherited from class [`IntermediateResultUnit`]({{ site.dcv_android_api }}core/intermediate-results/intermediate-result-unit.html).
+
+{%- include api-reference/intermediate-result-unit-android.md -%}
 
 ### getDetectedQuads
 
