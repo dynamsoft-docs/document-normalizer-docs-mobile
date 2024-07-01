@@ -24,7 +24,7 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
 >Note:
 >
 > - Xcode 13.0 is used here in this guide.
-> - You can get the source code of the HelloWord app from the following link
+> - You can get the source code of the HelloWorld app from the following link
 >   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld){:target="_blank"}.
 >   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld){:target="_blank"}.
 
@@ -706,6 +706,6 @@ In the section, we will add code to get the user selected quadrilateral and norm
 
 > Note:
 >
-> - You can get the source code of the HelloWord app from the following link
+> - You can get the source code of the HelloWorld app from the following link
 >   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Objective-C/HelloWorld){:target="_blank"}.
 >   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/Swift/HelloWorld){:target="_blank"}.

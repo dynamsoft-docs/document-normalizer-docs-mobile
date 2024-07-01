@@ -42,7 +42,7 @@ This guide will walk you through the process of creating a HelloWorld app for no
 >Note:
 >
 > - Xcode 14.0 is used in this guide.
-> - You can get the source code of the HelloWord app from the following link
+> - You can get the source code of the HelloWorld app from the following link
 >   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalizeObjc){:target="_blank"}.
 >   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalize){:target="_blank"}.
 
@@ -582,6 +582,6 @@ If your iOS version is 12.x or lower, please add the following additional steps:
 
 > Note:
 >
-> - You can get the source code of the HelloWord app from the following link
+> - You can get the source code of the HelloWorld app from the following link
 >   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalizeObjc){:target="_blank"}.
 >   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalize){:target="_blank"}.
