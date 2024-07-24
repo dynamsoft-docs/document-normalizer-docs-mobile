@@ -11,6 +11,10 @@ permalink: /programming/ios/release-notes/ios-2.html
 
 # Release Notes for iOS SDK - v2.x
 
+<!-- ## 2.2.1101 (07/24/2024)
+
+- Updated signature of license module to prevent rejection of Apple store. -->
+
 ## 2.2.11 (04/17/2024)
 
 - Updated the privacy list of `DynamsoftDocumentNormalizer.xcframework` and other related libraries.
