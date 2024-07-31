@@ -149,14 +149,14 @@ permalink: /programming/android/api-reference/index-v2.0.20.html
 
 ### Enumerations
 
-- [`CameraPosition`]({{ site.dcv_enumerations }}camera-position.html?lang=objc,swift)
-- [`CameraState`]({{ site.dcv_enumerations }}camera-state.html?lang=objc,swift)
-- [`CoordinateBase`]({{ site.dcv_enumerations }}coordinate-base.html?lang=objc,swift)
-- [`DrawingItemMediaType`]({{ site.dcv_enumerations }}drawing-item-media-type.html?lang=objc,swift)
-- [`DrawingItemState`]({{ site.dcv_enumerations }}drawing-item-state.html?lang=objc,swift)
-- [`EnhancedFeatures`]({{ site.dcv_enumerations }}enhanced-features.html?lang=objc,swift)
-- [`FocusMode`]({{ site.dcv_enumerations }}focus-mode.html?lang=objc,swift)
-- [`Resolution`]({{ site.dcv_enumerations }}resolution.html?lang=objc,swift)
+- [`CameraPosition`]({{ site.dce_enumerations }}camera-position.html?lang=objc,swift)
+- [`CameraState`]({{ site.dce_enumerations }}camera-state.html?lang=objc,swift)
+- [`CoordinateBase`]({{ site.dce_enumerations }}coordinate-base.html?lang=objc,swift)
+- [`DrawingItemMediaType`]({{ site.dce_enumerations }}drawing-item-media-type.html?lang=objc,swift)
+- [`DrawingItemState`]({{ site.dce_enumerations }}drawing-item-state.html?lang=objc,swift)
+- [`EnhancedFeatures`]({{ site.dce_enumerations }}enhanced-features.html?lang=objc,swift)
+- [`FocusMode`]({{ site.dce_enumerations }}focus-mode.html?lang=objc,swift)
+- [`Resolution`]({{ site.dce_enumerations }}resolution.html?lang=objc,swift)
 
 ## DynamsoftImageProcessing
 

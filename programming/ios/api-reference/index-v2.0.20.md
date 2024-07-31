@@ -69,7 +69,7 @@ permalink: /programming/ios/api-reference/index-v2.0.20.html
 - [`DSImageSourceAdapter`]({{ site.dcv_ios_api }}core/basic-structures/image-source-adapter.html)
 - [`DSImageTag`]({{ site.dcv_ios_api }}core/basic-structures/image-tag.html)
 - [`DSIntermediateResultExtraInfo`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-extra-info.html)
-- [`DSIntermediateResultManager`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-manager.html)
+- [`DSIntermediateResultManager`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-manager.htmle
 - [`DSIntermediateResultReceiver`]({{ site.dcv_ios_api }}capture-vision-router/auxiliary-classes/intermediate-result-receiver.html)
 - [`DSIntermediateResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result-unit.html)
 - [`DSIntermediateResult`]({{ site.dcv_ios_api }}core/intermediate-results/intermediate-result.html)
@@ -153,14 +153,14 @@ permalink: /programming/ios/api-reference/index-v2.0.20.html
 
 ### Enumerations
 
-- [`DSCameraPosition`]({{ site.dcv_enumerations }}camera-position.html?lang=objc,swift)
-- [`DSCameraState`]({{ site.dcv_enumerations }}camera-state.html?lang=objc,swift)
-- [`DSCoordinateBase`]({{ site.dcv_enumerations }}coordinate-base.html?lang=objc,swift)
-- [`DSDrawingItemMediaType`]({{ site.dcv_enumerations }}drawing-item-media-type.html?lang=objc,swift)
-- [`DSDrawingItemState`]({{ site.dcv_enumerations }}drawing-item-state.html?lang=objc,swift)
-- [`DSEnhancedFeatures`]({{ site.dcv_enumerations }}enhanced-features.html?lang=objc,swift)
-- [`DSFocusMode`]({{ site.dcv_enumerations }}focus-mode.html?lang=objc,swift)
-- [`DSResolution`]({{ site.dcv_enumerations }}resolution.html?lang=objc,swift)
+- [`DSCameraPosition`]({{ site.dce_enumerations }}camera-position.html?lang=objc,swift)
+- [`DSCameraState`]({{ site.dce_enumerations }}camera-state.html?lang=objc,swift)
+- [`DSCoordinateBase`]({{ site.dce_enumerations }}coordinate-base.html?lang=objc,swift)
+- [`DSDrawingItemMediaType`]({{ site.dce_enumerations }}drawing-item-media-type.html?lang=objc,swift)
+- [`DSDrawingItemState`]({{ site.dce_enumerations }}drawing-item-state.html?lang=objc,swift)
+- [`DSEnhancedFeatures`]({{ site.dce_enumerations }}enhanced-features.html?lang=objc,swift)
+- [`DSFocusMode`]({{ site.dce_enumerations }}focus-mode.html?lang=objc,swift)
+- [`DSResolution`]({{ site.dce_enumerations }}resolution.html?lang=objc,swift)
 
 ## DynamsoftImageProcessing
 

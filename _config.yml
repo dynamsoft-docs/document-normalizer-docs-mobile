@@ -7,6 +7,7 @@ docHomePage: /document-normalizer/docs/core/introduction/
 parameters: /document-normalizer/docs/core/parameters/
 
 dcv_parameters: /capture-vision/docs/core/parameters/
+dcv_parameters_reference: /capture-vision/docs/core/parameters/reference/
 
 dcv_ios: /capture-vision/docs/mobile/programming/ios/
 dcv_ios_api: /capture-vision/docs/mobile/programming/ios/api-reference/

@@ -35,7 +35,7 @@ The following methods are inherited from [`CapturedResultItem`]({{ site.dcv_andr
 | ------ | ----------- |
 | [`getType`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettype) | Get the type of the captured result item, indicating what kind of data it represents. |
 | [`getReferencedItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#getreferenceditem) | Get a property of type `CapturedResultItem` that represents a reference to another captured result item. |
-| [`getTargetROIDefName`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettargetroidefname) | Gets the name of the [`TargetROIDef`]({{ site.dcv_parameters_reference }}target-roi-def/) object which includes a task that generated the result. |
+| [`getTargetROIDefName`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettargetroidefname) | Gets the name of the [`TargetROIDef`]({{ site.dcv_parameters_reference }}target-roi-def/){:target="_blank"} object which includes a task that generated the result. |
 | [`getTaskName`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettaskname) | The name of the task that generated the result. |
 
 ### getLocation
