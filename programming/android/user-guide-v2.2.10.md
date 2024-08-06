@@ -150,7 +150,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
    >  
    >- Network connection is required for the license to work.
    >- The license string here will grant you a time-limited trial license.
-   >- You can request a 30-day offline trial license via the [Request a Trial License](https://www.dynamsoft.com/customer/license/trialLicense?product=ddn&utm_source=guide&package=android){:target="_blank"} link
+   >- You can request a 30-day trial license via the [Request a Trial License](https://www.dynamsoft.com/customer/license/trialLicense?product=ddn&utm_source=guide&package=android){:target="_blank"} link
 
 ### MainActivity for Realtime Document Normalization
 
