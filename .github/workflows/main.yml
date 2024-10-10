@@ -8,7 +8,7 @@ on:
   push:
     branches: 
     - main 
-    #- preview 
+    - archive 
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,5 +30,13 @@ jobs:
     with:
       doc-repo: document-normalizer-docs-mobile
       doc-url: document-normalizer/docs/mobile
+    secrets: inherit
+
+  Build-Archive:
+    if: ${{ github.ref == 'refs/heads/archive' }}
+    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-archive.yml@archive
+    with:
+      doc-repo: document-normalizer-docs-mobile
+      doc-url: document-normalizer/docs-archive/mobile
     secrets: inherit
 

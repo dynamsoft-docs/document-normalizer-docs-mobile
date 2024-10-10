@@ -1,56 +1,56 @@
 repository: dynamsoft-docs/document-normalizer-docs-mobile
 repositoryUrlMobile: https://github.com/dynamsoft-docs/document-normalizer-docs-mobile/blob/main
-docFullPath: https://www.dynamsoft.com/document-normalizer/docs/mobile/
-firstLevelUrl: /document-normalizer/docs/mobile
-docHomePage: /document-normalizer/docs/core/introduction/
+docFullPath: https://www.dynamsoft.com/document-normalizer/docs-archive/mobile/
+firstLevelUrl: /document-normalizer/docs-archive/mobile
+docHomePage: /document-normalizer/docs-archive/core/introduction/
 
-parameters: /document-normalizer/docs/core/parameters/
+parameters: /document-normalizer/docs-archive/core/parameters/
 
-dcv_parameters: /capture-vision/docs/core/parameters/
-dcv_parameters_reference: /capture-vision/docs/core/parameters/reference/
+dcv_parameters: /capture-vision/docs-archive/core/parameters/
+dcv_parameters_reference: /capture-vision/docs-archive/core/parameters/reference/
 
-dcv_ios: /capture-vision/docs/mobile/programming/ios/
-dcv_ios_api: /capture-vision/docs/mobile/programming/ios/api-reference/
+dcv_ios: /capture-vision/docs-archive/mobile/programming/ios/
+dcv_ios_api: /capture-vision/docs-archive/mobile/programming/ios/api-reference/
 
-dcv_android: /capture-vision/docs/mobile/programming/android/
-dcv_android_api: /capture-vision/docs/mobile/programming/android/api-reference/
+dcv_android: /capture-vision/docs-archive/mobile/programming/android/
+dcv_android_api: /capture-vision/docs-archive/mobile/programming/android/api-reference/
 
-dcv_introduction: /capture-vision/docs/core/introduction/
+dcv_introduction: /capture-vision/docs-archive/core/introduction/
 
-dce_android_api: /camera-enhancer/docs/mobile/programming/android/
-dce_ios_api: /camera-enhancer/docs/mobile/programming/ios/
-dce_enumerations: /camera-enhancer/docs/core/enums/
+dce_android_api: /camera-enhancer/docs-archive/mobile/programming/android/
+dce_ios_api: /camera-enhancer/docs-archive/mobile/programming/ios/
+dce_enumerations: /camera-enhancer/docs-archive/core/enums/
 
-dcv_enumerations: /capture-vision/docs/core/enums/
+dcv_enumerations: /capture-vision/docs-archive/core/enums/
 
-ios: /document-normalizer/docs/mobile/programming/ios/
-ddn_ios_api: /document-normalizer/docs/mobile/programming/ios/api-reference/
-ios_release_notes: /document-normalizer/docs/mobile/programming/ios/release-notes/
-ios_camera_enhancer: /document-normalizer/docs/mobile/programming/ios/api-reference/camera-enhancer/
+ios: /document-normalizer/docs-archive/mobile/programming/ios/
+ddn_ios_api: /document-normalizer/docs-archive/mobile/programming/ios/api-reference/
+ios_release_notes: /document-normalizer/docs-archive/mobile/programming/ios/release-notes/
+ios_camera_enhancer: /document-normalizer/docs-archive/mobile/programming/ios/api-reference/camera-enhancer/
 
-android: /document-normalizer/docs/mobile/programming/android/
-ddn_android_api: /document-normalizer/docs/mobile/programming/android/api-reference/
-android_release_notes: /document-normalizer/docs/mobile/programming/android/release-notes/
-android_camera_enhancer: /document-normalizer/docs/mobile/programming/android/api-reference/camera-enhancer/
+android: /document-normalizer/docs-archive/mobile/programming/android/
+ddn_android_api: /document-normalizer/docs-archive/mobile/programming/android/api-reference/
+android_release_notes: /document-normalizer/docs-archive/mobile/programming/android/release-notes/
+android_camera_enhancer: /document-normalizer/docs-archive/mobile/programming/android/api-reference/camera-enhancer/
 
-xamarin: /document-normalizer/docs/mobile/programming/xamarin/
-xamarin_api: /document-normalizer/docs/mobile/programming/xamarin/api-reference/
-xamarin_release_notes: /document-normalizer/docs/mobile/programming/xamarin/release-notes/
-xamarin_camera_enhancer: /document-normalizer/docs/mobile/programming/xamarin/api-reference/camera-enhancer/
+xamarin: /document-normalizer/docs-archive/mobile/programming/xamarin/
+xamarin_api: /document-normalizer/docs-archive/mobile/programming/xamarin/api-reference/
+xamarin_release_notes: /document-normalizer/docs-archive/mobile/programming/xamarin/release-notes/
+xamarin_camera_enhancer: /document-normalizer/docs-archive/mobile/programming/xamarin/api-reference/camera-enhancer/
 
-enumerations: /document-normalizer/docs/mobile/programming/enumerations/
+enumerations: /document-normalizer/docs-archive/mobile/programming/enumerations/
 
-js: /document-normalizer/docs/web/programming/javascript/
-cpp: /document-normalizer/docs/server/programming/cplusplus/
+js: /document-normalizer/docs-archive/web/programming/javascript/
+cpp: /document-normalizer/docs-archive/server/programming/cplusplus/
 
 useVersionTree: true
 
-assets: /document-normalizer/docs/mobile/assets/
-edit_icon: /document-normalizer/docs/mobile/assets/img-icon/edit-icon.png
-smile_icon: /document-normalizer/docs/mobile/assets/img-icon/icon-smile.png
-sad_icon: /document-normalizer/docs/mobile/assets/img-icon/icon-sad.png
+assets: /document-normalizer/docs-archive/mobile/assets/
+edit_icon: /document-normalizer/docs-archive/mobile/assets/img-icon/edit-icon.png
+smile_icon: /document-normalizer/docs-archive/mobile/assets/img-icon/icon-smile.png
+sad_icon: /document-normalizer/docs-archive/mobile/assets/img-icon/icon-sad.png
 
-baseurl: "/document-normalizer/docs/mobile"
+baseurl: "/document-normalizer/docs-archive/mobile"
 
 download: "/document-normalizer/downloads/"
 
@@ -78,42 +78,42 @@ defaults:
       category: "mobile-repo"
       edition: "mobile"
       docRootName: "Document Normalizer Android Edition" 
-      docHomePage: "/document-normalizer/docs/mobile/programming/android/"
+      docHomePage: "/document-normalizer/docs-archive/mobile/programming/android/"
   - scope:
       path: "programming/ios"
     values:
       category: "mobile-repo"
       edition: "mobile"
       docRootName: "Document Normalizer iOS Edition" 
-      docHomePage: "/document-normalizer/docs/mobile/programming/ios/"
+      docHomePage: "/document-normalizer/docs-archive/mobile/programming/ios/"
   - scope:
       path: "programming-old/android"
     values:
       category: "mobile-repo"
       edition: "mobile"
       docRootName: "Document Normalizer Android Edition" 
-      docHomePage: "/document-normalizer/docs/mobile/programming/android/"
+      docHomePage: "/document-normalizer/docs-archive/mobile/programming/android/"
   - scope:
       path: "programming-old/ios"
     values:
       category: "mobile-repo"
       edition: "mobile"
       docRootName: "Document Normalizer iOS Edition" 
-      docHomePage: "/document-normalizer/docs/mobile/programming/ios/"
+      docHomePage: "/document-normalizer/docs-archive/mobile/programming/ios/"
   - scope:
       path: "programming-old/xamarin"
     values:
       category: "mobile-repo"
       edition: "mobile"
       docRootName: "Document Normalizer Xamarin.Forms Edition" 
-      docHomePage: "/document-normalizer/docs/mobile/programming/xamarin/"
+      docHomePage: "/document-normalizer/docs-archive/mobile/programming/xamarin/"
   - scope:
       path: "programming-old/enumerations"
     values:
       category: "mobile-repo"
       edition: "mobile"
       docRootName: "Document Normalizer Enumerations" 
-      docHomePage: "/document-normalizer/docs/core/"
+      docHomePage: "/document-normalizer/docs-archive/core/"
   - scope:
       path: "Hide_Tree_Page.html"
     values:
