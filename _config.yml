@@ -43,7 +43,8 @@ enumerations: /document-normalizer/docs/mobile/programming/enumerations/
 js: /document-normalizer/docs/web/programming/javascript/
 cpp: /document-normalizer/docs/server/programming/cplusplus/
 
-useVersionTree: true
+useVersionTree: false
+isDCV: true
 
 assets: /document-normalizer/docs/mobile/assets/
 edit_icon: /document-normalizer/docs/mobile/assets/img-icon/edit-icon.png

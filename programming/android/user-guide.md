@@ -1,37 +1,34 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer for Android - User Guide
-description: This is the user guide of Dynamsoft Document Normalizer for Android SDK.
-keywords: user guide, android
+title: Detect and Normalize Document - Android User Guide
+description: This page introduce how to detect and normalize document with Dynamsoft Capture Vision Android SDK.
+keywords: user guide, android, document scanner
 needAutoGenerateSidebar: true
 needGenerateH4Content: true
 noTitleIndex: true
 permalink: /programming/android/user-guide.html
 ---
 
-# Getting Started with Android
+# Android User Guide for Document Scanner Integration
 
-In this guide, you will learn step by step on how to build a document normalization application with Dynamsoft Document Normalizer Android SDK.
+In this guide, you will learn step by step on how to build a document scanner application with Dynamsoft Capture Vision Android SDK.
 
-> Read more on [Dynamsoft Document Normalizer Features](https://www.dynamsoft.com/document-normalizer/docs/core/introduction/index.html){:target="_blank"}
-
-- [Getting Started with Android](#getting-started-with-android)
-  - [Requirements](#requirements)
-  - [Build Your First Application](#build-your-first-application)
-    - [Create a New Project](#create-a-new-project)
-    - [Add the SDK](#add-the-sdk)
-      - [Add the Library Manually](#add-the-library-manually)
-      - [Add the Library via Maven](#add-the-library-via-maven)
-    - [Initialize License](#initialize-license)
-    - [MainActivity for Realtime Document Normalization](#mainactivity-for-realtime-document-normalization)
-      - [Initialize Camera Module](#initialize-camera-module)
-      - [Initialize Capture Vision Router](#initialize-capture-vision-router)
-      - [Add a Captured Result Receiver and Filter](#add-a-captured-result-receiver-and-filter)
-      - [Start and Stop Video Document Normalization](#start-and-stop-video-document-normalization)
-      - [Additional Steps in MainActivity](#additional-steps-in-mainactivity)
-    - [ResultActivity for Displaying the Normalized Image](#resultactivity-for-displaying-the-normalized-image)
-      - [Display the Normalized Image](#display-the-normalized-image)
-    - [Build and Run the Project](#build-and-run-the-project)
+- [Android User Guide for Document Scanner Integration](#android-user-guide-for-document-scanner-integration)
+	- [Requirements](#requirements)
+	- [Add the SDK](#add-the-sdk)
+	- [Build Your First Application](#build-your-first-application)
+		- [Create a New Project](#create-a-new-project)
+		- [Include the Library](#include-the-library)
+		- [Initialize License](#initialize-license)
+		- [MainActivity for Realtime Document Normalization](#mainactivity-for-realtime-document-normalization)
+			- [Initialize Camera Module](#initialize-camera-module)
+			- [Initialize Capture Vision Router](#initialize-capture-vision-router)
+			- [Add a Captured Result Receiver and Filter](#add-a-captured-result-receiver-and-filter)
+			- [Start and Stop Video Document Normalization](#start-and-stop-video-document-normalization)
+			- [Additional Steps in MainActivity](#additional-steps-in-mainactivity)
+		- [ResultActivity for Displaying the Normalized Image](#resultactivity-for-displaying-the-normalized-image)
+			- [Display the Normalized Image](#display-the-normalized-image)
+		- [Build and Run the Project](#build-and-run-the-project)
 
 ## Requirements
 
@@ -39,16 +36,40 @@ In this guide, you will learn step by step on how to build a document normalizat
 - Supported ABI: **armeabi-v7a**, **arm64-v8a**, **x86** and **x86_64**.
 - Development Environment: Android Studio 2022.2.1 or higher.
 
+## Add the SDK
+
+1. Open the file `[App Project Root Path]\app\build.gradle` and add the Maven repository:
+
+    ```groovy
+    allprojects {
+        repositories {
+            maven {
+                url "https://download2.dynamsoft.com/maven/aar"
+            }
+        }
+    }
+    ```
+
+2. Add the references in the dependencies:
+
+    ```groovy
+    dependencies {
+        implementation 'com.dynamsoft:dynamsoftcapturevisionbundle:2.4.2000'
+    }
+    ```
+
+    > Read more about the modules of [dynamsoftcapturevisionbundle]({{site.dcv_android_api}}index.html)
+
 ## Build Your First Application
 
-In this section, let's see how to create a HelloWorld app for normalizing documents from camera video input.
+In this section, let's see how to create a HelloWorld app for detecting and normalizing documents from camera video input.
 
 >Note:
 >
 > - Android Studio 2022.2.1 is used here in this guide.
-> - You can get the source code of the HelloWorld app from the following link
->   - [Java](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/HelloWorld/AutoNormalize){:target="_blank"}.
->   - [Kotlin](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/HelloWorld/AutoNormalizeKt){:target="_blank"}.
+> - You can get the similar source code of the HelloWorld app from the following link
+>   - [Java](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/android/DocumentScanner/AutoNormalize){:target="_blank"}.
+>   - [Kotlin](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/android/DocumentScanner/AutoNormalizeKt){:target="_blank"}.
 
 ### Create a New Project
 
@@ -61,67 +82,9 @@ In this section, let's see how to create a HelloWorld app for normalizing docume
     >
     > - With **minSdkVersion** set to 21, your app is compatible with more than 94.1% of devices on the Google Play Store (last update: March 2021).
 
-### Add the SDK
+### Include the Library
 
-There are two ways to add the SDK into your project - **Manually** and **Maven**.
-
-#### Add the Library Manually
-
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-android-2.2.10.zip" target="_blank">Dynamsoft website</a>. After unzipping, You can find the following **aar** files under the **Dynamsoft\Libs** directory:
-
-   | File | Description | Mandatory/Optional |
-   |:-----|:------------|:-------------------|
-   | `DynamsoftDocumentNormalizer.aar` | The Dynamsoft Document Normalizer module extracts structural information from document images, including document boundaries, shadow areas, and text areas. It uses this information to generate normalized document images through processes such as deskewing, shadow removal, and distortion correction. | Mandatory |
-   | `DynamsoftCore.aar`  | The Dynamsoft Core module lays the foundation for Dynamsoft SDKs based on the DCV (Dynamsoft Capture Vision) architecture. It encapsulates the basic classes, interfaces, and enumerations shared by these SDKs. | Mandatory |
-   | `DynamsoftCaptureVisionRouter.aar` | The Dynamsoft Capture Vision Router module is the cornerstone of the Dynamsoft Capture Vision (DCV) architecture. It focuses on coordinating batch image processing and provides APIs for setting up image sources and result receivers, configuring workflows with parameters, and controlling processes. | Mandatory |
-   | `DynamsoftImageProcessing.aar` | The Dynamsoft Image Processing module facilitates digital image processing and supports operations for other modules, including the Barcode Reader, Label Recognizer, and Document Normalizer. | Mandatory |
-   | `DynamsoftLicense.aar` | The Dynamsoft License module manages the licensing aspects of Dynamsoft SDKs based on the DCV (Dynamsoft Capture Vision) architecture. | Mandatory |
-   | `DynamsoftCameraEnhancer.aar` | The [Dynamsoft Camera Enhancer]({{ site.dce_android_api }}){:target="_blank"} module controls the camera, transforming it into an image source for the DCV (Dynamsoft Capture Vision) architecture through ISA implementation. It also enhances image quality during acquisition and provides basic viewers for user interaction. | Mandatory |
-   | `DynamsoftUtility.aar` | The Dynamsoft Utility module defines auxiliary classes, including the ImageManager, and implementations of the CRF (Captured Result Filter) and ISA (Image Source Adapter) . These are shared by all Dynamsoft SDKs based on the DCV (Dynamsoft Capture Vision) architecture. | Optional |
-
-2. Copy the above six (seven if the Utility is included) **aar** files to the target directory `HelloWorld\app\libs`
-
-3. Open the file `HelloWorld\app\build.gradle` and add reference in the dependencies:
-
-    ```groovy
-    dependencies {
-         implementation fileTree(dir: 'libs', include: ['*.aar'])
-
-         def camerax_version = '1.1.0'
-         implementation "androidx.camera:camera-core:$camerax_version"
-         implementation "androidx.camera:camera-camera2:$camerax_version"
-         implementation "androidx.camera:camera-lifecycle:$camerax_version"
-         implementation "androidx.camera:camera-view:$camerax_version"
-    }
-    ```
-
-    > Note:
-    >
-    > DCE 4.x is based on Android CameraX, so you need to add the CameraX dependency manually.
-
-4. Click **Sync Now**. After the synchronization completes, the SDK is added to the project.
-
-#### Add the Library via Maven
-
-1. Open the file `HelloWorld\app\build.gradle` and add the remote repository:
-
-    ```groovy
-    repositories {
-         maven {
-            url "https://download2.dynamsoft.com/maven/aar"
-         }
-    }
-    ```
-
-2. Add reference in the dependencies:
-
-   ```groovy
-   dependencies {
-      implementation 'com.dynamsoft:dynamsoftdocumentnormalizerbundle:2.2.1100'
-   }
-   ```
-
-3. Click **Sync Now**. After the synchronization completes, the SDK is added to the project.
+Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section for more details.
 
 ### Initialize License
 
@@ -148,8 +111,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
    >Note:  
    >  
-   >- Network connection is required for the license to work.
-   >- The license string here will grant you a time-limited trial license.
+   >- The license string here grants a time-limited free trial which requires network connection to work.
    >- You can request a 30-day trial license via the [Request a Trial License](https://www.dynamsoft.com/customer/license/trialLicense?product=ddn&utm_source=guide&package=android){:target="_blank"} link
 
 ### MainActivity for Realtime Document Normalization
@@ -283,7 +245,6 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
       protected void onCreate(Bundle savedInstanceState) { 
          
          ...
-         
          MultiFrameResultCrossFilter filter = new MultiFrameResultCrossFilter();
          filter.enableResultCrossVerification(CRIT_NORMALIZED_IMAGE, true);
          mRouter.addResultFilter(filter);
@@ -305,7 +266,7 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
          super.onResume();
          try {
                mCamera.open();
-               mRouter.startCapturing(EnumPresetTemplate.PT_DETECT_AND_NORMALIZE_DOCUMENT);
+               mRouter.startCapturing(EnumPresetTemplate.PT_DETECT_AND_NORMALIZE_DOCUMENT, null);
          } catch (CameraEnhancerException | CaptureVisionRouterException e) {
                e.printStackTrace();
          }
@@ -404,5 +365,5 @@ There are two ways to add the SDK into your project - **Manually** and **Maven**
 
 You can download the similar source code here:
 
-- [Java](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/HelloWorld/AutoNormalize){:target="_blank"}.
-- [Kotlin](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/android/HelloWorld/AutoNormalizeKt){:target="_blank"}.
+- [Java](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/android/DocumentScanner/AutoNormalize){:target="_blank"}.
+- [Kotlin](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/android/DocumentScanner/AutoNormalizeKt){:target="_blank"}.

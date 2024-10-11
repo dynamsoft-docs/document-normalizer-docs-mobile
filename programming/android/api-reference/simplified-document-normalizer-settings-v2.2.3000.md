@@ -22,7 +22,7 @@ The `SimplifiedDocumentNormalizerSettings` class represents a series of simple s
 class SimplifiedDocumentNormalizerSettings
 ```
 
-## Attributes
+## Methods & Attributes
 
 | Attributes | Type | Description |
 | ---------- | ---- | ----------- |
@@ -34,6 +34,10 @@ class SimplifiedDocumentNormalizerSettings
 | [`contrast`](#contrast) | *int* | The contrast. |
 | [`maxThreadsInOneTask`](#maxthreadsinonetask) | *int* | The maximum number of threads in one task. |
 | [`scaleDownThreshold`](#scaledownthreshold) | *int* | The scale down threshold. |
+
+| Methods | Description |
+| [`toJson`](#tojson) | Generate a JSON string from this `SimplifiedDocumentNormalizerSettings` object. |
+| [`fromJson`](#fromjson) | Create a `SimplifiedDocumentNormalizerSettings` object from a JSON string. |
 
 ### grayscaleTransformationModes
 
@@ -98,3 +102,31 @@ If the original image size is quite large, then the `scaledownThreshold` can be 
 ```java
 int scaleDownThreshold;
 ```
+
+### toJson
+
+Generate a JSON string from this `SimplifiedDocumentNormalizerSettings` object.
+
+```java
+String toJson()
+```
+
+**Return Value**
+
+A JSON string that contains all the information of this object.
+
+### fromJson
+
+Create a `SimplifiedDocumentNormalizerSettings` object from a JSON string.
+
+```java
+static SimplifiedDocumentNormalizerSettings fromJson(String json);
+```
+
+**Parameters**
+
+* `json`: A JSON string that contains all `SimplifiedDocumentNormalizerSettings` required information.
+
+**Return Value**
+
+A `SimplifiedDocumentNormalizerSettings` object.

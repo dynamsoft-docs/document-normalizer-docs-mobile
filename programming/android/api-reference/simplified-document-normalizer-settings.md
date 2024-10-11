@@ -34,6 +34,8 @@ class SimplifiedDocumentNormalizerSettings
 | [`contrast`](#contrast) | *int* | The contrast. |
 | [`maxThreadsInOneTask`](#maxthreadsinonetask) | *int* | The maximum number of threads in one task. |
 | [`scaleDownThreshold`](#scaledownthreshold) | *int* | The scale down threshold. |
+| [`minQuadrilateralAreaRatio`](#minquadrilateralarearatio) | *int* | The minimum ratio between the target document area and the total image area. Only those exceeding this value will be outputted (measured in percentages). |
+| [`expectedDocumentsCount`](#expecteddocumentscount) | *int* | The number of documents expected to be detected. |
 
 | Methods | Description |
 | [`toJson`](#tojson) | Generate a JSON string from this `SimplifiedDocumentNormalizerSettings` object. |
@@ -101,6 +103,22 @@ If the original image size is quite large, then the `scaledownThreshold` can be 
 
 ```java
 int scaleDownThreshold;
+```
+
+### minQuadrilateralAreaRatio
+
+The minimum ratio between the target document area and the total image area. Only those exceeding this value will be outputted (measured in percentages).
+
+```java
+int minQuadrilateralAreaRatio;
+```
+
+### expectedDocumentsCount
+
+The number of documents expected to be detected.
+
+```java
+int expectedDocumentsCount;
 ```
 
 ### toJson
