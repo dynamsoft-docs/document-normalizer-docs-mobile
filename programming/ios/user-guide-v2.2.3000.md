@@ -1,70 +1,47 @@
 ---
 layout: default-layout
-title: Dynamsoft Document Normalizer for iOS - User Guide
-description: This is the user guide of Dynamsoft Document Normalizer for iOS SDK.
-keywords: user guide, iOS
+title: Detect and Normalize Document - iOS User Guide
+description: This page introduce how to detect and normalize document with Dynamsoft Capture Vision iOS SDK.
+keywords: user guide, iOS, document scanner
 needAutoGenerateSidebar: true
 needGenerateH4Content: true
 noTitleIndex: true
 multiProgrammingLanguage: true
 enableLanguageSelection: true
-permalink: /programming/ios/user-guide-v2.0.20.html
 ---
 
-# Getting Started with iOS
+# iOS User Guide for Document Scanner Integration
 
-## Requirements
+- [iOS User Guide for Document Scanner Integration](#ios-user-guide-for-document-scanner-integration)
+	- [System Requirements](#system-requirements)
+	- [Add the SDK](#add-the-sdk)
+		- [Add the xcframeworks via CocoaPods](#add-the-xcframeworks-via-cocoapods)
+		- [Add the xcframeworks via Swift Package Manager](#add-the-xcframeworks-via-swift-package-manager)
+	- [Build Your First Application](#build-your-first-application)
+		- [Create a New Project](#create-a-new-project)
+		- [Include the Library](#include-the-library)
+		- [Initialize License](#initialize-license)
+		- [Main ViewController for Realtime Detection of Quads](#main-viewcontroller-for-realtime-detection-of-quads)
+			- [Get Prepared with the Camera Module](#get-prepared-with-the-camera-module)
+			- [Initialize Capture Vision Router](#initialize-capture-vision-router)
+			- [Set up Result Receiver](#set-up-result-receiver)
+			- [Configure the methods viewDidLoad, viewWillAppear, and viewWillDisappear](#configure-the-methods-viewdidload-viewwillappear-and-viewwilldisappear)
+			- [Display the Normalized Image](#display-the-normalized-image)
+		- [Configure Camera Permissions](#configure-camera-permissions)
+		- [Additional Steps for iOS 12.x or Lower Versions](#additional-steps-for-ios-12x-or-lower-versions)
+		- [Build and Run the Project](#build-and-run-the-project)
 
-- Supported OS: **iOS 11.0** or higher.
-- Supported ABI: **arm64** and **x86_64**.
-- Development Environment: Xcode 13.0 and above (Xcode 14.1+ recommended).
+## System Requirements
 
-## Build Your First Application
+- Supported OS: iOS 11 or higher (iOS 13 and higher recommended).
+- Supported ABI: arm64 and x86_64.
+- Development Environment: Xcode 13 and above (Xcode 14.1+ recommended).
 
-In this section, let's see how to create a HelloWorld app for normalizing documents from camera video input.
+## Add the SDK
 
->Note:
->
-> - Xcode 14.0 is used here in this guide.
-> - You can get the source code of the HelloWorld app from the following link
->   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalizeObjc){:target="_blank"}.
->   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalize){:target="_blank"}.
+There are two ways to add the SDK into your project - **CocoaPods**, or via **Swift Package Manager**.
 
-### Create a New Project
-
-1. Open Xcode and select create a new project.
-
-2. Select **iOS -> App** for your application.
-
-3. Input your product name (HelloWorld), interface (StoryBoard) and language (Objective-C/Swift).
-
-4. Click on the **Next** button and select the location to save the project.
-
-5. Click on the **Create** button to finish.
-
-### Add the SDK
-
-There are three ways to add the SDK into your project - **Manually**, via **CocoaPods**, or via **Swift Package Manager**.
-
-#### Add the Frameworks Manually
-
-1. Download the SDK package from the <a href="https://download2.dynamsoft.com/ddn/dynamsoft-document-normalizer-ios-2.0.20.zip" target="_blank">Dynamsoft website</a>. After unzipping, you can find the following **xcframeworks** under the **Dynamsoft\Frameworks** directory:
-
-   | File | Description | Mandatory/Optional |
-   |:-----|:------------|:-------------------|
-   | `DynamsoftDocumentNormalizer.xcframework` | The Dynamsoft Document Normalizer module extracts structural information from document images, including document boundaries, shadow areas, and text areas. It uses this information to generate normalized document images through processes such as deskewing, shadow removal, and distortion correction. | Mandatory |
-   | `DynamsoftCore.xcframework`  | The Dynamsoft Core module lays the foundation for Dynamsoft SDKs based on the DCV (Dynamsoft Capture Vision) architecture. It encapsulates the basic classes, interfaces, and enumerations shared by these SDKs. | Mandatory |
-   | `DynamsoftCaptureVisionRouter.xcframework` | The Dynamsoft Capture Vision Router module is the cornerstone of the Dynamsoft Capture Vision (DCV) architecture. It focuses on coordinating batch image processing and provides APIs for setting up image sources and result receivers, configuring workflows with parameters, and controlling processes. | Mandatory |
-   | `DynamsoftImageProcessing.xcframework` | The Dynamsoft Image Processing module facilitates digital image processing and supports operations for other modules, including the Barcode Reader, Label Recognizer, and Document Normalizer. | Mandatory |
-   | `DynamsoftLicense.xcframework` | The Dynamsoft License module manages the licensing aspects of Dynamsoft SDKs based on the DCV (Dynamsoft Capture Vision) architecture. | Mandatory |
-   | `DynamsoftCameraEnhancer.xcframework` | The [Dynamsoft Camera Enhancer]({{ site.dce_ios_api }}){:target="_blank"} module controls the camera, transforming it into an image source for the DCV (Dynamsoft Capture Vision) architecture through ISA implementation. It also enhances image quality during acquisition and provides basic viewers for user interaction. | Mandatory |
-   | `DynamsoftUtility.xcframework` | The Dynamsoft Utility module defines auxiliary classes, including the ImageManager, and implementations of the CRF (Captured Result Filter) and ISA (Image Source Adapter) . These are shared by all Dynamsoft SDKs based on the DCV (Dynamsoft Capture Vision) architecture. | Optional |
-
-2. Drag and drop the above five **xcframeworks** into your Xcode project. Make sure to check Copy items if needed and Create groups to copy the framework into your project's folder.
-
-3. Click on the project settings then go to **General –> Frameworks, Libraries, and Embedded Content**. Set the **Embed** field to **Embed & Sign** for all above **xcframeworks**.
-
-#### Add the Frameworks via CocoaPods
+### Add the xcframeworks via CocoaPods
 
 1. Add the frameworks in your **Podfile**.
 
@@ -72,13 +49,7 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftCaptureVisionRouter','2.0.21'
-   pod 'DynamsoftDocumentNormalizer','2.0.20'
-   pod 'DynamsoftCameraEnhancer','4.0.2'
-   pod 'DynamsoftCore','3.0.20'
-   pod 'DynamsoftLicense','3.0.30'
-   pod 'DynamsoftImageProcessing','2.0.21'
-   pod 'DynamsoftUtility','1.0.21'
+   pod 'DynamsoftCaptureVisionBundle','2.2.3000'
 
    end
    ```
@@ -93,13 +64,40 @@ There are three ways to add the SDK into your project - **Manually**, via **Coco
 
 1. In your Xcode project, go to **File --> AddPackages**.
 
-2. In the top-right section of the window, search "https://github.com/Dynamsoft/document-normalizer-spm"
+2. In the top-right section of the window, search "https://github.com/Dynamsoft/capture-vision-spm"
 
-3. Select `document-normalizer-spm`, then click **Add Package**.
+3. Select `capture-vision-spm`, choose `Exact version`, enter **2.2.3000**, then click **Add Package**.
 
 4. Check all the frameworks and add.
 
 &nbsp;
+
+## Build Your First Application
+
+This guide will walk you through the process of creating a HelloWorld app for detecting and normalizing documents via a camera video input.
+
+>Note:
+>
+> - Xcode 14.0 is used in this guide.
+> - You can get the source code of the HelloWorld app from the following link
+>   - [Objective-C](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/AutoNormalizeObjc){:target="_blank"}.
+>   - [Swift](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/AutoNormalize){:target="_blank"}.
+
+### Create a New Project
+
+1. Open Xcode and select create a new project.
+
+2. Select **iOS -> App** for your application.
+
+3. Input your product name (HelloWorld), interface (StoryBoard) and language (Objective-C/Swift).
+
+4. Click on the **Next** button and select the location to save the project.
+
+5. Click on the **Create** button to finish.
+
+### Include the Library
+
+Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section for more details.
 
 ### Initialize License
 
@@ -119,7 +117,7 @@ Initialize the license first. It is suggested to initialize the license in `AppD
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    // Override point for customization after application launch.
-   [DSLicenseManager initLicense:@"Put your" verificationDelegate:self];
+   [DSLicenseManager initLicense:@"Put your license key here." verificationDelegate:self];
    return YES;
 }
 -(void)onLicenseVerified:(BOOL)isSuccess error:(NSError *)error
@@ -154,6 +152,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LicenseVerificationListen
 >- Network connection is required for the license to work.
 >- The license string here will grant you a time-limited trial license.
 >- You can request a 30-day trial license via the [Request a Trial License](https://www.dynamsoft.com/customer/license/trialLicense?product=ddn&utm_source=guide&package=ios){:target="_blank"} link
+
+&nbsp;
 
 ### Main ViewController for Realtime Detection of Quads
 
@@ -230,7 +230,7 @@ func setUpCamera() {
 
 #### Initialize Capture Vision Router
 
-Declare and create an instance of `CaptureVisionRouter`.
+Once the camera component is set up, declare and create an instance of `CaptureVisionRouter` and set its input to the Camera Enhancer object you created in the last step.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -253,9 +253,7 @@ func setUpDCV() {
 }
 ```
 
-#### Set the CameraEnhancer as the Input
-
-Include and initialize the `DynamsoftDocumentNormalizer`, bind to the created `CameraEnhancer` instance.
+Bind your `CaptureVisionRouter` instance with the created `CameraEnhancer` instance.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -531,8 +529,6 @@ override func viewWillDisappear(_ animated: Bool) {
 
 Add **Privacy - Camera Usage Description** to the `info.plist` of your project to request camera permission. An easy way to do this is to access your project settings, go to *Info* and then add this Privacy property to the iOS target properties list.
 
-&nbsp;
-
 ### Additional Steps for iOS 12.x or Lower Versions
 
 If your iOS version is 12.x or lower, please add the following additional steps:
@@ -561,8 +557,6 @@ If your iOS version is 12.x or lower, please add the following additional steps:
    }
    ```
 
-&nbsp;
-
 ### Build and Run the Project
 
 1. Select the device that you want to run your app on.
@@ -571,5 +565,5 @@ If your iOS version is 12.x or lower, please add the following additional steps:
 > Note:
 >
 > - You can get the source code of the HelloWorld app from the following link
->   - [Objective-C](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalizeObjc){:target="_blank"}.
->   - [Swift](https://github.com/Dynamsoft/document-normalizer-mobile-samples/tree/main/ios/HelloWorld/AutoNormalize){:target="_blank"}.
+>   - [Objective-C](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/AutoNormalizeObjc){:target="_blank"}.
+>   - [Swift](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/AutoNormalize){:target="_blank"}.
