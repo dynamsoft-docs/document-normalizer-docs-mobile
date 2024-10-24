@@ -387,5 +387,5 @@ You can get the similar source code of the SimpleDocumentScanner app from the fo
 ## Licensing
 
 - A one-day trial license is available by default for every new device to try Dynamsoft Capture Vision SDK.
-- You can request a 30-day trial license via the [Request a Trial License](https://www.dynamsoft.com/customer/license/trialLicense?product=cvs&package=mobile&utm_source=docs){:target="_blank"} link.
+- You can request a 30-day trial license via the [Request a Trial License](https://www.dynamsoft.com/customer/license/trialLicense?product=dcv&package=mobile&utm_source=docs){:target="_blank"} link.
 - [Contact us](https://www.dynamsoft.com/company/contact/){:target="_blank"} to purchase a full license.

@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: SimplifiedDocumentNormalizerSettings - Dynamsoft Document Normalizer module MAUI Edition API Reference
-description: The class SimplifiedDocumentNormalizerSettings of Dynamsoft Document Normalizer module MAUI edition represents the simplified document normalizer settings.
+title: SimplifiedDocumentNormalizerSettings - Dynamsoft Capture Vision module MAUI Edition API Reference
+description: The class SimplifiedDocumentNormalizerSettings of Dynamsoft Capture Vision module MAUI edition represents the simplified document normalizer settings.
 keywords: document normalizer settings, MAUI, java
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
@@ -10,7 +10,7 @@ noTitleIndex: true
 
 # SimplifiedDocumentNormalizerSettings
 
-The `SimplifiedDocumentNormalizerSettings` class represents a series of simple settings related to the Document Normalizer. Please note that this is not the full list of settings that can be utilized by the Document Normalizer, which you can find on the [Dynamsoft Document Normalizer Parameters]({{ site.parameters }}reference/index.html){:target="_blank"} page.
+The `SimplifiedDocumentNormalizerSettings` class represents a series of simple settings related to the Document Normalizer. Please note that this is not the full list of settings that can be utilized by the Document Normalizer, which you can find on the [DCV Parameters]({{ site.dcv_parameters_reference }}index.html) page.
 
 ## Definition
 

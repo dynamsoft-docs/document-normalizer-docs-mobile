@@ -1,6 +1,6 @@
 ---
 layout: default-layout
-title: DetectedQuadResultItem - Dynamsoft Document Normalizer MAUI SDK API Reference
+title: DetectedQuadResultItem - Dynamsoft Capture Vision MAUI SDK API Reference
 description: The class DetectedQuadResultItem of DCV MAUI represents a captured result item whose type is detected quads, which contains the location and confidence as a document boundary.
 keywords: detected quads, MAUI
 needGenerateH3Content: true

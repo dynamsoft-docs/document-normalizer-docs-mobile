@@ -1,6 +1,6 @@
 ---
 layout: default-layout
-title: NormalizedImageResultItem - Dynamsoft Document Normalizer MAUI SDK API Reference
+title: NormalizedImageResultItem - Dynamsoft Capture Vision MAUI SDK API Reference
 description: The class NormalizedImageResultItem represents a captured result item whose type is a normalized image. It stores the normalized image information.
 keywords: normalized image result item, java, kotlin
 needGenerateH3Content: true

@@ -1,6 +1,6 @@
 ---
 layout: default-layout
-title: DocumentNormalizerModule - Dynamsoft Document Normalizer MAUI SDK API Reference
+title: DocumentNormalizerModule - Dynamsoft Capture Vision MAUI SDK API Reference
 description: The class DocumentNormalizerModule provides general functions for document normalization sdk.
 keywords: general functions, java, kotlin
 needGenerateH3Content: true

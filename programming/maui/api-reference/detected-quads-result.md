@@ -1,6 +1,6 @@
 ---
 layout: default-layout
-title: DetectedQuadsResult - Dynamsoft Document Normalizer MAUI SDK API Reference
+title: DetectedQuadsResult - Dynamsoft Capture Vision MAUI SDK API Reference
 description: The class DetectedQuadsResult represents a captured result whose type is detected quads, which contains an array of DetectedQuadResultItems and the rotation transformation matrix of the original image relative to the rotated image.
 keywords: detected quads result, java, kotlin
 needGenerateH3Content: true
