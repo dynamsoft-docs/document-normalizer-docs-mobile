@@ -30,6 +30,8 @@ class DetectedQuadsResult
 | [`getRotationTransformMatrix`](#getrotationtransformmatrix) | The rotation transformation matrix of the original image relative to the rotated image. |
 | [`getOriginalImageHashId`](#getoriginalimagehashid) | The hash id of the original image. You can use this ID to get the original image via `IntermediateResultManager` class. |
 | [`getOriginalImageTag`](#getoriginalimagetag) | The tag of the original image, from which you get the detected quads result. |
+| [`getErrorCode`](#geterrorcode) | Gets the error code of the detected quads result, if an error occurred. |
+| [`getErrorMessage`](#geterrormessage) | Gets the error message of the detected quads result, if an error occurred. |
 
 ### getItems
 
@@ -78,3 +80,27 @@ The tag of the original image.
 **See Also**
 
 * [ImageTag]({{ site.dcv_android_api }}core/basic-structures/image-tag.html)
+
+### getErrorCode
+
+Gets the error code of the detected quads result, if an error occurred.
+
+```java
+int getErrorCode();
+```
+
+**Return value**
+
+Returns the error code of the detected quads result, or 0 if no error occurred.
+
+### getErrorMessage
+
+Gets the error message of the detected quads result, if an error occurred.
+
+```java
+String getErrorMessage();
+```
+
+**Return value**
+
+Returns a string that describes the error message.

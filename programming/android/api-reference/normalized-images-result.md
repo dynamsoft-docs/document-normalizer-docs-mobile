@@ -30,6 +30,8 @@ class NormalizedImagesResult
 | [`getRotationTransformMatrix`](#getrotationtransformmatrix) | Gets the rotation transformation matrix of the original image relative to the rotated image. |
 | [`getOriginalImageHashId`](#getoriginalimagehashid) | Gets the hash id of the original image. You can use this ID to get the original image via IntermediateResultManager class. |
 | [`getOriginalImageTag`](#getoriginalimagetag) | Gets the tag of the original image. |
+| [`getErrorCode`](#geterrorcode) | Gets the error code of the normalized images result, if an error occurred. |
+| [`getErrorMessage`](#geterrormessage) | Gets the error message of the normalized images result, if an error occurred. |
 
 ### getItems
 
@@ -78,3 +80,27 @@ ImageTag getOriginalImageTag();
 **Return Value**
 
 The tag of the original image.
+
+### getErrorCode
+
+Gets the error code of the normalized images result, if an error occurred.
+
+```java
+int getErrorCode();
+```
+
+**Return value**
+
+Returns the error code of the normalized images result, or 0 if no error occurred.
+
+### getErrorMessage
+
+Gets the error message of the normalized images result, if an error occurred.
+
+```java
+String getErrorMessage();
+```
+
+**Return value**
+
+Returns a string that describes the error message.

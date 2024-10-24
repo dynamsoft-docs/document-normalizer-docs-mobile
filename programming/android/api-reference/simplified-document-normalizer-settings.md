@@ -26,9 +26,9 @@ class SimplifiedDocumentNormalizerSettings
 
 | Attributes | Type | Description |
 | ---------- | ---- | ----------- |
-| [`grayscaleTransformationModes`](#grayscaletransformationmodes) | *EnumGrayscaleTransformationMode[]* | An array of GrayscaleTransformationMode. It controls whether to detect the inverted document boundary. |
-| [`grayscaleEnhancementModes`](#grayscaleenhancementmodes) | *EnumGrayscaleEnhancementModes[]* | An array of GrayscaleEnhancementModes. |
-| [`colourMode`](#colourmode) | *EnumImageColourMode* | The grayscale transformation mode. It controls whether to decode the inverted text. |
+| [`grayscaleTransformationModes`](#grayscaletransformationmodes) | *int[]* | An array of GrayscaleTransformationMode. It controls whether to detect the inverted document boundary. |
+| [`grayscaleEnhancementModes`](#grayscaleenhancementmodes) | *int[]* | An array of GrayscaleEnhancementModes. |
+| [`colourMode`](#colourmode) | *int* | The grayscale transformation mode. It controls whether to decode the inverted text. |
 | [`pageSize`](#pagesize) | *int[]* | The page size. |
 | [`brightness`](#brightness) | *int* | The brightness. |
 | [`contrast`](#contrast) | *int* | The contrast. |
@@ -46,7 +46,8 @@ class SimplifiedDocumentNormalizerSettings
 Defines the grayscale transformation modes with an array of [`EnumGrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=android) items. This parameter is important when working with inverted documents, and must be used in order to locate the inverted document boundary.
 
 ```java
-EnumGrayscaleTransformationMode[] grayscaleTransformationModes;
+@EnumGrayscaleTransformationMode
+int[] grayscaleTransformationModes;
 ```
 
 ### grayscaleEnhancementModes
@@ -54,7 +55,8 @@ EnumGrayscaleTransformationMode[] grayscaleTransformationModes;
 Defines the grayscale enhancement modes with an array of [`EnumGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-modes.html?lang=android) items. This parameter can be quite powerful in increasing the border detection rate of your application should you experience any trouble in that area. To learn more about the `grayscaleEnhancementModes` and how they can be used, please visit the main [GrayscaleEnhancementModes]({{ site.dcv_parameters }}reference/image-parameter/grayscale-enhancement-modes.html) parameter page.
 
 ```java
-EnumGrayscaleEnhancementMode[] grayscaleEnhancementModes;
+@EnumGrayscaleEnhancementMode
+int[] grayscaleEnhancementModes;
 ```
 
 ### colourMode
@@ -62,7 +64,8 @@ EnumGrayscaleEnhancementMode[] grayscaleEnhancementModes;
 Defines the colour mode of the normalized image with an [`EnumImageColourMode`]({{ site.dcv_enumerations }}document-normalizer/image-colour-mode.html?lang=android) member. By default, the normalized image will output in colour. In order to make the result image grayscale or binary, setting the `colourMode` to the corresponding pixel type will do the trick.
 
 ```java
-EnumImageColourMode colourMode;
+@EnumImageColourMode
+int colourMode;
 ```
 
 ### pageSize
@@ -78,6 +81,7 @@ int[] pageSize;
 Defines the brightness of the normalized image result with an integer.
 
 ```java
+@IntRange(from = -100, to = 100)
 int brightness;
 ```
 
@@ -86,6 +90,7 @@ int brightness;
 Defines the contrast of the normalized image result with an integer.
 
 ```java
+@IntRange(from = 512)
 int contrast;
 ```
 
@@ -110,6 +115,8 @@ int scaleDownThreshold;
 The minimum ratio between the target document area and the total image area. Only those exceeding this value will be outputted (measured in percentages).
 
 ```java
+@IntRange(from = 0, to = 100)
+// If expectedDocumentsCount is 1 && documentType is Document, the range is from 20 to 100.
 int minQuadrilateralAreaRatio;
 ```
 
@@ -118,6 +125,7 @@ int minQuadrilateralAreaRatio;
 The number of documents expected to be detected.
 
 ```java
+@IntRange(from = 0)
 int expectedDocumentsCount;
 ```
 
