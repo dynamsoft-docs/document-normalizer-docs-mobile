@@ -42,7 +42,7 @@ IList<DetectedQuadResultItem> Items { get; }
 
 ### RotationTransformMatrix
 
-The rotation transformation matrix of the original image relative to the rotated image. Please see [Matrix](https://developer.maui.com/reference/maui/opengl/Matrix){:target="_blank"} for more info.
+The rotation transformation matrix of the original image relative to the rotated image. Please see [Matrix](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.shapes.matrix?view=net-maui-8.0){:target="_blank"} for more info.
 
 ```csharp
 Matrix RotationTransformMatrix { get; }
@@ -50,7 +50,7 @@ Matrix RotationTransformMatrix { get; }
 
 ### OriginalImageHashId
 
-The hash ID of the original image. You can use this ID to get the original image via [`IntermediateResultManager`]({{ site.dcv_maui_api }}core/intermediate-results/intermediate-result-manager.html) class.
+The hash ID of the original image. You can use this ID to get the original image via [`IntermediateResultManager`]({{ site.dcv_maui_api }}capture-vision-router/auxiliary-classes/intermediate-result-manager.html) class.
 
 ```csharp
 string OriginalImageHashId { get; }

@@ -41,7 +41,7 @@ IList<NormalizedImageResultItem> Items { get; }
 
 ### RotationTransformMatrix
 
-The rotation transformation matrix of the original image relative to the rotated image. Please see [Matrix](https://developer.maui.com/reference/maui/opengl/Matrix){:target="_blank"} for more info.
+The rotation transformation matrix of the original image relative to the rotated image. Please see [Matrix](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.shapes.matrix?view=net-maui-8.0){:target="_blank"} for more info.
 
 ```csharp
 Matrix RotationTransformMatrix { get; }
