@@ -143,9 +143,9 @@ permalink: /programming/android/api-reference/index-v2.0.20.html
 
 ### Interfaces
 
-- [`CameraStateListener`]({{ site.dce_android_api }}auxiliary-api/protocol-dcecamerastatelistener.html)
-- [`PhotoListener`]({{ site.dce_android_api }}auxiliary-api/protocol-dcephotolistener.html)
-- [`VideoFrameListener`]({{ site.dce_android_api }}auxiliary-api/protocol-dceframelistener.html)
+- [`CameraStateListener`]({{ site.dce_android_api }}auxiliary-api/interface-dcecamerastatelistener.html)
+- [`PhotoListener`]({{ site.dce_android_api }}auxiliary-api/interface-dcephotolistener.html)
+- [`VideoFrameListener`]({{ site.dce_android_api }}auxiliary-api/interface-dceframelistener.html)
 
 ### Enumerations
 

@@ -30,4 +30,4 @@ Most of the Dynamsoft Document Normalizer mobile samples are designed for video 
 - Create a `Camera View` for displaying the video streaming and highlighting the real-time detected quadrilaterals.
 - Create an `Image Editor View` for quadrilateral boundary editing.
 
-View the [API reference]({{site.dce_ios}}primary-api/camera-enhancer.html) for more details.
+View the [API reference]({{site.dce_ios_api}}primary-api/camera-enhancer.html) for more details.

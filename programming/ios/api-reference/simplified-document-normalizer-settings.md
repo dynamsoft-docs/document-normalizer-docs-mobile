@@ -61,7 +61,7 @@ var grayscaleTransformationModes: [NSNumber]? { get set }
 
 ### grayscaleEnhancementModes
 
-Defines the grayscale enhancement modes with an array of [`DSGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-modes.html?lang=objc,swift) items. This parameter can be quite powerful in increasing the border detection rate of your application should you experience any trouble in that area. To learn more about the `grayscaleEnhancementModes` and how they can be used, please visit the main [GrayscaleEnhancementModes]({{ site.dcv_parameters }}reference/image-parameter/grayscale-enhancement-modes.html) parameter page.
+Defines the grayscale enhancement modes with an array of [`DSGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-mode.html?lang=objc,swift) items. This parameter can be quite powerful in increasing the border detection rate of your application should you experience any trouble in that area. To learn more about the `grayscaleEnhancementModes` and how they can be used, please visit the main [GrayscaleEnhancementModes]({{ site.dcv_parameters }}reference/image-parameter/grayscale-enhancement-modes.html) parameter page.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

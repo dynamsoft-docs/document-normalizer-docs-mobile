@@ -75,7 +75,7 @@ permalink: /programming/ios/release-notes/ios-2.html
 - Added new methods to the [`DSPredetectedRegionsUnit`]({{ site.dcv_ios_api }}core/intermediate-results/predetected-regions-unit.html) class to add, remove or set the predetected regions.
 - Added new methods to the [`DSLineSegmentsUnit`]({{ site.dcv_ios_api }}core/intermediate-results/line-segments-unit.html) class to add, remove or set the line segments.
 - Added new methods to the [`DSTextZonesUnit`]({{ site.dcv_ios_api }}core/intermediate-results/text-zones-unit.html) class to add, remove or set the text zones. Added a new class CTextZone to store the information of a single text zone.
-- Added a new method `setContours` to the [`DSContourUnit`]({{ site.dcv_ios_api }}core/intermediate-results/contour-unit.html) class.
+- Added a new method `setContours` to the [`DSContourUnit`]({{ site.dcv_ios_api }}core/intermediate-results/contours-unit.html) class.
 - Added new methods to the [`DSTextureDetectionResultUnit`]({{ site.dcv_ios_api }}core/intermediate-results/texture-detection-result-unit.html) class to set the X & Y spacing.
 - Added a new intermediate result unit, [`DSShortLinesUnit`]({{ site.dcv_ios_api }}core/intermediate-results/short-lines-unit.html), to output the detected short lines. The corresponding enumeration member `DSIntermediateResultUnitTypeShortLines` is added to the [`DSIntermediateResultUnitType`]({{ site.dcv_enumerations }}core/intermediate-result-unit-type.html?lang=objc,swift).
 - Added the following methods to the [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html) class

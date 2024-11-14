@@ -13,7 +13,7 @@ permalink: /programming/android/release-notes/android-2.html
 
 ## 2.2.11 (05/15/2024)
 
-- Added new methods `toJson` & `fromJson` to the [`SimplifiedDocumentNormalizerSettings`]({{ site.dbr_android_api }}simplified-document-normalizer-settings.html) class.
+- Added new methods `toJson` & `fromJson` to the [`SimplifiedDocumentNormalizerSettings`]({{ site.ddn_android_api }}simplified-document-normalizer-settings.html) class.
 
 ## 2.2.10 (03/07/2024)
 
@@ -67,7 +67,7 @@ permalink: /programming/android/release-notes/android-2.html
 - Added new methods to the [`PredetectedRegionsUnit`]({{ site.dcv_android_api }}core/intermediate-results/predetected-regions-unit.html) class to add, remove or set the predetected regions.
 - Added new methods to the [`LineSegmentsUnit`]({{ site.dcv_android_api }}core/intermediate-results/line-segments-unit.html) class to add, remove or set the line segments.
 - Added new methods to the [`TextZonesUnit`]({{ site.dcv_android_api }}core/intermediate-results/text-zones-unit.html) class to add, remove or set the text zones. Added a new class CTextZone to store the information of a single text zone.
-- Added a new method `setContours` to the [`ContourUnit`]({{ site.dcv_android_api }}core/intermediate-results/contour-unit.html) class.
+- Added a new method `setContours` to the [`ContourUnit`]({{ site.dcv_android_api }}core/intermediate-results/contours-unit.html) class.
 - Added new methods to the [`TextureDetectionResultUnit`]({{ site.dcv_android_api }}core/intermediate-results/texture-detection-result-unit.html) class to set the X & Y spacing.
 - Added a new intermediate result unit, [`ShortLinesUnit`]({{ site.dcv_android_api }}core/intermediate-results/short-lines-unit.html), to output the detected short lines. The corresponding enumeration member `IntermediateResultUnitTypeShortLines` is added to the [`IntermediateResultUnitType`]({{ site.dcv_enumerations }}core/intermediate-result-unit-type.html?lang=android).
 - Added the following methods to the [`CapturedResultItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html) class

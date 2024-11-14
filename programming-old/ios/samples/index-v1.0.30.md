@@ -14,7 +14,7 @@ permalink: /programming/ios/samples/index-v1.0.30.html
 
 | Sample Name | Description |
 | ----------- | ----------- |
-| [HelloWorld](helloworld.md) | The simplest video streaming document normalizer. |
+| [HelloWorld](helloworld.html) | The simplest video streaming document normalizer. |
 
 Before you start viewing the samples, the following concepts may help you understand how to get started with Dynamsoft Document Normalizer.
 
@@ -30,4 +30,4 @@ Most of the Dynamsoft Document Normalizer mobile samples are designed for video 
 - Create a `Camera View` for displaying the video streaming and highlighting the real-time detected quadrilaterals.
 - Create an `Image Editor View` for quadrilateral boundary editing.
 
-View the [API reference](../api-reference/camera-enhancer/index.md) for more details.
+View the [API reference]({{site.dce_ios_api}}primary-api/camera-enhancer.html) for more details.
