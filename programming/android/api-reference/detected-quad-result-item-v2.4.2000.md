@@ -26,18 +26,17 @@ class DetectedQuadResultItem extends CapturedResultItem
 
 | Methods | Description |
 | ------- | ----------- |
-| [`getLocation`](#getlocation) | Returns a Quadrilateral object as the location of current object. |
+| [`getLocation`](#getlocation) | Get a Quadrilateral object as the location of current object. |
 | [`getConfidenceAsDocumentBoundary`](#getconfidenceasdocumentboundary) | Returns the confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document. |
-| [`getCrossVerificationStatus`](#getcrossverificationstatus) | Returns the cross verification status of the result item. |
 
 The following methods are inherited from [`CapturedResultItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html).
 
 | Method | Description |
 | ------ | ----------- |
-| [`getType`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettype) | Returns the type of the captured result item, indicating what kind of data it represents. |
-| [`getReferencedItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#getreferenceditem) | Returns a property of type `CapturedResultItem` that represents a reference to another captured result item. |
-| [`getTargetROIDefName`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettargetroidefname) | Returns the name of the [`TargetROIDef`]({{ site.dcv_parameters_reference }}target-roi-def/){:target="_blank"} object which includes a task that generated the result. |
-| [`getTaskName`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettaskname) | Returns the name of the task that generated the result. |
+| [`getType`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettype) | Get the type of the captured result item, indicating what kind of data it represents. |
+| [`getReferencedItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#getreferenceditem) | Get a property of type `CapturedResultItem` that represents a reference to another captured result item. |
+| [`getTargetROIDefName`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettargetroidefname) | Gets the name of the [`TargetROIDef`]({{ site.dcv_parameters_reference }}target-roi-def/){:target="_blank"} object which includes a task that generated the result. |
+| [`getTaskName`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html#gettaskname) | The name of the task that generated the result. |
 
 ### getLocation
 
@@ -62,15 +61,3 @@ int getConfidenceAsDocumentBoundary();
 **Return Value**
 
 The confidence as document boundary of current object.
-
-### getCrossVerificationStatus
-
-Returns the cross verification status of the result. The cross verification status determines whether the result item is approved by the multi-frame cross verification mechanism. If approved, the cross verification status is `CVS_PASSED`. Otherwise, it is `CVS_FAILED`.
-
-```java
-EnumCrossVerificationStatus getCrossVerificationStatus();
-```
-
-**Return Value**
-
-Returns the cross verification status of type [`EnumCrossVerificationStatus`]({{ site.dcv_enumerations }}core/cross-verification-status.html).

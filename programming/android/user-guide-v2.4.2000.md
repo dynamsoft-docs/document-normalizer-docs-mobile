@@ -54,7 +54,7 @@ In this guide, you will learn step by step on how to build a document scanner ap
 
     ```groovy
     dependencies {
-        implementation 'com.dynamsoft:dynamsoftcapturevisionbundle:2.6.1000'
+        implementation 'com.dynamsoft:dynamsoftcapturevisionbundle:2.4.2000'
     }
     ```
 
@@ -94,13 +94,18 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
    import com.dynamsoft.license.LicenseManager;
 
    public class MyApplication extends Application {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", this, (isSuccess, error) -> {
-            if (!isSuccess) {
-                Log.e("License", "InitLicense Error: " + error);
-            }
-        });
+      private static final String TAG = "MyApplication";
+      private static final String LICENSE = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9";
+
+      @Override
+      public void onCreate() {
+         super.onCreate();
+         LicenseManager.initLicense(LICENSE, this, (isSuccess, error) -> {
+               if (!isSuccess) {
+                  Log.e(TAG, "InitLicense Error: " + error);
+               }
+         });
+      }
    }
    ```
 
@@ -161,7 +166,7 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
    ...
 
    import com.dynamsoft.cvr.CaptureVisionRouter;
-   import com.dynamsoft.cvr.CaptureVisionRouterException;
+   import com.dynamsoft.cvr.CaptureVisionException;
 
    public class MainActivity extends AppCompatActivity {
       
@@ -211,18 +216,15 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
          mRouter.addResultReceiver(new CapturedResultReceiver() {
                @Override
                public void onNormalizedImagesReceived(NormalizedImagesResult result) {
-                  if (result.getItems().length > 0) {
-                     NormalizedImageResultItem normalizedImageResultItem = result.getItems()[0];
-                     if (normalizedImageResultItem.getCrossVerificationStatus() == EnumCrossVerificationStatus.CVS_PASSED || mJumpToOtherActivity)
-                     {
-                        mJumpToOtherActivity = false;
-                        mNormalizedImageData = result.getItems()[0].getImageData();
+                  if (mJumpToOtherActivity && result.getItems().length > 0) {
+                     mJumpToOtherActivity = false;
 
-                        Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-                        startActivity(intent);
-                     }
+                     mNormalizedImageData = result.getItems()[0].getImageData();
+
+                     Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                     startActivity(intent);
+                  }
                }
-            }
          });
       }
    }
@@ -232,7 +234,7 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
 
    ```java
    ...
-   import com.dynamsoft.core.basic_structures.EnumCapturedResultItemType;
+
    import com.dynamsoft.utility.MultiFrameResultCrossFilter;
 
    public class MainActivity extends AppCompatActivity {
@@ -244,7 +246,7 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
          
          ...
          MultiFrameResultCrossFilter filter = new MultiFrameResultCrossFilter();
-         filter.enableResultCrossVerification(EnumCapturedResultItemType.CRIT_NORMALIZED_IMAGE, true);
+         filter.enableResultCrossVerification(CRIT_NORMALIZED_IMAGE, true);
          mRouter.addResultFilter(filter);
       }
    }
@@ -263,19 +265,10 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
       public void onResume() {
          super.onResume();
          try {
-            mCamera.open();
-            mRouter.startCapturing(EnumPresetTemplate.PT_DETECT_AND_NORMALIZE_DOCUMENT, new CompletionListener() {
-               @Override
-               public void onSuccess() {
-                    
-               }
-               @Override
-               public void onFailure(int i, String s) {
-                  Log.e(TAG, "onFailure: "+s);
-               }
-            });
-         } catch (CameraEnhancerException e) {
-            e.printStackTrace();
+               mCamera.open();
+               mRouter.startCapturing(EnumPresetTemplate.PT_DETECT_AND_NORMALIZE_DOCUMENT, null);
+         } catch (CameraEnhancerException | CaptureVisionRouterException e) {
+               e.printStackTrace();
          }
       }
 
@@ -301,7 +294,7 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
       ...
 
       public void onCaptureBtnClick(View v) {
-         mJumpToOtherActivity = true;
+        mJumpToOtherActivity = true;
       }
    }
    ```
@@ -332,30 +325,7 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
 
 1. Create a new empty activity named `ResultActivity`.
 
-2. In the AndroidManifest.xml file, declare the `ResultActivity`.
-
-   ```xml
-
-   ...
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ResultActivity"
-            android:label="Result Activity">
-        </activity>
-   
-   ...
-
-   ```
-
-3. In the Project window, open **app > res > layout > `activity_result.xml`**, create a image view under the root node to display the result image.
+2. In the Project window, open **app > res > layout > `activity_result.xml`**, create a image view under the root node to display the result image.
 
    ```xml
    <ImageView
@@ -364,14 +334,9 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
       android:layout_height="match_parent"/>
    ```
 
-4. Display the normalized image.
+3. Display the normalized image.
 
    ```java
-   import android.os.Bundle;
-   import android.widget.ImageView;
-
-   import androidx.annotation.Nullable;
-   import androidx.appcompat.app.AppCompatActivity;
    import com.dynamsoft.core.basic_structures.CoreException;
 
    public class ResultActivity extends AppCompatActivity {
@@ -384,9 +349,9 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
          ImageView ivNormalize = findViewById(R.id.iv_normalize);
 
          try {
-            ivNormalize.setImageBitmap(MainActivity.mNormalizedImageData.toBitmap());
+               ivNormalize.setImageBitmap(MainActivity.mNormalizedImageData.toBitmap());
          } catch (CoreException e) {
-            e.printStackTrace();
+               e.printStackTrace();
          }
       }
    }

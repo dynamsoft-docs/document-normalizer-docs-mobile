@@ -13,23 +13,23 @@ enableLanguageSelection: true
 # iOS User Guide for Document Scanner Integration
 
 - [iOS User Guide for Document Scanner Integration](#ios-user-guide-for-document-scanner-integration)
-  - [System Requirements](#system-requirements)
-  - [Add the SDK](#add-the-sdk)
-    - [Add the xcframeworks via CocoaPods](#add-the-xcframeworks-via-cocoapods)
-    - [Add the xcframeworks via Swift Package Manager](#add-the-xcframeworks-via-swift-package-manager)
-  - [Build Your First Application](#build-your-first-application)
-    - [Create a New Project](#create-a-new-project)
-    - [Include the Library](#include-the-library)
-    - [Initialize License](#initialize-license)
-    - [Main ViewController for Realtime Detection of Quads](#main-viewcontroller-for-realtime-detection-of-quads)
-      - [Get Prepared with the Camera Module](#get-prepared-with-the-camera-module)
-      - [Initialize Capture Vision Router](#initialize-capture-vision-router)
-      - [Set up Result Receiver](#set-up-result-receiver)
-      - [Configure the methods viewDidLoad, viewWillAppear, and viewWillDisappear](#configure-the-methods-viewdidload-viewwillappear-and-viewwilldisappear)
-      - [Display the Normalized Image](#display-the-normalized-image)
-    - [Configure Camera Permissions](#configure-camera-permissions)
-    - [Additional Steps for iOS 12.x or Lower Versions](#additional-steps-for-ios-12x-or-lower-versions)
-    - [Build and Run the Project](#build-and-run-the-project)
+	- [System Requirements](#system-requirements)
+	- [Add the SDK](#add-the-sdk)
+		- [Add the xcframeworks via CocoaPods](#add-the-xcframeworks-via-cocoapods)
+		- [Add the xcframeworks via Swift Package Manager](#add-the-xcframeworks-via-swift-package-manager)
+	- [Build Your First Application](#build-your-first-application)
+		- [Create a New Project](#create-a-new-project)
+		- [Include the Library](#include-the-library)
+		- [Initialize License](#initialize-license)
+		- [Main ViewController for Realtime Detection of Quads](#main-viewcontroller-for-realtime-detection-of-quads)
+			- [Get Prepared with the Camera Module](#get-prepared-with-the-camera-module)
+			- [Initialize Capture Vision Router](#initialize-capture-vision-router)
+			- [Set up Result Receiver](#set-up-result-receiver)
+			- [Configure the methods viewDidLoad, viewWillAppear, and viewWillDisappear](#configure-the-methods-viewdidload-viewwillappear-and-viewwilldisappear)
+			- [Display the Normalized Image](#display-the-normalized-image)
+		- [Configure Camera Permissions](#configure-camera-permissions)
+		- [Additional Steps for iOS 12.x or Lower Versions](#additional-steps-for-ios-12x-or-lower-versions)
+		- [Build and Run the Project](#build-and-run-the-project)
 
 ## System Requirements
 
@@ -49,7 +49,7 @@ There are two ways to add the SDK into your project - **CocoaPods**, or via **Sw
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftCaptureVisionBundle','2.6.1000'
+   pod 'DynamsoftCaptureVisionBundle','2.4.2000'
 
    end
    ```
@@ -66,7 +66,7 @@ There are two ways to add the SDK into your project - **CocoaPods**, or via **Sw
 
 2. In the top-right section of the window, search "https://github.com/Dynamsoft/capture-vision-spm"
 
-3. Select `capture-vision-spm`, choose `Exact version`, enter **2.6.1000**, then click **Add Package**.
+3. Select `capture-vision-spm`, choose `Exact version`, enter **2.4.2000**, then click **Add Package**.
 
 4. Check all the frameworks and add.
 
@@ -101,7 +101,7 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
 
 ### Initialize License
 
-Initialize the license first. In your **ViewController** file, add the following code to initialize the license.
+Initialize the license first. It is suggested to initialize the license in `AppDelegate` file.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -112,20 +112,17 @@ Initialize the license first. In your **ViewController** file, add the following
 // Import the DynamsoftLicense module to init license
 #import <DynamsoftLicense/DynamsoftLicense.h>
 // Add LicenseVerificationListener to the interface
-@interface ViewController ()<DSLicenseVerificationListener>
-- (void)setLicense{
-    [DSLicenseManager initLicense:@"DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" verificationDelegate:self];
+@interface AppDelegate ()<LicenseVerificationListener>
+@end
+@implementation AppDelegate
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+   // Override point for customization after application launch.
+   [DSLicenseManager initLicense:@"Put your license key here." verificationDelegate:self];
+   return YES;
 }
 -(void)onLicenseVerified:(BOOL)isSuccess error:(NSError *)error
 {
-    NSLog(@"On License Verified");
-    if (!isSuccess)
-    {
-        NSLog(error.localizedDescription);
-    }else
-    {
-        NSLog(@"License approved");
-    }
+   // Add your code to do when license server returns.
 }
 ...
 @end
@@ -135,15 +132,16 @@ Initialize the license first. In your **ViewController** file, add the following
 // Import the DynamsoftLicense module to init license
 import DynamsoftLicense
 // Add LicenseVerificationListener to the interface
-class ViewController: UIViewController, CapturedResultReceiver, LicenseVerificationListener {
-   func setLicense(){
-        LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", verificationDelegate: self)
+class AppDelegate: UIResponder, UIApplicationDelegate, LicenseVerificationListener {
+   var window: UIWindow?
+   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+          // Override point for customization after application launch.
+          LicenseManager.initLicense("Put your license key here.", verificationDelegate: self)
+          return true
    }
+   // Implement the callback method of LicenseVerificationListener.
    func onLicenseVerified(_ isSuccess: Bool, error: Error?) {
           // Add your code to do when license server returns.
-          if let error = error, !isSuccess{
-             print(error.localizedDescription)
-          }
    }
    ...
 }
@@ -168,9 +166,9 @@ In the main view controller, your app will scan documents via video streaming an
    >1. 
    ```objc
    #import <DynamsoftCore/DynamsoftCore.h>
-   #import <DynamsoftDocumentNormalizer/DynamsoftDocumentNormalizer.h>
    #import <DynamsoftCaptureVisionRouter/DynamsoftCaptureVisionRouter.h>
-   #import <DynamsoftUtility/DynamsoftUtility.h>
+   #import <DynamsoftDocumentNormalizer/DynamsoftDocumentNormalizer.h>
+   #import <DynamsoftImageProcessing/DynamsoftImageProcessing.h>
    #import <DynamsoftCameraEnhancer/DynamsoftCameraEnhancer.h>
    ```
    2. 
@@ -212,7 +210,7 @@ Create the instances of `CameraEnhancer` and `CameraView`.
 2. 
 ```swift
 var cameraView:CameraView!
-var dce:CameraEnhancer!
+let dce:CameraEnhancer!
 ...
 func setUpCamera() {
    // Create a camera view and add it as a sub view of the current view.
@@ -249,8 +247,8 @@ Once the camera component is set up, declare and create an instance of `CaptureV
 ```
 2. 
 ```swift
-var cvr:CaptureVisionRouter!
-func setUpCvr() {
+let cvr:CaptureVisionRouter!
+func setUpDCV() {
    cvr = CaptureVisionRouter()
 }
 ```
@@ -304,21 +302,15 @@ func setUpCvr() {
    >
    >1. 
    ```objc
-   // import ImageViewController.h. It will be implemented later.
-   #import "ImageViewController.h"
    -(void)onNormalizedImagesReceived:(DSNormalizedImagesResult *)result
    {
-      if (result!=nil && result.items[0].imageData!=nil && (_implementCapture || result.items[0].crossVerificationStatus == DSCrossVerificationStatusPassed))
+      if (_implementCapture && result!=nil && result.items[0].imageData!=nil)
       {
-             NSLog(@"Capture confirmed");
              _implementCapture = false;
-             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.cvr stopCapturing];
-                ImageViewController *imageViewController = [[ImageViewController alloc] init];
-                NSError * error;
-                imageViewController.normalizedImage = [result.items[0].imageData toUIImage:&error];
-                NSLog(@"UIImage set");
-                [self.navigationController pushViewController:imageViewController animated:YES];
+             ImageViewController *imageViewController = [[ImageViewController alloc] init];
+             NSError * error;
+             imageViewController.resultUIImage = [result.items[0].imageData toUIImage:&error];
+             dispatch_async(dispatch_get_main_queue(), ^{            [self.navigationController pushViewController:imageViewController animated:YES];
              });
       }
    }
@@ -326,15 +318,17 @@ func setUpCvr() {
    2. 
    ```swift
    func onNormalizedImagesReceived(_ result: NormalizedImagesResult) {
-      if let item = result.items?.first {
-             if item.crossVerificationStatus == .passed || implementCapture {
-                guard let data = item.imageData else { return }
-                implementCapture = false
-                cvr.stopCapturing()
+      print("Normalized image received")
+      if let items = result.items, items.count > 0 {
+             guard let data = items[0].imageData else {
+                return
+             }
+             let resultView = ImageViewController()
+             resultView.data = data
+             if implementCapture
+             {
                 DispatchQueue.main.async {
-                       let resultView = ImageViewController()
-                       resultView.normalizedImage = try? data.toUIImage()
-                       self.navigationController?.pushViewController(resultView, animated: true)
+                       self.present(resultView, animated: true)
                 }
              }
       }
@@ -352,20 +346,20 @@ func setUpCvr() {
    - (void)setUpCvr
    {
       ...
-      [_cvr addResultReceiver:self];
+      NSError *cvrError;
+      [_cvr addResultReceiver:self error:&cvrError];
       DSMultiFrameResultCrossFilter *filter = [[DSMultiFrameResultCrossFilter alloc] init];
       [filter enableResultCrossVerification:DSCapturedResultItemTypeNormalizedImage isEnabled:true];
-      [_cvr addResultFilter:filter];
+      [_cvr addResultFilter:filter error:&cvrError];
    }
    ```
    2. 
    ```swift
    func setUpCvr() {
-      ...
-      cvr.addResultReceiver(self)
+      try? cvr.addResultReceiver(self)
       let filter = MultiFrameResultCrossFilter.init()
       filter.enableResultCrossVerification(.normalizedImage, isEnabled: true)
-      cvr.addResultFilter(filter)
+      try? cvr.addResultFilter(filter)
    }
    ```
 
@@ -397,10 +391,6 @@ func setUpCvr() {
              [_captureButton addTarget:self action:@selector(setCapture) forControlEvents:UIControlEventTouchUpInside];
       }
       return _captureButton;
-   }
-   - (void)setCapture
-   {
-      _implementCapture = true;
    }
    ```
    2. 
@@ -437,7 +427,6 @@ func setUpCvr() {
 ```objc
 - (void)viewDidLoad {
    [super viewDidLoad];
-   [self setLicense];
    [self setUpCamera];
    [self setUpCvr];
    [self addCaptureButton];
@@ -446,11 +435,8 @@ func setUpCvr() {
 {
    [super viewWillAppear:animated];
    [_dce open];
-   [_cvr startCapturing:DSPresetTemplateDetectAndNormalizeDocument completionHandler:^(BOOL isSuccess, NSError * _Nullable error) {
-          if (!isSuccess && error != nil) {
-            NSLog(@"%@", error.localizedDescription);
-          }
-   }];
+   NSError *cvrError;
+   [_cvr startCapturing:DSPresetTemplateDetectAndNormalizeDocument error:&cvrError];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -462,7 +448,6 @@ func setUpCvr() {
 ```swift
 override func viewDidLoad() {
    super.viewDidLoad()
-   setLicense()
    setUpCamera()
    setUpCvr()
    addCaptureButton()
@@ -470,12 +455,7 @@ override func viewDidLoad() {
 override func viewWillAppear(_ animated: Bool) {
    super.viewWillAppear(animated)
    dce.open()
-          cvr.startCapturing(PresetTemplate.detectAndNormalizeDocument.rawValue){ isSuccess, error in
-             if let error = error, !isSuccess {
-                    print("Capture start failed")
-                    print(error.localizedDescription)
-          }
-   }
+   try? cvr.startCapturing(PresetTemplate.detectAndNormalizeDocument.rawValue)
 }
 override func viewWillDisappear(_ animated: Bool) {
    super.viewWillDisappear(animated)
@@ -490,20 +470,10 @@ override func viewWillDisappear(_ animated: Bool) {
 2. Add a property `normalizedImage` to the header file of `ImageViewController` (Objective-C only).
 
    ```objc
-   #import <UIKit/UIKit.h>
-
-   NS_ASSUME_NONNULL_BEGIN
-
-   @interface ImageViewController : UIViewController
-
-   @property (nonatomic, strong) UIImage *normalizedImage;
-
-   @end
-
-   NS_ASSUME_NONNULL_END
+   @property (nonatomic, strong) UIImage * normalizedImage;
    ```
 
-3. Configure the `ImageViewController` to display the normalized image..
+2. Configure the `ImageViewController` to display the normalized image..
 
    <div class="sample-code-prefix"></div>
    >- Objective-C
@@ -512,6 +482,7 @@ override func viewWillDisappear(_ animated: Bool) {
    >1. 
    ```objc
    #import "ImageViewController.h"
+   #import <DynamsoftCameraEnhancer/DynamsoftCameraEnhancer.h>
    @interface ImageViewController()
    @property (nonatomic, strong) UIImageView *imageView;
    @end
@@ -526,20 +497,15 @@ override func viewWillDisappear(_ animated: Bool) {
    {
       _imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
       [self.view addSubview:_imageView];
+      NSError *coreError;
       [_imageView setContentMode:UIViewContentModeScaleAspectFit];
-      dispatch_async(dispatch_get_main_queue(), ^{
-             [self.imageView setImage:self.normalizedImage];
-      });
+      [_imageView setImage:self.normalizedImage];
    }
    @end
    ```
    2. 
    ```swift
-   import UIKit
-   import DynamsoftCore
-   import DynamsoftCaptureVisionRouter
-   import DynamsoftDocumentNormalizer
-   class ImageViewController: UIViewController {
+   class ImageViewController: UIViewController{
       var normalizedImage:UIImage!
       var imageView:UIImageView!
       override func viewDidLoad() {
@@ -556,8 +522,6 @@ override func viewWillDisappear(_ animated: Bool) {
       }
    }
    ```
-
-4. Go to your **Main.storyboard** and add **Navigation Controller**.
 
 &nbsp;
 
