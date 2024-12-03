@@ -34,7 +34,7 @@ class SimplifiedDocumentNormalizerSettings
 | [`contrast`](#contrast) | *int* | The contrast. |
 | [`maxThreadsInOneTask`](#maxthreadsinonetask) | *int* | The maximum number of threads in one task. |
 | [`scaleDownThreshold`](#scaledownthreshold) | *int* | The scale down threshold. |
-| [`minQuadrilateralAreaRatio`](#minquadrilateralarearatio) | *int* | The minimum ratio between the target document area and the total image area. Only those exceeding this value will be outputted (measured in percentages). |
+| [`minQuadrilateralAreaRatio`](#minquadrilateralarearatio) | *int* | The minimum ratio between the target document area and the total image area. Only those exceeding this value will be output (measured in percentages). |
 | [`expectedDocumentsCount`](#expecteddocumentscount) | *int* | The number of documents expected to be detected. |
 
 | Methods | Description |
@@ -112,7 +112,7 @@ int scaleDownThreshold;
 
 ### minQuadrilateralAreaRatio
 
-The minimum ratio between the target document area and the total image area. Only those exceeding this value will be outputted (measured in percentages).
+The minimum ratio between the target document area and the total image area. Only those exceeding this value will be output (measured in percentages).
 
 ```java
 @IntRange(from = 0, to = 100)
