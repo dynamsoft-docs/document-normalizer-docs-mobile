@@ -114,18 +114,18 @@ Initialize the license first. In your **ViewController** file, add the following
 // Add LicenseVerificationListener to the interface
 @interface ViewController ()<DSLicenseVerificationListener>
 - (void)setLicense{
-    [DSLicenseManager initLicense:@"DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" verificationDelegate:self];
+   [DSLicenseManager initLicense:@"DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9" verificationDelegate:self];
 }
 -(void)onLicenseVerified:(BOOL)isSuccess error:(NSError *)error
 {
-    NSLog(@"On License Verified");
-    if (!isSuccess)
-    {
-        NSLog(error.localizedDescription);
-    }else
-    {
-        NSLog(@"License approved");
-    }
+   NSLog(@"On License Verified");
+   if (!isSuccess)
+   {
+          NSLog(error.localizedDescription);
+   }else
+   {
+          NSLog(@"License approved");
+   }
 }
 ...
 @end
@@ -135,7 +135,7 @@ Initialize the license first. In your **ViewController** file, add the following
 // Import the DynamsoftLicense module to init license
 import DynamsoftLicense
 // Add LicenseVerificationListener to the interface
-class ViewController: UIViewController, CapturedResultReceiver, LicenseVerificationListener {
+class ViewController: UIViewController, LicenseVerificationListener {
    func setLicense(){
         LicenseManager.initLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", verificationDelegate: self)
    }
@@ -287,11 +287,11 @@ func setUpCvr() {
    >
    >1. 
    ```objc
-   @interface ViewController ()<DSCapturedResultReceiver>
+   @interface ViewController ()<DSLicenseVerificationListener, DSCapturedResultReceiver>
    ```
    2. 
    ```swift
-   class ViewController: UIViewController, CapturedResultReceiver {
+   class ViewController: UIViewController, LicenseVerificationListener, CapturedResultReceiver {
       ...
    }
    ```
@@ -378,6 +378,7 @@ func setUpCvr() {
    >1. 
    ```objc
    @property (nonatomic, strong) UIButton *captureButton;
+   @property (nonatomic) BOOL implementCapture;
    ...
    - (void)addCaptureButton {
       [self.view addSubview:self.captureButton];
