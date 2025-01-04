@@ -13,36 +13,36 @@ noTitleIndex: true
 ## Table of Contents
 
 - [MAUI User Guide for Document Scanner Integration](#maui-user-guide-for-document-scanner-integration)
-	- [Table of Contents](#table-of-contents)
-	- [System Requirements](#system-requirements)
-		- [.Net](#net)
-		- [Android](#android)
-		- [iOS](#ios)
-	- [Installation](#installation)
-		- [Visual Studio for Mac](#visual-studio-for-mac)
-		- [Visual Studio for Windows](#visual-studio-for-windows)
-	- [Build Your Document Scanner App](#build-your-document-scanner-app)
-		- [Set up Development Environment](#set-up-development-environment)
-		- [Initialize the Project](#initialize-the-project)
-			- [Visual Studio](#visual-studio)
-			- [Visual Studio for Mac](#visual-studio-for-mac-1)
-		- [Include the Library](#include-the-library)
-		- [Initialize MauiProgram](#initialize-mauiprogram)
-		- [License Activation](#license-activation)
-		- [Initialize the Capture Vision SDK](#initialize-the-capture-vision-sdk)
-		- [Add the CameraView control in the Main Page](#add-the-cameraview-control-in-the-main-page)
-		- [Open the Camera and Start Document Detection and Normalization](#open-the-camera-and-start-document-detection-and-normalization)
-		- [Obtaining Normalized Document Image](#obtaining-normalized-document-image)
-		- [Add the Image control in the Image Page](#add-the-image-control-in-the-image-page)
-		- [Display the Normalized Document Image](#display-the-normalized-document-image)
-		- [Run the Project](#run-the-project)
-	- [Licensing](#licensing)
+  - [Table of Contents](#table-of-contents)
+  - [System Requirements](#system-requirements)
+    - [.Net](#net)
+    - [Android](#android)
+    - [iOS](#ios)
+  - [Installation](#installation)
+    - [Visual Studio for Mac](#visual-studio-for-mac)
+    - [Visual Studio for Windows](#visual-studio-for-windows)
+  - [Build Your Document Scanner App](#build-your-document-scanner-app)
+    - [Set up Development Environment](#set-up-development-environment)
+    - [Initialize the Project](#initialize-the-project)
+      - [Visual Studio](#visual-studio)
+      - [Visual Studio for Mac](#visual-studio-for-mac-1)
+    - [Include the Library](#include-the-library)
+    - [Initialize MauiProgram](#initialize-mauiprogram)
+    - [License Activation](#license-activation)
+    - [Initialize the Capture Vision SDK](#initialize-the-capture-vision-sdk)
+    - [Add the CameraView control in the Main Page](#add-the-cameraview-control-in-the-main-page)
+    - [Open the Camera and Start Document Detection and Normalization](#open-the-camera-and-start-document-detection-and-normalization)
+    - [Obtaining Normalized Document Image](#obtaining-normalized-document-image)
+    - [Add the Image control in the Image Page](#add-the-image-control-in-the-image-page)
+    - [Display the Normalized Document Image](#display-the-normalized-document-image)
+    - [Run the Project](#run-the-project)
+  - [Licensing](#licensing)
 
 ## System Requirements
 
 ### .Net
 
-- .NET 7.0 and above.
+- .NET 7.0 and .NET 8.0.
 
 ### Android
 
