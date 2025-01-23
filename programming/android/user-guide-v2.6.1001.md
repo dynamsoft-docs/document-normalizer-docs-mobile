@@ -14,21 +14,21 @@ permalink: /programming/android/user-guide.html
 In this guide, you will learn step by step on how to build a document scanner application with Dynamsoft Capture Vision Android SDK.
 
 - [Android User Guide for Document Scanner Integration](#android-user-guide-for-document-scanner-integration)
-  - [Requirements](#requirements)
-  - [Add the SDK](#add-the-sdk)
-  - [Build Your First Application](#build-your-first-application)
-    - [Create a New Project](#create-a-new-project)
-    - [Include the Library](#include-the-library)
-    - [Initialize License](#initialize-license)
-    - [MainActivity for Realtime Document Normalization](#mainactivity-for-realtime-document-normalization)
-      - [Initialize Camera Module](#initialize-camera-module)
-      - [Initialize Capture Vision Router](#initialize-capture-vision-router)
-      - [Add a Captured Result Receiver and Filter](#add-a-captured-result-receiver-and-filter)
-      - [Start and Stop Video Document Normalization](#start-and-stop-video-document-normalization)
-      - [Additional Steps in MainActivity](#additional-steps-in-mainactivity)
-    - [ResultActivity for Displaying the Normalized Image](#resultactivity-for-displaying-the-normalized-image)
-      - [Display the Normalized Image](#display-the-normalized-image)
-    - [Build and Run the Project](#build-and-run-the-project)
+	- [Requirements](#requirements)
+	- [Add the SDK](#add-the-sdk)
+	- [Build Your First Application](#build-your-first-application)
+		- [Create a New Project](#create-a-new-project)
+		- [Include the Library](#include-the-library)
+		- [Initialize License](#initialize-license)
+		- [MainActivity for Realtime Document Normalization](#mainactivity-for-realtime-document-normalization)
+			- [Initialize Camera Module](#initialize-camera-module)
+			- [Initialize Capture Vision Router](#initialize-capture-vision-router)
+			- [Add a Captured Result Receiver and Filter](#add-a-captured-result-receiver-and-filter)
+			- [Start and Stop Video Document Normalization](#start-and-stop-video-document-normalization)
+			- [Additional Steps in MainActivity](#additional-steps-in-mainactivity)
+		- [ResultActivity for Displaying the Normalized Image](#resultactivity-for-displaying-the-normalized-image)
+			- [Display the Normalized Image](#display-the-normalized-image)
+		- [Build and Run the Project](#build-and-run-the-project)
 
 ## Requirements
 
@@ -54,7 +54,7 @@ In this guide, you will learn step by step on how to build a document scanner ap
 
     ```groovy
     dependencies {
-        implementation 'com.dynamsoft:dynamsoftcapturevisionbundle:2.6.1003'
+        implementation 'com.dynamsoft:dynamsoftcapturevisionbundle:2.6.1001'
     }
     ```
 
