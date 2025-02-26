@@ -305,7 +305,7 @@ Open the **Info.plist** file under the **Platforms/iOS/** folder (Open with XML 
 
 ### Obtaining Normalized Document Image
 
-In **MainPage.xaml.cs**, implement [`ICapturedResultReceiver`]({{ site.dcv_maui_api }}capture-vision-router/captured-result-receiver.html) to receive normalized images result in  [`OnNormalizedImagesReceived`]({{ site.dcv_maui_api }}capture-vision-router/captured-result-receiver.html#onnormalizedimagesreceived) callback function.
+In **MainPage.xaml.cs**, implement [`ICapturedResultReceiver`]({{ site.dcv_maui_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html) to receive normalized images result in  [`OnNormalizedImagesReceived`]({{ site.dcv_maui_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html#onnormalizedimagesreceived) callback function.
 
 ```c#
 ......
