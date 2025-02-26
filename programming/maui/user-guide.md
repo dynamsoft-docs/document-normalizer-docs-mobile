@@ -42,7 +42,7 @@ noTitleIndex: true
 
 ### .Net
 
-- .NET 7.0 and .NET 8.0.
+- .NET 7.0, 8.0 and 9.0.
 
 ### Android
 
