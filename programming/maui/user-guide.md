@@ -125,7 +125,7 @@ Add NuGet package **Dynamsoft.CaptureVisionBundle.Maui** to your project. You ca
 
 ### Initialize MauiProgram
 
-In **MauiProgram.cs**, add a custom handler for the `CameraView` control. Specifically, it maps the `CameraView` type to the `CameraViewHandler` type.
+In **MauiProgram.cs**, add a custom handler for the [`CameraView`]({{ site.dce_maui_api }}camera-view.html) control. Specifically, it maps the [`CameraView`]({{ site.dce_maui_api }}camera-view.html) type to the `CameraViewHandler` type.
 
 ```c#
 namespace SimpleDocumentScanner;
@@ -225,7 +225,7 @@ public partial class MainPage : ContentPage, ILicenseVerificationListener, ICapt
 
 ### Add the CameraView control in the Main Page
 
-In the **MainPage.xaml**, add a `CameraView` control:
+In the **MainPage.xaml**, add a [`CameraView`]({{ site.dce_maui_api }}camera-view.html) control:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -305,7 +305,7 @@ Open the **Info.plist** file under the **Platforms/iOS/** folder (Open with XML 
 
 ### Obtaining Normalized Document Image
 
-In **MainPage.xaml.cs**, implement `ICapturedResultReceiver` to receive normalized images result in  `OnNormalizedImagesReceived` callback function.
+In **MainPage.xaml.cs**, implement [`ICapturedResultReceiver`]({{ site.dcv_maui_api }}capture-vision-router/captured-result-receiver.html) to receive normalized images result in  [`OnNormalizedImagesReceived`]({{ site.dcv_maui_api }}capture-vision-router/captured-result-receiver.html#onnormalizedimagesreceived) callback function.
 
 ```c#
 ......
