@@ -49,7 +49,7 @@ There are two ways to add the SDK into your project - **CocoaPods**, or via **Sw
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftCaptureVisionBundle','2.6.1004'
+   pod 'DynamsoftCaptureVisionBundle','2.6.1003'
 
    end
    ```
@@ -66,7 +66,7 @@ There are two ways to add the SDK into your project - **CocoaPods**, or via **Sw
 
 2. In the top-right section of the window, search "https://github.com/Dynamsoft/capture-vision-spm"
 
-3. Select `capture-vision-spm`, choose `Exact version`, enter **2.6.1004**, then click **Add Package**.
+3. Select `capture-vision-spm`, choose `Exact version`, enter **2.6.1003**, then click **Add Package**.
 
 4. Check all the frameworks and add.
 
@@ -80,7 +80,7 @@ This guide will walk you through the process of creating a HelloWorld app for de
 >
 > - Xcode 14.0 is used in this guide.
 > - You can get the source code of the HelloWorld app from the following link
->   - [DocumentScanner iOS Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner){:target="_blank"}.
+>   - [DocumentScanner iOS Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/dcv_v2.6.1003/ios/DocumentScanner/){:target="_blank"}.
 
 ### Create a New Project
 

@@ -3,6 +3,8 @@ repositoryUrl: https://github.com/dynamsoft-docs/document-normalizer-docs-mobile
 docFullPath: https://www.dynamsoft.com/document-normalizer/docs/mobile/
 firstLevelUrl: /document-normalizer/docs/mobile
 docHomePage: /document-normalizer/docs/core/introduction/
+needSearchIndex: true
+searchNeedFilter: true
 
 parameters: /document-normalizer/docs/core/parameters/
 

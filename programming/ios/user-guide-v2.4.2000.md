@@ -13,23 +13,23 @@ enableLanguageSelection: true
 # iOS User Guide for Document Scanner Integration
 
 - [iOS User Guide for Document Scanner Integration](#ios-user-guide-for-document-scanner-integration)
-	- [System Requirements](#system-requirements)
-	- [Add the SDK](#add-the-sdk)
-		- [Add the xcframeworks via CocoaPods](#add-the-xcframeworks-via-cocoapods)
-		- [Add the xcframeworks via Swift Package Manager](#add-the-xcframeworks-via-swift-package-manager)
-	- [Build Your First Application](#build-your-first-application)
-		- [Create a New Project](#create-a-new-project)
-		- [Include the Library](#include-the-library)
-		- [Initialize License](#initialize-license)
-		- [Main ViewController for Realtime Detection of Quads](#main-viewcontroller-for-realtime-detection-of-quads)
-			- [Get Prepared with the Camera Module](#get-prepared-with-the-camera-module)
-			- [Initialize Capture Vision Router](#initialize-capture-vision-router)
-			- [Set up Result Receiver](#set-up-result-receiver)
-			- [Configure the methods viewDidLoad, viewWillAppear, and viewWillDisappear](#configure-the-methods-viewdidload-viewwillappear-and-viewwilldisappear)
-			- [Display the Normalized Image](#display-the-normalized-image)
-		- [Configure Camera Permissions](#configure-camera-permissions)
-		- [Additional Steps for iOS 12.x or Lower Versions](#additional-steps-for-ios-12x-or-lower-versions)
-		- [Build and Run the Project](#build-and-run-the-project)
+  - [System Requirements](#system-requirements)
+  - [Add the SDK](#add-the-sdk)
+    - [Add the xcframeworks via CocoaPods](#add-the-xcframeworks-via-cocoapods)
+    - [Add the xcframeworks via Swift Package Manager](#add-the-xcframeworks-via-swift-package-manager)
+  - [Build Your First Application](#build-your-first-application)
+    - [Create a New Project](#create-a-new-project)
+    - [Include the Library](#include-the-library)
+    - [Initialize License](#initialize-license)
+    - [Main ViewController for Realtime Detection of Quads](#main-viewcontroller-for-realtime-detection-of-quads)
+      - [Get Prepared with the Camera Module](#get-prepared-with-the-camera-module)
+      - [Initialize Capture Vision Router](#initialize-capture-vision-router)
+      - [Set up Result Receiver](#set-up-result-receiver)
+      - [Configure the methods viewDidLoad, viewWillAppear, and viewWillDisappear](#configure-the-methods-viewdidload-viewwillappear-and-viewwilldisappear)
+      - [Display the Normalized Image](#display-the-normalized-image)
+    - [Configure Camera Permissions](#configure-camera-permissions)
+    - [Additional Steps for iOS 12.x or Lower Versions](#additional-steps-for-ios-12x-or-lower-versions)
+    - [Build and Run the Project](#build-and-run-the-project)
 
 ## System Requirements
 
@@ -80,8 +80,7 @@ This guide will walk you through the process of creating a HelloWorld app for de
 >
 > - Xcode 14.0 is used in this guide.
 > - You can get the source code of the HelloWorld app from the following link
->   - [Objective-C](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/AutoNormalizeObjc){:target="_blank"}.
->   - [Swift](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/AutoNormalize){:target="_blank"}.
+>   - [DocumentScanner iOS Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/dcv_v2.6.1003/ios/DocumentScanner/){:target="_blank"}.
 
 ### Create a New Project
 
