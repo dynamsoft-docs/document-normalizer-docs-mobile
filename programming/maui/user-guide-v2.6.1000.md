@@ -74,7 +74,7 @@ You need to add the library via the project file and complete additional steps f
         ...
         <ItemGroup>
             ...
-            <PackageReference Include="Dynamsoft.CaptureVisionBundle.Maui" Version="2.6.1001" />
+            <PackageReference Include="Dynamsoft.CaptureVisionBundle.Maui" Version="2.6.1000" />
         </ItemGroup>
     </Project>
     ```
