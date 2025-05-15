@@ -14,7 +14,7 @@ The `DSNormalizedImagesResult` class represents a collection of [`DSNormalizedIm
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

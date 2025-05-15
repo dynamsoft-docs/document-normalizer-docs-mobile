@@ -16,7 +16,7 @@ The `SimplifiedDocumentNormalizerSettings` class represents a series of simple s
 
 *Namespace:* com.dynamsoft.ddn
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class SimplifiedDocumentNormalizerSettings

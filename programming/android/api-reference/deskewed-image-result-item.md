@@ -1,16 +1,16 @@
 ---
 layout: default-layout
-title: NormalizedImageResultItem - Dynamsoft Document Normalizer Android SDK API Reference
-description: The class NormalizedImageResultItem represents a captured result item whose type is a normalized image. It stores the normalized image information.
-keywords: normalized image result item, java, kotlin
+title: DeskewedImageResultItem - Dynamsoft Document Normalizer Android SDK API Reference
+description: The class DeskewedImageResultItem represents a captured result item whose type is a deskewed image. It stores the deskewed image information.
+keywords: deskewed image result item, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
 ---
 
-# NormalizedImageResultItem
+# DeskewedImageResultItem
 
-The `NormalizedImageResultItem` class is an extension of [`CapturedResultItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html) that represents a normalized image. This is the most basic unit of the normalized image result, one of the captured result types that the Capture Vision Router can output. 
+The `DeskewedImageResultItem` class is an extension of [`CapturedResultItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html) that represents a deskewed image. This is the most basic unit of the deskewed image result, one of the captured result types that the Capture Vision Router can output. 
 
 ## Definition
 
@@ -19,16 +19,17 @@ The `NormalizedImageResultItem` class is an extension of [`CapturedResultItem`](
 *Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
-class NormalizedImageResultItem extends CapturedResultItem
+class DeskewedImageResultItem extends CapturedResultItem
 ```
 
 ## Methods
 
 | Methods | Description |
 | ---------- | ----------- |
-| [`getImageData`](#getimagedata) | Returns an `ImageData` object as the normalized image. |
-| [`getLocation`](#getlocation) | Returns the quadrilateral from which you get the normalized image result item. |
+| [`getImageData`](#getimagedata) | Returns an `ImageData` object as the deskewed image. |
+| [`getSourceDeskewQuad`](#getlocation) | Returns the quadrilateral from which you get the deskewed image result item. |
 | [`getCrossVerificationStatus`](#getcrossverificationstatus) | Returns the cross verification status of the result item. |
+| [`getOriginalToLocalMatrix`](#getoriginaltolocalmatrix) | Returns the transformation matrix from the original image coordinate system to the local coordinate system. |
 
 The following methods are inherited from [`CapturedResultItem`]({{ site.dcv_android_api }}core/basic-structures/captured-result-item.html).
 
@@ -41,7 +42,7 @@ The following methods are inherited from [`CapturedResultItem`]({{ site.dcv_andr
 
 ### getImageData
 
-Returns an [`ImageData`]({{ site.dcv_android_api }}core/basic-structures/image-data.html) object for the normalized image.
+Returns an [`ImageData`]({{ site.dcv_android_api }}core/basic-structures/image-data.html) object for the deskewed image.
 
 ```java
 ImageData getImageData();
@@ -49,11 +50,11 @@ ImageData getImageData();
 
 **Return Value**
 
-The `ImageData` object as the normalized image.
+The `ImageData` object as the deskewed image.
 
-### getLocation
+### getSourceDeskewQuad
 
-Returns the [Quadrilateral]({{ site.dcv_android_api }}core/basic-structures/quadrilateral.html) that represents the location of the normalized image within the original image or frame.
+Returns the soure [Quadrilateral]({{ site.dcv_android_api }}core/basic-structures/quadrilateral.html) that used to deskew the image.
 
 ```java
 Quadrilateral getLocation();
@@ -61,7 +62,7 @@ Quadrilateral getLocation();
 
 **Return Value**
 
-The quadrilateral from which you get the normalized image result item.
+The soure [Quadrilateral]({{ site.dcv_android_api }}core/basic-structures/quadrilateral.html) that used to deskew the image.
 
 ### getCrossVerificationStatus
 
@@ -74,3 +75,15 @@ EnumCrossVerificationStatus getCrossVerificationStatus();
 **Return Value**
 
 Returns the cross verification status of type [`EnumCrossVerificationStatus`]({{ site.dcv_enumerations }}core/cross-verification-status.html).
+
+### getOriginalToLocalMatrix
+
+Returns the transformation matrix from the original image coordinate system to the local coordinate system.
+
+```java
+Matrix getOriginalToLocalMatrix();
+```
+
+**Return Value**
+
+The transformation matrix of type `android.graphics.Matrix`.

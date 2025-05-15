@@ -16,7 +16,7 @@ The `DocumentNormalizerModule` class defines general functions of the document n
 
 *Namespace:* com.dynamsoft.ddn
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class DocumentNormalizerModule

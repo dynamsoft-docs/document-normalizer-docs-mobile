@@ -14,7 +14,7 @@ The `DSDetectedQuadElement` class represents a detected quadrilateral element, w
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

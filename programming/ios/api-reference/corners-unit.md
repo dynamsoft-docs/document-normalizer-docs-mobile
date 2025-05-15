@@ -14,7 +14,7 @@ The `DSCornersUnit` class represents an intermediate result unit whose type is c
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

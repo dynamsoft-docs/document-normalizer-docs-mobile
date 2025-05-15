@@ -1,16 +1,16 @@
 ---
 layout: default-layout
-title: DSNormalizedImageResultItem - Dynamsoft Document Normalizer module iOS Edition API Reference
-description: The class DSNormalizedImageResultItem of Dynamsoft Document Normalizer module represents a captured result item whose type is a normalized image. It stores the normalized image information.
-keywords: normalized image result item, objective-c, swift
+title: DSDeskewedImageResultItem - Dynamsoft Document Normalizer module iOS Edition API Reference
+description: The class DSDeskewedImageResultItem of Dynamsoft Document Normalizer module represents a captured result item whose type is a deskewed image. It stores the deskewed image information.
+keywords: deskewed image result item, objective-c, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
 ---
 
-# DSNormalizedImageResultItem
+# DSDeskewedImageResultItem
 
-The `DSNormalizedImageResultItem` class  is an extension of [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html) that represents a normalized image. This is the most basic unit of the normalized image result, one of the captured result types that the Capture Vision Router can output.
+The `DSDeskewedImageResultItem` class  is an extension of [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html) that represents a deskewed image. This is the most basic unit of the deskewed image result, one of the captured result types that the Capture Vision Router can output.
 
 ## Definition
 
@@ -22,20 +22,21 @@ The `DSNormalizedImageResultItem` class  is an extension of [`DSCapturedResultIt
 >
 >1. 
 ```objc
-@interface DSNormalizedImageResultItem: DSCapturedResultItem
+@interface DSDeskewedImageResultItem: DSCapturedResultItem
 ```
 2. 
 ```swift
-class NormalizedImageResultItem : CapturedResultItem
+class DeskewedImageResultItem : CapturedResultItem
 ```
 
 ## Attributes
 
 | Attributes | Type | Description |
 | ---------- | ---- | ----------- |
-| [`imageData`](#imagedata) | *DSImageData \** | A `DSImageData` object as the image data of a normalized image. |
-| [`location`](#location) | *DSQuadrilateral \** | The quadrilateral from which you get the normalized image result item. |
+| [`imageData`](#imagedata) | *DSImageData \** | A `DSImageData` object as the image data of a deskewed image. |
+| [`sourceDeskewQuad`](#sourcedeskewquad) | *DSQuadrilateral \** | The quadrilateral from which you get the deskewed image result item. |
 | [`crossVerificationStatus`](#crossverificationstatus) | *DSCrossVerificationStatus* | The cross verification status of the result item. |
+| [`originalToLocalMatrix`](#originaltolocalmatrix) | *CGAffineTransform* | The transformation matrix from the original image coordinate system to the local coordinate system. |
 
 The following attributes are inherited from [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html).
 
@@ -48,7 +49,7 @@ The following attributes are inherited from [`DSCapturedResultItem`]({{ site.dcv
 
 ### imageData
 
-A [`DSImageData`]({{ site.dcv_ios_api }}core/basic-structures/image-data.html) object for the normalized image.
+A [`DSImageData`]({{ site.dcv_ios_api }}core/basic-structures/image-data.html) object for the deskewed image.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -65,7 +66,7 @@ var imageData: ImageData? { get }
 
 ### location
 
-The [DSQuadrilateral]({{ site.dcv_ios_api }}core/basic-structures/quadrilateral.html) that represents the location of the normalized image within the original image or frame.
+The quadrilateral from which you get the deskewed image result item.
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -100,3 +101,20 @@ var crossVerificationStatus: CrossVerificationStatus { get }
 Related API:
 
 - [`DSCrossVerificationStatus`]({{ site.dcv_enumerations }}core/cross-verification-status.html)
+
+### originalToLocalMatrix
+
+The transformation matrix from the original image coordinate system to the local coordinate system.
+
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@property (nonatomic, readonly, assign) CGAffineTransform originalToLocalMatrix;
+```
+2. 
+```swift
+var originalToLocalMatrix: CGAffineTransform { get }
+```

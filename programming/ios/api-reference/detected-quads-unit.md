@@ -14,7 +14,7 @@ The `DSDetectedQuadsUnit` class represents an intermediate result unit whose typ
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

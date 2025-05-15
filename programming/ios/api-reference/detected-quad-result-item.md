@@ -14,7 +14,7 @@ The `DetectedQuadResultItem` class is an extension of the [`DSCapturedResultItem
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

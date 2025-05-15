@@ -16,7 +16,7 @@ The `DetectedQuadResultItem` class is an extension of the [`CapturedResultItem`]
 
 *Namespace:* com.dynamsoft.ddn
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class DetectedQuadResultItem extends CapturedResultItem

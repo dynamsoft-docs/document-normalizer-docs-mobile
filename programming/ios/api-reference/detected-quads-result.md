@@ -14,7 +14,7 @@ The `DSDetectedQuadsResult` class represents a collection of [`DSDetectedQuadRes
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

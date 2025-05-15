@@ -14,7 +14,7 @@ The `DSNormalizedImagesUnit` class represents an intermediate result unit whose 
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
