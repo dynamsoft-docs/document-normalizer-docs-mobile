@@ -33,7 +33,7 @@ enableLanguageSelection: true
 
 ## System Requirements
 
-- Supported OS: **iOS 13** or higher.
+- Supported OS: iOS 11 or higher (iOS 13 and higher recommended).
 - Supported ABI: arm64 and x86_64.
 - Development Environment: Xcode 13 and above (Xcode 14.1+ recommended).
 
@@ -49,7 +49,7 @@ There are two ways to add the SDK into your project - **CocoaPods**, or via **Sw
    target 'HelloWorld' do
       use_frameworks!
 
-   pod 'DynamsoftCaptureVisionBundle','3.0.3000'
+   pod 'DynamsoftCaptureVisionBundle','2.6.1004'
 
    end
    ```
@@ -66,7 +66,7 @@ There are two ways to add the SDK into your project - **CocoaPods**, or via **Sw
 
 2. In the top-right section of the window, search "https://github.com/Dynamsoft/capture-vision-spm"
 
-3. Select `capture-vision-spm`, choose `Exact version`, enter **3.0.3000**, then click **Add Package**.
+3. Select `capture-vision-spm`, choose `Exact version`, enter **2.6.1004**, then click **Add Package**.
 
 4. Check all the frameworks and add.
 
@@ -108,7 +108,8 @@ Initialize the license first. In your **ViewController** file, add the following
 >
 >1. 
 ```objc
-#import <DynamsoftCaptureVisionBundle/DynamsoftCaptureVisionBundle.h>
+// Import the DynamsoftLicense module to init license
+#import <DynamsoftLicense/DynamsoftLicense.h>
 // Add LicenseVerificationListener to the interface
 @interface ViewController ()<DSLicenseVerificationListener>
 - (void)setLicense{
@@ -130,7 +131,8 @@ Initialize the license first. In your **ViewController** file, add the following
 ```
 2. 
 ```swift
-import DynamsoftCaptureVisionBundle
+// Import the DynamsoftLicense module to init license
+import DynamsoftLicense
 // Add LicenseVerificationListener to the interface
 class ViewController: UIViewController, LicenseVerificationListener {
    func setLicense(){
@@ -155,6 +157,29 @@ class ViewController: UIViewController, LicenseVerificationListener {
 &nbsp;
 
 ### Main ViewController for Realtime Detection of Quads
+
+In the main view controller, your app will scan documents via video streaming and display the detect quadrilateral area on the screen. First of all, import the headers in the ViewController file.
+
+   <div class="sample-code-prefix"></div>
+   >- Objective-C
+   >- Swift
+   >
+   >1. 
+   ```objc
+   #import <DynamsoftCore/DynamsoftCore.h>
+   #import <DynamsoftDocumentNormalizer/DynamsoftDocumentNormalizer.h>
+   #import <DynamsoftCaptureVisionRouter/DynamsoftCaptureVisionRouter.h>
+   #import <DynamsoftUtility/DynamsoftUtility.h>
+   #import <DynamsoftCameraEnhancer/DynamsoftCameraEnhancer.h>
+   ```
+   2. 
+   ```swift
+   import DynamsoftCore
+   import DynamsoftCaptureVisionRouter
+   import DynamsoftDocumentNormalizer
+   import DynamsoftUtility
+   import DynamsoftCameraEnhancer
+   ```
 
 #### Get Prepared with the Camera Module
 
@@ -487,7 +512,6 @@ override func viewWillDisappear(_ animated: Bool) {
    >1. 
    ```objc
    #import "ImageViewController.h"
-   #import <DynamsoftCaptureVisionBundle/DynamsoftCaptureVisionBundle.h>
    @interface ImageViewController()
    @property (nonatomic, strong) UIImageView *imageView;
    @end
@@ -512,7 +536,9 @@ override func viewWillDisappear(_ animated: Bool) {
    2. 
    ```swift
    import UIKit
-   import DynamsoftCaptureVisionBundle
+   import DynamsoftCore
+   import DynamsoftCaptureVisionRouter
+   import DynamsoftDocumentNormalizer
    class ImageViewController: UIViewController {
       var normalizedImage:UIImage!
       var imageView:UIImageView!
