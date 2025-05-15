@@ -14,7 +14,7 @@ The `LogicLinesUnit` class represents an intermediate result unit containing log
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

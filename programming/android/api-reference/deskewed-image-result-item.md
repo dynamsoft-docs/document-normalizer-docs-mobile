@@ -16,7 +16,7 @@ The `DeskewedImageResultItem` class is an extension of [`CapturedResultItem`]({{
 
 *Namespace:* com.dynamsoft.ddn
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class DeskewedImageResultItem extends CapturedResultItem

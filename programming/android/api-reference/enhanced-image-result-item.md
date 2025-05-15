@@ -16,7 +16,7 @@ The `EnhancedImageResultItem` class is an extension of [`CapturedResultItem`]({{
 
 *Namespace:* com.dynamsoft.ddn
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class EnhancedImageResultItem extends CapturedResultItem

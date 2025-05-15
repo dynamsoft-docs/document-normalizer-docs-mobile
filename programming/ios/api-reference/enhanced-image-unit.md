@@ -14,7 +14,7 @@ The `DSEnhancedImagesUnit` class represents an intermediate result unit whose ty
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

@@ -14,7 +14,7 @@ The `DSDeskewedImageElement` class represents an intermediate result whose type 
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

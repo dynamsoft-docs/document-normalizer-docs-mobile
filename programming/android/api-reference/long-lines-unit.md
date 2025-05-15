@@ -16,7 +16,7 @@ The `LongLinesUnit` class represents an intermediate result unit whose type is l
 
 *Namespace:* com.dynamsoft.ddn.intermediate_results
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class LongLinesUnit extends IntermediateResultUnit

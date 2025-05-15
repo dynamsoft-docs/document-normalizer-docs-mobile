@@ -16,7 +16,7 @@ The class `ProcessedDocumentResult` represents a collection of captured result i
 
 *Namespace:* com.dynamsoft.ddn
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class ProcessedDocumentResult

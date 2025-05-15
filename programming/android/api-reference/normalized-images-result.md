@@ -16,7 +16,7 @@ The `NormalizedImagesResult` class represents a collection of [`NormalizedImageR
 
 *Namespace:* com.dynamsoft.ddn
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class NormalizedImagesResult

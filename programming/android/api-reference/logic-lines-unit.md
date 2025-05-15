@@ -16,7 +16,7 @@ The `LogicLinesUnit` class represents an intermediate result unit containing log
 
 *Namespace:* com.dynamsoft.ddn.intermediate_results
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class LogicLinesUnit extends IntermediateResultUnit

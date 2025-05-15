@@ -14,7 +14,7 @@ The `DSNormalizedImageResultItem` class  is an extension of [`DSCapturedResultIt
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

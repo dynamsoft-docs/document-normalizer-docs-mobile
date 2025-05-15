@@ -16,7 +16,7 @@ The `EnhancedImageElement` class represents an intermediate result whose type is
 
 *Namespace:* com.dynamsoft.ddn.intermediate_results
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class EnhancedImageElement extends RegionObjectElement

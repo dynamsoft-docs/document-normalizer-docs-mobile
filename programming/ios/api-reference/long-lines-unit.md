@@ -14,7 +14,7 @@ The `DSLongLinesUnit` class represents an intermediate result unit whose type is
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C

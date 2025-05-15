@@ -16,7 +16,7 @@ The `DetectedQuadsResult` class represents a collection of [`DetectedQuadResultI
 
 *Namespace:* com.dynamsoft.ddn
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class DetectedQuadsResult

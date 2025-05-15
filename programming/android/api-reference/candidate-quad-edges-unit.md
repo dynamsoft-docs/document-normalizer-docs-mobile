@@ -16,7 +16,7 @@ The `CandidateQuadEdgesUnit` class represents an intermediate result unit whose 
 
 *Namespace:* com.dynamsoft.ddn.intermediate_results
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class CandidateQuadEdgesUnit extends IntermediateResultUnit

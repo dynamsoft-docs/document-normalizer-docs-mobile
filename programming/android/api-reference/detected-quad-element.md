@@ -16,7 +16,7 @@ The `DetectedQuadElement` class represents a detected quadrilateral element, whi
 
 *Namespace:* com.dynamsoft.ddn.intermediate_results
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class DetectedQuadElement extends RegionObjectElement

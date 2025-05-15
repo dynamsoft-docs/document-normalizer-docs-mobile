@@ -16,7 +16,7 @@ The `NormalizedImageElement` class represents an intermediate result whose type 
 
 *Namespace:* com.dynamsoft.ddn.intermediate_results
 
-*Assembly:* DynamsoftDocumentNormalizer.aar
+*Assembly:* DynamsoftCaptureVisionBundle.aar
 
 ```java
 class NormalizedImageElement extends RegionObjectElement

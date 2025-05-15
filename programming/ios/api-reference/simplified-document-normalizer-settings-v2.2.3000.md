@@ -14,7 +14,7 @@ The `DSSimplifiedDocumentNormalizerSettings` class represents a series of simple
 
 ## Definition
 
-*Assembly:* DynamsoftDocumentNormalizer.xcframework
+*Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
