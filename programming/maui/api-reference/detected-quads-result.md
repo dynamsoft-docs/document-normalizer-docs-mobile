@@ -6,6 +6,7 @@ keywords: detected quads result, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
+ignore: true
 ---
 
 # DetectedQuadsResult
