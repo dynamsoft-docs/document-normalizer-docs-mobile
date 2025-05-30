@@ -89,11 +89,11 @@ You need to add the library via the project file and complete additional steps f
 
 ## Build Your Document Scanner App
 
-Now you will learn how to create a ScanDocument using Dynamsoft Capture Vision MAUI SDK.
+Now you will learn how to create a simple document scanner app using Dynamsoft Capture Vision MAUI SDK.
 
 >Note:
 >
-> - You can get the similar source code of the ScanDocument app from the following link
+> - You can get the similar source code of the simple document scanner app from the following link
 >   - [C#](https://github.com/Dynamsoft/capture-vision-maui-samples/tree/main/DocumentScanner/AutoNormalize){:target="_blank"}.
 
 ### Set up Development Environment
