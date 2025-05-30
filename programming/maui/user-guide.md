@@ -28,13 +28,10 @@ noTitleIndex: true
       - [Visual Studio for Mac](#visual-studio-for-mac-1)
     - [Include the Library](#include-the-library)
     - [Initialize MauiProgram](#initialize-mauiprogram)
-    - [License Activation](#license-activation)
-    - [Initialize the Capture Vision SDK](#initialize-the-capture-vision-sdk)
-    - [Add the CameraView control in the Main Page](#add-the-cameraview-control-in-the-main-page)
-    - [Open the Camera and Start Document Detection and Normalization](#open-the-camera-and-start-document-detection-and-normalization)
-    - [Obtaining Normalized Document Image](#obtaining-normalized-document-image)
-    - [Add the Image control in the Image Page](#add-the-image-control-in-the-image-page)
-    - [Display the Normalized Document Image](#display-the-normalized-document-image)
+    - [Add a CameraPage for Capturing the Document](#add-a-camerapage-for-capturing-the-document)
+    - [Add a EditorPage for Detected Boundary Editing](#add-a-editorpage-for-detected-boundary-editing)
+    - [Add a ImagePage for Displaying the Processed Document](#add-a-imagepage-for-displaying-the-processed-document)
+    - [Configure the Camera Permission](#configure-the-camera-permission)
     - [Run the Project](#run-the-project)
   - [Licensing](#licensing)
 
@@ -42,7 +39,7 @@ noTitleIndex: true
 
 ### .Net
 
-- .NET 7.0, 8.0 and 9.0.
+- .NET 8.0 and 9.0.
 
 ### Android
 
@@ -74,7 +71,7 @@ You need to add the library via the project file and complete additional steps f
         ...
         <ItemGroup>
             ...
-            <PackageReference Include="Dynamsoft.CaptureVisionBundle.Maui" Version="2.6.1001" />
+            <PackageReference Include="Dynamsoft.CaptureVisionBundle.Maui" Version="3.0.3100" />
         </ItemGroup>
     </Project>
     ```
@@ -92,11 +89,11 @@ You need to add the library via the project file and complete additional steps f
 
 ## Build Your Document Scanner App
 
-Now you will learn how to create a SimpleDocumentScanner using Dynamsoft Capture Vision MAUI SDK.
+Now you will learn how to create a simple document scanner app using Dynamsoft Capture Vision MAUI SDK.
 
 >Note:
 >
-> - You can get the similar source code of the SimpleDocumentScanner app from the following link
+> - You can get the similar source code of the simple document scanner app from the following link
 >   - [C#](https://github.com/Dynamsoft/capture-vision-maui-samples/tree/main/DocumentScanner/AutoNormalize){:target="_blank"}.
 
 ### Set up Development Environment
@@ -109,192 +106,365 @@ If you are a beginner with MAUI, please follow the guide on the <a href="https:/
 
 1. Open the Visual Studio and select **Create a new project**.
 2. Select **.Net MAUI App** and click **Next**.
-3. Name the project **SimpleDocumentScanner**. Select a location for the project and click **Next**.
-4. Select **.Net 7.0** and click **Create**.
+3. Name the project **ScanDocument**. Select a location for the project and click **Next**.
+4. Select **.Net 9.0** and click **Create**.
 
 #### Visual Studio for Mac
 
 1. Open Visual Studio and select **New**.
 2. Select **Multiplatform > App > .Net MAUI App > C#** and click **Continue**.
-3. Select **.Net 7.0** and click **Continue**.
-4. Name the project **SimpleDocumentScanner** and select a location, click **Create**.
+3. Select **.Net 9.0** and click **Continue**.
+4. Name the project **ScanDocument** and select a location, click **Create**.
 
 ### Include the Library
 
 Add NuGet package **Dynamsoft.CaptureVisionBundle.Maui** to your project. You can view the [installation section](#installation) on how to add the library.
 
-### Initialize MauiProgram
+### Initialize MauiProgram.cs
 
 In **MauiProgram.cs**, add a custom handler for the [`CameraView`]({{ site.dce_maui_api }}camera-view.html) control. Specifically, it maps the [`CameraView`]({{ site.dce_maui_api }}camera-view.html) type to the `CameraViewHandler` type.
 
 ```c#
-namespace SimpleDocumentScanner;
 using Microsoft.Extensions.Logging;
 using Dynamsoft.CameraEnhancer.Maui;
 using Dynamsoft.CameraEnhancer.Maui.Handlers;
 
+namespace ScanDocument;
+
 public static class MauiProgram
 {
-    public static MauiApp CreateMauiApp()
-    {
-        var builder = MauiApp.CreateBuilder();
-        builder
-            .UseMauiApp<App>()
-            .ConfigureFonts(fonts =>
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
+		builder
+			.UseMauiApp<App>()
+			.ConfigureFonts(fonts =>
+			{
+				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			})
+			.ConfigureMauiHandlers(handlers =>
             {
-                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            })
-            .ConfigureMauiHandlers(handlers =>
-            {
-                handlers.AddHandler(typeof(CameraView), typeof(CameraViewHandler));
+                handlers.AddHandler<CameraView, CameraViewHandler>();
+                handlers.AddHandler(typeof(ImageEditorView), typeof(ImageEditorViewHandler));
             });
 
 #if DEBUG
-        builder.Logging.AddDebug();
+		builder.Logging.AddDebug();
 #endif
 
-        return builder.Build();
-    }
+		return builder.Build();
+	}
 }
 ```
 
-### License Activation
+### Add a CameraPage for Capturing the Document
 
-The Dynamsoft Capture Vision SDK needs a valid license to work. Please refer to the [Licensing](#licensing) section for more info on how to obtain a license.
+1. Create a new ContentPage(XAML) and name it CameraPage.
 
-Go to **MainPage.xaml.cs**. Add the following code to activate the license:
+2. Add the following code to the **CameraPage.xaml**:
+   
+   ```xml
+   <?xml version="1.0" encoding="utf-8" ?>
+   <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:dynamsoft="clr-namespace:Dynamsoft.CameraEnhancer.Maui;assembly=Dynamsoft.CaptureVisionBundle.Maui"
+                x:Class="ScanDocument.CameraPage"
+                Title="CameraPage">
+   <Grid>
+       <dynamsoft:CameraView x:Name="camera"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill" />                 
+       <Button x:Name="CaptureBtn"
+               Text="Capture"
+               Clicked="OnCaptureBtnClicked"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               Margin="0,0,0,20" />
+   </Grid>
+   
+   </ContentPage>
+   ```
 
-```c#
-namespace SimpleDocumentScanner;
-using Dynamsoft.License.Maui;
-using System.Diagnostics;
+3. Add the following code to the **CameraPage.xaml.cs**:
 
-public partial class MainPage : ContentPage, ILicenseVerificationListener
-{
-    public MainPage()
-    {
-        InitializeComponent();
-        LicenseManager.InitLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", this);
-    }
-    public void OnLicenseVerified(bool isSuccess, string message)
-    {
-        if (!isSuccess)
-        {
-            Debug.WriteLine(message);
-        }
-    }
-}
-```
+   ```csharp
+   using Dynamsoft.Core.Maui;
+   using Dynamsoft.CameraEnhancer.Maui;
+   using Dynamsoft.CaptureVisionRouter.Maui;
+   using Dynamsoft.License.Maui;
+   using Dynamsoft.DocumentNormalizer.Maui;
+   
+   namespace ScanDocument;
+   
+   public partial class CameraPage : ContentPage, ICapturedResultReceiver, ICompletionListener, ILicenseVerificationListener
+   {
+   	CameraEnhancer enhancer;
+       CaptureVisionRouter router;
+       bool isClicked;
+   	public CameraPage()
+   	{
+   		InitializeComponent();
+   		// Initialize the license.
+           // The license string here is a trial license. Note that network connection is required for this license to work.
+           // You can request an extension via the following link: https://www.dynamsoft.com/customer/license/trialLicense?product=ddn&utm_source=samples&package=mobile
+           LicenseManager.InitLicense("DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", this);
+   		enhancer = new CameraEnhancer();
+           router = new CaptureVisionRouter();
+           router.SetInput(enhancer);
+           router.AddResultReceiver(this);
+   	}
+   
+   	protected override void OnHandlerChanged()
+       {
+           base.OnHandlerChanged();
+           if (this.Handler != null)
+           {
+               enhancer.SetCameraView(camera);
+           }
+       }
+   
+       protected override async void OnAppearing()
+       {
+           base.OnAppearing();
+           await Permissions.RequestAsync<Permissions.Camera>();
+           enhancer?.Open();
+           router?.StartCapturing(EnumPresetTemplate.PT_DETECT_DOCUMENT_BOUNDARIES, this);
+       }
+   
+       protected override void OnDisappearing()
+       {
+           base.OnDisappearing();
+           enhancer?.Close();
+           router?.StopCapturing();
+       }
+   
+       public void OnProcessedDocumentResultReceived(ProcessedDocumentResult result)
+       {
+           if (isClicked)
+           {
+               isClicked = false;
+               if (result?.DetectedQuadResultItems?.Length > 0)
+               {
+                   var data = router.GetIntermediateResultManager().GetOriginalImage(result.OriginalImageHashId);
+                   if (data != null)
+                   {
+                       MainThread.BeginInvokeOnMainThread(async () =>
+                       {
+                           await Navigation.PushAsync(new EditorPage(data, result.DetectedQuadResultItems));
+                       });
+                   }
+               }
+           }
+       }
+   
+       void OnCaptureBtnClicked(System.Object sender, System.EventArgs e)
+       {
+           isClicked = true;
+       }
+   
+   	public void OnLicenseVerified(bool isSuccess, string message)
+       {
+           if (!isSuccess)
+           {
+   			Console.WriteLine("License initialization failed: " + message);
+           }
+       }
+   
+       public void OnFailure(int errorCode, string errorMessage)
+       {
+           MainThread.BeginInvokeOnMainThread(() =>
+           {
+               DisplayAlert("Error", errorMessage, "OK");
+           });
+       }
+   }
+   ```
 
-### Initialize the Capture Vision SDK
+### Add a EditorPage for Detected Boundary Editing
 
-In the **MainPage.xaml.cs**, add the following code to initialize the Capture Vision SDK:
+1. Create a new ContentPage(XAML) and name it EditorPage.
 
-```c#
-......
-using Dynamsoft.CaptureVisionRouter.Maui;
-using Dynamsoft.CameraEnhancer.Maui;
-using Dynamsoft.Core.Maui;
-using Dynamsoft.Utility.Maui;
+2. Add the following code to the **EditorPage.xaml**:
 
-public partial class MainPage : ContentPage, ILicenseVerificationListener, ICapturedResultReceiver
-{
-    CameraEnhancer enhancer;
-    CaptureVisionRouter router;
+   ```xml
+   <?xml version="1.0" encoding="utf-8" ?>
+   <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:dynamsoft="clr-namespace:Dynamsoft.CameraEnhancer.Maui;assembly=Dynamsoft.CaptureVisionBundle.Maui"
+                x:Class="ScanDocument.EditorPage"
+                Title="EditorPage">
+   <Grid>
+       <dynamsoft:ImageEditorView x:Name="editorView"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Fill" />
+   
+       <Button x:Name="NormalizeBtn"
+               Text="Normalize"
+               Clicked="OnNormalizeBtnClicked"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               Margin="0,0,0,20"/>
+   </Grid>
+   
+   </ContentPage>
+   ```
 
-    public MainPage()
-    {
-        ......
+3. Add the following code to the **EditorPage.xaml.cs**:
 
-        // Create an instance of CameraEnhancer
-        enhancer = new CameraEnhancer();
-        // Create an instance of CaptureVisionRouter
-        router = new CaptureVisionRouter();
-        // Bind the router with the created CameraEnhancer
-        router.SetInput(enhancer);
-        // Add the result receiver to receive the document normalized image
-        router.AddResultReceiver(this);
-        // Add the result filter to verify the result across multiple frames
-        var filter = new MultiFrameResultCrossFilter();
-        filter.EnableResultCrossVerification(EnumCapturedResultItemType.CRIT_NORMALIZED_IMAGE, true);
-        router.AddResultFilter(filter);
-    }
-}
-```
+   ```csharp
+   using Dynamsoft.Core.Maui;
+   using Dynamsoft.DocumentNormalizer.Maui;
+   using Dynamsoft.CameraEnhancer.Maui;
+   
+   namespace ScanDocument;
+   
+   public partial class EditorPage : ContentPage
+   {
+       ImageData data;
+       DetectedQuadResultItem[] items;
+   
+       public EditorPage(ImageData data, DetectedQuadResultItem[] items)
+   	{
+   		InitializeComponent();
+           this.data = data;
+           this.items = items;
+   	}
+   
+       protected override void OnHandlerChanged()
+       {
+           SetUp();
+       }
+   
+       void SetUp()
+       {
+           editorView.OriginalImage = data;
+           var layer = editorView.GetDrawingLayer(EnumDrawingLayerId.DLI_DDN);
+           IList<DrawingItem> drawingItems = new List<DrawingItem>();
+           foreach (DetectedQuadResultItem item in this.items)
+           {
+               drawingItems.Add(new QuadDrawingItem(item.Location));
+           }
+           layer.DrawingItems = drawingItems;
+       }
+   
+       void OnNormalizeBtnClicked(System.Object sender, System.EventArgs e)
+       {
+           var item = editorView.GetSelectedDrawingItem();
+           if (item == null)
+           {
+               item = editorView.GetDrawingLayer(EnumDrawingLayerId.DLI_DDN).DrawingItems[0];
+           }
+           if (item?.MediaType == EnumDrawingItemMediaType.DIMT_QUADRILATERAL)
+           {
+               MainThread.BeginInvokeOnMainThread(async () =>
+               {
+                   await Navigation.PushAsync(new ImagePage(data, ((QuadDrawingItem)item).Quad));
+               });
+           }
+       }
+   }
+   ```
 
-### Add the CameraView control in the Main Page
+### Add a ImagePage for Displaying the Processed Document
 
-In the **MainPage.xaml**, add a [`CameraView`]({{ site.dce_maui_api }}camera-view.html) control:
+1. Create a new ContentPage(XAML) and name it ImagePage.
 
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:Dynamsoft.CameraEnhancer.Maui;assembly=Dynamsoft.CaptureVisionRouter.Maui"
-             x:Class="SimpleDocumentScanner.MainPage"
-             Title="MainPage">
-    <AbsoluteLayout>
-        <controls:CameraView x:Name="cameraView"
-                             AbsoluteLayout.LayoutBounds="0,0,1,1"
-                             AbsoluteLayout.LayoutFlags="All"/>
-    </AbsoluteLayout>
-</ContentPage>
-```
+2. Add the following code to the **ImagePage.xaml**:
 
-### Open the Camera and Start Document Detection and Normalization
+   ```xml
+   <?xml version="1.0" encoding="utf-8" ?>
+   <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="ScanDocument.ImagePage"
+                Title="ImagePage">
+       <Grid RowDefinitions="Auto, *, Auto" ColumnDefinitions="*,*,*">
+           <Button Text="gray" Grid.Row="0" Grid.Column="0" Margin="10,20" Clicked="OnButtonClicked"/>
+           <Button Text="color" Grid.Row="0" Grid.Column="1" Margin="10,20" Clicked="OnButtonClicked"/>
+           <Button Text="binary" Grid.Row="0" Grid.Column="2" Margin="10,20" Clicked="OnButtonClicked"/>
+   
+           <Image x:Name="image" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,0,20,20"/>
+   
+       </Grid>
+   </ContentPage>
+   ```
 
-In this section, we are going to add code to start document detection and normalization in the **MainPage.xaml.cs**.
+3. Add the following code to the **ImagePage.xaml.cs**:
 
-```c#
-......
+   ```csharp
+   using Dynamsoft.Core.Maui;
+   using Dynamsoft.CameraEnhancer.Maui;
+   using Dynamsoft.CaptureVisionRouter.Maui;
+   using Dynamsoft.DocumentNormalizer.Maui;
+   
+   namespace ScanDocument;
+   
+   public partial class ImagePage : ContentPage
+   {
+   	ImageData data;
+       Quadrilateral quadrilateral;
+   	CaptureVisionRouter cvr;
+   
+   	public ImagePage(ImageData data, Quadrilateral quadrilateral)
+   	{
+   		InitializeComponent();
+   		this.data = data;
+           this.quadrilateral = quadrilateral;
+   		this.cvr = new CaptureVisionRouter();
+   	}
+   
+       protected override void OnHandlerChanged()
+       {
+           base.OnHandlerChanged();
+   		normalize(EnumImageColourMode.ICM_Colour);
+       }
+   
+       private void OnButtonClicked(object sender, EventArgs e)
+       {
+           Button button = sender as Button;
+           if (button != null)
+           {
+               if (button.Text == "gray")
+               {
+                   normalize(EnumImageColourMode.ICM_GRAYSCALE);
+               }
+               else if (button.Text == "color")
+               {
+                   normalize(EnumImageColourMode.ICM_Colour);
+               }
+               else if (button.Text == "binary")
+               {
+                   normalize(EnumImageColourMode.ICM_BINARY);
+               }
+           }
+       }
+   
+       private void normalize(EnumImageColourMode type)
+   	{
+   		var name = EnumPresetTemplate.PT_NORMALIZE_DOCUMENT;
+   		var settings = cvr.GetSimplifiedSettings(name);
+   		settings.DocumentSettings.ColourMode = type;
+           settings.Roi = quadrilateral;
+           settings.RoiMeasuredInPercentage = false;
+   		cvr.UpdateSettings(name, settings);
+   		var result = cvr.Capture(data, name);
+   		if (result?.Items?.Length > 0)
+   		{
+   			foreach (var item in result.Items)
+   			{
+   				if (item.Type == EnumCapturedResultItemType.EnhancedImage) 
+   				{
+   					EnhancedImageResultItem enhancedImage = (EnhancedImageResultItem)item;
+   					image.Source = enhancedImage.ImageData?.ToImageSource();
+                       return;
+   				}
+   			}
+           }
+   	}
+   }
+   ```
 
-public partial class MainPage : ContentPage, ILicenseVerificationListener, ICapturedResultReceiver, ICompletionListener
-{
-    ......
-   protected override void OnHandlerChanged()
-    {
-        base.OnHandlerChanged();
-
-        if (this.Handler != null)
-        {
-            enhancer.SetCameraView(cameraView);
-        }
-    }
-
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-        // Request camera permission
-        await Permissions.RequestAsync<Permissions.Camera>();
-        // Open camera
-        enhancer?.Open();
-        // Start document detection and normalization
-        router?.StartCapturing(EnumPresetTemplate.PT_DETECT_AND_NORMALIZE_DOCUMENT, this);
-    }
-
-    protected override void OnDisappearing()
-    {
-        base.OnDisappearing();
-        // Close camera
-        enhancer?.Close();
-        // Stop document detection and normalization
-        router?.StopCapturing();
-    }
-
-    // It is called when StartCapturing is successful
-    public void OnSuccess()
-    {
-        Debug.WriteLine("Success");
-    }
-
-    // It is called when StartCapturing is failed
-    public void OnFailure(int errorCode, string errorMessage)
-    {
-        Debug.WriteLine(errorMessage);
-    }
-}
-```
+### Configure the Camera Permission
 
 Open the **Info.plist** file under the **Platforms/iOS/** folder (Open with XML Text Editor). Add the following lines to request camera permission on iOS platform:
 
@@ -303,80 +473,11 @@ Open the **Info.plist** file under the **Platforms/iOS/** folder (Open with XML 
 <string>The sample needs to access your camera.</string>
 ```
 
-### Obtaining Normalized Document Image
-
-In **MainPage.xaml.cs**, implement [`ICapturedResultReceiver`]({{ site.dcv_maui_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html) to receive normalized images result in  [`OnNormalizedImagesReceived`]({{ site.dcv_maui_api }}capture-vision-router/auxiliary-classes/captured-result-receiver.html#onnormalizedimagesreceived) callback function.
-
-```c#
-......
-using Dynamsoft.DocumentNormalizer.Maui;
-
-public partial class MainPage : ContentPage, ILicenseVerificationListener, ICapturedResultReceiver, ICompletionListener
-{
-    ......
-    public void OnNormalizedImagesReceived(NormalizedImagesResult result)
-    {
-        if (result?.Items?.Count > 0)
-        {
-            router?.StopCapturing();
-            enhancer?.ClearBuffer();
-            var data = result.Items[0].ImageData;
-            MainThread.BeginInvokeOnMainThread(async () =>
-            {
-                await Navigation.PushAsync(new ImagePage(data));
-            });
-        }
-    }
-}
-```
-
-### Add the Image control in the Image Page
-
-In the **ImagePage.xaml**, add a `Image` control and three buttons:
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SimpleDocumentScanner.ImagePage"
-             Title="ImagePage">
-    <StackLayout Padding="10">
-        <Image   
-            x:Name="image"
-            Aspect="AspectFit"/>
-    </StackLayout>
-</ContentPage>
-```
-
-### Display the Normalized Document Image
-
-```c#
-namespace SimpleDocumentScanner;
-using Dynamsoft.Core.Maui;
-
-public partial class ImagePage : ContentPage
-{
-    ImageData data;
-    
-    public ImagePage(ImageData data)
-    {
-        InitializeComponent();
-        this.data = data;
-    }
-
-    protected override void OnHandlerChanged()
-    {
-        base.OnHandlerChanged();
-        image.Source = data.ToImageSource();
-    }
-}
-```
-
 ### Run the Project
 
 Select your device and run the project.
 
-You can get the similar source code of the SimpleDocumentScanner app from the following link:
+You can get the similar source code of the ScanDocument app from the following link:
 
 - [C#](https://github.com/Dynamsoft/capture-vision-maui-samples/tree/main/DocumentScanner/AutoNormalize){:target="_blank"}.
 
