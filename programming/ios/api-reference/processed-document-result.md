@@ -1,23 +1,32 @@
 ---
 layout: default-layout
-title: NormalizedImagesResult - Dynamsoft Document Normalizer iOS SDK API Reference
-description: The class NormalizedImagesResult represents a collection of captured result items whose type are normalized images.
+title: ProcessedDocumentResult - Dynamsoft Document Normalizer iOS SDK API Reference
+description: The class ProcessedDocumentResult represents a collection of captured result items whose type are normalized images.
 keywords: normalized images, objective-c, objc, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
 noTitleIndex: true
 ---
 
-# NormalizedImagesResult
+# ProcessedDocumentResult
 
-The `NormalizedImagesResult` class represents a collection of [`NormalizedImageResultItem`](normalized-image-result-item.md), the basic unit of a normalized image result.
+The class `ProcessedDocumentResult` represents a collection of captured result items whose types are detected boundaries, deskew images or enhanced images.
 
 ## Definition
 
 *Assembly:* DynamsoftCaptureVisionBundle.xcframework
 
-```java
-class NormalizedImagesResult
+<div class="sample-code-prefix"></div>
+>- Objective-C
+>- Swift
+>
+>1. 
+```objc
+@interface DSProcessedDocumentResult : DSCapturedResultBase
+```
+2. 
+```swift
+class ProcessedDocumentResult : CapturedResultBase
 ```
 
 ## Attributes
