@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: ProcessedDocumentResult - Dynamsoft Document Normalizer iOS SDK API Reference
-description: The class ProcessedDocumentResult represents a collection of captured result items whose type are normalized images.
+description: The class ProcessedDocumentResult represents a collection of captured result items whose type are detected boundaries, deskew images or enhanced images.
 keywords: normalized images, objective-c, objc, swift
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
