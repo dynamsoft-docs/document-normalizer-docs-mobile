@@ -34,7 +34,7 @@ class ProcessedDocumentResult : CapturedResultBase
 | Attributes | Type | Description |
 | ---------- | ---- | ----------- |
 | [`deskewedImageResultItems`](#deskewedimageresultitems) | *NSArray<DSDeskewedImageResultItem \*>* | The deskew images represented by an array of [`DeskewedImageResultItem`](deskewed-image-result-item.md). |
-| [`detectedQuadResultItems`](#detectedquadresultitems) | *NSArray<DSDetectedImageResultItem \*>* | The detected boundaries represented by an array of [`DetectedImageResultItem`](detected-image-result-item.md). |
+| [`detectedQuadResultItems`](#detectedquadresultitems) | *NSArray<DSDetectedQuadResultItem \*>* | The detected boundaries represented by an array of [`DetectedQuadResultItem`](detected-quad-result-item.md). |
 | [`enhancedImageResultItems`](#enhancedimageresultitems) | *NSArray<DSEnhancedImageResultItem \*>* | The enhanced images represented by an array of [`EnhancedImageResultItem`](enhanced-image-result-item.md). |
 
 The following attributes are inherited from [`DSCapturedResultBase`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-base.html):
@@ -70,7 +70,7 @@ The array of the deskewed image result items.
 
 ### detectedQuadResultItems
 
-The detected boundaries represented by an array of [`DSDetectedImageResultItem`](detected-image-result-item.md).
+The detected boundaries represented by an array of [`DSDetectedQuadResultItem`](detected-quad-result-item.md).
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
