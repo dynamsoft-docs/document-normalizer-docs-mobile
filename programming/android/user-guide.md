@@ -34,7 +34,10 @@ In this guide, you will learn step by step on how to build a document scanner ap
 
 - Supported OS: Android 5.0 (API Level 21) or higher.
 - Supported ABI: **armeabi-v7a**, **arm64-v8a**, **x86** and **x86_64**.
-- Development Environment: Android Studio 2022.2.1 or higher.
+- Development Environment:
+   - IDE: **Android Studio 2024.3.2** suggested.
+   - JDK: **Java 17** or higher.
+   - Gradle: **8.0** or higher.
 
 ## Add the SDK
 
@@ -82,13 +85,13 @@ In this guide, you will learn step by step on how to build a document scanner ap
    >1. 
    ```groovy
    dependencies {
-      implementation 'com.dynamsoft:capturevisionbundle:3.0.3000'
+      implementation 'com.dynamsoft:capturevisionbundle:3.0.5000'
    }
    ```
    2. 
    ```kotlin
    dependencies {
-      implementation("com.dynamsoft:capturevisionbundle:3.0.3000")
+      implementation("com.dynamsoft:capturevisionbundle:3.0.5000")
    }
    ```
 
