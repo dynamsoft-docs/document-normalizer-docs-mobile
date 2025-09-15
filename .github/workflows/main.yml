@@ -32,3 +32,12 @@ jobs:
       doc-url: document-normalizer/docs/mobile
     secrets: inherit
 
+  Build-v2:
+    if: ${{ github.ref == 'refs/heads/v2' }}
+    uses: dynamsoft-docs/Docs-Template-Repo/.github/workflows/called-workflow-build-sync-testing.yml@DCV-v2
+    with:
+      doc-repo: document-normalizer-docs-mobile
+      doc-url: document-normalizer/docs/v2/mobile
+      doc-branch: v2
+    secrets: inherit
+
