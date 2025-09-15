@@ -14,7 +14,7 @@ The `DSNormalizedImageResultItem` class  is an extension of [`DSCapturedResultIt
 
 ## Definition
 
-*Assembly:* DynamsoftCaptureVisionBundle.xcframework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -35,7 +35,6 @@ class NormalizedImageResultItem : CapturedResultItem
 | ---------- | ---- | ----------- |
 | [`imageData`](#imagedata) | *DSImageData \** | A `DSImageData` object as the image data of a normalized image. |
 | [`location`](#location) | *DSQuadrilateral \** | The quadrilateral from which you get the normalized image result item. |
-| [`crossVerificationStatus`](#crossverificationstatus) | *DSCrossVerificationStatus* | The cross verification status of the result item. |
 
 The following attributes are inherited from [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html).
 
@@ -79,24 +78,3 @@ The [DSQuadrilateral]({{ site.dcv_ios_api }}core/basic-structures/quadrilateral.
 ```swift
 var location: Quadrilateral? { get }
 ```
-
-### crossVerificationStatus
-
-The cross verification status of the result. The cross verification status determines whether the result item is approved by the multi-frame cross verification mechanism. If approved, the cross verification status is `passed`. Otherwise, it is `failed`.
-
-<div class="sample-code-prefix"></div>
->- Objective-C
->- Swift
->
->1. 
-```objc
-@property (nonatomic, readonly) DSCrossVerificationStatus crossVerificationStatus;
-```
-2. 
-```swift
-var crossVerificationStatus: CrossVerificationStatus { get }
-```
-
-Related API:
-
-- [`DSCrossVerificationStatus`]({{ site.dcv_enumerations }}core/cross-verification-status.html)

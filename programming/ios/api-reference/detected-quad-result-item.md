@@ -14,7 +14,7 @@ The `DetectedQuadResultItem` class is an extension of the [`DSCapturedResultItem
 
 ## Definition
 
-*Assembly:* DynamsoftCaptureVisionBundle.xcframework
+*Assembly:* DynamsoftDocumentNormalizer.xcframework
 
 <div class="sample-code-prefix"></div>
 >- Objective-C
@@ -36,7 +36,6 @@ class DetectedQuadResultItem: CapturedResultItem
 | ---------- | ---- | ----------- |
 | [`location`](#location) | *DSQuadrilateral* | A DSQuadrilateral object as the location of current object. |
 | [`confidenceAsDocumentBoundary`](#confidenceasdocumentboundary) | *NSInteger* | TThe confidence score of the detected quadrilateral's boundary, measuring the certainty that the detected quadrilateral represents the boundary of a document. |
-| [`crossVerificationStatus`](#crossverificationstatus) | *DSCrossVerificationStatus* | The cross verification status of the result item. |
 
 The following attributes are inherited from [`DSCapturedResultItem`]({{ site.dcv_ios_api }}core/basic-structures/captured-result-item.html).
 
@@ -80,24 +79,3 @@ The confidence score of the detected quadrilateral's boundary, measuring the cer
 ```swift
 var confidenceAsDocumentBoundary: Int { get }
 ```
-
-### crossVerificationStatus
-
-The cross verification status of the result. The cross verification status determines whether the result item is approved by the multi-frame cross verification mechanism. If approved, the cross verification status is `CVS_PASSED`. Otherwise, it is `CVS_FAILED`.
-
-<div class="sample-code-prefix"></div>
->- Objective-C
->- Swift
->
->1. 
-```objc
-@property (nonatomic, readonly) DSCrossVerificationStatus crossVerificationStatus;
-```
-2. 
-```swift
-var crossVerificationStatus: CrossVerificationStatus { get }
-```
-
-Related API:
-
-- [`DSCrossVerificationStatus`]({{ site.dcv_enumerations }}core/cross-verification-status.html)

@@ -16,7 +16,7 @@ The `SimplifiedDocumentNormalizerSettings` class represents a series of simple s
 
 *Namespace:* com.dynamsoft.ddn
 
-*Assembly:* DynamsoftCaptureVisionBundle.aar
+*Assembly:* DynamsoftDocumentNormalizer.aar
 
 ```java
 class SimplifiedDocumentNormalizerSettings
@@ -26,16 +26,14 @@ class SimplifiedDocumentNormalizerSettings
 
 | Attributes | Type | Description |
 | ---------- | ---- | ----------- |
-| [`grayscaleTransformationModes`](#grayscaletransformationmodes) | *int[]* | An array of GrayscaleTransformationMode. It controls whether to detect the inverted document boundary. |
-| [`grayscaleEnhancementModes`](#grayscaleenhancementmodes) | *int[]* | An array of GrayscaleEnhancementModes. |
-| [`colourMode`](#colourmode) | *int* | The grayscale transformation mode. It controls whether to decode the inverted text. |
+| [`grayscaleTransformationModes`](#grayscaletransformationmodes) | *EnumGrayscaleTransformationMode[]* | An array of GrayscaleTransformationMode. It controls whether to detect the inverted document boundary. |
+| [`grayscaleEnhancementModes`](#grayscaleenhancementmodes) | *EnumGrayscaleEnhancementModes[]* | An array of GrayscaleEnhancementModes. |
+| [`colourMode`](#colourmode) | *EnumImageColourMode* | The grayscale transformation mode. It controls whether to decode the inverted text. |
 | [`pageSize`](#pagesize) | *int[]* | The page size. |
 | [`brightness`](#brightness) | *int* | The brightness. |
 | [`contrast`](#contrast) | *int* | The contrast. |
 | [`maxThreadsInOneTask`](#maxthreadsinonetask) | *int* | The maximum number of threads in one task. |
 | [`scaleDownThreshold`](#scaledownthreshold) | *int* | The scale down threshold. |
-| [`minQuadrilateralAreaRatio`](#minquadrilateralarearatio) | *int* | The minimum ratio between the target document area and the total image area. Only those exceeding this value will be output (measured in percentages). |
-| [`expectedDocumentsCount`](#expecteddocumentscount) | *int* | The number of documents expected to be detected. |
 
 | Methods | Description |
 | [`toJson`](#tojson) | Generate a JSON string from this `SimplifiedDocumentNormalizerSettings` object. |
@@ -46,8 +44,7 @@ class SimplifiedDocumentNormalizerSettings
 Defines the grayscale transformation modes with an array of [`EnumGrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=android) items. This parameter is important when working with inverted documents, and must be used in order to locate the inverted document boundary.
 
 ```java
-@EnumGrayscaleTransformationMode
-int[] grayscaleTransformationModes;
+EnumGrayscaleTransformationMode[] grayscaleTransformationModes;
 ```
 
 ### grayscaleEnhancementModes
@@ -55,8 +52,7 @@ int[] grayscaleTransformationModes;
 Defines the grayscale enhancement modes with an array of [`EnumGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-modes.html?lang=android) items. This parameter can be quite powerful in increasing the border detection rate of your application should you experience any trouble in that area. To learn more about the `grayscaleEnhancementModes` and how they can be used, please visit the main [GrayscaleEnhancementModes]({{ site.dcv_parameters }}reference/image-parameter/grayscale-enhancement-modes.html) parameter page.
 
 ```java
-@EnumGrayscaleEnhancementMode
-int[] grayscaleEnhancementModes;
+EnumGrayscaleEnhancementMode[] grayscaleEnhancementModes;
 ```
 
 ### colourMode
@@ -64,8 +60,7 @@ int[] grayscaleEnhancementModes;
 Defines the colour mode of the normalized image with an [`EnumImageColourMode`]({{ site.dcv_enumerations }}document-normalizer/image-colour-mode.html?lang=android) member. By default, the normalized image will output in colour. In order to make the result image grayscale or binary, setting the `colourMode` to the corresponding pixel type will do the trick.
 
 ```java
-@EnumImageColourMode
-int colourMode;
+EnumImageColourMode colourMode;
 ```
 
 ### pageSize
@@ -81,7 +76,6 @@ int[] pageSize;
 Defines the brightness of the normalized image result with an integer.
 
 ```java
-@IntRange(from = -100, to = 100)
 int brightness;
 ```
 
@@ -90,7 +84,6 @@ int brightness;
 Defines the contrast of the normalized image result with an integer.
 
 ```java
-@IntRange(from = 512)
 int contrast;
 ```
 
@@ -108,25 +101,6 @@ If the original image size is quite large, then the `scaledownThreshold` can be 
 
 ```java
 int scaleDownThreshold;
-```
-
-### minQuadrilateralAreaRatio
-
-The minimum ratio between the target document area and the total image area. Only those exceeding this value will be output (measured in percentages).
-
-```java
-@IntRange(from = 0, to = 100)
-// If expectedDocumentsCount is 1 && documentType is Document, the range is from 20 to 100.
-int minQuadrilateralAreaRatio;
-```
-
-### expectedDocumentsCount
-
-The number of documents expected to be detected.
-
-```java
-@IntRange(from = 0)
-int expectedDocumentsCount;
 ```
 
 ### toJson

@@ -41,8 +41,6 @@ class SimplifiedDocumentNormalizerSettings: NSObject
 | [`contrast`](#contrast) | *NSInteger \* | The contrast. |
 | [`maxThreadsInOneTask`](#maxthreadsinonetask) | *NSInteger \* | The maximum number of threads in one task. |
 | [`scaleDownThreshold`](#scaledownthreshold) | *NSInteger \* | The scale down threshold. |
-| [`minQuadrilateralAreaRatio`](#minquadrilateralarearatio) | *int* | The minimum ratio between the target document area and the total image area. Only those exceeding this value will be output (measured in percentages). |
-| [`expectedDocumentsCount`](#expecteddocumentscount) | *int* | The number of documents expected to be detected. |
 
 ### grayscaleTransformationModes
 
@@ -178,38 +176,4 @@ If the original image size is quite large, then the `scaledownThreshold` can be 
 2. 
 ```swift
 var scaleDownThreshold: Int { get set }
-```
-
-### minQuadrilateralAreaRatio
-
-The minimum ratio between the target document area and the total image area. Only those exceeding this value will be output (measured in percentages).
-
-<div class="sample-code-prefix"></div>
->- Objective-C
->- Swift
->
->1. 
-```objc
-@property (nonatomic, assign) NSInteger MinQuadrilateralAreaRatio;
-```
-2. 
-```swift
-var minQuadrilateralAreaRatio: Int { get set }
-```
-
-### expectedDocumentsCount
-
-The number of documents expected to be detected.
-
-<div class="sample-code-prefix"></div>
->- Objective-C
->- Swift
->
->1. 
-```objc
-@property (nonatomic, assign) NSInteger expectedDocumentsCount;
-```
-2. 
-```swift
-var expectedDocumentsCount: Int { get set }
 ```

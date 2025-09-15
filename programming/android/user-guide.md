@@ -34,68 +34,31 @@ In this guide, you will learn step by step on how to build a document scanner ap
 
 - Supported OS: Android 5.0 (API Level 21) or higher.
 - Supported ABI: **armeabi-v7a**, **arm64-v8a**, **x86** and **x86_64**.
-- Development Environment:
-   - IDE: **Android Studio 2024.3.2** suggested.
-   - JDK: **Java 17** or higher.
-   - Gradle: **8.0** or higher.
+- Development Environment: Android Studio 2022.2.1 or higher.
 
 ## Add the SDK
 
-1. Open the file `[App Project Root Path]\settings.gradle` and add the Maven repository:
+1. Open the file `[App Project Root Path]\app\build.gradle` and add the Maven repository:
 
-   <div class="sample-code-prefix"></div>
-   >- groovy
-   >- kts
-   >
-   >1. 
-   ```groovy
-   dependencyResolutionManagement {
-      repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-      repositories {
-             google()
-             mavenCentral()
-             maven {
+    ```groovy
+    allprojects {
+        repositories {
+            maven {
                 url "https://download2.dynamsoft.com/maven/aar"
-             }
-      }
-   }
-   ```
-   2. 
-   ```kotlin
-   dependencyResolutionManagement {
-      repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-      repositories {
-             google()
-             mavenCentral()
-             maven {
-                url = uri("https://download2.dynamsoft.com/maven/aar")
-             }
-      }
-   }
-   ```
+            }
+        }
+    }
+    ```
 
-   > Note: If you are using gradle 6.x or older version, the maven dependencies should be configured in  `[App Project Root Path]\app\build.gradle`
+2. Add the references in the dependencies:
 
-2. Open the file `[App Project Root Path]\app\build.gradle` and add the dependencies:
+    ```groovy
+    dependencies {
+        implementation 'com.dynamsoft:dynamsoftcapturevisionbundle:2.6.1003'
+    }
+    ```
 
-   <div class="sample-code-prefix"></div>
-   >- groovy
-   >- kts
-   >
-   >1. 
-   ```groovy
-   dependencies {
-      implementation 'com.dynamsoft:capturevisionbundle:3.0.5000'
-   }
-   ```
-   2. 
-   ```kotlin
-   dependencies {
-      implementation("com.dynamsoft:capturevisionbundle:3.0.5000")
-   }
-   ```
-
-3. Click **Sync Now**. After the synchronization is complete, the SDK is added to the project.
+    > Read more about the modules of [dynamsoftcapturevisionbundle]({{site.dcv_android_api}}index.html)
 
 ## Build Your First Application
 
@@ -103,7 +66,7 @@ In this section, let's see how to create a HelloWorld app for detecting and norm
 
 >Note:
 >
-> - Android Studio 2024.1.2 is used here in this guide.
+> - Android Studio 2022.2.1 is used here in this guide.
 > - You can get the similar source code of the HelloWorld app from the following link
 >   - [DocumentScanner Android Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/Android/DocumentScanner){:target="_blank"}.
 
