@@ -85,13 +85,13 @@ In this guide, you will learn step by step on how to build a document scanner ap
    >1. 
    ```groovy
    dependencies {
-      implementation 'com.dynamsoft:capturevisionbundle:3.0.5000'
+      implementation 'com.dynamsoft:capturevisionbundle:3.2.1000'
    }
    ```
    2. 
    ```kotlin
    dependencies {
-      implementation("com.dynamsoft:capturevisionbundle:3.0.5000")
+      implementation("com.dynamsoft:capturevisionbundle:3.2.1000")
    }
    ```
 
