@@ -318,12 +318,7 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
       @Override
       public void onPause() {
          super.onPause();
-         try {
-               mCamera.close();
-         } catch (CameraEnhancerException e) {
-               e.printStackTrace();
-         }
-
+         mCamera.close();
          mRouter.stopCapturing();
       }
    }
