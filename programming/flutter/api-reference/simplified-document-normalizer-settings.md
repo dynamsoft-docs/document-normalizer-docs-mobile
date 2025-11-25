@@ -37,7 +37,7 @@ class SimplifiedDocumentNormalizerSettings
 
 ### grayscaleTransformationModes
 
-Defines the grayscale transformation modes with an array of [`EnumGrayscaleTransformationMode`]({{ site.dcv_enumerations }}core/grayscale-transformation-mode.html?lang=flutter) items. This parameter is important when working with inverted documents, and must be used in order to locate the inverted document boundary.
+Defines the grayscale transformation modes with an array of [`EnumGrayscaleTransformationMode`]({{ site.dcv_flutter_api }}core/enum/grayscale-transformation-mode.html) items. This parameter is important when working with inverted documents, and must be used in order to locate the inverted document boundary.
 
 ```dart
 List<EnumGrayscaleTransformationMode> grayscaleTransformationModes;
@@ -45,7 +45,7 @@ List<EnumGrayscaleTransformationMode> grayscaleTransformationModes;
 
 ### grayscaleEnhancementModes
 
-Defines the grayscale enhancement modes with an array of [`EnumGrayscaleEnhancementModes`]({{ site.dcv_enumerations }}core/grayscale-enhancement-modes.html?lang=flutter) items. This parameter can be quite powerful in increasing the border detection rate of your application should you experience any trouble in that area. To learn more about the `grayscaleEnhancementModes` and how they can be used, please visit the main [GrayscaleEnhancementModes]({{ site.dcv_parameters }}reference/image-parameter/grayscale-enhancement-modes.html) parameter page.
+Defines the grayscale enhancement modes with an array of [`EnumGrayscaleEnhancementModes`]({{ site.dcv_flutter_api }}core/enum/grayscale-enhancement-modes.html) items. This parameter can be quite powerful in increasing the border detection rate of your application should you experience any trouble in that area. To learn more about the `grayscaleEnhancementModes` and how they can be used, please visit the main [GrayscaleEnhancementModes]({{ site.dcv_parameters }}reference/image-parameter/grayscale-enhancement-modes.html) parameter page.
 
 ```dart
 List<EnumGrayscaleEnhancementMode> grayscaleEnhancementModes;
@@ -53,7 +53,7 @@ List<EnumGrayscaleEnhancementMode> grayscaleEnhancementModes;
 
 ### colourMode
 
-Defines the colour mode of the normalized image with an [`EnumImageColourMode`]({{ site.dcv_enumerations }}document-normalizer/image-colour-mode.html?lang=flutter) member. By default, the normalized image will output in colour. In order to make the result image grayscale or binary, setting the `colourMode` to the corresponding pixel type will do the trick.
+Defines the colour mode of the normalized image with an [`EnumImageColourMode`]({{ site.dcv_flutter_api }}core/enum/image-colour-mode.html) member. By default, the normalized image will output in colour. In order to make the result image grayscale or binary, setting the `colourMode` to the corresponding pixel type will do the trick.
 
 ```dart
 EnumImageColourMode colourMode;
