@@ -33,7 +33,7 @@ The following methods are inherited from [`CapturedResultItem`]({{ site.dcv_flut
 | -------- | ---- | ----------- |
 | [`targetROIDefName`]({{ site.dcv_flutter_api }}core/captured-result-item.html#targetroidefname) | *String* | The name of the target region of interest (ROI) where the captured result was found. |
 | [`taskName`]({{ site.dcv_flutter_api }}core/captured-result-item.html#taskname) | *String* | The name of the recognition task that produced the CapturedResultItem. |
-| [`type`]({{ site.dcv_flutter_api }}core/captured-result-item.html#type) | [*EnumCapturedResultItemType*]({{ site.dcv_flutter_api }}core/enum/captured-result-item-type.md) | The type of the captured result item. |
+| [`type`]({{ site.dcv_flutter_api }}core/captured-result-item.html#type) | [*EnumCapturedResultItemType*]({{ site.dcv_flutter_api }}core/enum/captured-result-item-type.html) | The type of the captured result item. |
 
 ### imageData
 
