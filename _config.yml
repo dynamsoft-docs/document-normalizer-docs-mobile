@@ -22,6 +22,9 @@ dcv_maui_api: /capture-vision/docs/mobile/programming/maui/api-reference/
 dcv_flutter: /capture-vision/docs/mobile/programming/flutter/
 dcv_flutter_api: /capture-vision/docs/mobile/programming/flutter/api-reference/
 
+dcv_react_native: /capture-vision/docs/mobile/programming/react-native/
+dcv_react_native_api: /capture-vision/docs/mobile/programming/react-native/api-reference/
+
 dcv_introduction: /capture-vision/docs/core/introduction/
 
 dce_android_api: /camera-enhancer/docs/mobile/programming/android/
