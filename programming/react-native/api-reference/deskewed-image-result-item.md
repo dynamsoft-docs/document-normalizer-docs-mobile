@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: DeskewedImageResultItem - Dynamsoft Capture Vision Flutter SDK API Reference
-description: Interface DeskewedImageResultItem represents a captured result item whose type is a deskewed image. It stores the deskewed image information.
+title: DeskewedImageResultItem - Dynamsoft Capture Vision React Native SDK API Reference
+description: Interface DeskewedImageResultItem of Dynamsoft Capture Vision React Native represents a captured result item whose type is a deskewed image. It stores the deskewed image information.
 keywords: deskewed image result item, js
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

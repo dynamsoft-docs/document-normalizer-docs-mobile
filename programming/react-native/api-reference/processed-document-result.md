@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: ProcessedDocumentResult - Dynamsoft Capture Vision Flutter SDK API Reference
-description: Interface ProcessedDocumentResult represents a collection of captured result items whose types are detected boundaries, deskew images or enhanced images.
+title: ProcessedDocumentResult - Dynamsoft Capture Vision React Native SDK API Reference
+description: Interface ProcessedDocumentResult of Dynamsoft Capture Vision React Native represents a collection of captured result items whose types are detected boundaries, deskew images or enhanced images.
 keywords: detected boundaries, deskew images, enhanced images, js
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

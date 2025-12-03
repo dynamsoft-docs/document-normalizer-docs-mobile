@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: DetectedQuadResultItem - Dynamsoft Capture Vision Flutter SDK API Reference
-description: Interface DetectedQuadResultItem represents a captured result item whose type is detected quads, which contains the location and confidence as a document boundary.
+title: DetectedQuadResultItem - Dynamsoft Capture Vision React Native SDK API Reference
+description: Interface DetectedQuadResultItem of Dynamsoft Capture Vision React Native represents a captured result item whose type is detected quads, which contains the location and confidence as a document boundary.
 keywords: detected quads, js
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

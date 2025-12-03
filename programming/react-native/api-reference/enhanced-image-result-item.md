@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: EnhancedImageResultItem - Dynamsoft Capture Vision Flutter SDK API Reference
-description: Interface EnhancedImageResultItem represents a captured result item whose type is a enhanced image. It stores the enhanced image information.
+title: EnhancedImageResultItem - Dynamsoft Capture Vision React Native SDK API Reference
+description: Interface EnhancedImageResultItem of Dynamsoft Capture Vision React Native represents a captured result item whose type is a enhanced image. It stores the enhanced image information.
 keywords: enhanced image result item, js
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

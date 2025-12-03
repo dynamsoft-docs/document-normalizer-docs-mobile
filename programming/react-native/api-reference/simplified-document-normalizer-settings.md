@@ -1,7 +1,7 @@
 ---
 layout: default-layout
-title: SimplifiedDocumentNormalizerSettings - Dynamsoft Capture Vision Flutter Edition API Reference
-description: Interface SimplifiedDocumentNormalizerSettings of Dynamsoft Capture Vision Flutter edition represents the simplified document normalizer settings.
+title: SimplifiedDocumentNormalizerSettings - Dynamsoft Capture Vision React Native Edition API Reference
+description: Interface SimplifiedDocumentNormalizerSettings of Dynamsoft Capture Vision React Native edition represents the simplified document normalizer settings.
 keywords: document normalizer settings, Flutter, js
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
