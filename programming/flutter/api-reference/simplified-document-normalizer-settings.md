@@ -24,8 +24,8 @@ class SimplifiedDocumentNormalizerSettings
 
 | Property | Types | Description |
 | -------- | ----- | ----------- |
-| [`grayscaleTransformationModes`](#grayscaletransformationmodes) | *List<EnumGrayscaleTransformationMode>* | An array of GrayscaleTransformationMode. It controls whether to detect the inverted document boundary. |
-| [`grayscaleEnhancementModes`](#grayscaleenhancementmodes) | *List<EnumGrayscaleEnhancementMode>* | An array of GrayscaleEnhancementModes. |
+| [`grayscaleTransformationModes`](#grayscaletransformationmodes) | *List\<EnumGrayscaleTransformationMode\>* | An array of GrayscaleTransformationMode. It controls whether to detect the inverted document boundary. |
+| [`grayscaleEnhancementModes`](#grayscaleenhancementmodes) | *List\<EnumGrayscaleEnhancementMode\>* | An array of GrayscaleEnhancementModes. |
 | [`colourMode`](#colourmode) | *EnumImageColourMode* | The grayscale transformation mode. It controls whether to decode the inverted text. |
 | [`pageSize`](#pagesize) | *Size* | The page size. |
 | [`brightness`](#brightness) | *int* | The brightness. |
