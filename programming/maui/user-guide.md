@@ -94,7 +94,7 @@ Now you will learn how to create a simple document scanner app using Dynamsoft C
 >Note:
 >
 > - You can get the similar source code of the simple document scanner app from the following link
->   - [C#](https://github.com/Dynamsoft/capture-vision-maui-samples/tree/main/DocumentScanner/AutoNormalize){:target="_blank"}.
+>   - [ScanDocument MAUI Sample](https://github.com/Dynamsoft/capture-vision-maui-samples/tree/main/ScanDocument){:target="_blank"}.
 
 ### Set up Development Environment
 
@@ -479,7 +479,7 @@ Select your device and run the project.
 
 You can get the similar source code of the ScanDocument app from the following link:
 
-- [C#](https://github.com/Dynamsoft/capture-vision-maui-samples/tree/main/DocumentScanner/AutoNormalize){:target="_blank"}.
+- [ScanDocument MAUI Sample](https://github.com/Dynamsoft/capture-vision-maui-samples/tree/main/ScanDocument){:target="_blank"}.
 
 > Note: If you are running Android only on Visual Studio Windows, please manually exclude iOS and Windows platforms. Otherwise, the Visual Studio will report type or namespace not found errors.
 

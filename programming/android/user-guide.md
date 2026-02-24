@@ -105,7 +105,7 @@ In this section, let's see how to create a HelloWorld app for detecting and norm
 >
 > - Android Studio 2024.1.2 is used here in this guide.
 > - You can get the similar source code of the HelloWorld app from the following link
->   - [DocumentScanner Android Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/Android/DocumentScanner){:target="_blank"}.
+>   - [ScanDocument Android Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/Android/ScanDocument){:target="_blank"}.
 
 ### Create a New Project
 
@@ -431,5 +431,4 @@ Add the SDK to your new project. Please read [Add the SDK](#add-the-sdk) section
 
 You can download the similar source code here:
 
-- [Java](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/android/DocumentScanner/AutoNormalize){:target="_blank"}.
-- [Kotlin](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/android/DocumentScanner/AutoNormalizeKt){:target="_blank"}.
+- [ScanDocument Android Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/Android/ScanDocument){:target="_blank"}.
