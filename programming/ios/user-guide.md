@@ -80,7 +80,7 @@ This guide will walk you through the process of creating a HelloWorld app for de
 >
 > - Xcode 14.0 is used in this guide.
 > - You can get the source code of the HelloWorld app from the following link
->   - [DocumentScanner iOS Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner){:target="_blank"}.
+>   - [ScanDocument iOS Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/ScanDocuments){:target="_blank"}.
 
 ### Create a New Project
 
@@ -575,5 +575,4 @@ If your iOS version is 12.x or lower, please add the following additional steps:
 > Note:
 >
 > - You can get the source code of the HelloWorld app from the following link
->   - [Objective-C](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/AutoNormalizeObjc){:target="_blank"}.
->   - [Swift](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/AutoNormalize){:target="_blank"}.
+>   - [ScanDocument iOS Sample](https://github.com/Dynamsoft/capture-vision-mobile-samples/tree/main/ios/DocumentScanner/ScanDocuments){:target="_blank"}.
