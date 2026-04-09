@@ -39,7 +39,7 @@ noTitleIndex: true
 
 ### .Net
 
-- .NET 8.0 and 9.0.
+- .NET 10.0.
 
 ### Android
 
@@ -50,7 +50,7 @@ noTitleIndex: true
 
 ### iOS
 
-- Supported OS: **iOS 11.0** or higher.
+- Supported OS: **iOS 13.0** or higher.
 - Supported ABI: **arm64** and **x86_64**.
 - Development Environment: Visual Studio 2022 for Mac and Xcode 14.3+ recommended.
 
@@ -71,7 +71,7 @@ You need to add the library via the project file and complete additional steps f
         ...
         <ItemGroup>
             ...
-            <PackageReference Include="Dynamsoft.CaptureVisionBundle.Maui" Version="3.2.5000" />
+            <PackageReference Include="Dynamsoft.CaptureVisionBundle.Maui" Version="3.4.1200" />
         </ItemGroup>
     </Project>
     ```
@@ -107,13 +107,13 @@ If you are a beginner with MAUI, please follow the guide on the <a href="https:/
 1. Open the Visual Studio and select **Create a new project**.
 2. Select **.Net MAUI App** and click **Next**.
 3. Name the project **ScanDocument**. Select a location for the project and click **Next**.
-4. Select **.Net 9.0** and click **Create**.
+4. Select **.Net 10.0** and click **Create**.
 
 #### Visual Studio for Mac
 
 1. Open Visual Studio and select **New**.
 2. Select **Multiplatform > App > .Net MAUI App > C#** and click **Continue**.
-3. Select **.Net 9.0** and click **Continue**.
+3. Select **.Net 10.0** and click **Continue**.
 4. Name the project **ScanDocument** and select a location, click **Create**.
 
 ### Include the Library
