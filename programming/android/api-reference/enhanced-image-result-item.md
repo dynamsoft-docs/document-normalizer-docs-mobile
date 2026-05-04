@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: EnhancedImageResultItem - Dynamsoft Document Normalizer Android SDK API Reference
-description: The class EnhancedImageResultItem represents a captured result item whose type is a enhanced image. It stores the enhanced image information.
+description: "Learn what EnhancedImageResultItem does in Dynamsoft Document Normalizer Android API, including its purpose, key data, and how it supports capture workflows."
 keywords: enhanced image result item, java, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

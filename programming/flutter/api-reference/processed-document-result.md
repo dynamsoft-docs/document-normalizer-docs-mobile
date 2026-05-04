@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: ProcessedDocumentResult - Dynamsoft Capture Vision Flutter SDK API Reference
-description: The class ProcessedDocumentResult represents a collection of captured result items whose types are detected boundaries, deskew images or enhanced images.
+description: "Learn what ProcessedDocumentResult does in Dynamsoft Document Normalizer Flutter API, including its purpose, key data, and how it supports capture workflows."
 keywords: detected boundaries, deskew images, enhanced images, dart
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

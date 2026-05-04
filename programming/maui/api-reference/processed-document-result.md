@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: ProcessedDocumentResult - Dynamsoft Document Normalizer MAUI SDK API Reference
-description: The class ProcessedDocumentResult represents a collection of captured result items whose types are detected boundaries, deskew images or enhanced images.
+description: "Learn what ProcessedDocumentResult does in Dynamsoft Document Normalizer .NET MAUI API, including its purpose, key data, and how it supports capture workflows."
 keywords: detected boundaries, deskew images, enhanced images, csharp, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true

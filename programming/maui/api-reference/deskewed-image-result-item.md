@@ -1,7 +1,7 @@
 ---
 layout: default-layout
 title: DeskewedImageResultItem - Dynamsoft Document Normalizer MAUI SDK API Reference
-description: The class DeskewedImageResultItem represents a captured result item whose type is a deskewed image. It stores the deskewed image information.
+description: "Learn what DeskewedImageResultItem does in Dynamsoft Document Normalizer .NET MAUI API, including its purpose, key data, and how it supports capture workflows."
 keywords: deskewed image result item, csharp, kotlin
 needGenerateH3Content: true
 needAutoGenerateSidebar: true
